@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+    <style>
+@font-face {
+    font-family: 'Linux Libertine'; /* normal */
+    src: url('./libertine/LinLibertine_R.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* italic */
+    src: url('./libertine/LinLibertine_RI.otf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* bold */
+    src: url('./libertine/LinLibertine_RB.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* bold italic */
+    src: url('./libertine/LinLibertine_RBI.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+.tag {
+    font-size: smaller;
+    color: gray;
+}
+
+.collok {
+    color: #ee0000;
+}
+
+small {
+    font-size: small;
+}
+
+details[disabled] summary,
+details.disabled summary {
+    pointer-events: none; /* prevents click events */
+    text-decoration: line-through;
+}
+
+details {
+  margin-left: 1.5em;
+}
+
+h1 {
+    margin: 0;
+}
+
+html
+{
+   font-family: 'Linux Libertine';
+}
+
+.katex {
+   font-size: 1em;
+}
+
+.katex-display {
+   font-size: 1.21em;
+}
+
+html, body {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+
+.entry {
+   border: 1px solid lightgray;
+   padding: 1em;
+   margin: 0em 0.5em 1em 0.5em;
+}
+
+.split {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.panel {
+    overflow: scroll;
+}
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+hr:last-child {
+    display: none;
+}
+    </style>
+  </head>
+  <body class="split">
+  <div class="panel" id="main_panel">
+
+<div class="entry">
+<h1 id=matrix_mul><a class="tag more collok" href="#matrix_mul">#</a>Умножение матриц <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/first_lesson#произведения-матриц">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_{tj}
+</script>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=matrix_stair><a class="tag more collok" href="#matrix_stair">#</a>Ступенчатый вид матриц <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/second_lesson#ступенчатый-вид-матрицы">Конспект</a>)</small></h1>
+<p>Номера ведущих элементов строго возрастают (ведущие — первые ненулевые элементы). Все нулевые строки внизу.</p>
+<p>Кстати, из этого следует, что под ведущими стоят нули</p>
+<hr/>
+<a class="more" href="#matrix_canon">→ Канонический вид матрицы</a><br/>
+<a class="more" href="#matrix_gauss">→ Теорема о методе Гаусса</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_canon><a class="tag more collok" href="#matrix_canon">#</a>Канонический вид матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/second_lesson#канонический-вид-матрицы">Конспект</a>)</small></h1>
+<p>Как ступенчатый, но ведущие элементы равны <script type="math/tex">1</script> и в столбцах с ведущими нули сверху.</p>
+<hr/>
+<a class="more" href="#matrix_stair">← Ступенчатый вид матриц</a><br/>
+<a class="more" href="#matrix_gauss">→ Теорема о методе Гаусса</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_transform><a class="tag more collok" href="#matrix_transform">#</a>Элементарные преобразования строк <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/second_lesson#элементарные-преобразования-строк">Конспект</a>)</small></h1>
+<ol>
+<li>Умножение на число</li>
+<li>Сложить с другой строкой (умноженной на число)</li>
+<li>Поменять строки местами.</li>
+</ol>
+<hr/>
+<a class="more" href="#matrix_gauss">→ Теорема о методе Гаусса</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_gauss><a class="tag more collok" href="#matrix_gauss">#</a>Теорема о методе Гаусса <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/second_lesson#теорема-о-методе-гаусса">Конспект</a>)</small></h1>
+<p>Любую <em>конечную</em> матрицу можно привести к ступенчатому/каноническому виду элементарными преобразованиями.</p>
+<hr/>
+<a class="more" href="#matrix_transform">← Элементарные преобразования строк</a><br/>
+<a class="more" href="#matrix_canon">← Канонический вид матрицы</a><br/>
+<a class="more" href="#matrix_stair">← Ступенчатый вид матриц</a><br/>
+</div>
+<div class="entry">
+<h1 id=perm><a class="tag more collok" href="#perm">#</a>Перестановка <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=называют перестановкой">Конспект</a>)</small></h1>
+<p>Расположение чисел от <script type="math/tex">1</script> до <script type="math/tex">n</script> в определённом порядке.</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=subst><a class="tag more collok" href="#subst">#</a>Подстановка </h1>
+<p>
+<script type="math/tex">\begin{pmatrix}1 & 2 & … & n \\ σ(1) & σ(2) & … & σ(n)\end{pmatrix}</script>
+– подстановка <script type="math/tex">σ</script> — <strong>биективное</strong> отображение множества <script type="math/tex">1,…,n</script> в себя.</p>
+<hr/>
+<a class="more" href="#subst_sign">→ Знак подстановки</a><br/>
+<a class="more" href="#subst_even">→ Чётность подстановки</a><br/>
+<a class="more" href="#matrix_det">→ Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=subst_inv><a class="tag more " href="#subst_inv">#</a>Число инверсий в подстановке <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=образуют инверсию в перестановке">Конспект</a>)</small></h1>
+<p>Кол-во пар <script type="math/tex">(i, j)</script> таких, что <script type="math/tex">σ_{j} > σ_{i}</script>, хотя <script type="math/tex">j ≤ i</script>
+</p>
+<hr/>
+<a class="more" href="#subst_sign">→ Знак подстановки</a><br/>
+<a class="more" href="#subst_even">→ Чётность подстановки</a><br/>
+</div>
+<div class="entry">
+<h1 id=subst_sign><a class="tag more collok" href="#subst_sign">#</a>Знак подстановки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">sgn(σ) = (-1)^n</script>, где <script type="math/tex">n</script> — число инверсий в <script type="math/tex">σ</script>.</p>
+<hr/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#subst_inv">← Число инверсий в подстановке</a><br/>
+<a class="more" href="#subst_even">→ Чётность подстановки</a><br/>
+</div>
+<div class="entry">
+<h1 id=subst_even><a class="tag more collok" href="#subst_even">#</a>Чётность подстановки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки">Конспект</a>)</small></h1>
+<p>Подстановка чётна, если чётно число инверсий.</p>
+<p>Отсюда, кстати, подстановка чётна, если <script type="math/tex">sgn(σ) = 1</script> (и нечётна если <script type="math/tex">sgn(σ) = -1</script>).</p>
+<hr/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#subst_inv">← Число инверсий в подстановке</a><br/>
+<a class="more" href="#subst_sign">← Знак подстановки</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_det><a class="tag more collok" href="#matrix_det">#</a>Определитель <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка">Конспект</a>)</small></h1>
+<p>Матрица <script type="math/tex">A</script> квадратная и размера <script type="math/tex">n×n</script>, а <script type="math/tex">S_{n}</script> — мн-во всех подстановок (их, кстати, <script type="math/tex">n!</script>)
+<script type="math/tex; mode=display">
+\det A = \Σ_{σ∈S_{n}} sgn(σ)a_{1σ(1)}a_{2σ(2)}…a_{nσ(n)}
+</script>
+</p>
+<p>Если <script type="math/tex">\det A = 0</script>, то матрицу называют вырожденной.</p>
+<hr/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#det_decomposition">→ Разложение определителя по столбцу (строке)</a><br/>
+<a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
+<a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=complementary_minor><a class="tag more " href="#complementary_minor">#</a>Дополняющий минор и алгебраическое дополнение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором">Конспект</a>)</small></h1>
+<p><em>Дополняющий</em> минор <script type="math/tex">M_{ij}</script> получается вычеркиванием i-ой строки и j-ого столбца из матрицы.</p>
+<p>Алгебраическое дополнение: <script type="math/tex">A_{ij} = (-1)^{i+j} M_{ij}</script>
+</p>
+<hr/>
+<a class="more" href="#det_decomposition">→ Разложение определителя по столбцу (строке)</a><br/>
+<a class="more" href="#fake_decomoposition">→ Фальшивое разложение</a><br/>
+<a class="more" href="#union_matrix">→ Союзная матрица</a><br/>
+</div>
+<div class="entry">
+<h1 id=det_decomposition><a class="tag more collok" href="#det_decomposition">#</a>Разложение определителя по столбцу (строке) <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-8-из-теоремы-лапласа">Конспект</a>)</small></h1>
+<p>Разложение по строке или по столбцу, зависит только от того, по какой переменной пробегает сумма: <script type="math/tex">i</script> или <script type="math/tex">j</script>.
+<script type="math/tex; mode=display">
+\det A = \Σ_{j=1}^n a_{ij}A_{ij} = \Σ_{j=1}^n a_{ij} (-1)^{i+j} M_{ij}
+</script>
+</p>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#complementary_minor">← Дополняющий минор и алгебраическое дополнение</a><br/>
+<a class="more" href="#fake_decomoposition">→ Фальшивое разложение</a><br/>
+</div>
+<div class="entry">
+<h1 id=fake_decomoposition><a class="tag more collok" href="#fake_decomoposition">#</a>Фальшивое разложение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-9-фальшивое-разложение-часть-теоремы-лапласа">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+\Σ_{j=1}^n a_{ij}A_{kj} = 0, \text{ если } k≠i
+</script>
+
+<p>С <a href="https://ru.wikipedia.org/wiki/Теорема_Лапласа#Следствие_2_(фальшивое_разложение_определителя)">вики</a>:</p>
+<blockquote>
+<p>Сумма произведений всех элементов некоторой строки (столбца) матрицы А на алгебраические дополнения соответствующих элементов любой другой строки (столбца) равна нулю.</p>
+</blockquote>
+<hr/>
+<a class="more" href="#complementary_minor">← Дополняющий минор и алгебраическое дополнение</a><br/>
+<a class="more" href="#det_decomposition">← Разложение определителя по столбцу (строке)</a><br/>
+</div>
+<div class="entry">
+<h1 id=kramer><a class="tag more collok" href="#kramer">#</a>Формулы Крамера <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#правило-крамера">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">Ax = b</script> — совместная СЛАУ. Тогда <script type="math/tex">x_{i}·\det A = \det(A_{1},…,A_{i-1},b,A_{i+1},…,A_{n}) (= Δ_{i})</script>, где <script type="math/tex">i∈\{1,…,n\}</script>. Если <script type="math/tex">\det A ≠ 0</script>, то очевидно <script type="math/tex">x_{i} = \frac{Δ_{i}}{\det A}</script>
+</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=union_matrix><a class="tag more collok" href="#union_matrix">#</a>Союзная матрица <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#:~:text=матрица называется союзной">Конспект</a>)</small></h1>
+<p>Это транспонированная матрица алгебраических дополнений:
+<script type="math/tex; mode=display">
+\tilde{A} = \begin{pmatrix}
+        A_{11} & … & A_{1n} \\
+        … &     & … \\
+        A_{n1} & … & A_{nn}
+\end{pmatrix}^T
+</script>
+</p>
+<hr/>
+<a class="more" href="#complementary_minor">← Дополняющий минор и алгебраическое дополнение</a><br/>
+<a class="more" href="#matrix_inv_formula">→ Формула вычисления обратной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_inv><a class="tag more collok" href="#matrix_inv">#</a>Обратная матрица <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#обратные-матрицы">Конспект</a>)</small></h1>
+<p>Матрица <script type="math/tex">A^{-1}</script> обратная к <script type="math/tex">A</script>, iff <script type="math/tex">A^{-1}·A = A·A^{-1} = E</script>
+</p>
+<p>Она существует, iff <script type="math/tex">\det A ≠ 0</script>
+</p>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#matrix_inv_formula">→ Формула вычисления обратной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_inv_formula><a class="tag more collok" href="#matrix_inv_formula">#</a>Формула вычисления обратной матрицы </h1>
+<script type="math/tex; mode=display">
+A^{-1} = \frac{1}{\det A}\tilde{A}
+</script>
+<hr/>
+<a class="more" href="#union_matrix">← Союзная матрица</a><br/>
+<a class="more" href="#matrix_inv">← Обратная матрица</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_minor><a class="tag more collok" href="#matrix_minor">#</a>Миноры матрицы </h1>
+<p>Минором <script type="math/tex">k</script>-го порядка матрицы <script type="math/tex">A</script> называют определитель матрицы, составленной из элементов, стоящих на пересечении произвольных <script type="math/tex">k</script> строки и <script type="math/tex">k</script> столбцов.</p>
+<p>Обозначается как <script type="math/tex">M_{i_{1}…i_{k}}^{j_{1}…j_{k}}</script>, где <script type="math/tex">i_{k}</script> — номера строк, a <script type="math/tex">j_{i}</script> — номера столбцов.</p>
+<hr/>
+<a class="more" href="#matrix_ran">→ Ранг матрицы</a><br/>
+<a class="more" href="#basic_minor">→ Базисный минор</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_ran><a class="tag more collok" href="#matrix_ran">#</a>Ранг матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=Рангом матрицы называют">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">Rg A</script> = наивысший порядок отличного от нуля минора</p>
+<hr/>
+<a class="more" href="#matrix_minor">← Миноры матрицы</a><br/>
+<a class="more" href="#basic_minor">→ Базисный минор</a><br/>
+<a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
+<a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=basic_minor><a class="tag more collok" href="#basic_minor">#</a>Базисный минор </h1>
+<p>Минор <script type="math/tex">M</script> базисный, iff <script type="math/tex">M ≠ 0</script> и порядок (размер) <script type="math/tex">M</script> равен рангу матрицы.</p>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#matrix_minor">← Миноры матрицы</a><br/>
+<a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_comb><a class="tag more collok" href="#lin_comb">#</a>Линейная комбинация <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#линейная-зависимость">Конспект</a>)</small></h1>
+<p>Если даны векторы <script type="math/tex">a_{1},…, a_{s}</script> одинакового размера, то <script type="math/tex">λ_{1}a_{1} + λ_{2}a_{2} + … + λ_{s}a_{s}</script> — их линейная комбинация (<script type="math/tex">λ_{i}</script> — числа).</p>
+<p>Если все <script type="math/tex">λ_{i}</script> равны нулю, то комбинация называется тривиальной.</p>
+<hr/>
+<a class="more" href="#lin_dep">→ Линейная зависимость</a><br/>
+<a class="more" href="#lin_indep">→ Линейно независимые строки</a><br/>
+<a class="more" href="#lin_dep_criteria">→ Критерий линейной зависимости</a><br/>
+<a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_dep><a class="tag more collok" href="#lin_dep">#</a>Линейная зависимость <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми">Конспект</a>)</small></h1>
+<p>Строки <script type="math/tex">a_{1},…,a_{s}</script> линейно зависимы, iff существует <strong>нетривиальная</strong> линейная комбинация <script type="math/tex">λ_{1}a_{1} + … + λ_{s}a_{s} = 0</script>.</p>
+<p>Очевидно, всегда существует тривиальная, где <script type="math/tex">λ_{1} = λ_{2} = … = λ_{s} = 0</script>
+</p>
+<hr/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_indep">→ Линейно независимые строки</a><br/>
+<a class="more" href="#lin_dep_criteria">→ Критерий линейной зависимости</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_indep><a class="tag more collok" href="#lin_indep">#</a>Линейно независимые строки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми">Конспект</a>)</small></h1>
+<p>Столбцы л.н.з., iff не существует <strong>нетривиальной</strong> их линейной комбинации, равной нулю. Короче говоря, когда они не линейно зависимы.</p>
+<hr/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
+<a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
+<a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
+<a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_dep_criteria><a class="tag more collok" href="#lin_dep_criteria">#</a>Критерий линейной зависимости <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">a_{1}, …, a_{s}</script> — л.з. iff хотя бы один из них выражается через остальные.</p>
+<p>Например, выразим <script type="math/tex">a_{s}</script>: <script type="math/tex">∃λ_{1},…,λ_{s}: λ_{1}a_{1} + λ_{2}a_{2} + … + λ_{s-1}a_{s-1} = λ_{s}a_{s}</script>
+</p>
+<hr/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
+</div>
+<div class="entry">
+<h1 id=basic_minor_theorem><a class="tag more collok" href="#basic_minor_theorem">#</a>Теорема о базисном миноре <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#теорема-о-базисном-миноре">Конспект</a>)</small></h1>
+<ol>
+<li>Базисные строки (столбцы), соответствующие любому базисному минору <script type="math/tex">M</script> будут л.н.з.</li>
+<li>Строки (столбцы), не входящие в <script type="math/tex">M</script> выражаются через линейную комбинацию базисных.</li>
+</ol>
+<hr/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#basic_minor">← Базисный минор</a><br/>
+<a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_ran_theorem><a class="tag more collok" href="#matrix_ran_theorem">#</a>Теорема о ранге матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-1-теорема-о-ранге-матрицы">Конспект</a>)</small></h1>
+<p>Ранг матрицы равен максимальному числу л.н.з. строк (столбцов)</p>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#basic_minor_theorem">← Теорема о базисном миноре</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_nondegeneracy><a class="tag more collok" href="#matrix_nondegeneracy">#</a>Критерий невырожденности квадратной матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-2-для-квадратной-матрицы">Конспект</a>)</small></h1>
+<p>Следующие условия эквивалентны (<script type="math/tex">A ∈ M_{n}(ℝ)</script>):</p>
+<ol>
+<li>
+<script type="math/tex">\det A ≠ 0</script> (матрица невырожденна)</li>
+<li>
+<script type="math/tex">Rg A = n</script>, <script type="math/tex">n</script> — размер матрицы</li>
+<li>Все строки (столбцы) л.н.з.</li>
+</ol>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+</div>
+
+  </div>
+  <div class="panel" id="side_panel">
+  </div>
+  <script>
+let scripts = document.body.getElementsByTagName("script");
+scripts = Array.prototype.slice.call(scripts);
+scripts.forEach(function(script) {
+    if (!script.type || !script.type.match(/math\/tex/i)) {
+        return -1;
+    }
+    const display = (script.type.match(/mode\s*=\s*display(;|\s|\n|$)/) != null);
+
+    const katexElement = document.createElement(display ? "div" : "span");
+    katexElement.setAttribute("class", display ? "equation" : "inline-equation");
+    try {
+        katex.render(script.text, katexElement, {
+          macros: {
+              "\\Σ": "\\sum",
+          },
+          fleqn: true,
+          displayMode: display
+        });
+    } catch (err) {
+        console.error(err);
+        katexElement.textContent = script.text;
+    }
+    script.parentNode.replaceChild(katexElement, script);
+});
+  </script>
+  <script>
+    function bindButtons(root) {
+        for (let elem of root.querySelectorAll('.more')) {
+            elem.onclick = (ev) => {
+                ev.preventDefault();
+                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
+                let child = parent.cloneNode(true);
+                bindButtons(child);
+                side_panel.prepend(child);
+                let tag = child.querySelector('.tag');
+                tag.text = 'ⓧ';
+                tag.onclick = (ev) => {
+                    ev.preventDefault();
+                    side_panel.removeChild(child);
+                    return false;
+                }
+                return false;
+            };
+        }
+    }
+    if (window.screen.availWidth >= 1200) {
+        Split(['#main_panel', '#side_panel'], {
+            sizes: [65, 35],
+        });
+        bindButtons(document);
+    }
+  </script>
+  </body>
+</html>
+
