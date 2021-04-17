@@ -24,8 +24,7 @@ jobs:
     - name: Build pages
       shell: bash
       run: |
-        mkdir ./public
-        cp -rv ./libertine ./public/libertine
+        [ -d public ] || mkdir ./public
         for i in ./*.yaml; do
           out="$(basename "$i" .yaml).html"
           echo "Building $i to $out"

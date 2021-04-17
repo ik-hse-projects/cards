@@ -1,6 +1,41 @@
+_contribution:
+        title: Как писать карточки
+        text: |
+                Как легко заметить, все карточки описаны в этом yaml файле. У карточек есть следующие поля:
+
+                - `title` — обязательный заголовок карточки.
+                - `text` — не обязательно, но какой тогда смысл от карточки?
+                - `bulat` — ссылка на конспекты. Не обязательно.
+                - `colloq` — надо ли помечать красным? Если не указано, то подразумевается false.
+                - `tags` — имена других карточек, которые является важными для понимания содержимого.
+                
+                Если id карточки начинается с подчеркивания (как эта), то она полностью игнорируется и может содержать (или не содержать) всё что угодно.
+
+                Текст пишется в markdown, а для формул используется KaTeX. Причём для формул используется синтаксис Gitlab'а:
+                ~~~
+                Внутристрочная формула: $`e = mc^2`$
+
+                Display-style:
+                ```math
+                \sum_{k=1}^{n} C_n^k a^k b^{n-k}
+                ```
+                ~~~
+
+description:
+        title: Карточки по алгебре
+        bulat: https://wiki.bularond.ru/algebra
+        text: |
+                Здесь очень кратко описаны (или будут описаны) все определения, утверждения и теоремы.
+                По возможности, добавляются ссылки на конспекты с вики,
+                а красным отмечается то, что имеет высокую вероятность оказаться на коллоке.
+                
+                Каждая карточка содержит ссылки на другие связанные с ней. При клике они удобно отображаются в панельке справа (а ещё можно кликать по решёточке).
+                
+                Исходный код доступен здесь: [Github](https://github.com/ik-hse-projects/cards/blob/master/algebra.yaml), пулл-ркувесты приветствуются.
+
 matrix_mul:
         title: Умножение матриц
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/first_lesson#произведения-матриц
         text: |
                 ```math
@@ -9,7 +44,7 @@ matrix_mul:
 
 matrix_stair:
         title: Ступенчатый вид матриц
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#ступенчатый-вид-матрицы
         text: |
                 Номера ведущих элементов строго возрастают (ведущие — первые ненулевые элементы). Все нулевые строки внизу.
@@ -18,7 +53,7 @@ matrix_stair:
 
 matrix_canon:
         title: Канонический вид матрицы
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#канонический-вид-матрицы
         text: |
                 Как ступенчатый, но ведущие элементы равны $`1`$ и в столбцах с ведущими нули сверху.
@@ -26,7 +61,7 @@ matrix_canon:
 
 matrix_transform:
         title: Элементарные преобразования строк
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#элементарные-преобразования-строк
         text: |
                 1. Умножение на число
@@ -35,7 +70,7 @@ matrix_transform:
 
 matrix_gauss:
         title: Теорема о методе Гаусса
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#теорема-о-методе-гаусса
         text: |
                 Любую _конечную_ матрицу можно привести к ступенчатому/каноническому виду элементарными преобразованиями.
@@ -43,14 +78,14 @@ matrix_gauss:
 
 perm:
         title: Перестановка
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=называют перестановкой
         text: |
                 Расположение чисел от $`1`$ до $`n`$ в определённом порядке.
 
 subst:
         title: Подстановка
-        collok: true
+        colloq: true
         text: |
                 $`\begin{pmatrix}1 & 2 & … & n \\ σ(1) & σ(2) & … & σ(n)\end{pmatrix}`$
                 – подстановка $`σ`$ — **биективное** отображение множества $`1,…,n`$ в себя.
@@ -63,7 +98,7 @@ subst_inv:
 
 subst_sign:
         title: Знак подстановки
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
         text: |
                 $`sgn(σ) = (-1)^n`$, где $`n`$ — число инверсий в $`σ`$.
@@ -71,7 +106,7 @@ subst_sign:
 
 subst_even:
         title: Чётность подстановки
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
         text: |
                  Подстановка чётна, если чётно число инверсий.
@@ -81,7 +116,7 @@ subst_even:
 
 matrix_det:
         title: Определитель
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка
         text: |
                 Матрица $`A`$ квадратная и размера $`n×n`$, а $`Sₙ`$ — мн-во всех подстановок (их, кстати, $`n!`$)
@@ -94,7 +129,7 @@ matrix_det:
 
 det_decomposition:
         title: Разложение определителя по столбцу (строке)
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-8-из-теоремы-лапласа
         text: |
                 Разложение по строке или по столбцу, зависит только от того, по какой переменной пробегает сумма: $`i`$ или $`j`$.
@@ -113,7 +148,7 @@ complementary_minor:
 
 fake_decomoposition:
         title: Фальшивое разложение
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-9-фальшивое-разложение-часть-теоремы-лапласа
         text: |
                 ```math
@@ -126,14 +161,14 @@ fake_decomoposition:
 
 kramer:
         title: Формулы Крамера
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#правило-крамера
         text: |
                 Пусть $`Ax = b`$ — совместная СЛАУ. Тогда $`xᵢ·\det A = \det(A₁,…,Aᵢ₋₁,b,Aᵢ₊₁,…,Aₙ) (= Δᵢ)`$, где $`i∈\{1,…,n\}`$. Если $`\det A ≠ 0`$, то очевидно $`xᵢ = \frac{Δᵢ}{\det A}`$
 
 union_matrix:
         title: Союзная матрица
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#:~:text=матрица называется союзной
         text: |
                 Это транспонированная матрица алгебраических дополнений:
@@ -148,7 +183,7 @@ union_matrix:
 
 matrix_inv:
         title: Обратная матрица
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#обратные-матрицы
         text: |
                 Матрица $`A⁻¹`$ обратная к $`A`$, iff $`A⁻¹·A = A·A⁻¹ = E`$
@@ -158,7 +193,7 @@ matrix_inv:
 
 matrix_inv_formula:
         title: Формула вычисления обратной матрицы
-        collok: true
+        colloq: true
         text: |
                 ```math
                 A⁻¹ = \frac{1}{\det A}\tilde{A}
@@ -167,7 +202,7 @@ matrix_inv_formula:
 
 matrix_minor:
         title: Миноры матрицы
-        collok: true
+        colloq: true
         text: |
                 Минором $`k`$-го порядка матрицы $`A`$ называют определитель матрицы, составленной из элементов, стоящих на пересечении произвольных $`k`$ строки и $`k`$ столбцов.
 
@@ -175,7 +210,7 @@ matrix_minor:
 
 matrix_ran:
         title: Ранг матрицы
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=Рангом матрицы называют
         text: |
                 $`Rg A`$ = наивысший порядок отличного от нуля минора
@@ -183,14 +218,14 @@ matrix_ran:
 
 basic_minor:
         title: Базисный минор
-        collok: true
+        colloq: true
         text: |
                 Минор $`M`$ базисный, iff $`M ≠ 0`$ и порядок (размер) $`M`$ равен рангу матрицы.
         tags: [matrix_ran, matrix_minor]
 
 lin_comb:
         title: Линейная комбинация
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#линейная-зависимость
         text: |
                 Если даны векторы $`a₁,…, aₛ`$ одинакового размера, то $`λ₁a₁ + λ₂a₂ + … + λₛaₛ`$ — их линейная комбинация ($`λᵢ`$ — числа).
@@ -199,7 +234,7 @@ lin_comb:
 
 lin_dep:
         title: Линейная зависимость
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми
         text: |
                 Строки $`a₁,…,aₛ`$ линейно зависимы, iff существует **нетривиальная** линейная комбинация $`λ₁a₁ + … + λₛaₛ = 0`$.
@@ -209,7 +244,7 @@ lin_dep:
 
 lin_indep:
         title: Линейно независимые строки
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми
         text: |
                 Столбцы л.н.з., iff не существует **нетривиальной** их линейной комбинации, равной нулю. Короче говоря, когда они не линейно зависимы.
@@ -217,7 +252,7 @@ lin_indep:
 
 lin_dep_criteria:
         title: Критерий линейной зависимости
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости
         text: |
                 $`a₁, …, aₛ`$ — л.з. iff хотя бы один из них выражается через остальные.
@@ -227,7 +262,7 @@ lin_dep_criteria:
 
 basic_minor_theorem:
         title: Теорема о базисном миноре
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#теорема-о-базисном-миноре
         text: |
                 1. Базисные строки (столбцы), соответствующие любому базисному минору $`M`$ будут л.н.з.
@@ -236,7 +271,7 @@ basic_minor_theorem:
 
 matrix_ran_theorem:
         title: Теорема о ранге матрицы
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-1-теорема-о-ранге-матрицы
         text: |
                 Ранг матрицы равен максимальному числу л.н.з. строк (столбцов)
@@ -244,7 +279,7 @@ matrix_ran_theorem:
 
 matrix_nondegeneracy:
         title: Критерий невырожденности квадратной матрицы
-        collok: true
+        colloq: true
         bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-2-для-квадратной-матрицы
         text: |
                 Следующие условия эквивалентны ($`A ∈ Mₙ(ℝ)`$):
