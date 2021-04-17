@@ -22,9 +22,10 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build pages
+      shell: bash
       run: |
         mkdir ./publish
-        for i in "./*.yaml"; do
+        for i in ./*.yaml; do
           out="$(basename "$i" .yaml).html"
           echo "Building $i to $out"
           python build.py "$i" > "publish/$out"
