@@ -221,6 +221,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#det_decomposition">→ Разложение определителя по столбцу (строке)</a><br/>
 <a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+<a class="more" href="#SLE_nonzero_criteria">→ Критерий существования ненулевого решения</a><br/>
 </div>
 <div class="entry">
 <h1 id=complementary_minor><a class="tag more " href="#complementary_minor">#</a>Дополняющий минор и алгебраическое дополнение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором">Конспект</a>)</small></h1>
@@ -269,9 +270,9 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <p>Это транспонированная матрица алгебраических дополнений:
 <script type="math/tex; mode=display">
 \tilde{A} = \begin{pmatrix}
-        A_{11} & … & A_{1n} \\
-        … &     & … \\
-        A_{n1} & … & A_{nn}
+    A_{11} & … & A_{1n} \\
+    … &     & … \\
+    A_{n1} & … & A_{nn}
 \end{pmatrix}^T
 </script>
 </p>
@@ -309,12 +310,14 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <div class="entry">
 <h1 id=matrix_ran><a class="tag more colloq" href="#matrix_ran">#</a>Ранг матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=Рангом матрицы называют">Конспект</a>)</small></h1>
 <p>
-<script type="math/tex">Rg A</script> = наивысший порядок отличного от нуля минора</p>
+<script type="math/tex">\Rg A</script> = наивысший порядок отличного от нуля минора</p>
 <hr/>
 <a class="more" href="#matrix_minor">← Миноры матрицы</a><br/>
 <a class="more" href="#basic_minor">→ Базисный минор</a><br/>
 <a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+<a class="more" href="#Kronecker-Capelli">→ Теорема Кронекера-Капелли</a><br/>
+<a class="more" href="#SLE_FSS">→ ФСР ОСЛАУ</a><br/>
 </div>
 <div class="entry">
 <h1 id=basic_minor><a class="tag more colloq" href="#basic_minor">#</a>Базисный минор </h1>
@@ -333,6 +336,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#lin_indep">→ Линейно независимые строки</a><br/>
 <a class="more" href="#lin_dep_criteria">→ Критерий линейной зависимости</a><br/>
 <a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
+<a class="more" href="#solution_structure_o">→ Структура общего решения однородной СЛАУ</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_dep><a class="tag more colloq" href="#lin_dep">#</a>Линейная зависимость <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми">Конспект</a>)</small></h1>
@@ -353,6 +357,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
 <a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
+<a class="more" href="#SLE_FSS">→ ФСР ОСЛАУ</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_dep_criteria><a class="tag more colloq" href="#lin_dep_criteria">#</a>Критерий линейной зависимости <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости">Конспект</a>)</small></h1>
@@ -391,13 +396,83 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <li>
 <script type="math/tex">\det A ≠ 0</script> (матрица невырожденна)</li>
 <li>
-<script type="math/tex">Rg A = n</script>, <script type="math/tex">n</script> — размер матрицы</li>
+<script type="math/tex">\Rg A = n</script>, <script type="math/tex">n</script> — размер матрицы</li>
 <li>Все строки (столбцы) л.н.з.</li>
 </ol>
 <hr/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+</div>
+<div class="entry">
+<h1 id=Kronecker-Capelli><a class="tag more colloq" href="#Kronecker-Capelli">#</a>Теорема Кронекера-Капелли <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#теорема-кронекера-копелли-и-однородные-матрицы">Конспект</a>)</small></h1>
+<p>СЛАУ <script type="math/tex">A·x = b</script> совместна iff <script type="math/tex">\Rg A = \Rg (A|b)</script>
+</p>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=SLE_nonzero_criteria><a class="tag more colloq" href="#SLE_nonzero_criteria">#</a>Критерий существования ненулевого решения <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#:~:text=Критерий существования ненулевого решения">Конспект</a>)</small></h1>
+<p>ОСЛАУ <script type="math/tex">A·x = 0</script> имеет ненулевое решение iff <script type="math/tex">det A = 0</script> (матрица <script type="math/tex">A</script> вырождена)</p>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=SLE_FSS><a class="tag more colloq" href="#SLE_FSS">#</a>ФСР ОСЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#однородные-слау">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">n</script> — размер матрицы <script type="math/tex">A</script>, а <script type="math/tex">r</script> — её ранг. Любые $n - r$ л.н.з. столбцов, явлюящихся решениями $Ax = 0$, образуют ФСР.</p>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#solution_structure_o">→ Структура общего решения однородной СЛАУ</a><br/>
+</div>
+<div class="entry">
+<h1 id=solution_structure_o><a class="tag more colloq" href="#solution_structure_o">#</a>Структура общего решения однородной СЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-однородной-слау">Конспект</a>)</small></h1>
+<p>Любое решение ОСЛАУ можно представить в виде линейной комбинации столбцов её ФСР.</p>
+<hr/>
+<a class="more" href="#SLE_FSS">← ФСР ОСЛАУ</a><br/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#solution_structure">→ Структура общего решения неоднородной СЛАУ</a><br/>
+</div>
+<div class="entry">
+<h1 id=solution_structure><a class="tag more colloq" href="#solution_structure">#</a>Структура общего решения неоднородной СЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-неоднородной-слау">Конспект</a>)</small></h1>
+<p>Пусть известно <script type="math/tex">x_0</script> — частное решение СЛАУ (<script type="math/tex">Ax = b</script>). Тогда любое решение можно представить в виде <script type="math/tex">x = x_0 + \tilde{x}</script>, где <script type="math/tex">\tilde{x}</script> — решение соответствующей ОСЛАУ (<script type="math/tex">Ax = 0</script>).</p>
+<hr/>
+<a class="more" href="#solution_structure_o">← Структура общего решения однородной СЛАУ</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_forms><a class="tag more colloq" href="#complex_forms">#</a>Формы записи комплексных чисел <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#алгебраические-свойства">Конспект</a>)</small></h1>
+<ol>
+<li>
+<script type="math/tex">z = x + iy, x,y∈ℝ</script> — алгебраическая форма</li>
+<li>
+<script type="math/tex">z = r(\cos φ + i\sin φ)</script> — тригонометрическая форма<ul>
+<li>
+<script type="math/tex">r = |z| = \sqrt{x^{2} + y^{2}}</script>
+</li>
+<li>
+<script type="math/tex">\cos φ = \frac{x}{r}</script>
+</li>
+<li>
+<script type="math/tex">\sin φ = \frac{y}{r}</script>
+</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#complex_mod">→ Модуль, аргумент и его значение у комплексного числа</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_mod><a class="tag more colloq" href="#complex_mod">#</a>Модуль, аргумент и его значение у комплексного числа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа">Конспект</a>)</small></h1>
+<ul>
+<li>Модуль: <script type="math/tex">|z| = r = \sqrt{x^{2} + y^{2}}</script>
+</li>
+<li>Аргумент: <script type="math/tex">φ = \Arg z = \{\arg z + 2πk | k∈ℤ\}</script> — угол положительным направлением вещественной оси и радиус-вектором числа <script type="math/tex">z</script>
+</li>
+<li>Главное значение: <script type="math/tex">\arg z ∈ [0, 2π) \text{ или } ∈ (-π, π]</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#complex_forms">← Формы записи комплексных чисел</a><br/>
 </div>
 
   </div>
@@ -418,6 +493,9 @@ scripts.forEach(function(script) {
         katex.render(script.text, katexElement, {
           macros: {
               "\\Σ": "\\sum",
+              "\\Rg": "\\operatorname{Rg}",
+              "\\arg": "\\operatorname{arg}",
+              "\\Arg": "\\operatorname{Arg}"
           },
           fleqn: true,
           displayMode: display
