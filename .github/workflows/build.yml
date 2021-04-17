@@ -25,10 +25,10 @@ jobs:
       shell: bash
       run: |
         [ -d public ] || mkdir ./public
-        for i in ./*.yaml; do
+        for i in ./pages/*.yaml; do
           out="$(basename "$i" .yaml).html"
           echo "Building $i to $out"
-          python build.py "$i" > "public/$out"
+          python build.py < "$i" > "public/$out"
         done
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3

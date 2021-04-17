@@ -1,6 +1,7 @@
 import yaml
 import markdown
-from sys import argv, stderr
+import re
+from sys import argv, stderr, stdin
 
 def eprint(*args, **kwargs):
     kwargs['file'] = stderr
@@ -33,7 +34,7 @@ def what_letter(x):
     return None, x
 
 
-def clean_text(text):
+def clean_text(text_id, text):
     text = text.replace('≠', '\u2260')  # For some reason KaTeX does not display it well
 
     # Find subscripts and group them
@@ -53,12 +54,35 @@ def clean_text(text):
     if last_group is not None:
         new_text += '}'
     text = new_text
+
+    line_starts = [0]
+    for n, i in enumerate(text):
+        if i == '\n':
+            line_starts.append(n)
+
+    def get_pos(pos):
+        line = 0
+        while line_starts[line + 1] < pos:
+            line += 1
+        col = pos - line_starts[line]
+        return (line+1, col+1)
+
+    for math in re.finditer(r'\$(.*?)\$', text):
+        span = math.start()
+        math = math.group(1)
+        if math[0] != '`' or math[-1] != '`':
+            line, col = get_pos(span)
+            eprint(f'::warning line={line},col={col}::[{text_id}] Looks like non-gitlab math syntax: {repr(math)}')
+
     return text
 
 
-def load(path):
-    with open(path, 'r') as f:
-        data = yaml.load(f, Loader=yaml.CLoader)
+def load(src):
+    if isinstance(src, str):
+        with open(src, 'r') as f:
+            data = yaml.load(f, Loader=yaml.CLoader)
+    else:
+        data = yaml.load(src, Loader=yaml.CLoader)
     data = {k: Entry(k, v) for k, v in data.items() if not k.startswith('_')}
 
     for k, v in data.items():
@@ -109,203 +133,21 @@ def render(i):
             extension_configs={
                 'mdx_math': {'use_gitlab_delimiters': True}
             }
-        ).convert(clean_text(i.text)))
+        ).convert(clean_text(i.id, i.text)))
 
     yield '<hr/>'
     yield from add_more('←', i.references)
     yield from add_more('→', i.referenced_by)
     yield '</div>'
 
-HEADER='''<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
-    <style>
-@font-face {
-    font-family: 'Linux Libertine'; /* normal */
-    src: url('./libertine/LinLibertine_R.otf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Linux Libertine'; /* italic */
-    src: url('./libertine/LinLibertine_RI.otf');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Linux Libertine'; /* bold */
-    src: url('./libertine/LinLibertine_RB.otf');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Linux Libertine'; /* bold italic */
-    src: url('./libertine/LinLibertine_RBI.otf');
-    font-weight: bold;
-    font-style: italic;
-}
-
-.tag {
-    font-size: smaller;
-    color: gray;
-}
-
-.colloq {
-    color: #ee0000;
-}
-
-small {
-    font-size: small;
-}
-
-details[disabled] summary,
-details.disabled summary {
-    pointer-events: none; /* prevents click events */
-    text-decoration: line-through;
-}
-
-details {
-  margin-left: 1.5em;
-}
-
-h1 {
-    margin: 0;
-}
-
-html
-{
-   font-family: 'Linux Libertine';
-}
-
-.katex {
-   font-size: 1em;
-}
-
-.katex-display {
-   font-size: 1.21em;
-}
-
-html, body {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-}
-
-.entry {
-   border: 1px solid lightgray;
-   padding: 1em;
-   margin: 0em 0.5em 1em 0.5em;
-}
-
-.split {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
-.panel {
-    overflow: scroll;
-}
-
-.gutter {
-    background-color: #eee;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
-
-.gutter.gutter-horizontal {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
-    cursor: col-resize;
-}
-
-hr:last-child {
-    display: none;
-}
-    </style>
-  </head>
-  <body class="split">
-  <div class="panel" id="main_panel">
-'''
-FOOTER=r'''
-  </div>
-  <div class="panel" id="side_panel">
-  </div>
-  <script>
-let scripts = document.body.getElementsByTagName("script");
-scripts = Array.prototype.slice.call(scripts);
-scripts.forEach(function(script) {
-    if (!script.type || !script.type.match(/math\/tex/i)) {
-        return -1;
-    }
-    const display = (script.type.match(/mode\s*=\s*display(;|\s|\n|$)/) != null);
-
-    const katexElement = document.createElement(display ? "div" : "span");
-    katexElement.setAttribute("class", display ? "equation" : "inline-equation");
-    try {
-        katex.render(script.text, katexElement, {
-          macros: {
-              "\\Σ": "\\sum",
-              "\\Rg": "\\operatorname{Rg}",
-              "\\arg": "\\operatorname{arg}",
-              "\\Arg": "\\operatorname{Arg}"
-          },
-          fleqn: true,
-          displayMode: display
-        });
-    } catch (err) {
-        console.error(err);
-        katexElement.textContent = script.text;
-    }
-    script.parentNode.replaceChild(katexElement, script);
-});
-  </script>
-  <script>
-    function bindButtons(root) {
-        for (let elem of root.querySelectorAll('.more')) {
-            elem.onclick = (ev) => {
-                ev.preventDefault();
-                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
-                let child = parent.cloneNode(true);
-                bindButtons(child);
-                side_panel.prepend(child);
-                let tag = child.querySelector('.tag');
-                tag.text = 'ⓧ';
-                tag.onclick = (ev) => {
-                    ev.preventDefault();
-                    side_panel.removeChild(child);
-                    return false;
-                }
-                return false;
-            };
-        }
-    }
-    if (window.screen.availWidth >= 1200) {
-        Split(['#main_panel', '#side_panel'], {
-            sizes: [65, 35],
-        });
-        bindButtons(document);
-    }
-  </script>
-  </body>
-</html>
-'''
-  
 if __name__ == "__main__":
-    print(HEADER)
-    data = load(argv[1]).values()
+    with open('template.html', 'r') as f:
+        before, after = f.read().split('<!-- PUT CARDS HERE -->')
+    data = load(stdin).values()
     data = toposort(data)
+    print(before)
     for i in data:
         if i.text is not None:
             for ln in render(i):
                 print(ln)
-    print(FOOTER)
+    print(after)

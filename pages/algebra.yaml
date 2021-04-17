@@ -34,7 +34,7 @@ description:
         
         Каждая карточка содержит ссылки на другие связанные с ней. При клике они удобно отображаются в панельке справа (а ещё можно кликать по решёточке).
         
-        Исходный код доступен здесь: [Github](https://github.com/ik-hse-projects/cards/blob/master/algebra.yaml), пулл-ркувесты приветствуются.
+        Исходный код доступен здесь: [Github](https://github.com/ik-hse-projects/cards/blob/master/pages/algebra.yaml), пулл-реквесты приветствуются.
 
 matrix_mul:
     title: Умножение матриц
@@ -313,7 +313,7 @@ SLE_FSS:
     colloq: true
     bulat: https://wiki.bularond.ru/ru/algebra/seventh_lesson#однородные-слау
     text: |
-        Пусть $`n`$ — размер матрицы $`A`$, а $`r`$ — её ранг. Любые $n - r$ л.н.з. столбцов, явлюящихся решениями $Ax = 0$, образуют ФСР.
+        Пусть $`n`$ — размер матрицы $`A`$, а $`r`$ — её ранг. Любые $`n - r`$ л.н.з. столбцов, явлюящихся решениями $`Ax = 0`$, образуют ФСР.
     tags: [matrix_ran, lin_indep]
 
 solution_structure_o:
@@ -352,3 +352,4 @@ complex_mod:
         - Аргумент: $`φ = \Arg z = \{\arg z + 2πk | k∈ℤ\}`$ — угол положительным направлением вещественной оси и радиус-вектором числа $`z`$
         - Главное значение: $`\arg z ∈ [0, 2π) \text{ или } ∈ (-π, π]`$
     tags: [complex_forms]
+
