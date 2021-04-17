@@ -255,6 +255,9 @@ scripts.forEach(function(script) {
         katex.render(script.text, katexElement, {
           macros: {
               "\\Σ": "\\sum",
+              "\\Rg": "\\operatorname{Rg}",
+              "\\arg": "\\operatorname{arg}",
+              "\\Arg": "\\operatorname{Arg}"
           },
           fleqn: true,
           displayMode: display
