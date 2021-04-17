@@ -24,11 +24,12 @@ jobs:
     - name: Build pages
       shell: bash
       run: |
-        mkdir ./publish
+        mkdir ./public
+        cp -rv ./libertine ./public/libertine
         for i in ./*.yaml; do
           out="$(basename "$i" .yaml).html"
           echo "Building $i to $out"
-          python build.py "$i" > "publish/$out"
+          python build.py "$i" > "public/$out"
         done
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
