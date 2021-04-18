@@ -69,7 +69,7 @@ def clean_text(text_id, text):
         col = pos - line_starts[line]
         return (line+1, col+1)
 
-    for math in re.finditer(r'\$(.*?)\$', text):
+    for math in re.finditer(r'(?s)\$(.*?)\$', text):
         span = math.start()
         math = math.group(1)
         if math[0] != '`' or math[-1] != '`':
@@ -86,10 +86,17 @@ def load(src):
         data = yaml.load(src, Loader=yaml.CLoader)
     data = {k: Entry(k, v) for k, v in data.items() if not k.startswith('_')}
 
+    missing = set()
     for k, v in data.items():
         for tag in v.tags:
-            data[tag].referenced_by.append(v)
-            v.references.append(data[tag])
+            other = data.get(tag)
+            if other is None:
+                missing.add(tag)
+            else:
+                data[tag].referenced_by.append(v)
+                v.references.append(data[tag])
+    for i in missing:
+        eprint(f'::warning ::Missing tag: {i}')
     return data
 
 def toposort(data):

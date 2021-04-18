@@ -6,7 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js" integrity="sha256-9GNxAyAInGHQ9XzsK4hsAt4E4h65Lr0i6qMn/fCmt8Y=" crossorigin="anonymous"></script>
     <style>
 @font-face {
     font-family: 'Linux Libertine'; /* normal */
@@ -34,10 +33,6 @@
     src: url('./libertine/LinLibertine_RBI.otf');
     font-weight: bold;
     font-style: italic;
-}
-
-.svgGraph {
-    width: 100%;
 }
 
 .tag {
@@ -141,9 +136,12 @@ scripts.forEach(function(script) {
         katex.render(script.text, katexElement, {
           macros: {
               "\\Σ": "\\sum",
+              "∄": "\\nexists",
+              "·": "\\cdot",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
+              "\\ord": "\\operatorname{ord}",
               "\\bar": "\\overline",
               "\\tilde": "\\widetilde",
           },
@@ -182,11 +180,6 @@ scripts.forEach(function(script) {
             sizes: [65, 35],
         });
         bindButtons(document);
-    }
-    for (let graph of document.querySelectorAll('.svgGraph')) {
-        graph.addEventListener('load', () => {
-            svgPanZoom(graph, {controlIconsEnabled: true});
-        });
     }
   </script>
   </body>
