@@ -6,7 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js" integrity="sha256-9GNxAyAInGHQ9XzsK4hsAt4E4h65Lr0i6qMn/fCmt8Y=" crossorigin="anonymous"></script>
     <style>
 @font-face {
     font-family: 'Linux Libertine'; /* normal */
@@ -34,10 +33,6 @@
     src: url('./libertine/LinLibertine_RBI.otf');
     font-weight: bold;
     font-style: italic;
-}
-
-.svgGraph {
-    width: 100%;
 }
 
 .tag {
@@ -134,7 +129,7 @@ hr:last-child {
 <ul>
 <li><a href="https://github.com/Sofiika/AlgebraKollok">https://github.com/Sofiika/AlgebraKollok</a> — основной источник</li>
 <li><a href="https://wiki.bularond.ru/ru/algebra">https://wiki.bularond.ru/ru/algebra</a> — подробные конспекты</li>
-<li><a href="https://hse-tex.me/course-1/linear-algebra.pdf">https://hse-tex.me/course-1/linear-algebra.pdf</a> — не используется, но может оказаться полезным.</li>
+<li><a href="https://hse-tex.me/course-1/linear-algebra.pdf">https://hse-tex.me/course-1/linear-algebra.pdf</a> — конспекты ПМИ. Не используется, но может оказаться полезным.</li>
 </ul>
 <p><a href="algebra.svg">Большой граф всего</a></p>
 <hr/>
@@ -193,6 +188,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#subst_sign">→ Знак подстановки</a><br/>
 <a class="more" href="#subst_even">→ Чётность подстановки</a><br/>
 <a class="more" href="#matrix_det">→ Определитель</a><br/>
+<a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 </div>
 <div class="entry">
 <h1 id=subst_inv><a class="tag more " href="#subst_inv">#</a>Число инверсий в подстановке <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=образуют инверсию в перестановке">Конспект</a>)</small></h1>
@@ -234,6 +230,8 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 <a class="more" href="#SLE_nonzero_criteria">→ Критерий существования ненулевого решения</a><br/>
+<a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 </div>
 <div class="entry">
 <h1 id=complementary_minor><a class="tag more " href="#complementary_minor">#</a>Дополняющий минор и алгебраическое дополнение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором">Конспект</a>)</small></h1>
@@ -473,7 +471,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <hr/>
 <a class="more" href="#complex_mod">→ Модуль, аргумент и его главное значение у комплексного числа</a><br/>
 <a class="more" href="#complex_ops">→ Сложение и умножение комплексных чисел</a><br/>
-→ Формула Эйлера <code>[WIP]</code><br/>
+<a class="more" href="#complex_Euiler">→ Формула Эйлера</a><br/>
 </div>
 <div class="entry">
 <h1 id=complex_mod><a class="tag more colloq" href="#complex_mod">#</a>Модуль, аргумент и его главное значение у комплексного числа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа">Конспект</a>)</small></h1>
@@ -543,6 +541,161 @@ z = r(\cosφ + i\sinφ), n∈ℕ \\
 </blockquote>
 <hr/>
 </div>
+<div class="entry">
+<h1 id=complex_Euiler><a class="tag more colloq" href="#complex_Euiler">#</a>Формула Эйлера <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Формула Эйлера">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+\cos φ + i\sin φ = e^{iφ}, φ∈ℝ \\
+⇒ \cos φ = \frac{e^{iφ} + e^{-iφ}}{2},
+  \sin φ = \frac{e^{iφ} - e^{-iφ}}{2}
+</script>
+<hr/>
+<a class="more" href="#complex_forms">← Формы записи комплексных чисел</a><br/>
+</div>
+<div class="entry">
+<h1 id=polynom_irreducable><a class="tag more colloq" href="#polynom_irreducable">#</a>Неприводимый многочлен <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Многочлен называется приводимим">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">f</script> непприводимый, iff <script type="math/tex">∄g, h: f = g·h</script>
+</p>
+<hr/>
+<a class="more" href="#polynom_complex_reduce">→ О разложении многочлена над ℂ</a><br/>
+</div>
+<div class="entry">
+<h1 id=polynom_complex_reduce><a class="tag more colloq" href="#polynom_complex_reduce">#</a>О разложении многочлена над ℂ </h1>
+<p>Всякий многочлен степени <script type="math/tex">n > 0</script> разлагается в произведение неприводимых многочленов.</p>
+<p>Комплексный многочлен степени n разлагается в произведение:
+<script type="math/tex">
+P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
+</script>, где сумма кратностей <script type="math/tex">α_{1} + … + α_{k} = n</script> и <script type="math/tex">z_{i}∈ℂ</script>
+</p>
+<p>Т.е. все комплексные многочлены раскладываются на многочлены не выше первой степени.</p>
+<hr/>
+<a class="more" href="#polynom_irreducable">← Неприводимый многочлен</a><br/>
+</div>
+<div class="entry">
+<h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
+<p>Операция называется…</p>
+<ul>
+<li>Ассоциативной, iff <script type="math/tex">a×(b×c) ≡ (a×b)×c</script> (расстановка скобок не важна)</li>
+<li>Коммутативной, iff <script type="math/tex">a×b ≡ b×a</script> (порядок аргументов не важен)</li>
+</ul>
+<p>Элемент множества называется…</p>
+<ul>
+<li>Нейтральным (<script type="math/tex">e</script>), iff <script type="math/tex">∀x\, e·x = x·e = x</script>
+</li>
+<li>Обратным (<script type="math/tex">x^{-1}</script>), iff <script type="math/tex">x^{-1} · x = x · x^{-1} = e</script>. Соответственно <script type="math/tex">x</script> — обратимый, iff <script type="math/tex">∃x^{-1}</script>
+</li>
+</ul>
+<p>Пусть есть операция и множество. Тогда они вместе образуют… (каждое следующее накладывает всё большие ограничения)</p>
+<ul>
+<li>Полугруппу: операция ассоциативна<ul>
+<li>
+<script type="math/tex">ℕ ∖ \{1\}</script> с умножением</li>
+</ul>
+</li>
+<li>Моноид: есть нейтральный элемент<ul>
+<li>
+<script type="math/tex">(ℕ, ·)</script>
+</li>
+<li>
+<script type="math/tex">M(Ω)</script> – множество отображений множества <script type="math/tex">Ω</script> в себя операцией композиции (<script type="math/tex">e = id</script>)</li>
+</ul>
+</li>
+<li>Группу: все эл-ты обратимы<ul>
+<li>
+<script type="math/tex">GL_{n}(ℝ)</script> — общая линйеная группа</li>
+<li>
+<script type="math/tex">SL_{n}(ℝ)</script> — специальная линейная группа</li>
+<li>
+<script type="math/tex">S_{n}</script> — симметрическая группа</li>
+</ul>
+</li>
+<li>Абелеву группу: операция коммутативна<ul>
+<li>Векторы в <script type="math/tex">V_{3}</script> с сложением</li>
+<li>
+<script type="math/tex">(ℤ, +)</script>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
+<a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
+<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа </h1>
+<p>
+<script type="math/tex">S_{n}</script> — симметрическая группа — множество всех подстановок длины <script type="math/tex">n</script> с операцией композиции — группа симметрий.</p>
+<p>Содержит <script type="math/tex">n!</script> элементов</p>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+</div>
+<div class="entry">
+<h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа </h1>
+<p>
+<script type="math/tex">H</script> — подгруппа в группе <script type="math/tex">G</script>, iff</p>
+<ol>
+<li>
+<script type="math/tex">H ⊆ G</script>
+</li>
+<li>
+<script type="math/tex">e ∈ H</script>
+</li>
+<li>
+<script type="math/tex">∀x,y ∈ H\, x·y ∈ H</script> — <script type="math/tex">H</script> замункто по операции.</li>
+<li>
+<script type="math/tex">∀x ∈ H\, x^{-1} ∈ H</script> — замкнуто по взятию обратного элемента.</li>
+</ol>
+<hr/>
+<a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_group><a class="tag more colloq" href="#lin_group">#</a>Общая и специальная линейные группы </h1>
+<ul>
+<li>
+<script type="math/tex">GL_{n}(𝔽)</script> — общая линейная группа: множество всех невырожденных матриц размера <script type="math/tex">n×n</script> с операцией матричного умножения.</li>
+<li>
+<script type="math/tex">SL_{n}(𝔽)</script> — специальная линейная группа: <script type="math/tex">\{ A∈GL_{n}(𝔽) \mid \det A = 1 \}</script>. Является подгруппой <script type="math/tex">GL_{n}(𝔽)</script>.</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=group_homo><a class="tag more colloq" href="#group_homo">#</a>Гомоморфизм групп </h1>
+<p>Отображение <script type="math/tex">φ: G → H</script> является гомоморфизмом групп, iff <script type="math/tex">∀x,y\, φ(x·y) = φ(x)×φ(y)</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">φ = \det</script>: отображает <script type="math/tex">GL_{n}(ℝ)</script> в <script type="math/tex">(ℝ∖\{0\}, ·)</script>.</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп </h1>
+<p>Изоморфизм это биективный гоморфизм</p>
+<ul>
+<li>
+<script type="math/tex">φ = \exp</script>: отображает <script type="math/tex">(ℝ, +)</script> в <script type="math/tex">(ℝ_{+}, ·)</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=elem_ord><a class="tag more colloq" href="#elem_ord">#</a>Порядок элемента группы </h1>
+<p>
+<script type="math/tex">\ord g</script> это наименьшее такое <script type="math/tex">n∈ℕ</script>, что <script type="math/tex">g^{n} = g·g·…·g = e</script>
+</p>
+<hr/>
+</div>
 
   </div>
   <div class="panel" id="side_panel">
@@ -562,9 +715,12 @@ scripts.forEach(function(script) {
         katex.render(script.text, katexElement, {
           macros: {
               "\\Σ": "\\sum",
+              "∄": "\\nexists",
+              "·": "\\cdot",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
+              "\\ord": "\\operatorname{ord}",
               "\\bar": "\\overline",
               "\\tilde": "\\widetilde",
           },
@@ -603,11 +759,6 @@ scripts.forEach(function(script) {
             sizes: [65, 35],
         });
         bindButtons(document);
-    }
-    for (let graph of document.querySelectorAll('.svgGraph')) {
-        graph.addEventListener('load', () => {
-            svgPanZoom(graph, {controlIconsEnabled: true});
-        });
     }
   </script>
   </body>
