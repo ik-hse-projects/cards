@@ -41,6 +41,14 @@ description:
         
         Исходный код доступен здесь: [Github](https://github.com/ik-hse-projects/cards/blob/master/pages/algebra.yaml), пулл-реквесты приветствуются.
 
+        Материалы:
+
+        - <https://github.com/Sofiika/AlgebraKollok> — основной источник
+        - <https://wiki.bularond.ru/ru/algebra> — подробные конспекты
+        - <https://hse-tex.me/course-1/linear-algebra.pdf> — не используется, но может оказаться полезным.
+
+        [Большой граф всего](algebra.svg)
+
 matrix_mul:
     title: Умножение матриц
     colloq: true

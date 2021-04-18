@@ -1,6 +1,7 @@
 import yaml
 import markdown
 import re
+import os
 from sys import argv, stderr, stdin
 
 def eprint(*args, **kwargs):
@@ -34,7 +35,6 @@ def what_letter(x):
     if x in subscript_map:
         return 'sub', subscript_map[x]
     return None, x
-
 
 def clean_text(text_id, text):
     text = text.replace('≠', '\u2260')  # For some reason KaTeX does not display it well
@@ -78,7 +78,6 @@ def clean_text(text_id, text):
 
     return text
 
-
 def load(src):
     if isinstance(src, str):
         with open(src, 'r') as f:
@@ -92,7 +91,6 @@ def load(src):
             data[tag].referenced_by.append(v)
             v.references.append(data[tag])
     return data
-
 
 def toposort(data):
     marks = {}
@@ -142,14 +140,30 @@ def render(i):
     yield from add_more('→', i.referenced_by)
     yield '</div>'
 
-if __name__ == "__main__":
+def graph(data, outfile, root=None):
+    root = '' if root is None else root
+    import graphviz
+    dot = graphviz.Digraph()
+    dot.attr('graph', rankdir='LR')
+    for k, v in data.items():
+        dot.node(v.id, v.title, href=f"{root}#{v.id}")
+        for i in v.referenced_by:
+            dot.edge(v.id, i.id)
+    #dot = dot.unflatten()
+    dot.render(outfile, format='svg', cleanup=True)
+
+def print_html(data):
     with open('template.html', 'r') as f:
         before, after = f.read().split('<!-- PUT CARDS HERE -->')
-    data = load(stdin).values()
-    data = toposort(data)
     print(before)
     for i in data:
         if i.text is not None:
             for ln in render(i):
                 print(ln)
     print(after)
+
+if __name__ == "__main__":
+    data = load(stdin)
+    print_html(toposort(data.values()))
+    if len(argv) > 1:
+        graph(data, argv[1], root=os.path.basename(argv[1]) + '.html')

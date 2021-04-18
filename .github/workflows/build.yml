@@ -18,6 +18,7 @@ jobs:
         python-version: 3.9
     - name: Install dependencies
       run: |
+        sudo apt-get update && sudo apt-get install graphviz libgraphviz-dev pkg-config
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build pages
@@ -25,9 +26,9 @@ jobs:
       run: |
         [ -d public ] || mkdir ./public
         for i in ./pages/*.yaml; do
-          out="$(basename "$i" .yaml).html"
+          out="$(basename "$i" .yaml)"
           echo "Building $i to $out"
-          python build.py < "$i" > "public/$out"
+          python build.py "public/${out}" < "$i" > "public/${out}.html"
         done
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3

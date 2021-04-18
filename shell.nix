@@ -6,5 +6,6 @@ in pkgs.mkShell {
     pkgs.python3.pkgs.pyyaml
     pkgs.python3.pkgs.markdown
     pkgs.python3.pkgs.python-markdown-math
+    pkgs.python3.pkgs.graphviz
   ];
 }

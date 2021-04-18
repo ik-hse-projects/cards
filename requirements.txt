@@ -1,3 +1,4 @@
 pyyaml
 markdown
 python-markdown-math
+graphviz
