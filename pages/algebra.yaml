@@ -23,6 +23,11 @@ _contribution:
         \sum_{k=1}^{n} C_n^k a^k b^{n-k}
         ```
         ~~~
+        Справка по KaTeX доступна здесь: https://katex.org/docs/supported.html
+
+        Убедительная просьба при добавлении ссылок декодировать их в нормальный юникод.
+        `eleventh_lesson#%D1%83%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D0…` — плохо, а `eleventh_lesson#умножение-комплексных-чисел` — хорошо.
+        Иначе чтение файла серьёзно осложняется.
 
 description:
     title: Карточки по алгебре
@@ -344,7 +349,7 @@ complex_forms:
             - $`\sin φ = \frac{y}{r}`$
 
 complex_mod:
-    title: Модуль, аргумент и его значение у комплексного числа
+    title: Модуль, аргумент и его главное значение у комплексного числа
     colloq: true
     bulat: https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа
     text: |
@@ -353,3 +358,61 @@ complex_mod:
         - Главное значение: $`\arg z ∈ [0, 2π) \text{ или } ∈ (-π, π]`$
     tags: [complex_forms]
 
+complex_ops:
+    title: Сложение и умножение комплексных чисел
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#умножение-комплексных-чисел
+    text: |
+        - Сложение: $`(x₁ + iy₁) + (x₂ + iy₂) = (x₁ + x₂) + i(y₁ + y₂)`$
+        - Умножение: $`(x₁ + iy₁)(x₂ + iy₂) = (x₁x₁ - y₁y₂) + i(x₁y₂ + y₁x₂)`$
+        - В тр. форме: $`r₁(\cos φ₁ + i\sin φ₁) · r₂(\cos φ₂ + i\sin φ₂) = r₁r₂(\cos (φ₁ + φ₂) + i\sin(φ₁ + φ₂))`$
+        - Деление: $`r₁(\cos φ₁ + i\sin φ₁) : r₂(\cos φ₂ + i\sin φ₂) = \frac{r₁}{r₂}(\cos (φ₁ - φ₂) + i\sin(φ₁ - φ₂))`$
+    tags: [complex_forms]
+
+complex_conj:
+    title: Комплексное сопряжение и деление
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Комплексно сопряженным
+    text: |
+        ```math
+        \bar{z} = \bar{x + iy} = x - iy \\
+        \frac{z₁}{z₂} = \frac{z₁·\bar{z₂}}{z₂\bar{z₂}} = \frac{z₁\bar{z₂}}{|z₂|²}
+        ```
+    tags: [complex_ops]
+
+complex_Moivre:
+    title: Формула Муавра
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=формула Муавра
+    text: |
+        ```math
+        zⁿ = rⁿ(\cos (nφ) + i\sin(nφ) ), n∈ℕ
+        ```
+    tags: [complex_ops]
+
+complex_roots:
+    title: Корни n-ой степени из комплексного числа
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#извлечение-комплексных-корней
+    text: |
+        ```math
+        z = r(\cosφ + i\sinφ), n∈ℕ \\
+        \sqrt[n]{z} = \{ \sqrt[n]{r}( \cos\frac{φ + 2πk}{n} + i\sin\frac{φ + 2πk}{n} ) \mid k=0,1,…,n-1 \}
+        ```
+
+main_theorem:
+    title: Основная теорема алгебры
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#основная-теорема-алгебры
+    text: |
+        ```math
+        ∀f ∈ ℂ[x] ∃z∈ℂ: f(z) = 0
+        ```
+        Или в известных на тот момент обозначениях:
+        > Для любого многочлена $`aₙzⁿ + aₙ₋₁zⁿ⁻¹ + … + a₁z + a₀ = 0`$ существует корень $`z₀ ∈ ℂ`$
+
+complex_Euiler:
+    title: Формула Эйлера
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Формула Эйлера
+    tags: [complex_forms]
