@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js" integrity="sha256-9GNxAyAInGHQ9XzsK4hsAt4E4h65Lr0i6qMn/fCmt8Y=" crossorigin="anonymous"></script>
     <style>
 @font-face {
     font-family: 'Linux Libertine'; /* normal */
@@ -33,6 +34,10 @@
     src: url('./libertine/LinLibertine_RBI.otf');
     font-weight: bold;
     font-style: italic;
+}
+
+.svgGraph {
+    width: 100%;
 }
 
 .tag {
@@ -125,6 +130,13 @@ hr:last-child {
 а красным отмечается то, что имеет высокую вероятность оказаться на коллоке.</p>
 <p>Каждая карточка содержит ссылки на другие связанные с ней. При клике они удобно отображаются в панельке справа (а ещё можно кликать по решёточке).</p>
 <p>Исходный код доступен здесь: <a href="https://github.com/ik-hse-projects/cards/blob/master/pages/algebra.yaml">Github</a>, пулл-реквесты приветствуются.</p>
+<p>Материалы:</p>
+<ul>
+<li><a href="https://github.com/Sofiika/AlgebraKollok">https://github.com/Sofiika/AlgebraKollok</a> — основной источник</li>
+<li><a href="https://wiki.bularond.ru/ru/algebra">https://wiki.bularond.ru/ru/algebra</a> — подробные конспекты</li>
+<li><a href="https://hse-tex.me/course-1/linear-algebra.pdf">https://hse-tex.me/course-1/linear-algebra.pdf</a> — не используется, но может оказаться полезным.</li>
+</ul>
+<p><a href="algebra.svg">Большой граф всего</a></p>
 <hr/>
 </div>
 <div class="entry">
@@ -459,10 +471,12 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 </li>
 </ol>
 <hr/>
-<a class="more" href="#complex_mod">→ Модуль, аргумент и его значение у комплексного числа</a><br/>
+<a class="more" href="#complex_mod">→ Модуль, аргумент и его главное значение у комплексного числа</a><br/>
+<a class="more" href="#complex_ops">→ Сложение и умножение комплексных чисел</a><br/>
+→ Формула Эйлера <code>[WIP]</code><br/>
 </div>
 <div class="entry">
-<h1 id=complex_mod><a class="tag more colloq" href="#complex_mod">#</a>Модуль, аргумент и его значение у комплексного числа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа">Конспект</a>)</small></h1>
+<h1 id=complex_mod><a class="tag more colloq" href="#complex_mod">#</a>Модуль, аргумент и его главное значение у комплексного числа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа">Конспект</a>)</small></h1>
 <ul>
 <li>Модуль: <script type="math/tex">|z| = r = \sqrt{x^{2} + y^{2}}</script>
 </li>
@@ -473,6 +487,61 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 </ul>
 <hr/>
 <a class="more" href="#complex_forms">← Формы записи комплексных чисел</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_ops><a class="tag more colloq" href="#complex_ops">#</a>Сложение и умножение комплексных чисел <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#умножение-комплексных-чисел">Конспект</a>)</small></h1>
+<ul>
+<li>Сложение: <script type="math/tex">(x_{1} + iy_{1}) + (x_{2} + iy_{2}) = (x_{1} + x_{2}) + i(y_{1} + y_{2})</script>
+</li>
+<li>Умножение: <script type="math/tex">(x_{1} + iy_{1})(x_{2} + iy_{2}) = (x_{1}x_{1} - y_{1}y_{2}) + i(x_{1}y_{2} + y_{1}x_{2})</script>
+</li>
+<li>В тр. форме: <script type="math/tex">r_{1}(\cos φ_{1} + i\sin φ_{1}) · r_{2}(\cos φ_{2} + i\sin φ_{2}) = r_{1}r_{2}(\cos (φ_{1} + φ_{2}) + i\sin(φ_{1} + φ_{2}))</script>
+</li>
+<li>Деление: <script type="math/tex">r_{1}(\cos φ_{1} + i\sin φ_{1}) : r_{2}(\cos φ_{2} + i\sin φ_{2}) = \frac{r_{1}}{r_{2}}(\cos (φ_{1} - φ_{2}) + i\sin(φ_{1} - φ_{2}))</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#complex_forms">← Формы записи комплексных чисел</a><br/>
+<a class="more" href="#complex_conj">→ Комплексное сопряжение и деление</a><br/>
+<a class="more" href="#complex_Moivre">→ Формула Муавра</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_conj><a class="tag more colloq" href="#complex_conj">#</a>Комплексное сопряжение и деление <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Комплексно сопряженным">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+\bar{z} = \bar{x + iy} = x - iy \\
+\frac{z_{1}}{z_{2}} = \frac{z_{1}·\bar{z_{2}}}{z_{2}\bar{z_{2}}} = \frac{z_{1}\bar{z_{2}}}{|z_{2}|^{2}}
+</script>
+<hr/>
+<a class="more" href="#complex_ops">← Сложение и умножение комплексных чисел</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_Moivre><a class="tag more colloq" href="#complex_Moivre">#</a>Формула Муавра <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=формула Муавра">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+z^{n} = r^{n}(\cos (nφ) + i\sin(nφ) ), n∈ℕ
+</script>
+<hr/>
+<a class="more" href="#complex_ops">← Сложение и умножение комплексных чисел</a><br/>
+</div>
+<div class="entry">
+<h1 id=complex_roots><a class="tag more colloq" href="#complex_roots">#</a>Корни n-ой степени из комплексного числа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#извлечение-комплексных-корней">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+z = r(\cosφ + i\sinφ), n∈ℕ \\
+\sqrt[n]{z} = \{ \sqrt[n]{r}( \cos\frac{φ + 2πk}{n} + i\sin\frac{φ + 2πk}{n} ) \mid k=0,1,…,n-1 \}
+</script>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=main_theorem><a class="tag more colloq" href="#main_theorem">#</a>Основная теорема алгебры <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eleventh_lesson#основная-теорема-алгебры">Конспект</a>)</small></h1>
+<p><script type="math/tex; mode=display">
+∀f ∈ ℂ[x] ∃z∈ℂ: f(z) = 0
+</script>
+
+Или в известных на тот момент обозначениях:</p>
+<blockquote>
+<p>Для любого многочлена <script type="math/tex">a_{n}z^{n} + a_{n-1}z^{n-1} + … + a_{1}z + a_{0} = 0</script> существует корень <script type="math/tex">z_{0} ∈ ℂ</script>
+</p>
+</blockquote>
+<hr/>
 </div>
 
   </div>
@@ -495,7 +564,9 @@ scripts.forEach(function(script) {
               "\\Σ": "\\sum",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
-              "\\Arg": "\\operatorname{Arg}"
+              "\\Arg": "\\operatorname{Arg}",
+              "\\bar": "\\overline",
+              "\\tilde": "\\widetilde",
           },
           fleqn: true,
           displayMode: display
@@ -532,6 +603,11 @@ scripts.forEach(function(script) {
             sizes: [65, 35],
         });
         bindButtons(document);
+    }
+    for (let graph of document.querySelectorAll('.svgGraph')) {
+        graph.addEventListener('load', () => {
+            svgPanZoom(graph, {controlIconsEnabled: true});
+        });
     }
   </script>
   </body>
