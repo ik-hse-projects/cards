@@ -230,6 +230,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 <a class="more" href="#SLE_nonzero_criteria">→ Критерий существования ненулевого решения</a><br/>
+<a class="more" href="#mixed_mul">→ Смешанное произведение векторов</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 </div>
@@ -368,6 +369,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 <a class="more" href="#SLE_FSS">→ ФСР ОСЛАУ</a><br/>
+<a class="more" href="#onb">→ Ортонормированный базис</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_dep_criteria><a class="tag more colloq" href="#lin_dep_criteria">#</a>Критерий линейной зависимости <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости">Конспект</a>)</small></h1>
@@ -572,6 +574,278 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#polynom_irreducable">← Неприводимый многочлен</a><br/>
 </div>
 <div class="entry">
+<h1 id=geom_vector><a class="tag more " href="#geom_vector">#</a>Геометрический вектор </h1>
+<p>Это направленный отрезок.</p>
+<ul>
+<li>Длина вектора — длина отрезка</li>
+<li>Нулевой — если начало и конец совпадают</li>
+<li>Единичный (орт) — если длина равна <script type="math/tex">1</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#vector_collin">→ Коллинеарность векторов</a><br/>
+<a class="more" href="#vector_sum">→ Сумма векторов</a><br/>
+<a class="more" href="#vector_mul">→ Произведение вектора на число</a><br/>
+<a class="more" href="#vector_angle">→ Угол меджу векторами</a><br/>
+<a class="more" href="#vec_project">→ Проекция вектора</a><br/>
+<a class="more" href="#vec_scalar_mul">→ Скалярное произведение векторов</a><br/>
+<a class="more" href="#vec_triple">→ Левые и правые тройки векторов</a><br/>
+<a class="more" href="#vec_mul">→ Векторное произведение векторов</a><br/>
+<a class="more" href="#mixed_mul">→ Смешанное произведение векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=vector_collin><a class="tag more " href="#vector_collin">#</a>Коллинеарность векторов </h1>
+<p>Векторы коллинеарны, iff они лежат на одной или на параллельных прямых.</p>
+<p>Нулевой коллинеарен любому вектору.</p>
+<p>Коллинераные векторы либо сонаправлены, либо нет.</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+</div>
+<div class="entry">
+<h1 id=vector_sum><a class="tag more " href="#vector_sum">#</a>Сумма векторов </h1>
+<p>
+<script type="math/tex">\Vc = \Va + \Vb</script>, iff <script type="math/tex">\Vb</script> приложен к концу <script type="math/tex">\Va</script>, а вектор <script type="math/tex">\Vc</script> идёт из начала <script type="math/tex">\Va</script> в конец <script type="math/tex">\Vb</script>
+</p>
+<p>Свойства:</p>
+<ol>
+<li>Коммутативность: <script type="math/tex">\Va + \Vb = \Vb + \Va</script>
+</li>
+<li>Ассоциативность: <script type="math/tex">\Va + (\Vb + \Vc) = (\Va + \Vb) + \Vc</script>
+</li>
+<li>Существует нейтральный по сложению: <script type="math/tex">\Va + \Vo = \Va</script>
+</li>
+<li>Все обратимы: <script type="math/tex">∀\Va ∃\Vb: \Va + \Vb = \Vo</script>
+</li>
+</ol>
+<p>Разность векторов:
+<script type="math/tex">\Vc = \Va - \Vb</script>, iff <script type="math/tex">\Vc + \Vb = \Va</script>
+</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+</div>
+<div class="entry">
+<h1 id=vector_mul><a class="tag more " href="#vector_mul">#</a>Произведение вектора на число </h1>
+<p>
+<script type="math/tex">λ\Va</script> обладает определяется свойствами:</p>
+<ol>
+<li>
+<script type="math/tex">|λ\Va| = |λ| · |\Va|</script>
+</li>
+<li>
+<script type="math/tex">λ\Va \codir \Va</script>, если <script type="math/tex">λ≥0</script> и <script type="math/tex">λ\Va \difdir \Va</script> при <script type="math/tex">λ ≤ 0</script>
+</li>
+</ol>
+<p>При <script type="math/tex">λ = 0</script>, <script type="math/tex">λ\Va ≡ \Vo</script>
+</p>
+<p>Свойства:</p>
+<ol>
+<li>
+<script type="math/tex">(λμ)\Va = λ(μ\Va)</script>
+</li>
+<li>
+<script type="math/tex">λ(\Va + \Vb) = λ\Va + λ\Vb</script>
+</li>
+<li>
+<script type="math/tex">(λμ)\Va = λ\Va + μ\Va</script>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+</div>
+<div class="entry">
+<h1 id=vector_angle><a class="tag more " href="#vector_angle">#</a>Угол меджу векторами </h1>
+<p>Угол между  <script type="math/tex">φ</script> всегда <script type="math/tex">∈ [0, π]</script>. Тогда</p>
+<ul>
+<li>
+<script type="math/tex">\Va \codir \Vb ⇔ φ = 0</script>
+</li>
+<li>
+<script type="math/tex">\Va \difdir \Vb ⇔ φ = π</script>
+</li>
+<li>вектора <strong>ортогональны</strong> iff <script type="math/tex">φ = \frac{π}{2}</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vec_project">→ Проекция вектора</a><br/>
+</div>
+<div class="entry">
+<h1 id=vec_project><a class="tag more " href="#vec_project">#</a>Проекция вектора </h1>
+<p>
+<script type="math/tex">\pr_{\Vb} \Va = |\Va| \cos φ</script> — <strong>ортогональная проекция</strong> вектора <script type="math/tex">\Va</script> на <script type="math/tex">\Vb</script> (<script type="math/tex">φ</script> — угол между ними)</p>
+<p>Свойства:</p>
+<ol>
+<li>Если <script type="math/tex">\Va ≠ \Vo</script>, то <script type="math/tex">\pr_{\Ve}\Va = \begin{cases}
+    >0, & φ \text{ острый} \\
+    =0, & φ = \frac{π}{2} \\
+    <0, & φ \text{ тупой}
+\end{cases}</script>
+</li>
+<li>
+<script type="math/tex">\pr_{\Ve}(\Va + \Vb) = \pr_{\Ve}\Va + \pr_{\Ve}\Vb</script>
+</li>
+<li>
+<script type="math/tex">\pr_{\Ve}(λ\Va) = λ\pr_{\Ve}\Va</script>
+</li>
+</ol>
+<p><strong>Векторная проекция</strong>:
+<script type="math/tex; mode=display">
+    |\Va|·\cosφ·\frac{\Vb}{|\Vb|} = \frac{(\Va, \Vb)}{(\Vb, \Vb)}\Vb
+</script>
+</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vector_angle">← Угол меджу векторами</a><br/>
+</div>
+<div class="entry">
+<h1 id=vec_scalar_mul><a class="tag more colloq" href="#vec_scalar_mul">#</a>Скалярное произведение векторов </h1>
+<p>Функция определяется свойствами:</p>
+<ol>
+<li>Коммутативность: <script type="math/tex">(\Va, \Vb) = (\Vb, \Va)</script>
+</li>
+<li>Линейность: <script type="math/tex">(λ\Va, \Vb) = λ(\Va, \Vb)</script>
+</li>
+<li>Линейность: <script type="math/tex">(\Va + \Vb, \Vc) = (\Va, \Vc) + (\Vb, \Vc)</script>
+</li>
+<li>Положительная определённость: <script type="math/tex">(\Va, \Va) > 0</script>, если <script type="math/tex">\Va ≠ \Vo</script>
+</li>
+<li>Невырожденность: <script type="math/tex">(\Va, \Va) = 0</script>, iff <script type="math/tex">\Va = \Vo</script>
+</li>
+</ol>
+<p>Например, на <script type="math/tex">𝕍_{3}</script> функция <script type="math/tex">|\Vb||\Va|\cos(φ)</script>
+</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#onb">→ Ортонормированный базис</a><br/>
+<a class="more" href="#onb_theorem">→ Вычисление скалярного произведения</a><br/>
+</div>
+<div class="entry">
+<h1 id=onb><a class="tag more " href="#onb">#</a>Ортонормированный базис </h1>
+<p>Базис — упорядоченный набор векторов <script type="math/tex">a_{1},…,a_{k}</script> со свойствами:</p>
+<ol>
+<li>
+<script type="math/tex">a_{1},…,a_{k}</script> — линейно независимы.</li>
+<li>Произвольный вектор выражается в виде линейной комбинации <script type="math/tex">a_{1},…,a_{k}</script>
+</li>
+</ol>
+<p>Базис называется <strong>ортонормированным</strong>, iff
+<script type="math/tex; mode=display">
+(a_{i}, a_{j}) = δ_{i}^{j} = \begin{cases}
+    1, & i=j \\
+    0, & i≠j
+\end{cases}
+</script>
+</p>
+<p>Например, взаимно перпендикулярные векторы <script type="math/tex">\Vi, \Vj, \Vk</script> в <script type="math/tex">𝕍_{3}</script>.</p>
+<hr/>
+<a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+<a class="more" href="#onb_theorem">→ Вычисление скалярного произведения</a><br/>
+<a class="more" href="#decart">→ Прямоугольная декартова система координат</a><br/>
+</div>
+<div class="entry">
+<h1 id=onb_theorem><a class="tag more " href="#onb_theorem">#</a>Вычисление скалярного произведения </h1>
+<p><strong>Теорема:</strong> Если <script type="math/tex">\Vi, \Vj, \Vk</script> — ОНБ, то <script type="math/tex">(\Va, \Vb) = a_x b_x + a_y b_y + a_z b_z</script>.</p>
+<p>И ещё есть способ для вычисления произведения в произвольном базисе, но он не описан в этих карточках.</p>
+<hr/>
+<a class="more" href="#onb">← Ортонормированный базис</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=vec_triple><a class="tag more " href="#vec_triple">#</a>Левые и правые тройки векторов </h1>
+<p>Упорядоченная тройка <script type="math/tex">\Va, \Vb, \Vc</script> — правая, если со стороны <script type="math/tex">\Vc</script> кратчайший поворот от <script type="math/tex">\Va</script> к <script type="math/tex">\Vb</script> осуществляется против часовой стрелки. Если по часовой, то она левая.</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vec_mul">→ Векторное произведение векторов</a><br/>
+<a class="more" href="#mixed_mul">→ Смешанное произведение векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=vec_mul><a class="tag more colloq" href="#vec_mul">#</a>Векторное произведение векторов </h1>
+<p>
+<script type="math/tex">\Vc = \Va × \Vb</script>, iff</p>
+<ol>
+<li>
+<script type="math/tex">|\Vc| = |\Va| · |\Vb| · \sin φ</script>, где <script type="math/tex">φ</script> — угол между <script type="math/tex">\Va</script> и <script type="math/tex">\Vb</script>
+</li>
+<li>
+<script type="math/tex">\Vc ⊥ \Va, \Vc ⊥ \Vb</script>
+</li>
+<li>Тройка <script type="math/tex">\Va, \Vb, \Vc</script> — правая</li>
+</ol>
+<p>Свойства:</p>
+<ol>
+<li>
+<script type="math/tex">\Va × \Vb = - (\Vb × \Va)</script> — антикоммутативность</li>
+<li>
+<script type="math/tex">(λ\Va) × \Vb = λ(\Va × \Vb)</script>
+</li>
+<li>
+<script type="math/tex">(\Va + \Vb) × \Vc = (\Va × \Vc) + (\Vb × \Vc)</script>
+</li>
+<li>
+<script type="math/tex">\Va × \Va = \Vo</script> — следствие антикоммутативности</li>
+<li>Векторы коллинераны, iff <script type="math/tex">\Va × \Vb = 0</script>
+</li>
+<li>Если они не коллинеарны, то произведение (по модулю) равно площади параллелограмма, построенного на этих векторах</li>
+</ol>
+<p><em>Важно помнить про первые три свойства — они же алгебраические</em></p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vec_triple">← Левые и правые тройки векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=mixed_mul><a class="tag more colloq" href="#mixed_mul">#</a>Смешанное произведение векторов </h1>
+<p>
+<script type="math/tex">⟨\Va, \Vb, \Vc⟩</script> это число <script type="math/tex">(\Va × \Vb, \Vc)</script> — скалярное произведение векторного и <script type="math/tex">\Vc</script>
+</p>
+<ol>
+<li>
+<script type="math/tex">(\Va × \Vb, \Vc) = (\Va, \Vb × \Vc)</script>
+</li>
+<li>Если <script type="math/tex">V</script> — объём параллелипеда, то <script type="math/tex">(\Va×\Vb, \Vc) = \begin{cases}
+    V, & \Va, \Vb, \Vc \text{ — правая тройка} \\
+    -V, & \Va, \Vb, \Vc \text{ — левая тройка}
+\end{cases}</script>
+</li>
+<li>Объём тетраэдра равен <script type="math/tex">\frac{1}{6} |⟨\Va, \Vb, \Vc⟩|</script>
+</li>
+<li>Векторы компланарны, iff <script type="math/tex">⟨\Va, \Vb, \Vc⟩ = 0</script>
+</li>
+<li>Если любые два вектора совпадают, то <script type="math/tex">⟨\Va, \Vb, \Vc⟩ = 0</script>
+</li>
+</ol>
+<p>В правом ОНБ вычисляется так:
+<script type="math/tex; mode=display">
+⟨\Va, \Vb, \Vc⟩ = \begin{vmatrix}
+    a_x & a_y & a_z \\
+    b_x & b_y & b_z \\
+    c_x & c_y & c_z
+\end{vmatrix}
+</script>
+</p>
+<hr/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vec_triple">← Левые и правые тройки векторов</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=decart><a class="tag more colloq" href="#decart">#</a>Прямоугольная декартова система координат </h1>
+<p>Определяется парой из точки <script type="math/tex">O</script> и ОНБ <script type="math/tex">\Vi, \Vj, \Vk</script>. Подразумевается, что ОНБ правый.</p>
+<ul>
+<li>
+<script type="math/tex">O</script> — начало ПДСК</li>
+<li>
+<script type="math/tex">\Vi</script> — задаёт ось <strong>абсцисс</strong></li>
+<li>
+<script type="math/tex">\Vj</script> — задаёт ось <strong>ординат</strong></li>
+<li>
+<script type="math/tex">\Vk</script> — задаёт ось <strong>аппликат</strong></li>
+</ul>
+<p>Координаты точки <script type="math/tex">M</script> в ПДСК — координаты радиус-вектора <script type="math/tex">\vec{OM}</script> в базисе <script type="math/tex">\Vi, \Vj, \Vk</script>.</p>
+<hr/>
+<a class="more" href="#onb">← Ортонормированный базис</a><br/>
+</div>
+<div class="entry">
 <h1 id=termins><a class="tag more " href="#termins">#</a>Терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
 <p>Отображение <script type="math/tex">f: X → Y</script> называется...</p>
 <ul>
@@ -737,8 +1011,19 @@ scripts.forEach(function(script) {
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
               "\\ord": "\\operatorname{ord}",
+              "\\pr": "\\operatorname{пр}",
+              "\\Va": "\\vec{a}",
+              "\\Vb": "\\vec{b}",
+              "\\Vc": "\\vec{c}",
+              "\\Ve": "\\vec{e}",
+              "\\Vo": "\\vec{0}",
+              "\\Vi": "\\vec{i}",
+              "\\Vj": "\\vec{j}",
+              "\\Vk": "\\vec{k}",
               "\\bar": "\\overline",
               "\\tilde": "\\widetilde",
+              "\\codir": "\\uparrow\\uparrow",
+              "\\difdir": "\\uparrow\\downarrow",
           },
           fleqn: true,
           displayMode: display
