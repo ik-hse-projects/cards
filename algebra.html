@@ -560,7 +560,7 @@ z = r(\cosφ + i\sinφ), n∈ℕ \\
 <a class="more" href="#polynom_complex_reduce">→ О разложении многочлена над ℂ</a><br/>
 </div>
 <div class="entry">
-<h1 id=polynom_complex_reduce><a class="tag more colloq" href="#polynom_complex_reduce">#</a>О разложении многочлена над ℂ </h1>
+<h1 id=polynom_complex_reduce><a class="tag more colloq" href="#polynom_complex_reduce">#</a>О разложении многочлена над ℂ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#продолжаем-комплексные-числа">Конспект</a>)</small></h1>
 <p>Всякий многочлен степени <script type="math/tex">n > 0</script> разлагается в произведение неприводимых многочленов.</p>
 <p>Комплексный многочлен степени n разлагается в произведение:
 <script type="math/tex">
@@ -572,7 +572,13 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#polynom_irreducable">← Неприводимый многочлен</a><br/>
 </div>
 <div class="entry">
-<h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
+<h1 id=termins><a class="tag more " href="#termins">#</a>Терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
+<p>Отображение <script type="math/tex">f: X → Y</script> называется...</p>
+<ul>
+<li>Сюръективным: <script type="math/tex">∀y∈Y\,∃x∈X: y = f(x)</script> — во все <script type="math/tex">Y</script> ведёт стрелка.</li>
+<li>Инъективным: <script type="math/tex">∀x_{1}, x_{2}∈X\, (x_{1}≠x_{2}) → (f(x_{1})≠f(x_{2}))</script> — не склеивает</li>
+<li>Биективным: когда и сюръективно, и инъективно. Взавимно-однозначное соответствие.</li>
+</ul>
 <p>Операция называется…</p>
 <ul>
 <li>Ассоциативной, iff <script type="math/tex">a×(b×c) ≡ (a×b)×c</script> (расстановка скобок не важна)</li>
@@ -585,6 +591,12 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <li>Обратным (<script type="math/tex">x^{-1}</script>), iff <script type="math/tex">x^{-1} · x = x · x^{-1} = e</script>. Соответственно <script type="math/tex">x</script> — обратимый, iff <script type="math/tex">∃x^{-1}</script>
 </li>
 </ul>
+<hr/>
+<a class="more" href="#group-theory">→ Теория групп</a><br/>
+<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
 <p>Пусть есть операция и множество. Тогда они вместе образуют… (каждое следующее накладывает всё большие ограничения)</p>
 <ul>
 <li>Полугруппу: операция ассоциативна<ul>
@@ -600,7 +612,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <script type="math/tex">M(Ω)</script> – множество отображений множества <script type="math/tex">Ω</script> в себя операцией композиции (<script type="math/tex">e = id</script>)</li>
 </ul>
 </li>
-<li>Группу: все эл-ты обратимы<ul>
+<li>Группу: все элементы обратимы<ul>
 <li>
 <script type="math/tex">GL_{n}(ℝ)</script> — общая линйеная группа</li>
 <li>
@@ -618,13 +630,15 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 </li>
 </ul>
 <hr/>
+<a class="more" href="#termins">← Терминология</a><br/>
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#subgroup">→ Подгруппа</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
-<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+<a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
 </div>
 <div class="entry">
-<h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа </h1>
+<h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа">Конспект</a>)</small></h1>
 <p>
 <script type="math/tex">S_{n}</script> — симметрическая группа — множество всех подстановок длины <script type="math/tex">n</script> с операцией композиции — группа симметрий.</p>
 <p>Содержит <script type="math/tex">n!</script> элементов</p>
@@ -633,7 +647,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#subst">← Подстановка</a><br/>
 </div>
 <div class="entry">
-<h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа </h1>
+<h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой">Конспект</a>)</small></h1>
 <p>
 <script type="math/tex">H</script> — подгруппа в группе <script type="math/tex">G</script>, iff</p>
 <ol>
@@ -649,10 +663,11 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <script type="math/tex">∀x ∈ H\, x^{-1} ∈ H</script> — замкнуто по взятию обратного элемента.</li>
 </ol>
 <hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 </div>
 <div class="entry">
-<h1 id=lin_group><a class="tag more colloq" href="#lin_group">#</a>Общая и специальная линейные группы </h1>
+<h1 id=lin_group><a class="tag more colloq" href="#lin_group">#</a>Общая и специальная линейные группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Общая линейная группа">Конспект</a>)</small></h1>
 <ul>
 <li>
 <script type="math/tex">GL_{n}(𝔽)</script> — общая линейная группа: множество всех невырожденных матриц размера <script type="math/tex">n×n</script> с операцией матричного умножения.</li>
@@ -665,7 +680,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 </div>
 <div class="entry">
-<h1 id=group_homo><a class="tag more colloq" href="#group_homo">#</a>Гомоморфизм групп </h1>
+<h1 id=group_homo><a class="tag more colloq" href="#group_homo">#</a>Гомоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм">Конспект</a>)</small></h1>
 <p>Отображение <script type="math/tex">φ: G → H</script> является гомоморфизмом групп, iff <script type="math/tex">∀x,y\, φ(x·y) = φ(x)×φ(y)</script>
 </p>
 <ul>
@@ -678,7 +693,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
 </div>
 <div class="entry">
-<h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп </h1>
+<h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы">Конспект</a>)</small></h1>
 <p>Изоморфизм это биективный гоморфизм</p>
 <ul>
 <li>
@@ -686,15 +701,16 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 </li>
 </ul>
 <hr/>
-<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#termins">← Терминология</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
 </div>
 <div class="entry">
-<h1 id=elem_ord><a class="tag more colloq" href="#elem_ord">#</a>Порядок элемента группы </h1>
+<h1 id=elem_ord><a class="tag more colloq" href="#elem_ord">#</a>Порядок элемента группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=порядок элемента">Конспект</a>)</small></h1>
 <p>
 <script type="math/tex">\ord g</script> это наименьшее такое <script type="math/tex">n∈ℕ</script>, что <script type="math/tex">g^{n} = g·g·…·g = e</script>
 </p>
 <hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
 </div>
 
   </div>
