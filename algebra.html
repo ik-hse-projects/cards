@@ -792,6 +792,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <hr/>
 <a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
 <a class="more" href="#vec_triple">← Левые и правые тройки векторов</a><br/>
+<a class="more" href="#dist_point_line">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
 <h1 id=mixed_mul><a class="tag more colloq" href="#mixed_mul">#</a>Смешанное произведение векторов </h1>
@@ -827,6 +828,8 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
 <a class="more" href="#vec_triple">← Левые и правые тройки векторов</a><br/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#line_coplane">→ Компланарность прямых</a><br/>
+<a class="more" href="#dist_point_line">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
 <h1 id=decart><a class="tag more colloq" href="#decart">#</a>Прямоугольная декартова система координат </h1>
@@ -844,9 +847,168 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <p>Координаты точки <script type="math/tex">M</script> в ПДСК — координаты радиус-вектора <script type="math/tex">\vec{OM}</script> в базисе <script type="math/tex">\Vi, \Vj, \Vk</script>.</p>
 <hr/>
 <a class="more" href="#onb">← Ортонормированный базис</a><br/>
+<a class="more" href="#surface_eq">→ Уравнение поверхности</a><br/>
 </div>
 <div class="entry">
-<h1 id=termins><a class="tag more " href="#termins">#</a>Терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
+<h1 id=surface_eq><a class="tag more colloq" href="#surface_eq">#</a>Уравнение поверхности </h1>
+<p>Рассмотрим ПДСК <script type="math/tex">O_{xyz}</script> и поверхность <script type="math/tex">S</script>:</p>
+<p>
+<script type="math/tex">F(x, y, z) = 0</script> — уравнение поверхности, если ему удоволтеворяют только точки, лежащие на ней.</p>
+<p>Тогда поверхность <script type="math/tex">S</script> называют <em>геометрическим образом</em> уравнения.</p>
+<p>Совершенно аналогично определяется уравнение кривой в <script type="math/tex">O_{xy}</script> (на плоскости)</p>
+<hr/>
+<a class="more" href="#decart">← Прямоугольная декартова система координат</a><br/>
+<a class="more" href="#plane_3d">→ Плоскость в пространстве</a><br/>
+</div>
+<div class="entry">
+<h1 id=plane_3d><a class="tag more colloq" href="#plane_3d">#</a>Плоскость в пространстве </h1>
+<ul>
+<li>Любая плоскость определяется уравнение <script type="math/tex">Ax + By + Cz + D = 0</script> (<script type="math/tex">A, B, C, D</script> — числа).</li>
+<li>Любое уравнение <script type="math/tex">Ax + By + Cz + D = 0</script> определяет плоскость, где <script type="math/tex">A^{2} + B^{2} + C^{2} > 0</script>
+</li>
+<li>Такое уравнение называется <strong>общим уравнением плоскости</strong>.</li>
+<li>
+<script type="math/tex">\Vn = (A, B, C)</script> — нормаль к плоскости — перпендикулярна ей.</li>
+</ul>
+<hr/>
+<a class="more" href="#surface_eq">← Уравнение поверхности</a><br/>
+<a class="more" href="#plane_through_points">→ Плоскость через три точки.</a><br/>
+<a class="more" href="#line_and_plane">→ Взаимное положение прямой и плоскости</a><br/>
+</div>
+<div class="entry">
+<h1 id=plane_through_points><a class="tag more " href="#plane_through_points">#</a>Плоскость через три точки. </h1>
+<p>Даны точки <script type="math/tex">M_{1}(x_{1}, y_{1}, z_{1}), M_{2}(x_{2}, y_{2}, z_{2}), M_{3}(x_{3}, y_{3}, z_{3})</script> не лежащие на одной прямой.</p>
+<p>Тогда в ОНБ следующий определитель будет уравнением плоскости:
+<script type="math/tex; mode=display">
+F(x, y, z) = \begin{vmatrix}
+    x-x_{1} & y-y_{1} & z-z_{1} \\
+    x_{2}-x_{1} & y_{2}-y_{1} & z_{2}-z_{1} \\
+    x_{3}-x_{1} & y_{3}-y_{1} & z_{3}-z_{1}
+\end{vmatrix} = 0
+</script>
+</p>
+<hr/>
+<a class="more" href="#plane_3d">← Плоскость в пространстве</a><br/>
+</div>
+<div class="entry">
+<h1 id=line_3d><a class="tag more colloq" href="#line_3d">#</a>Прямая в пространстве </h1>
+<p>Пусть <script type="math/tex">P_{1}</script> и <script type="math/tex">P_{2}</script> — плоскости. Тогда если они не параллельны, то они пересеакются по прямой.
+Т.е. все точки на прямой принадлежат обоим плоскостям.</p>
+<p>Общие уравнения прямой:
+<script type="math/tex; mode=display">
+\begin{cases}
+    A_{1}x + B_{1}y + C_{1}z + D_{1} = 0 \\
+    A_{2}x + B_{2}y + C_{2}z + D_{2} = 0
+\end{cases}
+</script>
+</p>
+<p>Векторное уравнение:</p>
+<blockquote>
+<p>Даны <script type="math/tex">M_{0} ∈ L</script> и вектор <script type="math/tex">\Vs ∥ L</script>. Тогда <script type="math/tex">M∈L</script> iff <script type="math/tex">∃t: \vec{M_{0}M} = t\Vs</script>
+</p>
+</blockquote>
+<p>Параметрическое уравнение (векторное в координатах):
+<script type="math/tex; mode=display">
+\begin{cases}
+    x - x_{0} = tl \\
+    y - y_{0} = tm \\
+    z - z_{0} = tn
+\end{cases}, t∈ℝ
+</script>
+</p>
+<p>Каноническое уравнение:
+<script type="math/tex; mode=display">
+t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
+</script>
+</p>
+<p>Через две точки:
+<script type="math/tex; mode=display">
+\frac{x-x_{1}}{x_{2}-x_{1}} = \frac{y-y_{1}}{y_{2}-y_{1}} = \frac{z-z_{1}}{z_{2}-z_{1}}
+</script>
+</p>
+<hr/>
+<a class="more" href="#line_and_plane">→ Взаимное положение прямой и плоскости</a><br/>
+<a class="more" href="#line_and_line">→ Взаимное расположение прямых</a><br/>
+<a class="more" href="#line_coplane">→ Компланарность прямых</a><br/>
+<a class="more" href="#dist_point_line">→ Расстояние между скрещивающимися прямыми</a><br/>
+</div>
+<div class="entry">
+<h1 id=line_and_plane><a class="tag more " href="#line_and_plane">#</a>Взаимное положение прямой и плоскости </h1>
+<ol>
+<li>Прямая параллельна плоскости или лежит в ней: iff <script type="math/tex">\Vn ⊥ \Vs</script> (в ОНБ: <script type="math/tex">Al + Bm + Cn = 0</script>)</li>
+<li>Прямая лежит в плоскости: надо добавить, что хотя бы одна точка на прямой лежит в плоскости.
+    В ОНБ: <script type="math/tex">
+        \begin{cases}
+            Al + Bm + Cn = 0 \\
+            Ax_{0}  + By_{0} + Cz_{0} + D = 0
+        \end{cases}
+    </script>
+</li>
+<li>Прямая пересекает плоскость в одной точке. Тогда найдём угол <script type="math/tex">φ</script> между ними:
+<script type="math/tex; mode=display">
+    \sin φ = |\cos ψ| = \left| \frac{(\Vn, \Vs)}{|\Vn| · |\Vs|} \right|
+    \overset{\text{в ОНБ}}{=} \left| \frac{Al + Bm  + Cn}{\sqrt{A^{2} + B^{2} + C^{2}} \sqrt{l^{2} + m^{2} + n^{2}}} \right|
+</script>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
+<a class="more" href="#plane_3d">← Плоскость в пространстве</a><br/>
+</div>
+<div class="entry">
+<h1 id=line_coplane><a class="tag more colloq" href="#line_coplane">#</a>Компланарность прямых </h1>
+<p>Пусть даны две прямые: <script type="math/tex">L_{1}: M_{1} + λ\vec{s_{1}}</script> и <script type="math/tex">L_{2}: M_{2} + μ\vec{s_{2}}</script>.
+Они компланарны iff <script type="math/tex">\vec{M_{1}M_{2}}, \vec{s_{1}}, \vec{s_{2}}</script> компланрны:
+<script type="math/tex; mode=display">
+⟨\vec{M_{1}M_{2}}, \vec{s_{1}}, \vec{s_{2}}⟩ = 0 \\
+\overset{\text{в ОНБ}}{⇔} \begin{vmatrix}
+    x_{2} - x_{1} & y_{2} - y_{1} & z_{2} - z_{1} \\
+    l_{1} & m_{1} & n_{1} \\
+    l_{2} & m_{2} & n_{2}
+\end{vmatrix} = 0
+</script>
+</p>
+<hr/>
+<a class="more" href="#mixed_mul">← Смешанное произведение векторов</a><br/>
+<a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
+<a class="more" href="#line_and_line">→ Взаимное расположение прямых</a><br/>
+</div>
+<div class="entry">
+<h1 id=line_and_line><a class="tag more " href="#line_and_line">#</a>Взаимное расположение прямых </h1>
+<ol>
+<li>Они параллельны: направляющие векторы параллельны ⇔ <script type="math/tex">∃λ∈ℝ: \vec{s_{1}} = λ\vec{s_{2}}</script> ⇔ в координатах:
+<script type="math/tex; mode=display">
+    \vec{s_{1}} = (l_{1}, m_{1}, n_{1}); \vec{s_{2}} = (l_{2}, m_{2}, n_{2}) \\
+    L_{1} ∥ L_{2} ⇔ \frac{l_{1}}{l_{2}} = \frac{m_{1}}{m_{2}} = \frac{n_{1}}{n_{2}}
+</script>
+</li>
+<li>Они скрещиваются, если они не компланарны.</li>
+<li>Они пересекаются. Т.е. <strong>лежат в одной плоскости, но не параллельны</strong>.</li>
+</ol>
+<p>Угол между прямыми:
+<script type="math/tex; mode=display">
+\cos φ = |\cos ∠(\vec{s_{1}}, \vec{s_{2}})| = \frac{|(\vec{s_{1}}, \vec{s_{2}})|}{|\vec{s_{1}}|·|\vec{s_{2}}|}
+\overset{\text{в ОНБ}}{=} \frac{|l_{1}l_{2} + m_{1}m_{2} + n_{1}n_{2}|}{\sqrt{l_{1}^{2} + m_{1}^{2} + n_{1}^{2}} \sqrt{l_{2}^{2} + m_{2}^{2} + n_{2}^{2}}}
+</script>
+</p>
+<hr/>
+<a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
+<a class="more" href="#line_coplane">← Компланарность прямых</a><br/>
+<a class="more" href="#dist_point_line">→ Расстояние между скрещивающимися прямыми</a><br/>
+</div>
+<div class="entry">
+<h1 id=dist_point_line><a class="tag more colloq" href="#dist_point_line">#</a>Расстояние между скрещивающимися прямыми </h1>
+<script type="math/tex; mode=display">
+ρ(L_{1}, L_{2}) = \frac{|⟨\vec{s_{1}}, \vec{s_{2}}, \vec{M_{1}M_{2}}⟩|}{|\vec{s_{1}} × \vec{s_{2}}|}
+</script>
+<hr/>
+<a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
+<a class="more" href="#line_and_line">← Взаимное расположение прямых</a><br/>
+<a class="more" href="#mixed_mul">← Смешанное произведение векторов</a><br/>
+<a class="more" href="#vec_mul">← Векторное произведение векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=termins><a class="tag more " href="#termins">#</a>Общая алгебра: терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
 <p>Отображение <script type="math/tex">f: X → Y</script> называется...</p>
 <ul>
 <li>Сюръективным: <script type="math/tex">∀y∈Y\,∃x∈X: y = f(x)</script> — во все <script type="math/tex">Y</script> ведёт стрелка.</li>
@@ -904,7 +1066,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 </li>
 </ul>
 <hr/>
-<a class="more" href="#termins">← Терминология</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 <a class="more" href="#subgroup">→ Подгруппа</a><br/>
@@ -975,7 +1137,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 </li>
 </ul>
 <hr/>
-<a class="more" href="#termins">← Терминология</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
 </div>
 <div class="entry">
@@ -1020,6 +1182,8 @@ scripts.forEach(function(script) {
               "\\Vi": "\\vec{i}",
               "\\Vj": "\\vec{j}",
               "\\Vk": "\\vec{k}",
+              "\\Vn": "\\vec{n}",
+              "\\Vs": "\\vec{s}",
               "\\bar": "\\overline",
               "\\tilde": "\\widetilde",
               "\\codir": "\\uparrow\\uparrow",
