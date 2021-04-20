@@ -37,8 +37,6 @@ def what_letter(x):
     return None, x
 
 def clean_text(text_id, text):
-    text = text.replace('≠', '\u2260')  # For some reason KaTeX does not display it well
-
     # Find subscripts and group them
     new_text = ''
     last_group = None
@@ -109,7 +107,7 @@ def toposort(data):
         if mark == 2:  # Perm
             return
         if mark == 1:  # Temp
-            raise Exception('not a DAG')
+            raise Exception(f'not a DAG: {node.id} visited twice')
         marks[node.id] = 1
 
         children = sorted(node.references, key=lambda x: ids.index(x.id))
@@ -171,6 +169,7 @@ def print_html(data):
 
 if __name__ == "__main__":
     data = load(stdin)
+    eprint(f'Loaded {len(data)} cards')
     print_html(toposort(data.values()))
     if len(argv) > 1:
         graph(data, argv[1], root=os.path.basename(argv[1]) + '.html')
