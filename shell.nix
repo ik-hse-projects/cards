@@ -7,5 +7,10 @@ in pkgs.mkShell {
     pkgs.python3.pkgs.markdown
     pkgs.python3.pkgs.python-markdown-math
     pkgs.python3.pkgs.graphviz
+    pkgs.entr
+    (pkgs.writeScriptBin "watch-algebra" ''
+      #!${pkgs.stdenv.shell}
+      find ./pages | entr sh -c "python build.py public/algebra < pages/algebra.yaml > public/algebra.html"
+    '')
   ];
 }

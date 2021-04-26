@@ -931,7 +931,7 @@ elem_ord:
     tags: [group-theory]
 
 cyclic_group:
-    title: Циклическая группа, порождённая $`g`$
+    title: Циклическая группа, порождённая g
     bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson
     colloq: true
     text: |
@@ -953,7 +953,7 @@ homo_core:
         \Ker f = \{ g∈G \mid f(g) = e_H \}
         ```
 
-        Всегда `e_G ∈ \Ker f`.
+        Всегда $`e_G ∈ \Ker f`$.
 
         Если $`\Ker f = \{e_G\}`$, то ядро называется **тривиальным**.
 
@@ -968,10 +968,12 @@ conj_class:
         Пусть $`H⊆G`$ и $`g ∈ G`$. Тогда левый смежный класс элемента $`g`$ по подгруппе $`H`$ это множество
         $`gH = \{ g·h \mid h ∈ H \}`$
 
+        Леммы (для доказательства теоремы Лагранжа):
+
         - $`∀g₁, g₂∈G`$ либо $`g₁H = g₂H`$, либо $`g₁H ∩ g₂H = ø`$.
             Т.е. смежные классы либо равны, либо не пересекаются.
-        - Для конечных подгрупп: $`|gH| = |H|`$ для всех $`g`$.
-            Отсюда в смежных классавх одинаковое количество элементов.
+        - Для конечных подгрупп: $`|gH| = |H|`$ для всех $`g∈G`$.
+            Отсюда в смежных классах одинаковое количество элементов.
 
 integer_subgroups:
     title: Подгруппы целых по сложению
@@ -979,7 +981,8 @@ integer_subgroups:
     colloq: true
     text: |
         Всякая подгруппа $`(ℤ, +)`$ имеет вид $`kℤ`$, где $`k∈ℕ∪\{0\}`$
-        ```
+
+        ```math
         kℤ = \{ kn | n∈ℤ \}
         ```
     tags: [subgroup, conj_class]
@@ -1006,4 +1009,145 @@ lagrange:
         3. Малая теорема Ферма: $`\bar{a}^{p-1} = \bar{1}`$, где $`\bar{x}`$ — ненулевой вычет по простому модулю $`p`$.
     tags: [conj_class, subgroup_index]
 
+norm_group:
+    title: Нормальная подгруппа
+    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=назвывается нормальной
+    text: |
+        $`H ⊲ G`$ iff $`gH = Hg, ∀g∈G`$
+    tags: [subgroup]
 
+norm_group_conj:
+    title: Критерий нормальности через сопряжение
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=тогда 3 условия эквивалентны
+    text: |
+        Пусть $`H ⊆ G`$. Все условия эквивалентны:
+
+        1. $`H ⊲ G`$
+        2. $`∀g∈G\, gHg⁻¹ ⊆ H`$ ($`gHg⁻¹ = \{ghg⁻¹ \mid h ∈ H\}`$)
+        3. $`∀g∈G\, gHg⁻¹ = H`$
+    tags: [norm_group]
+
+norm_group_ker:
+    title: Критерий нормальности через ядро гомоморфизма
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма
+    text: |
+        $`H ⊲ G`$ iff $`∃f: H=\Ker(f)`$, где $`f: G→F`$ — гомоморфизм
+    tags: [norm_group, homo_core]
+
+factor_group:
+    title: Факторгруппа
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#факторгруппы
+    text: |
+        Пусть $`H ⊲ G`$, тогда $`G/H`$ — множество левых смежных классов по $`H`$ — называется факторгруппой.
+
+        Групповая операция: $`(g₁H)·(g₂H) = (g₁·g₂)H`$
+
+        1. Есть ассоциативность, из ассоциативности в $`G`$
+        2. Есть нейтральный элемент: $`e_G H`$
+        3. Есть обратный элемент: $`(gH)⁻¹ = g⁻¹H`$
+
+    # TODO: Зачем нормальность?
+    tags: [norm_group, conj_class, group-theory]
+
+natural_homo:
+    title: Естественный гомоморфизм
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм
+    text: |
+        $`ε: G→G/h`$ — сопоставляет элементу $`g`$ класс смежности $`gH`$: $`ε(g) = gH`$
+    tags: [factor_group]
+
+theorem_homogroup:
+    title: Теорема о гомоморфизме групп
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#теорема-о-гомоморфизме-групп
+    text: |
+        Если $`f: G→F`$ — гомоморфизм, то $`\Im(f) ≅ G/\Ker(f)`$.
+
+        И кстати, $`\Im(f)`$ всегда подгруппа в $`F`$
+    tags: [factor_group, group_homo]
+
+straight_mul:
+    title: Прямое произведение групп
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#прямое-произведение-групп
+    text: |
+        $`(G, +)×(D, ·) = (G×D, *)`$, где:
+        
+        - $`G×D = \{(g, d) \mid g∈G, d∈D\}`$
+        - $`(g₁, d₁)*(g₂, d₂) = (g₁+g₂, d₁·d₂)`$
+    tags: [group-theory]
+
+automorph:
+    title: Автоморфизм
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм
+    text: |
+        Это изоморфизм $`f: G→G`$
+
+        Внутрениий автоморфизм $`Iₐ = g↦aga⁻¹`$
+    tags: [group_iso]
+
+group_center:
+    title: Центр группы
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#центр-группы
+    text: |
+        ```math
+        Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
+        ```
+
+        - $`Z(G) = G`$ ⇔ $`G`$ — абелева группа
+        - $`Z(G) ⊲ G`$ всегда
+    tags: [group-theory, norm_group]
+
+cayley:
+    title: Теорема Кэли
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#теорема-кэли
+    text: |
+        Любая конечная группа порядка $`n`$ изоморфна некоторой подгруппе $`Sₙ`$
+    tags: [simm_group, subgroup]
+
+# TODO: Пропущена криптография
+
+ring:
+    title: Кольцо
+    colloq: true
+    bulat: https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо
+    text: |
+        $`(K, +, ·)`$ — кольцо, iff
+        
+        1. $`(G, +)`$ — абелева группа
+        2. $`(K, ·)`$ – полугруппа
+        3. $`(a+b)·c = a·c + b·c`$ и $`c·(a+b) = c·a + c·b`$
+
+        Тогда:
+        
+        - $`(K, +)`$ — аддитивная группа кольца
+        - $`(K, ·)`$  мультипликативная полугруппа
+        - $`L⊆K`$ — подкольцо, iff $`∀x,y ∈ L`$
+            1. $`x-y ∈ L`$ (т.е. $`(L, +)`$ — абелева подгруппа)
+            2. $`x·y ∈ L`$ (т.е. $`(L, ·)`$ замкнуто)
+        - **кольцо с единицей**, iff $`(K, ·)`$ — моноид
+        - **коммутативное кольцо**, iff умножение коммутативно: $`a·b ≡ b·a`$
+
+        Например,
+        - $`(ℤ, +, ·)`$, $`ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ`$ — кольца и подкольца, все коммутативны
+        - $`(Mₙ(ℝ), +, ·)`$ — полное матричное кольцо (из квадратных матриц $`n×n`$ с матричным умножнением) — некоммутативно
+    tags: [group-theory]
+
+
+residue_ring:
+    title: Кольцо вычетов
+    text: |
+        Построим $`ℤₙ`$:
+
+        - Возьмём подгруппу $`nℤ`$ — она будет нормальной, т.к. $`nℤn⁻¹ = ℤ`$.
+        - Рассмотрим числа $`g=1, 2, …`$. Возьмём их смежные классы по $`H=nℤ`$. Например, $`3H = \{3·h \mid h∈nℤ\} = \{3·nz \mid z∈ℤ \}`$.
+          Таких смежных классов есть $`n`$ штук, поскольку классы $`gH`$ и $`(g+n)H`$ совпадают ($`(g+n)nz₁ = gnz₁ + n²z₁ = gn(z₁+nz₁) = gnz₂`$).
+        - Рассмотрим $`ℤ/nℤ`$ — выберем все эти смежные классы и объединим их в группу со сложением. Это и будет $`ℤₙ`$ — группой остатков по $`n`$.
+    tags: [factor_group, norm_group, ring]
