@@ -1030,6 +1030,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <hr/>
 <a class="more" href="#group-theory">→ Теория групп</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+<a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
 <h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
@@ -1069,18 +1070,11 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#dihedral">→ Группы Диэдра</a><br/>
 <a class="more" href="#subgroup">→ Подгруппа</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 <a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
-</div>
-<div class="entry">
-<h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа">Конспект</a>)</small></h1>
-<p>
-<script type="math/tex">S_{n}</script> — симметрическая группа — множество всех подстановок длины <script type="math/tex">n</script> с операцией композиции — группа симметрий.</p>
-<p>Содержит <script type="math/tex">n!</script> элементов</p>
-<hr/>
-<a class="more" href="#group-theory">← Теория групп</a><br/>
-<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая $`g`$</a><br/>
 </div>
 <div class="entry">
 <h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой">Конспект</a>)</small></h1>
@@ -1100,7 +1094,25 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 </ol>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
+</div>
+<div class="entry">
+<h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">S_{n}</script> — симметрическая группа — множество всех подстановок длины <script type="math/tex">n</script> с операцией композиции — группа симметрий.</p>
+<p>Содержит <script type="math/tex">n!</script> элементов</p>
+<p>
+<script type="math/tex">A_{n}</script> — все чётные подстановки длины <script type="math/tex">n</script> с операцией композиции. Является подгруппой в <script type="math/tex">S_{n}</script>
+</p>
+<p>
+<script type="math/tex">|A_{n}| = \frac{n!}{2}</script>
+</p>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_group><a class="tag more colloq" href="#lin_group">#</a>Общая и специальная линейные группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Общая линейная группа">Конспект</a>)</small></h1>
@@ -1116,6 +1128,22 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 </div>
 <div class="entry">
+<h1 id=dihedral><a class="tag more colloq" href="#dihedral">#</a>Группы Диэдра </h1>
+<p>
+<script type="math/tex">D_{n}</script> – группа симетрий правильного n-угольника. Состоит из <script type="math/tex">n</script> вращений и <script type="math/tex">n</script> симметрий. Т.е. в ней <script type="math/tex">2n</script> элементов.</p>
+<p><script type="math/tex; mode=display">
+D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
+</script>
+
+Т.е.
+- <script type="math/tex">n</script> раз повернуть возвращает фигуру в исходный вид.
+- Если отразить дважды, то ничего не изменится.
+- Отразить, повернуть и ещё отразить — всё равно что так же повернуть в другую сторону.</p>
+<p>Утверждается, что <script type="math/tex">D_{3} ≅ S_{3}</script>.</p>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+</div>
+<div class="entry">
 <h1 id=group_homo><a class="tag more colloq" href="#group_homo">#</a>Гомоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм">Конспект</a>)</small></h1>
 <p>Отображение <script type="math/tex">φ: G → H</script> является гомоморфизмом групп, iff <script type="math/tex">∀x,y\, φ(x·y) = φ(x)×φ(y)</script>
 </p>
@@ -1123,10 +1151,20 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <li>
 <script type="math/tex">φ = \det</script>: отображает <script type="math/tex">GL_{n}(ℝ)</script> в <script type="math/tex">(ℝ∖\{0\}, ·)</script>.</li>
 </ul>
+<p>Свойства:</p>
+<ol>
+<li>
+<script type="math/tex">φ(e_g) = e_h</script>
+</li>
+<li>
+<script type="math/tex">φ(g)^{-1} = φ(g^{-1})</script>
+</li>
+</ol>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+<a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
 <h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы">Конспект</a>)</small></h1>
@@ -1136,6 +1174,11 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <script type="math/tex">φ = \exp</script>: отображает <script type="math/tex">(ℝ, +)</script> в <script type="math/tex">(ℝ_{+}, ·)</script>
 </li>
 </ul>
+<p>Свойства:</p>
+<ol>
+<li>
+<script type="math/tex">φ^{-1}</script> — тоже изоморфизм.</li>
+</ol>
 <hr/>
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
@@ -1145,8 +1188,94 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <p>
 <script type="math/tex">\ord g</script> это наименьшее такое <script type="math/tex">n∈ℕ</script>, что <script type="math/tex">g^{n} = g·g·…·g = e</script>
 </p>
+<p>Все циклические группы одного порядка изоморфны.
+Т.е. существует только одна циклическая группа данного порядка (с точностью до изоморфизма)</p>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая $`g`$</a><br/>
+</div>
+<div class="entry">
+<h1 id=cyclic_group><a class="tag more colloq" href="#cyclic_group">#</a>Циклическая группа, порождённая $`g`$ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">g ∈ G</script>.</p>
+<ul>
+<li>
+<script type="math/tex">⟨g⟩</script> — циклическая группа, порождённая <script type="math/tex">g</script>
+</li>
+<li>
+<script type="math/tex">|⟨g⟩| = \ord g</script>
+</li>
+</ul>
+<p>Например, <script type="math/tex">(ℤ, +) = ⟨1⟩</script>
+</p>
+<hr/>
+<a class="more" href="#elem_ord">← Порядок элемента группы</a><br/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=homo_core><a class="tag more colloq" href="#homo_core">#</a>Ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+f: G → H \\
+\Ker f = \{ g∈G \mid f(g) = e_H \}
+</script>
+
+<p>Всегда <code>e_G ∈ \Ker f</code>.</p>
+<p>Если <script type="math/tex">\Ker f = \{e_G\}</script>, то ядро называется <strong>тривиальным</strong>.</p>
+<p>
+<script type="math/tex">f</script> инъективно ⇔ ядро тривиально.</p>
+<hr/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
+</div>
+<div class="entry">
+<h1 id=conj_class><a class="tag more colloq" href="#conj_class">#</a>Смежный класс <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#смежные-классы">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">H⊆G</script> и <script type="math/tex">g ∈ G</script>. Тогда левый смежный класс элемента <script type="math/tex">g</script> по подгруппе <script type="math/tex">H</script> это множество
+<script type="math/tex">gH = \{ g·h \mid h ∈ H \}</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">∀g_{1}, g_{2}∈G</script> либо <script type="math/tex">g_{1}H = g_{2}H</script>, либо <script type="math/tex">g_{1}H ∩ g_{2}H = ø</script>.
+    Т.е. смежные классы либо равны, либо не пересекаются.</li>
+<li>Для конечных подгрупп: <script type="math/tex">|gH| = |H|</script> для всех <script type="math/tex">g</script>.
+    Отсюда в смежных классавх одинаковое количество элементов.</li>
+</ul>
+<hr/>
+<a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
+<a class="more" href="#subgroup_index">→ Индекс подгруппы</a><br/>
+<a class="more" href="#lagrange">→ Теорема Лагранжа</a><br/>
+</div>
+<div class="entry">
+<h1 id=integer_subgroups><a class="tag more colloq" href="#integer_subgroups">#</a>Подгруппы целых по сложению <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в">Конспект</a>)</small></h1>
+<p>Всякая подгруппа <script type="math/tex">(ℤ, +)</script> имеет вид <script type="math/tex">kℤ</script>, где <script type="math/tex">k∈ℕ∪\{0\}</script>
+<code>kℤ = \{ kn | n∈ℤ \}</code></p>
+<hr/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
+<a class="more" href="#conj_class">← Смежный класс</a><br/>
+</div>
+<div class="entry">
+<h1 id=subgroup_index><a class="tag more colloq" href="#subgroup_index">#</a>Индекс подгруппы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#индекс-подгруппы">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">[G : H]</script> — число левых смежных классов в <script type="math/tex">G</script> по подгруппе <script type="math/tex">H</script> (<script type="math/tex">gH</script>).</p>
+<hr/>
+<a class="more" href="#conj_class">← Смежный класс</a><br/>
+<a class="more" href="#lagrange">→ Теорема Лагранжа</a><br/>
+</div>
+<div class="entry">
+<h1 id=lagrange><a class="tag more colloq" href="#lagrange">#</a>Теорема Лагранжа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#теорема-лагранжа">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">G</script> — конечная группа, а <script type="math/tex">H</script> — её подгруппа. Тогда <script type="math/tex">|G| = |H| · [G : H]</script>
+</p>
+<p>Следствия:</p>
+<ol>
+<li>
+<script type="math/tex">\ord g</script> всегда делит <script type="math/tex">|G|</script>
+</li>
+<li>
+<script type="math/tex">g^{|G|} = e</script>
+</li>
+<li>Малая теорема Ферма: <script type="math/tex">\bar{a}^{p-1} = \bar{1}</script>, где <script type="math/tex">\bar{x}</script> — ненулевой вычет по простому модулю <script type="math/tex">p</script>.</li>
+</ol>
+<hr/>
+<a class="more" href="#conj_class">← Смежный класс</a><br/>
+<a class="more" href="#subgroup_index">← Индекс подгруппы</a><br/>
 </div>
 
   </div>
@@ -1174,6 +1303,8 @@ scripts.forEach(function(script) {
               "\\Arg": "\\operatorname{Arg}",
               "\\ord": "\\operatorname{ord}",
               "\\pr": "\\operatorname{пр}",
+              "\\Ker": "\\operatorname{Ker}",
+              "\\id": "\\operatorname{id}",
               "\\Va": "\\vec{a}",
               "\\Vb": "\\vec{b}",
               "\\Vc": "\\vec{c}",
