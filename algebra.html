@@ -1074,7 +1074,11 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#subgroup">→ Подгруппа</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 <a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
-<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая $`g`$</a><br/>
+<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая g</a><br/>
+<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
+<a class="more" href="#straight_mul">→ Прямое произведение групп</a><br/>
+<a class="more" href="#group_center">→ Центр группы</a><br/>
+<a class="more" href="#ring">→ Кольцо</a><br/>
 </div>
 <div class="entry">
 <h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой">Конспект</a>)</small></h1>
@@ -1097,6 +1101,8 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 <a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
+<a class="more" href="#norm_group">→ Нормальная подгруппа</a><br/>
+<a class="more" href="#cayley">→ Теорема Кэли</a><br/>
 </div>
 <div class="entry">
 <h1 id=simm_group><a class="tag more colloq" href="#simm_group">#</a>Симметрическая группа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа">Конспект</a>)</small></h1>
@@ -1113,6 +1119,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#subst">← Подстановка</a><br/>
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
+<a class="more" href="#cayley">→ Теорема Кэли</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_group><a class="tag more colloq" href="#lin_group">#</a>Общая и специальная линейные группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Общая линейная группа">Конспект</a>)</small></h1>
@@ -1165,6 +1172,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
 <a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
 </div>
 <div class="entry">
 <h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы">Конспект</a>)</small></h1>
@@ -1182,6 +1190,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <hr/>
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#automorph">→ Автоморфизм</a><br/>
 </div>
 <div class="entry">
 <h1 id=elem_ord><a class="tag more colloq" href="#elem_ord">#</a>Порядок элемента группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=порядок элемента">Конспект</a>)</small></h1>
@@ -1192,10 +1201,10 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 Т.е. существует только одна циклическая группа данного порядка (с точностью до изоморфизма)</p>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
-<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая $`g`$</a><br/>
+<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая g</a><br/>
 </div>
 <div class="entry">
-<h1 id=cyclic_group><a class="tag more colloq" href="#cyclic_group">#</a>Циклическая группа, порождённая $`g`$ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson">Конспект</a>)</small></h1>
+<h1 id=cyclic_group><a class="tag more colloq" href="#cyclic_group">#</a>Циклическая группа, порождённая g <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson">Конспект</a>)</small></h1>
 <p>Пусть <script type="math/tex">g ∈ G</script>.</p>
 <ul>
 <li>
@@ -1218,30 +1227,33 @@ f: G → H \\
 \Ker f = \{ g∈G \mid f(g) = e_H \}
 </script>
 
-<p>Всегда <code>e_G ∈ \Ker f</code>.</p>
+<p>Всегда <script type="math/tex">e_G ∈ \Ker f</script>.</p>
 <p>Если <script type="math/tex">\Ker f = \{e_G\}</script>, то ядро называется <strong>тривиальным</strong>.</p>
 <p>
 <script type="math/tex">f</script> инъективно ⇔ ядро тривиально.</p>
 <hr/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
+<a class="more" href="#norm_group_ker">→ Критерий нормальности через ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
 <h1 id=conj_class><a class="tag more colloq" href="#conj_class">#</a>Смежный класс <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#смежные-классы">Конспект</a>)</small></h1>
 <p>Пусть <script type="math/tex">H⊆G</script> и <script type="math/tex">g ∈ G</script>. Тогда левый смежный класс элемента <script type="math/tex">g</script> по подгруппе <script type="math/tex">H</script> это множество
 <script type="math/tex">gH = \{ g·h \mid h ∈ H \}</script>
 </p>
+<p>Леммы (для доказательства теоремы Лагранжа):</p>
 <ul>
 <li>
 <script type="math/tex">∀g_{1}, g_{2}∈G</script> либо <script type="math/tex">g_{1}H = g_{2}H</script>, либо <script type="math/tex">g_{1}H ∩ g_{2}H = ø</script>.
     Т.е. смежные классы либо равны, либо не пересекаются.</li>
-<li>Для конечных подгрупп: <script type="math/tex">|gH| = |H|</script> для всех <script type="math/tex">g</script>.
-    Отсюда в смежных классавх одинаковое количество элементов.</li>
+<li>Для конечных подгрупп: <script type="math/tex">|gH| = |H|</script> для всех <script type="math/tex">g∈G</script>.
+    Отсюда в смежных классах одинаковое количество элементов.</li>
 </ul>
 <hr/>
 <a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
 <a class="more" href="#subgroup_index">→ Индекс подгруппы</a><br/>
 <a class="more" href="#lagrange">→ Теорема Лагранжа</a><br/>
+<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
 </div>
 <div class="entry">
 <h1 id=integer_subgroups><a class="tag more colloq" href="#integer_subgroups">#</a>Подгруппы целых по сложению <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в">Конспект</a>)</small></h1>
@@ -1277,6 +1289,182 @@ f: G → H \\
 <a class="more" href="#conj_class">← Смежный класс</a><br/>
 <a class="more" href="#subgroup_index">← Индекс подгруппы</a><br/>
 </div>
+<div class="entry">
+<h1 id=norm_group><a class="tag more " href="#norm_group">#</a>Нормальная подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=назвывается нормальной">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">H ⊲ G</script> iff <script type="math/tex">gH = Hg, ∀g∈G</script>
+</p>
+<hr/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
+<a class="more" href="#norm_group_conj">→ Критерий нормальности через сопряжение</a><br/>
+<a class="more" href="#norm_group_ker">→ Критерий нормальности через ядро гомоморфизма</a><br/>
+<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
+<a class="more" href="#group_center">→ Центр группы</a><br/>
+<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+</div>
+<div class="entry">
+<h1 id=norm_group_conj><a class="tag more colloq" href="#norm_group_conj">#</a>Критерий нормальности через сопряжение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=тогда 3 условия эквивалентны">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">H ⊆ G</script>. Все условия эквивалентны:</p>
+<ol>
+<li>
+<script type="math/tex">H ⊲ G</script>
+</li>
+<li>
+<script type="math/tex">∀g∈G\, gHg^{-1} ⊆ H</script> (<script type="math/tex">gHg^{-1} = \{ghg^{-1} \mid h ∈ H\}</script>)</li>
+<li>
+<script type="math/tex">∀g∈G\, gHg^{-1} = H</script>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+</div>
+<div class="entry">
+<h1 id=norm_group_ker><a class="tag more colloq" href="#norm_group_ker">#</a>Критерий нормальности через ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">H ⊲ G</script> iff <script type="math/tex">∃f: H=\Ker(f)</script>, где <script type="math/tex">f: G→F</script> — гомоморфизм</p>
+<hr/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+<a class="more" href="#homo_core">← Ядро гомоморфизма</a><br/>
+</div>
+<div class="entry">
+<h1 id=factor_group><a class="tag more colloq" href="#factor_group">#</a>Факторгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#факторгруппы">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">H ⊲ G</script>, тогда <script type="math/tex">G/H</script> — множество левых смежных классов по <script type="math/tex">H</script> — называется факторгруппой.</p>
+<p>Групповая операция: <script type="math/tex">(g_{1}H)·(g_{2}H) = (g_{1}·g_{2})H</script>
+</p>
+<ol>
+<li>Есть ассоциативность, из ассоциативности в <script type="math/tex">G</script>
+</li>
+<li>Есть нейтральный элемент: <script type="math/tex">e_G H</script>
+</li>
+<li>Есть обратный элемент: <script type="math/tex">(gH)^{-1} = g^{-1}H</script>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+<a class="more" href="#conj_class">← Смежный класс</a><br/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#natural_homo">→ Естественный гомоморфизм</a><br/>
+<a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
+<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+</div>
+<div class="entry">
+<h1 id=natural_homo><a class="tag more colloq" href="#natural_homo">#</a>Естественный гомоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">ε: G→G/h</script> — сопоставляет элементу <script type="math/tex">g</script> класс смежности <script type="math/tex">gH</script>: <script type="math/tex">ε(g) = gH</script>
+</p>
+<hr/>
+<a class="more" href="#factor_group">← Факторгруппа</a><br/>
+</div>
+<div class="entry">
+<h1 id=theorem_homogroup><a class="tag more colloq" href="#theorem_homogroup">#</a>Теорема о гомоморфизме групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#теорема-о-гомоморфизме-групп">Конспект</a>)</small></h1>
+<p>Если <script type="math/tex">f: G→F</script> — гомоморфизм, то <script type="math/tex">\Im(f) ≅ G/\Ker(f)</script>.</p>
+<p>И кстати, <script type="math/tex">\Im(f)</script> всегда подгруппа в <script type="math/tex">F</script>
+</p>
+<hr/>
+<a class="more" href="#factor_group">← Факторгруппа</a><br/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=straight_mul><a class="tag more colloq" href="#straight_mul">#</a>Прямое произведение групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#прямое-произведение-групп">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">(G, +)×(D, ·) = (G×D, *)</script>, где:</p>
+<ul>
+<li>
+<script type="math/tex">G×D = \{(g, d) \mid g∈G, d∈D\}</script>
+</li>
+<li>
+<script type="math/tex">(g_{1}, d_{1})*(g_{2}, d_{2}) = (g_{1}+g_{2}, d_{1}·d_{2})</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=automorph><a class="tag more colloq" href="#automorph">#</a>Автоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм">Конспект</a>)</small></h1>
+<p>Это изоморфизм <script type="math/tex">f: G→G</script>
+</p>
+<p>Внутрениий автоморфизм <script type="math/tex">Iₐ = g↦aga^{-1}</script>
+</p>
+<hr/>
+<a class="more" href="#group_iso">← Изоморфизм групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=group_center><a class="tag more colloq" href="#group_center">#</a>Центр группы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#центр-группы">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
+</script>
+
+<ul>
+<li>
+<script type="math/tex">Z(G) = G</script> ⇔ <script type="math/tex">G</script> — абелева группа</li>
+<li>
+<script type="math/tex">Z(G) ⊲ G</script> всегда</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+</div>
+<div class="entry">
+<h1 id=cayley><a class="tag more colloq" href="#cayley">#</a>Теорема Кэли <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#теорема-кэли">Конспект</a>)</small></h1>
+<p>Любая конечная группа порядка <script type="math/tex">n</script> изоморфна некоторой подгруппе <script type="math/tex">S_{n}</script>
+</p>
+<hr/>
+<a class="more" href="#simm_group">← Симметрическая группа</a><br/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
+</div>
+<div class="entry">
+<h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
+<ol>
+<li>
+<script type="math/tex">(G, +)</script> — абелева группа</li>
+<li>
+<script type="math/tex">(K, ·)</script> – полугруппа</li>
+<li>
+<script type="math/tex">(a+b)·c = a·c + b·c</script> и <script type="math/tex">c·(a+b) = c·a + c·b</script>
+</li>
+</ol>
+<p>Тогда:</p>
+<ul>
+<li>
+<script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
+<li>
+<script type="math/tex">(K, ·)</script>  мультипликативная полугруппа</li>
+<li>
+<script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
+<ol>
+<li>
+<script type="math/tex">x-y ∈ L</script> (т.е. <script type="math/tex">(L, +)</script> — абелева подгруппа)</li>
+<li>
+<script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
+</ol>
+</li>
+<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
+<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
+</li>
+</ul>
+<p>Например,
+- <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — кольца и подкольца, все коммутативны
+- <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+</div>
+<div class="entry">
+<h1 id=residue_ring><a class="tag more " href="#residue_ring">#</a>Кольцо вычетов </h1>
+<p>Построим <script type="math/tex">ℤ_{n}</script>:</p>
+<ul>
+<li>Возьмём подгруппу <script type="math/tex">nℤ</script> — она будет нормальной, т.к. <script type="math/tex">nℤn^{-1} = ℤ</script>.</li>
+<li>Рассмотрим числа <script type="math/tex">g=1, 2, …</script>. Возьмём их смежные классы по <script type="math/tex">H=nℤ</script>. Например, <script type="math/tex">3H = \{3·h \mid h∈nℤ\} = \{3·nz \mid z∈ℤ \}</script>.
+  Таких смежных классов есть <script type="math/tex">n</script> штук, поскольку классы <script type="math/tex">gH</script> и <script type="math/tex">(g+n)H</script> совпадают (<script type="math/tex">(g+n)nz_{1} = gnz_{1} + n^{2}z_{1} = gn(z_{1}+nz_{1}) = gnz_{2}</script>).</li>
+<li>Рассмотрим <script type="math/tex">ℤ/nℤ</script> — выберем все эти смежные классы и объединим их в группу со сложением. Это и будет <script type="math/tex">ℤ_{n}</script> — группой остатков по <script type="math/tex">n</script>.</li>
+</ul>
+<hr/>
+<a class="more" href="#factor_group">← Факторгруппа</a><br/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+</div>
 
   </div>
   <div class="panel" id="side_panel">
@@ -1298,6 +1486,7 @@ scripts.forEach(function(script) {
               "\\Σ": "\\sum",
               "∄": "\\nexists",
               "·": "\\cdot",
+              "⊲": "\\lhd",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
