@@ -131,7 +131,7 @@ hr:last-child {
 <li><a href="https://wiki.bularond.ru/ru/algebra">https://wiki.bularond.ru/ru/algebra</a> — подробные конспекты</li>
 <li><a href="https://hse-tex.me/course-1/linear-algebra.pdf">https://hse-tex.me/course-1/linear-algebra.pdf</a> — конспекты ПМИ. Не используется, но может оказаться полезным.</li>
 </ul>
-<p><a href="algebra.svg">Большой граф всего</a></p>
+<p><a href="algebra.svg">Большой <strong>интерактивный</strong> граф всего</a></p>
 <hr/>
 </div>
 <div class="entry">
@@ -348,6 +348,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#lin_dep_criteria">→ Критерий линейной зависимости</a><br/>
 <a class="more" href="#basic_minor_theorem">→ Теорема о базисном миноре</a><br/>
 <a class="more" href="#solution_structure_o">→ Структура общего решения однородной СЛАУ</a><br/>
+<a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_dep><a class="tag more colloq" href="#lin_dep">#</a>Линейная зависимость <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми">Конспект</a>)</small></h1>
@@ -358,6 +359,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
 <a class="more" href="#lin_indep">→ Линейно независимые строки</a><br/>
 <a class="more" href="#lin_dep_criteria">→ Критерий линейной зависимости</a><br/>
+<a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
 </div>
 <div class="entry">
 <h1 id=lin_indep><a class="tag more colloq" href="#lin_indep">#</a>Линейно независимые строки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми">Конспект</a>)</small></h1>
@@ -1078,7 +1080,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#factor_group">→ Факторгруппа</a><br/>
 <a class="more" href="#straight_mul">→ Прямое произведение групп</a><br/>
 <a class="more" href="#group_center">→ Центр группы</a><br/>
-<a class="more" href="#ring">→ Кольцо</a><br/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=subgroup><a class="tag more colloq" href="#subgroup">#</a>Подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой">Конспект</a>)</small></h1>
@@ -1424,10 +1426,10 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <h1 id=zero_div><a class="tag more colloq" href="#zero_div">#</a>Делители нуля </h1>
 <p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
 <hr/>
-<a class="more" href="#ring">→ Кольцо</a><br/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
 </div>
 <div class="entry">
-<h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
+<h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо и поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
 <p>
 <script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
 <ol>
@@ -1485,6 +1487,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
 <a class="more" href="#subfield">→ Подполя</a><br/>
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#linear_space">→ Линейное пространство</a><br/>
 </div>
 <div class="entry">
 <h1 id=residue_ring><a class="tag more " href="#residue_ring">#</a>Кольцо вычетов </h1>
@@ -1498,7 +1501,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <hr/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
 <a class="more" href="#field_size">→ Число элементов в поле</a><br/>
 <a class="more" href="#chinese_rems">→ Китайская теорема об остатках</a><br/>
@@ -1507,7 +1510,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <h1 id=integral_ring><a class="tag more colloq" href="#integral_ring">#</a>Критерий целостности кольца </h1>
 <p>Нетривиальное коммутативное кольцо является целостным iff в нём из <script type="math/tex">ab=ac</script> следует <script type="math/tex">b=c</script>, если <script type="math/tex">a≠0</script>.</p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=ideal><a class="tag more colloq" href="#ideal">#</a>Идеал <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал">Конспект</a>)</small></h1>
@@ -1519,7 +1522,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </ol>
 <p>Идеал главный, iff <script type="math/tex">∃a∈K: I = \{r·a \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
 <a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
 </div>
@@ -1530,7 +1533,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </p>
 <p>Всегда является нормальной подгруппой по сложению.</p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#ideal">← Идеал</a><br/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
 </div>
@@ -1547,7 +1550,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </ul>
 <p>Причём характеристика всегда либо <script type="math/tex">0</script>, либо простое число (потому что в поле нет делителей нуля).</p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=factor_ring><a class="tag more colloq" href="#factor_ring">#</a>Факторкольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#факторкольцо">Конспект</a>)</small></h1>
@@ -1562,7 +1565,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <li>Можно понимать как множество смежных классов по сложению</li>
 </ul>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#ideal">← Идеал</a><br/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
@@ -1576,7 +1579,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 - <script type="math/tex">ℤ/nℤ ≅ ℤ_{n}</script>, <script type="math/tex">φ: ℤ → ℤ_{n}</script>, <script type="math/tex">\Ker φ = nℤ</script>
 </p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#theorem_homogroup">← Теорема о гомоморфизме групп</a><br/>
 </div>
 <div class="entry">
@@ -1612,7 +1615,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </li>
 </ol>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#algebaric_el">→ Алгебраический элемент над подполем</a><br/>
 </div>
 <div class="entry">
@@ -1622,7 +1625,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <p>Аналогично <script type="math/tex">ℤ_{n}</script> является полем iff <script type="math/tex">p</script> простое, т.е. не раскладывается на множители</p>
 <p>Любое подполе <script type="math/tex">F_{p^n}</script> изоморфно <script type="math/tex">F_{p^m}</script>, где <script type="math/tex">n</script> делится на <script type="math/tex">m</script>.</p>
 <hr/>
-<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#factor_ring">← Факторкольцо</a><br/>
 <a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
 <a class="more" href="#cyclic_group">← Циклическая группа, порождённая g</a><br/>
@@ -1673,6 +1676,52 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <hr/>
 <a class="more" href="#straight_mul">← Прямое произведение групп</a><br/>
 <a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_space><a class="tag more colloq" href="#linear_space">#</a>Линейное пространство <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#линейные-простанства">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">F</script> — поле; <script type="math/tex">V</script> — множество, на котором заданы сложение (<script type="math/tex">V+V → V</script>) и умножение на число <script type="math/tex">λ∈F</script>
+</p>
+<p>
+<script type="math/tex">V</script> является линейным пространством iff (<script type="math/tex">∀x, y, z∈V, ∀λ,μ∈F</script>)</p>
+<ol>
+<li>
+<script type="math/tex">x + y = y + x</script> — коммутативность сложения</li>
+<li>
+<script type="math/tex">(x + y) + z = x + (y + z)</script> — ассоциативность сложения</li>
+<li>
+<script type="math/tex">∃0 ∈ V: x + 0 = 0 + x = x</script> — нейтральный по сложению</li>
+<li>
+<script type="math/tex">∃(-x)∈V: x + (-x) = 0</script> — обратный по сложению</li>
+<li>
+<script type="math/tex">∃1∈F : 1·x = x</script> — нейтральный по умножению на число</li>
+<li>
+<script type="math/tex">μ(λx) = (μλ)x</script> — ассоциативность умножения на число</li>
+<li>
+<script type="math/tex">(λ + μ)x = λx + μx</script> — дистрибутивность относительно сложения чисел</li>
+<li>
+<script type="math/tex">λ(x+y) = λx + λy</script> — дистрибутивность относительно сложения векторов</li>
+</ol>
+<p>Элементы множества называются векторами. Примеры:</p>
+<ul>
+<li>
+<script type="math/tex">V_{3}</script> — геометричесие векторы</li>
+<li>
+<script type="math/tex">F^{n}</script>, где <script type="math/tex">F</script> поле. Операции (чаще всего) заданы покомпонентно.</li>
+<li>
+<script type="math/tex">A·x=0</script> — ОСЛАУ, тогда множество решений будет линйеным пространством.</li>
+</ul>
+<hr/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
+<a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
+</div>
+<div class="entry">
+<h1 id=space_base><a class="tag more colloq" href="#space_base">#</a>Базис линейного пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
+<p>Базис это уполрядоченный набор  л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией)</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
 </div>
 
   </div>
