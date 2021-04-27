@@ -1714,20 +1714,168 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
+<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
+<a class="more" href="#subspace">→ Подпространство</a><br/>
+<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
 </div>
 <div class="entry">
 <h1 id=space_base><a class="tag more colloq" href="#space_base">#</a>Базис линейного пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
-<p>Базис это уполрядоченный набор  л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией)</p>
+<p>Базис это упорядоченный набор л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией):
+<script type="math/tex; mode=display">
+∀x∈V\, ∃x_{1},…,x_{n} :  x = x_{1}b_{1} + … + x_{n}b_{n}
+</script>
+
+Причём числа <script type="math/tex">x_{1},…,x_{n}</script> называют координатами вектора <script type="math/tex">x</script> в базисе <script type="math/tex">b_{1},…,b_{n}</script>. И такое разложение единственно.</p>
 <hr/>
 <a class="more" href="#linear_space">← Линейное пространство</a><br/>
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
 <a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
+<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
+<a class="more" href="#change_base">→ Переход к новому базису</a><br/>
+<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
+</div>
+<div class="entry">
+<h1 id=space_dim><a class="tag more colloq" href="#space_dim">#</a>Размерность пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
+<p>Размерность это максимальное число л.н.з. векторов в пространстве.</p>
+<p>Кстати, оно совпадает с числом векторов в базисе.</p>
+<hr/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
+<a class="more" href="#subspace_sum">→ Сумма подпространств</a><br/>
+</div>
+<div class="entry">
+<h1 id=change_base><a class="tag more colloq" href="#change_base">#</a>Переход к новому базису <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#переход-к-новому-базису">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">L</script> — <script type="math/tex">n</script>-мерное пространство, а <script type="math/tex">A = \{a_{1},…,a_{n}\}</script> и <script type="math/tex">B = \{b_{1},…,b_{n}\}</script> — базисы в нём.
+<script type="math/tex; mode=display">
+\begin{cases}
+    b_{1} = t_{11}a_{1} + t_{21}a_{2} + … + t_{n1}a_{n} \\
+    … \\
+    b_{n} = t_{1n}a_{1} + t_{2n}a_{2} + … + t_{nn}a_{n}
+\end{cases}
+\quad
+T_{A→B} = \begin{pmatrix}
+    t_{11} & … & t_{1n} \\
+    … & & … \\
+    t_{n1} & … & t_{nn}
+\end{pmatrix}
+</script>
+
+Разложили векторы базиса <script type="math/tex">B</script> по базису <script type="math/tex">A</script> и собрали <em>координаты</em> в матрицу <script type="math/tex">T_{A→B}</script>.</p>
+<p>Тогда:
+<script type="math/tex; mode=display">
+T_{A→B}^{-1} = T_{B→A} \\
+T_{A→C} = T_{A→B} · T_{B→C} \\
+x^a = T_{A→B}·x^b \\
+x^b = T_{A→B}^{-1} · x^a = T_{B→A}·x^a
+</script>
+</p>
+<hr/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+</div>
+<div class="entry">
+<h1 id=subspace><a class="tag more colloq" href="#subspace">#</a>Подпространство <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#подпространтсва">Конспект</a>)</small></h1>
+<p>Это подмножество <script type="math/tex">W⊂V</script>, которое является пространством относительно тех же операций.</p>
+<p>Для проверки на подпространство достаточно проверить замкнутость:</p>
+<ol>
+<li>
+<script type="math/tex">x + y ∈ W</script>
+</li>
+<li>
+<script type="math/tex">λ·x ∈ W</script>
+</li>
+</ol>
+<p>В любом пространстве есть подпространство <script type="math/tex">\{0\}</script>
+</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#subspace_sum">→ Сумма подпространств</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_span><a class="tag more colloq" href="#linear_span">#</a>Линейная оболочка <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#линейная-оболочка">Конспект</a>)</small></h1>
+<p>Множество всех линейных комбинаций набора векторов называется их линейной оболочкой.
+<script type="math/tex; mode=display">
+L(a_{1},…,a_{k}) = \{λ_{1}a_{1} + … + λ_{k}a_{k} \mid λ_{i}∈F\}
+</script>
+</p>
+<p>Она всегда является подпространством (если <script type="math/tex">k≠0</script>).</p>
+<ul>
+<li>В <script type="math/tex">V_{3}</script> с базисом <script type="math/tex">i,j,k</script>: <script type="math/tex">L(i, j)</script> — плоскость <script type="math/tex">O_{xy}</script>
+</li>
+</ul>
+<p><strong>Ранг системы векторов</strong>
+<script type="math/tex; mode=display">
+\Rg(a_{1},…,a_{k}) = dim(L(a_{1},…,a_{k}))
+</script>
+</p>
+<p>Причём <script type="math/tex">\Rg(a_{1},…,a_{k})</script> — равен рангу матрицы, составленной по столбцам координат векторов в некотором базисе.</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#space_dim">← Размерность пространства</a><br/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+</div>
+<div class="entry">
+<h1 id=subspace_sum><a class="tag more colloq" href="#subspace_sum">#</a>Сумма подпространств <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#сумма-подпространств">Конспект</a>)</small></h1>
+<script type="math/tex; mode=display">
+H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
+</script>
+
+<ul>
+<li>Это множество является подпространством </li>
+<li>
+<script type="math/tex">\dim(H_{1} + H_{2}) = \dim(H_{1}) + \dim(H_{2}) - \dim(H_{1}∩H_{2})</script>
+</li>
+<li>сумма <strong>прямая</strong> iff <script type="math/tex">H_{1}∩H_{2} = \{0\}</script>, т.е. тривиально. Тогда обозначается как <script type="math/tex">H_{1} ⊕ H_{2}</script>
+</li>
+<li>
+<script type="math/tex">\dim(H_{1} ⊕ H_{2}) = \dim(H_{1}) + \dim(H_{2})</script>
+</li>
+<li>
+<script type="math/tex">H_{1} + H_{2}</script> — прямая сумма iff <script type="math/tex">∀x∈H_{1} + H_{2}</script> единственным образом представляется как <script type="math/tex">x = x_{1} + x_{2}, x_{1}∈H_{1}, x_{2}∈H_{2}</script>.</li>
+</ul>
+<hr/>
+<a class="more" href="#subspace">← Подпространство</a><br/>
+<a class="more" href="#space_dim">← Размерность пространства</a><br/>
 </div>
 
   </div>
   <div class="panel" id="side_panel">
   </div>
   <script>
+let macros = {
+    "\\Σ": "\\sum",
+    "∄": "\\nexists",
+    "·": "\\cdot",
+    "⊲": "\\lhd",
+    "⊥": "\\perp",
+    "∥": "\\parallel",
+    "∖": "\\setminus",
+    "ø": "\\varnothing",
+    "\\o": "\\varnothing",
+    "\\Rg": "\\operatorname{Rg}",
+    "\\arg": "\\operatorname{arg}",
+    "\\Arg": "\\operatorname{Arg}",
+    "\\ord": "\\operatorname{ord}",
+    "\\pr": "\\operatorname{пр}",
+    "\\Ker": "\\operatorname{Ker}",
+    "\\id": "\\operatorname{id}",
+    "\\Char": "\\operatorname{char}",
+    "\\const": "\\operatorname{const}",
+    "\\Va": "\\vec{a}",
+    "\\Vb": "\\vec{b}",
+    "\\Vc": "\\vec{c}",
+    "\\Ve": "\\vec{e}",
+    "\\Vo": "\\vec{0}",
+    "\\Vi": "\\vec{i}",
+    "\\Vj": "\\vec{j}",
+    "\\Vk": "\\vec{k}",
+    "\\Vn": "\\vec{n}",
+    "\\Vs": "\\vec{s}",
+    "\\bar": "\\overline",
+    "\\tilde": "\\widetilde",
+    "\\codir": "\\uparrow\\uparrow",
+    "\\difdir": "\\uparrow\\downarrow",
+};
 let scripts = document.body.getElementsByTagName("script");
 scripts = Array.prototype.slice.call(scripts);
 scripts.forEach(function(script) {
@@ -1740,42 +1888,11 @@ scripts.forEach(function(script) {
     katexElement.setAttribute("class", display ? "equation" : "inline-equation");
     try {
         katex.render(script.text, katexElement, {
-          macros: {
-              "\\Σ": "\\sum",
-              "∄": "\\nexists",
-              "·": "\\cdot",
-              "⊲": "\\lhd",
-              "⊥": "\\perp",
-              "∥": "\\parallel",
-              "∖": "\\setminus",
-              "ø": "\\varnothing",
-              "\\o": "\\varnothing",
-              "\\Rg": "\\operatorname{Rg}",
-              "\\arg": "\\operatorname{arg}",
-              "\\Arg": "\\operatorname{Arg}",
-              "\\ord": "\\operatorname{ord}",
-              "\\pr": "\\operatorname{пр}",
-              "\\Ker": "\\operatorname{Ker}",
-              "\\id": "\\operatorname{id}",
-              "\\Char": "\\operatorname{char}",
-              "\\const": "\\operatorname{const}",
-              "\\Va": "\\vec{a}",
-              "\\Vb": "\\vec{b}",
-              "\\Vc": "\\vec{c}",
-              "\\Ve": "\\vec{e}",
-              "\\Vo": "\\vec{0}",
-              "\\Vi": "\\vec{i}",
-              "\\Vj": "\\vec{j}",
-              "\\Vk": "\\vec{k}",
-              "\\Vn": "\\vec{n}",
-              "\\Vs": "\\vec{s}",
-              "\\bar": "\\overline",
-              "\\tilde": "\\widetilde",
-              "\\codir": "\\uparrow\\uparrow",
-              "\\difdir": "\\uparrow\\downarrow",
-          },
+          macros: macros,
           fleqn: true,
-          displayMode: display
+          displayMode: display,
+          strict: false,
+          trust: true,
         });
     } catch (err) {
         console.log(script.text);
