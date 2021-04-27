@@ -151,39 +151,34 @@ def graph(data, outfile, root=None):
     import graphviz
     dot = graphviz.Digraph(engine='neato')
     dot.attr('graph', rankdir='LR', overlap="false", splines="true", epsilon=".0000001")
-    js = 'const nodes={};'
+    js = '''
+        function setup(id, others) {
+            let node = document.getElementById(id);
+            node.onmouseover = function() {{
+                for (let other of others)
+                    document.getElementById(other).classList.add("hovered");
+            }};
+            node.onmouseout = function() {{
+                for (let other of others)
+                    document.getElementById(other).classList.remove("hovered");
+            }};
+        }
+    '''
     for k, v in data.items():
         dot.node(v.id, v.title, target="_blank", href=f"{root}#{v.id}", id=v.id)
         for i in v.referenced_by:
             dot.edge(v.id, i.id, id=f"{v.id}___{i.id}")
-        arrows = [f'"{v.id}___{i.id}"' for i in v.referenced_by]
-        others = ([f'"{i.id}"' for i in v.referenced_by + v.references + [v]]
-                + [f'"{i.id}___{v.id}"' for i in v.references]
-                + arrows)
-        js += f'''
-            {{
-                let node = document.getElementById("{v.id}");
-                let others = [{','.join(others)}];
-                let arrows = [{','.join(arrows)}];
-                nodes["{v.id}"] = node;
-                for (let i of arrows)
-                    nodes[i] = document.getElementById(i);
-                node.onmouseover = function() {{
-                    for (let other of others)
-                        nodes[other].classList.add("hovered");
-                }};
-                node.onmouseout = function() {{
-                    for (let other of others)
-                        nodes[other].classList.remove("hovered");
-                }};
-            }}
-        '''
+        others = ','.join(
+            [f'"{i.id}"' for i in v.referenced_by + v.references + [v]]
+            + [f'"{i.id}___{v.id}"' for i in v.references]
+            + [f'"{v.id}___{i.id}"' for i in v.referenced_by]
+        )
+        js += f'setup("{v.id}", [{others}]);'
 
     outfile = dot.render(outfile, format='svg', cleanup=True)
     with open(outfile, 'r') as f:
         rendered = list(f.readlines())
 
-    js = ''.join(i.strip() for i in js.split('\n'))
     rendered.insert(-1, f'''
         <script type="text/javascript">{js}</script>
         <style>
