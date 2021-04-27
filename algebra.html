@@ -1219,6 +1219,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <hr/>
 <a class="more" href="#elem_ord">← Порядок элемента группы</a><br/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
 </div>
 <div class="entry">
 <h1 id=homo_core><a class="tag more colloq" href="#homo_core">#</a>Ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма">Конспект</a>)</small></h1>
@@ -1304,6 +1305,7 @@ kℤ = \{ kn | n∈ℤ \}
 <a class="more" href="#factor_group">→ Факторгруппа</a><br/>
 <a class="more" href="#group_center">→ Центр группы</a><br/>
 <a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
 </div>
 <div class="entry">
 <h1 id=norm_group_conj><a class="tag more colloq" href="#norm_group_conj">#</a>Критерий нормальности через сопряжение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=тогда 3 условия эквивалентны">Конспект</a>)</small></h1>
@@ -1349,6 +1351,7 @@ kℤ = \{ kn | n∈ℤ \}
 <a class="more" href="#natural_homo">→ Естественный гомоморфизм</a><br/>
 <a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
 <a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
 </div>
 <div class="entry">
 <h1 id=natural_homo><a class="tag more colloq" href="#natural_homo">#</a>Естественный гомоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм">Конспект</a>)</small></h1>
@@ -1366,6 +1369,7 @@ kℤ = \{ kn | n∈ℤ \}
 <hr/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
 </div>
 <div class="entry">
 <h1 id=straight_mul><a class="tag more colloq" href="#straight_mul">#</a>Прямое произведение групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#прямое-произведение-групп">Конспект</a>)</small></h1>
@@ -1381,12 +1385,13 @@ kℤ = \{ kn | n∈ℤ \}
 </ul>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#chinese_rems">→ Китайская теорема об остатках</a><br/>
 </div>
 <div class="entry">
 <h1 id=automorph><a class="tag more colloq" href="#automorph">#</a>Автоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм">Конспект</a>)</small></h1>
 <p>Это изоморфизм <script type="math/tex">f: G→G</script>
 </p>
-<p>Внутрениий автоморфизм <script type="math/tex">Iₐ = g↦aga^{-1}</script>
+<p>Внутрениий автоморфизм <script type="math/tex">I_{a} = g↦aga^{-1}</script>
 </p>
 <hr/>
 <a class="more" href="#group_iso">← Изоморфизм групп</a><br/>
@@ -1416,6 +1421,12 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
 </div>
 <div class="entry">
+<h1 id=zero_div><a class="tag more colloq" href="#zero_div">#</a>Делители нуля </h1>
+<p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
+<hr/>
+<a class="more" href="#ring">→ Кольцо</a><br/>
+</div>
+<div class="entry">
 <h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
 <p>
 <script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
@@ -1430,10 +1441,19 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </ol>
 <p>Тогда:</p>
 <ul>
+<li><strong>тривиальное</strong> кольцо: <script type="math/tex">\{0\}</script>
+</li>
+<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
+<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
+</li>
+<li><strong>целостное кольцо</strong> — коммутативное кольцо с <script type="math/tex">1≠0</script> и без делителей нуля.</li>
+<li><strong>поле</strong> — коммутативное кольцо с единицей (<script type="math/tex">1≠0</script>), в котором каждый элемент (кроме нуля) обратим.</li>
 <li>
 <script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
 <li>
-<script type="math/tex">(K, ·)</script>  мультипликативная полугруппа</li>
+<script type="math/tex">(K, ·)</script> мультипликативная полугруппа</li>
+<li>
+<script type="math/tex">U(K)</script> — мультипликативная группа, состоит из всех обратимых элементов кольца с единицей.</li>
 <li>
 <script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
 <ol>
@@ -1443,16 +1463,28 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
 </ol>
 </li>
-<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
-<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
-</li>
 </ul>
 <p>Например,
 - <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — кольца и подкольца, все коммутативны
 - <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
+<p>Из групп наследуются понятия:</p>
+<ul>
+<li>обратимости элемента: <script type="math/tex">x^{-1}: x·x^{-1} = x^{-1}·x = 1</script>
+</li>
+<li>прямой суммы (и сложение, и умножение покомпонентны)</li>
+</ul>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#zero_div">← Делители нуля</a><br/>
 <a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+<a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
+<a class="more" href="#ideal">→ Идеал</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
+<a class="more" href="#field_char">→ Характеристика поля</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
+<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
+<a class="more" href="#subfield">→ Подполя</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
 </div>
 <div class="entry">
 <h1 id=residue_ring><a class="tag more " href="#residue_ring">#</a>Кольцо вычетов </h1>
@@ -1467,6 +1499,180 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
 <a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#field_size">→ Число элементов в поле</a><br/>
+<a class="more" href="#chinese_rems">→ Китайская теорема об остатках</a><br/>
+</div>
+<div class="entry">
+<h1 id=integral_ring><a class="tag more colloq" href="#integral_ring">#</a>Критерий целостности кольца </h1>
+<p>Нетривиальное коммутативное кольцо является целостным iff в нём из <script type="math/tex">ab=ac</script> следует <script type="math/tex">b=c</script>, если <script type="math/tex">a≠0</script>.</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+</div>
+<div class="entry">
+<h1 id=ideal><a class="tag more colloq" href="#ideal">#</a>Идеал <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал">Конспект</a>)</small></h1>
+<p>Это подмножество кольца со свойствами:</p>
+<ol>
+<li>Подгруппа кольца по сложению</li>
+<li>
+<script type="math/tex">∀a∈I\, ∀r∈K\, r·a∈I ∧ a·r∈I</script> — при умножении эл.-а кольца на эл.-т идеала остаемся в нём же</li>
+</ol>
+<p>Идеал главный, iff <script type="math/tex">∃a∈K: I = \{r·a \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
+</div>
+<div class="entry">
+<h1 id=polynoms><a class="tag more " href="#polynoms">#</a>Кольцо многочленов </h1>
+<p>Обозначается как <script type="math/tex">𝔽[x]</script> — кольцо многочленов с коэффициентами из поля <script type="math/tex">𝔽</script>.</p>
+<p>Пример идеала <script type="math/tex">ℝ[x]</script>: <script type="math/tex">I = \{ (x^{2}+1)·f(x) \mid f(x)∈ℝ[x] \}</script>
+</p>
+<p>Всегда является нормальной подгруппой по сложению.</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ideal">← Идеал</a><br/>
+<a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
+</div>
+<div class="entry">
+<h1 id=field_char><a class="tag more colloq" href="#field_char">#</a>Характеристика поля <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#характеристика-поля">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">\Char(P) = q ∈ ℕ</script>, такое что <script type="math/tex">\underbrace{1+1+1+…+1}_{q} = 0</script>. Если такого <script type="math/tex">q</script> не существует, то <script type="math/tex">\Char(P) = 0</script>.</p>
+<ul>
+<li>
+<script type="math/tex">\Char ℝ = 0</script>
+</li>
+<li>
+<script type="math/tex">\Char ℤ_{p} = p</script>, p — простое</li>
+</ul>
+<p>Причём характеристика всегда либо <script type="math/tex">0</script>, либо простое число (потому что в поле нет делителей нуля).</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+</div>
+<div class="entry">
+<h1 id=factor_ring><a class="tag more colloq" href="#factor_ring">#</a>Факторкольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#факторкольцо">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">K/I</script> — факторкольцо кольца <script type="math/tex">K</script> по идеалу <script type="math/tex">I</script>
+</p>
+<ul>
+<li>Оно состоит из факторгруппы по сложению <script type="math/tex">K/I</script>
+</li>
+<li>Операция: <script type="math/tex">(a+I)(b+I) = a·b + I</script>
+</li>
+<li>Можно понимать как множество смежных классов по сложению</li>
+</ul>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#ideal">← Идеал</a><br/>
+<a class="more" href="#factor_group">← Факторгруппа</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+</div>
+<div class="entry">
+<h1 id=theorem_homoring><a class="tag more colloq" href="#theorem_homoring">#</a>Теорема о гомоморфизме колец <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#теорема-о-гомоморфизме-колец">Конспект</a>)</small></h1>
+<p>Полностью аналогично теореме для групп</p>
+<p>Пусть <script type="math/tex">φ: K_{1} → K_{2}</script> — гомоморфизм, тогда <script type="math/tex">K_{1}/\Ker(φ) ≅ \Im(φ)</script>
+</p>
+<p>Например,
+- <script type="math/tex">ℤ/nℤ ≅ ℤ_{n}</script>, <script type="math/tex">φ: ℤ → ℤ_{n}</script>, <script type="math/tex">\Ker φ = nℤ</script>
+</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#theorem_homogroup">← Теорема о гомоморфизме групп</a><br/>
+</div>
+<div class="entry">
+<h1 id=subfield><a class="tag more colloq" href="#subfield">#</a>Подполя <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#расширение-поля">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">F ⊂ P</script>, <script type="math/tex">P</script> — поле, а <script type="math/tex">F</script> — подполе.</p>
+<ol>
+<li>
+<p><strong>Расширение поля</strong>. Есть <script type="math/tex">a ∈ P</script> и <script type="math/tex">F ⊂ P</script>.
+    Рассмотрим пересечение всех подполей <script type="math/tex">P</script>, которые содержат и <script type="math/tex">F</script>, и <script type="math/tex">a</script>. Назовём его <script type="math/tex">F_{1}</script>.
+    Это будет расширением поля <script type="math/tex">F</script> при помощи присоединения элемента <script type="math/tex">a</script>.</p>
+<p>Например, к <script type="math/tex">ℚ⊂ℝ</script> присоединим <script type="math/tex">\sqrt{2} ∉ ℚ</script>. Тогда <script type="math/tex">F_{1} = ℚ(\sqrt{2}) = \{a + b\sqrt{2} \mid a,b∈ℚ \}</script>
+</p>
+</li>
+<li>
+<p>Для любого <script type="math/tex">f(x)∈F[x]</script> без корней существует расширение <script type="math/tex">F_{1} ⊃ F</script>, в котором <script type="math/tex">f(x)</script> имеет корень.</p>
+</li>
+<li>
+<p>Пересечение подполей тоже является подполем.</p>
+</li>
+<li>
+<p>Простое подполе:</p>
+<ul>
+<li>Наименьшее по включение подполе называется <strong>простым подполем</strong>. Назовём его <script type="math/tex">P_{0}</script>
+</li>
+<li>
+<script type="math/tex">\Char(P) = 0 ⇒ P_{0}≅ℚ</script>
+</li>
+<li>
+<script type="math/tex">\Char(P) = p > 0 ⇒ P_{0}≅ℤ_{p}</script>
+</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#algebaric_el">→ Алгебраический элемент над подполем</a><br/>
+</div>
+<div class="entry">
+<h1 id=factorring_polynom><a class="tag more colloq" href="#factorring_polynom">#</a>Факторкольцо кольца многочленов </h1>
+<p>
+<script type="math/tex">𝔽[x]/ ⟨f(x)⟩</script> является полем, iff <script type="math/tex">f(x)</script> неприводим над <script type="math/tex">𝔽</script>, т.е. <script type="math/tex">∄g(x), h(x): g(x)h(x) = f(x)</script>.</p>
+<p>Аналогично <script type="math/tex">ℤ_{n}</script> является полем iff <script type="math/tex">p</script> простое, т.е. не раскладывается на множители</p>
+<p>Любое подполе <script type="math/tex">F_{p^n}</script> изоморфно <script type="math/tex">F_{p^m}</script>, где <script type="math/tex">n</script> делится на <script type="math/tex">m</script>.</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо</a><br/>
+<a class="more" href="#factor_ring">← Факторкольцо</a><br/>
+<a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
+<a class="more" href="#cyclic_group">← Циклическая группа, порождённая g</a><br/>
+<a class="more" href="#algebaric_el">→ Алгебраический элемент над подполем</a><br/>
+<a class="more" href="#field_size">→ Число элементов в поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=algebaric_el><a class="tag more colloq" href="#algebaric_el">#</a>Алгебраический элемент над подполем <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=называется алгебраическим над">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">F ⊂ P</script>. <script type="math/tex">λ∈P</script> — алгебраический элемент над подполем <script type="math/tex">F</script>,
+iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</script>, т.е. число представимо как корень некоторого многочлена.</p>
+<p>Иначе число называется трансцендентным.</p>
+<p>(<script type="math/tex">\const(0) = x ↦ 0</script>)</p>
+<hr/>
+<a class="more" href="#subfield">← Подполя</a><br/>
+<a class="more" href="#factorring_polynom">← Факторкольцо кольца многочленов</a><br/>
+</div>
+<div class="entry">
+<h1 id=rationals_field><a class="tag more colloq" href="#rationals_field">#</a>Поле рациональных дробей </h1>
+<p>Пусть <script type="math/tex">F</script> — некоторое поле.
+<script type="math/tex; mode=display">
+\left\{ \frac{f(x)}{g(x)} \;\middle|\; f,x∈F[x], g≠0 \right\}
+</script>
+</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=field_size><a class="tag more colloq" href="#field_size">#</a>Число элементов в поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Число элементов конечно поля всегда">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">p</script> — простое, <script type="math/tex">p,n∈ℕ</script>
+</p>
+<ol>
+<li>Число элементов любого поля всегда <script type="math/tex">p^{n}</script>
+</li>
+<li>Для любого <script type="math/tex">p^{n}</script>
+<script type="math/tex">∃! P</script>, в котором <script type="math/tex">p^{n}</script> элементов (с точностью до изоморфизма).
+    Другими словами, все конечные поля с одинаковым числом элементов изоморфны.</li>
+<li>Любое конечного поле <script type="math/tex">F_{p^{n}}</script> можно реализовать в виде <script type="math/tex">ℤ_{p}[x]/⟨h(x)⟩</script>, где <script type="math/tex">h(x) ∈ ℤ_{p}[x]</script> — неприводимый многочлен степени <script type="math/tex">n</script>.</li>
+</ol>
+<hr/>
+<a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
+<a class="more" href="#factorring_polynom">← Факторкольцо кольца многочленов</a><br/>
+</div>
+<div class="entry">
+<h1 id=chinese_rems><a class="tag more colloq" href="#chinese_rems">#</a>Китайская теорема об остатках <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Китайская теорема об остатках">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">n∈ℤ, n=n_{1}n_{2}…n_{m}</script>, где <script type="math/tex">n_{i}</script> — взаимно простые. Тогда <script type="math/tex">ℤ_{n} ≅ ℤ_{n_{1}}×…×ℤ_{n_{m}}</script>
+</p>
+<p>Здесь особенно полезно воспользоваться тем, что <a href="#field_size">конечные поля одного размера изоморфны</a></p>
+<hr/>
+<a class="more" href="#straight_mul">← Прямое произведение групп</a><br/>
+<a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
 </div>
 
   </div>
@@ -1491,6 +1697,9 @@ scripts.forEach(function(script) {
               "·": "\\cdot",
               "⊲": "\\lhd",
               "⊥": "\\perp",
+              "∥": "\\parallel",
+              "ø": "\\varnothing",
+              "\\o": "\\varnothing",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
@@ -1498,6 +1707,8 @@ scripts.forEach(function(script) {
               "\\pr": "\\operatorname{пр}",
               "\\Ker": "\\operatorname{Ker}",
               "\\id": "\\operatorname{id}",
+              "\\Char": "\\operatorname{char}",
+              "\\const": "\\operatorname{const}",
               "\\Va": "\\vec{a}",
               "\\Vb": "\\vec{b}",
               "\\Vc": "\\vec{c}",
@@ -1517,6 +1728,7 @@ scripts.forEach(function(script) {
           displayMode: display
         });
     } catch (err) {
+        console.log(script.text);
         console.error(err);
         katexElement.textContent = script.text;
     }
