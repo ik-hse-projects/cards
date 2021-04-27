@@ -29,7 +29,8 @@ def what_letter(x):
             'ⁱ': 'i', 'ʲ': 'j', 'ⁿ': 'n'}
     subscript_map = {
             '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₋': '-', '₊': '+',
-            'ᵢ': 'i', 'ⱼ': 'j', 'ₖ': 'k', 'ₙ': 'n', 'ₘ': 'm', 'ₛ': 's'}
+            'ᵢ': 'i', 'ⱼ': 'j', 'ₖ': 'k', 'ₙ': 'n', 'ₘ': 'm', 'ₚ': 'p', 'ᵣ': 'r', 'ₛ': 's',
+            'ₐ': 'a'}
     if x in superscript_map:
         return 'super', superscript_map[x]
     if x in subscript_map:

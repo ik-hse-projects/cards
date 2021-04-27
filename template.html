@@ -140,6 +140,10 @@ scripts.forEach(function(script) {
               "·": "\\cdot",
               "⊲": "\\lhd",
               "⊥": "\\perp",
+              "∥": "\\parallel",
+              "∖": "\\setminus",
+              "ø": "\\varnothing",
+              "\\o": "\\varnothing",
               "\\Rg": "\\operatorname{Rg}",
               "\\arg": "\\operatorname{arg}",
               "\\Arg": "\\operatorname{Arg}",
@@ -147,6 +151,8 @@ scripts.forEach(function(script) {
               "\\pr": "\\operatorname{пр}",
               "\\Ker": "\\operatorname{Ker}",
               "\\id": "\\operatorname{id}",
+              "\\Char": "\\operatorname{char}",
+              "\\const": "\\operatorname{const}",
               "\\Va": "\\vec{a}",
               "\\Vb": "\\vec{b}",
               "\\Vc": "\\vec{c}",
@@ -166,6 +172,7 @@ scripts.forEach(function(script) {
           displayMode: display
         });
     } catch (err) {
+        console.log(script.text);
         console.error(err);
         katexElement.textContent = script.text;
     }
