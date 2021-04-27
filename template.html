@@ -122,6 +122,40 @@ hr:last-child {
   <div class="panel" id="side_panel">
   </div>
   <script>
+let macros = {
+    "\\Σ": "\\sum",
+    "∄": "\\nexists",
+    "·": "\\cdot",
+    "⊲": "\\lhd",
+    "⊥": "\\perp",
+    "∥": "\\parallel",
+    "∖": "\\setminus",
+    "ø": "\\varnothing",
+    "\\o": "\\varnothing",
+    "\\Rg": "\\operatorname{Rg}",
+    "\\arg": "\\operatorname{arg}",
+    "\\Arg": "\\operatorname{Arg}",
+    "\\ord": "\\operatorname{ord}",
+    "\\pr": "\\operatorname{пр}",
+    "\\Ker": "\\operatorname{Ker}",
+    "\\id": "\\operatorname{id}",
+    "\\Char": "\\operatorname{char}",
+    "\\const": "\\operatorname{const}",
+    "\\Va": "\\vec{a}",
+    "\\Vb": "\\vec{b}",
+    "\\Vc": "\\vec{c}",
+    "\\Ve": "\\vec{e}",
+    "\\Vo": "\\vec{0}",
+    "\\Vi": "\\vec{i}",
+    "\\Vj": "\\vec{j}",
+    "\\Vk": "\\vec{k}",
+    "\\Vn": "\\vec{n}",
+    "\\Vs": "\\vec{s}",
+    "\\bar": "\\overline",
+    "\\tilde": "\\widetilde",
+    "\\codir": "\\uparrow\\uparrow",
+    "\\difdir": "\\uparrow\\downarrow",
+};
 let scripts = document.body.getElementsByTagName("script");
 scripts = Array.prototype.slice.call(scripts);
 scripts.forEach(function(script) {
@@ -134,42 +168,11 @@ scripts.forEach(function(script) {
     katexElement.setAttribute("class", display ? "equation" : "inline-equation");
     try {
         katex.render(script.text, katexElement, {
-          macros: {
-              "\\Σ": "\\sum",
-              "∄": "\\nexists",
-              "·": "\\cdot",
-              "⊲": "\\lhd",
-              "⊥": "\\perp",
-              "∥": "\\parallel",
-              "∖": "\\setminus",
-              "ø": "\\varnothing",
-              "\\o": "\\varnothing",
-              "\\Rg": "\\operatorname{Rg}",
-              "\\arg": "\\operatorname{arg}",
-              "\\Arg": "\\operatorname{Arg}",
-              "\\ord": "\\operatorname{ord}",
-              "\\pr": "\\operatorname{пр}",
-              "\\Ker": "\\operatorname{Ker}",
-              "\\id": "\\operatorname{id}",
-              "\\Char": "\\operatorname{char}",
-              "\\const": "\\operatorname{const}",
-              "\\Va": "\\vec{a}",
-              "\\Vb": "\\vec{b}",
-              "\\Vc": "\\vec{c}",
-              "\\Ve": "\\vec{e}",
-              "\\Vo": "\\vec{0}",
-              "\\Vi": "\\vec{i}",
-              "\\Vj": "\\vec{j}",
-              "\\Vk": "\\vec{k}",
-              "\\Vn": "\\vec{n}",
-              "\\Vs": "\\vec{s}",
-              "\\bar": "\\overline",
-              "\\tilde": "\\widetilde",
-              "\\codir": "\\uparrow\\uparrow",
-              "\\difdir": "\\uparrow\\downarrow",
-          },
+          macros: macros,
           fleqn: true,
-          displayMode: display
+          displayMode: display,
+          strict: false,
+          trust: true,
         });
     } catch (err) {
         console.log(script.text);

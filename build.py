@@ -149,8 +149,8 @@ def render(i):
 def graph(data, outfile, root=None):
     root = '' if root is None else root
     import graphviz
-    dot = graphviz.Digraph()
-    dot.attr('graph', rankdir='LR')
+    dot = graphviz.Digraph(engine='neato')
+    dot.attr('graph', rankdir='LR', overlap="false", splines="true", epsilon=".0000001")
     js = 'const nodes={};'
     for k, v in data.items():
         dot.node(v.id, v.title, target="_blank", href=f"{root}#{v.id}", id=v.id)
@@ -179,7 +179,6 @@ def graph(data, outfile, root=None):
             }}
         '''
 
-    dot = dot.unflatten()
     outfile = dot.render(outfile, format='svg', cleanup=True)
     with open(outfile, 'r') as f:
         rendered = list(f.readlines())
@@ -217,5 +216,8 @@ if __name__ == "__main__":
     data = load(stdin)
     eprint(f'Loaded {len(data)} cards')
     print_html(toposort(data.values()))
+    eprint("\tHTML done")
     if len(argv) > 1:
         graph(data, argv[1], root=os.path.basename(argv[1]) + '.html')
+        eprint("\tGraphivz done")
+    eprint("Done")
