@@ -10,7 +10,7 @@ in pkgs.mkShell {
     pkgs.entr
     (pkgs.writeScriptBin "watch-algebra" ''
       #!${pkgs.stdenv.shell}
-      find ./pages | entr sh -c "python build.py public/algebra < pages/algebra.yaml > public/algebra.html"
+      find ./ | entr sh -c "python build.py public/algebra < pages/algebra.yaml > public/algebra.html"
     '')
   ];
 }
