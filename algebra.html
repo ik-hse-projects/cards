@@ -187,7 +187,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <hr/>
 <a class="more" href="#subst_sign">→ Знак подстановки</a><br/>
 <a class="more" href="#subst_even">→ Чётность подстановки</a><br/>
-<a class="more" href="#matrix_det">→ Определитель</a><br/>
+<a class="more" href="#det_formula">→ Вычисление определителя</a><br/>
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 </div>
 <div class="entry">
@@ -201,7 +201,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <div class="entry">
 <h1 id=subst_sign><a class="tag more colloq" href="#subst_sign">#</a>Знак подстановки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки">Конспект</a>)</small></h1>
 <p>
-<script type="math/tex">sgn(σ) = (-1)^n</script>, где <script type="math/tex">n</script> — число инверсий в <script type="math/tex">σ</script>.</p>
+<script type="math/tex">\sgn(σ) = (-1)^n</script>, где <script type="math/tex">n</script> — число инверсий в <script type="math/tex">σ</script>.</p>
 <hr/>
 <a class="more" href="#subst">← Подстановка</a><br/>
 <a class="more" href="#subst_inv">← Число инверсий в подстановке</a><br/>
@@ -210,22 +210,45 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <div class="entry">
 <h1 id=subst_even><a class="tag more colloq" href="#subst_even">#</a>Чётность подстановки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки">Конспект</a>)</small></h1>
 <p>Подстановка чётна, если чётно число инверсий.</p>
-<p>Отсюда, кстати, подстановка чётна, если <script type="math/tex">sgn(σ) = 1</script> (и нечётна если <script type="math/tex">sgn(σ) = -1</script>).</p>
+<p>Отсюда, кстати, подстановка чётна, если <script type="math/tex">\sgn(σ) = 1</script> (и нечётна если <script type="math/tex">\sgn(σ) = -1</script>).</p>
 <hr/>
 <a class="more" href="#subst">← Подстановка</a><br/>
 <a class="more" href="#subst_inv">← Число инверсий в подстановке</a><br/>
 <a class="more" href="#subst_sign">← Знак подстановки</a><br/>
 </div>
 <div class="entry">
-<h1 id=matrix_det><a class="tag more colloq" href="#matrix_det">#</a>Определитель <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка">Конспект</a>)</small></h1>
-<p>Матрица <script type="math/tex">A</script> квадратная и размера <script type="math/tex">n×n</script>, а <script type="math/tex">S_{n}</script> — мн-во всех подстановок (их, кстати, <script type="math/tex">n!</script>)
-<script type="math/tex; mode=display">
-\det A = \Σ_{σ∈S_{n}} sgn(σ)a_{1σ(1)}a_{2σ(2)}…a_{nσ(n)}
-</script>
+<h1 id=matrix_det><a class="tag more " href="#matrix_det">#</a>Определитель <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#свойства-определителей">Конспект</a>)</small></h1>
+<p>Свойства определителя, они же определяют его</p>
+<ol>
+<li>
+<p>
+<script type="math/tex">\det A^T = \det A</script>. Отсюда все следующие свойства верны и для строк вместо столбцов.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\det (A_{1},…, A_{i}+A'_{i}, …, A_{n}) = \det (A_{1},…,A_{i},…,A_{n}) + \det(A_{1},…,A_{i}',…,A_{n})</script> — полилинейность по столбцам</p>
+</li>
+<li>
+<p>Перестановка столбцов меняет знак.</p>
+</li>
+<li>
+<p>Если есть нулевой столбец или два столбца совпадают, то <script type="math/tex">\det A = 0</script>
 </p>
-<p>Если <script type="math/tex">\det A = 0</script>, то матрицу называют вырожденной.</p>
+</li>
+<li>
+<p>Следствие из 4: Если один из столбцов является линейной комбинацией остальных, то <script type="math/tex">\det A = 0</script>
+</p>
+</li>
+<li>
+<p>Следствие из 2 и 4: Если к столбцу прибавить линейную комбинацию остальных, то определитель не изменится</p>
+</li>
+<li>
+<p>Определитель единчной матрицы <script type="math/tex">E</script> равен единице.
+    Это нужно для того, чтобы функция определителя была единственна, иначе существуют подходящие, отличающиеся на множитель.</p>
+</li>
+</ol>
 <hr/>
-<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#det_formula">→ Вычисление определителя</a><br/>
 <a class="more" href="#det_decomposition">→ Разложение определителя по столбцу (строке)</a><br/>
 <a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
@@ -233,6 +256,19 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#mixed_mul">→ Смешанное произведение векторов</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
+<a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
+</div>
+<div class="entry">
+<h1 id=det_formula><a class="tag more colloq" href="#det_formula">#</a>Вычисление определителя <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка">Конспект</a>)</small></h1>
+<p>Матрица <script type="math/tex">A</script> квадратная и размера <script type="math/tex">n×n</script>, а <script type="math/tex">S_{n}</script> — мн-во всех подстановок (их, кстати, <script type="math/tex">n!</script>)
+<script type="math/tex; mode=display">
+\det A = \Σ_{σ∈S_{n}} \sgn(σ)a_{1σ(1)}a_{2σ(2)}…a_{nσ(n)}
+</script>
+</p>
+<p>Если <script type="math/tex">\det A = 0</script>, то матрицу называют вырожденной.</p>
+<hr/>
+<a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
 </div>
 <div class="entry">
 <h1 id=complementary_minor><a class="tag more " href="#complementary_minor">#</a>Дополняющий минор и алгебраическое дополнение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором">Конспект</a>)</small></h1>
@@ -1181,6 +1217,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
 <a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
 <a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
+<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
 </div>
 <div class="entry">
 <h1 id=group_iso><a class="tag more colloq" href="#group_iso">#</a>Изоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы">Конспект</a>)</small></h1>
@@ -1724,6 +1761,7 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <a class="more" href="#subspace">→ Подпространство</a><br/>
 <a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
 <a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
+<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
 </div>
 <div class="entry">
 <h1 id=space_base><a class="tag more colloq" href="#space_base">#</a>Базис линейного пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
@@ -1741,6 +1779,7 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <a class="more" href="#change_base">→ Переход к новому базису</a><br/>
 <a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
 <a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
+<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
 </div>
 <div class="entry">
 <h1 id=space_dim><a class="tag more colloq" href="#space_dim">#</a>Размерность пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
@@ -1783,6 +1822,7 @@ x^b = T_{A→B}^{-1} · x^a = T_{B→A}·x^a
 <a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
 <a class="more" href="#sq_form_matrix">→ Матрица квадратичной формы</a><br/>
 <a class="more" href="#form_change_base">→ Как меняется матрица … формы при замене базиса?</a><br/>
+<a class="more" href="#lin_map_matrix_change">→ Замена базиса в матрице лин. отображения</a><br/>
 </div>
 <div class="entry">
 <h1 id=subspace><a class="tag more colloq" href="#subspace">#</a>Подпространство <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#подпространтсва">Конспект</a>)</small></h1>
@@ -1900,7 +1940,7 @@ H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
 <h1 id=sq_form><a class="tag more colloq" href="#sq_form">#</a>Квадратичная форма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#квадратичные-формы">Конспект</a>)</small></h1>
 <p>Однородный многочлен второй степени от <script type="math/tex">n</script> переменных:
 <script type="math/tex; mode=display">
-Q : V → 𝔽
+Q : V → 𝔽 \\
 Q(x) = \Σ^{n}_{i=1} a_{ii}x_{i}^{2} + 2\Σ_{1≤i<j≤n} a_{ij}x_{i}x_{j} \quad ,a_{ij}∈𝔽
 </script>
 </p>
@@ -1917,6 +1957,8 @@ Q(x) = \Σ^{n}_{i=1} a_{ii}x_{i}^{2} + 2\Σ_{1≤i<j≤n} a_{ij}x_{i}x_{j} \quad
 </ul>
 <hr/>
 <a class="more" href="#sq_form_matrix">→ Матрица квадратичной формы</a><br/>
+<a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
+<a class="more" href="#inertion">→ Закон инерции квадратичных форм.</a><br/>
 </div>
 <div class="entry">
 <h1 id=sq_form_matrix><a class="tag more " href="#sq_form_matrix">#</a>Матрица квадратичной формы </h1>
@@ -1944,6 +1986,7 @@ Q(x) = x_{1}^{2} + 8x_{1}x_{2} = \begin{pmatrix}
 <a class="more" href="#sq_form">← Квадратичная форма</a><br/>
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
 <a class="more" href="#form_change_base">→ Как меняется матрица … формы при замене базиса?</a><br/>
+<a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
 </div>
 <div class="entry">
 <h1 id=form_change_base><a class="tag more colloq" href="#form_change_base">#</a>Как меняется матрица … формы при замене базиса? </h1>
@@ -1956,6 +1999,115 @@ S^TAS
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
 <a class="more" href="#bilinear_matrix">← Матрица билинейной формы</a><br/>
 <a class="more" href="#sq_form_matrix">← Матрица квадратичной формы</a><br/>
+</div>
+<div class="entry">
+<h1 id=silvestr><a class="tag more colloq" href="#silvestr">#</a>Критерий Сильвестра <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=критерий Сильвестра">Конспект</a>)</small></h1>
+<p>Квадратичная форма положительная определена iff <script type="math/tex">Δ_{1}>0, Δ_{2}>0, …, Δ_{n} > 0</script>.</p>
+<p>Отрицательно определена iff <script type="math/tex">Δ_{1}<0, Δ_{2}>0, Δ_{3}<0,…,(-1)^{n}Δ_{n}>0</script> (чередуются, начинаются с минуса).</p>
+<script type="math/tex; mode=display">
+A = \begin{pmatrix}
+a_{11} & a_{12} & … & a_{1n} \\
+a_{21} & a_{22} &   & ⋮   \\
+ ⋮  &     & ⋱ & ⋮   \\
+a_{n1} &  …  & … & a_{nn}
+\end{pmatrix},
+Δ_{1} = \begin{vmatrix}a_{11}\end{vmatrix},
+Δ_{2} = \begin{vmatrix}a_{11} & a_{12}\\a_{21} & a_{22}\end{vmatrix},
+…
+Δ_{n} = \det A
+</script>
+<hr/>
+<a class="more" href="#sq_form">← Квадратичная форма</a><br/>
+<a class="more" href="#sq_form_matrix">← Матрица квадратичной формы</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=inertion><a class="tag more colloq" href="#inertion">#</a>Закон инерции квадратичных форм. <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=закон инерции квадратных форм">Конспект</a>)</small></h1>
+<p>Канонический вид не единственнен. Выберем любые два:
+<script type="math/tex; mode=display">
+Q_{1}(x_{1},…,x_{m}) = λ_{1}x_{1}^{2} + … + λ_{m}x_{m}^{2}, λ_{i}≠0 \\
+Q_{2}(y_{1},…,y_{k}) = μ_{1}y_{1}^{2} + … + μ_{k}y_{k}^{2}, μ_{i}≠0 \\
+</script>
+</p>
+<ul>
+<li>Кол-во положительных <script type="math/tex">λ_{i}</script> равно кол-ву положительных <script type="math/tex">μ_{i}</script>. Это называется <script type="math/tex">i_{+}</script> — положительный индекс инерции</li>
+<li>Аналогично <script type="math/tex">i_{-}</script> — отрицательный индекс</li>
+<li>
+<script type="math/tex">m = k = \Rg A = i_{+} + i_{-}</script>
+</li>
+</ul>
+<p>Иногда (не в нашем курсе):</p>
+<ul>
+<li>
+<script type="math/tex">r = i_{+}+i_{-}</script>
+</li>
+<li>
+<script type="math/tex">s = i_{+}-i_{-}</script> — сигнатура, но у нас сигнатура <script type="math/tex">(i_{+}, i_{-})</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#sq_form">← Квадратичная форма</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_map><a class="tag more colloq" href="#linear_map">#</a>Линейное отображение </h1>
+<p>Отображение <script type="math/tex">φ: V_{1} → V_{2}</script> — линейное iff</p>
+<p>
+<script type="math/tex">V_{1}</script> и <script type="math/tex">V_{2}</script> — линейные пространства над <script type="math/tex">𝔽</script>. <script type="math/tex">∀u, v ∈ V_{1}, ∀λ∈𝔽</script>
+</p>
+<ol>
+<li>
+<script type="math/tex">φ(u + v) = φ(u) + φ(v)</script>
+</li>
+<li>
+<script type="math/tex">φ(λu) = λφ(u)</script>
+</li>
+</ol>
+<p>Это гомоморфизм линейных пространств.</p>
+<p>Примеры:
+- В лин. пространстве матриц <script type="math/tex">m×n</script> можно зафиксировать матрицу <script type="math/tex">A</script> и получить <script type="math/tex">φ(X) = A·X</script>
+</p>
+<p>Если <script type="math/tex">φ: V → V</script> (в себя), то это <strong>линейный оператор</strong>.</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_map_matrix><a class="tag more colloq" href="#linear_map_matrix">#</a>Матрица лин. отображения </h1>
+<p>Пусть <script type="math/tex">e_{1},…,e_{n}</script> — базис в <script type="math/tex">V_{1}</script>, а <script type="math/tex">f_{1},…,f_{m}</script> — в <script type="math/tex">V_{2}</script>. <script type="math/tex">φ: V_{1} → V_{2}</script> — лин. отображение.</p>
+<p><script type="math/tex; mode=display">
+A_{ef} = \begin{pmatrix}
+    a_{11} & a_{12} & … & a_{1n} \\
+    a_{21} & a_{22} &   & ⋮ \\
+    ⋮   &     & ⋱ & ⋮ \\
+    a_{m1} & …   & … & a_{mn}
+\end{pmatrix}
+</script>
+
+Взяли векторы <script type="math/tex">φ(e_{1}), …, φ(e_{n})</script>, нашли их координаты в базисе <script type="math/tex">f_{1},…,f_{m}</script> и записали эти координаты в матрицу по столбцам.</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+<a class="more" href="#lin_map_matrix_change">→ Замена базиса в матрице лин. отображения</a><br/>
+</div>
+<div class="entry">
+<h1 id=lin_map_matrix_change><a class="tag more colloq" href="#lin_map_matrix_change">#</a>Замена базиса в матрице лин. отображения </h1>
+<ul>
+<li>В <script type="math/tex">V_{1}</script> базисы <script type="math/tex">ε_{1}</script> и <script type="math/tex">ε_{1}'</script>, а в <script type="math/tex">V_{2}</script> — <script type="math/tex">ε_{2}</script> и <script type="math/tex">ε_{2}'</script>
+</li>
+<li>Матрица линейного отображения: <script type="math/tex">A_{ε_{1}ε_{2}}</script> в базисах <script type="math/tex">ε_{1}</script> и <script type="math/tex">ε_{2}</script>
+</li>
+<li>Матрицы замены базиса: <script type="math/tex">T_{ε_{1}→ε_{1}'}</script> и <script type="math/tex">T_{ε_{2}→ε_{2}'}</script>
+</li>
+<li>Для лин. оператора <script type="math/tex">T = T_{ε_{1}→ε_{1}'} = T_{ε_{2}→ε_{2}'}</script> (<script type="math/tex">V_{1} = V_{2}, ε_{1} = ε_{2}, ε_{1}' = ε_{2}'</script>)</li>
+</ul>
+<script type="math/tex; mode=display">
+A_{ε_{1}' ε_{2}'} = T^{-1}_{ε_{2}→ε_{2}'} · A_{ε_{1}ε_{2}} · T_{ε_{1}→ε_{1}'} \\
+A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
+</script>
+<hr/>
+<a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
+<a class="more" href="#change_base">← Переход к новому базису</a><br/>
 </div>
 
   </div>
@@ -1976,6 +2128,7 @@ let macros = {
     "\\arg": "\\operatorname{arg}",
     "\\Arg": "\\operatorname{Arg}",
     "\\ord": "\\operatorname{ord}",
+    "\\sgn": "\\operatorname{sgn}",
     "\\pr": "\\operatorname{пр}",
     "\\Ker": "\\operatorname{Ker}",
     "\\id": "\\operatorname{id}",
