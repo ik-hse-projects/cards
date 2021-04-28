@@ -46,6 +46,7 @@ description:
         - <https://github.com/Sofiika/AlgebraKollok> — основной источник
         - <https://wiki.bularond.ru/ru/algebra> — подробные конспекты
         - <https://hse-tex.me/course-1/linear-algebra.pdf> — конспекты ПМИ. Не используется, но может оказаться полезным.
+        - <https://sldr.xyz/stylus/Algebra/> — мои рукописные конспекты, не очень красивые и может чего-то не хватать
 
         [Большой **интерактивный** граф всего](algebra.svg)
 
@@ -969,7 +970,7 @@ cyclic_group:
           Например, $`(ℤ, +) = ⟨1⟩`$
     tags: [elem_ord, group-theory]
 
-homo_core:
+homo_kernel:
     title: Ядро гомоморфизма
     bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма
     colloq: true
@@ -1060,7 +1061,7 @@ norm_group_ker:
     bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма
     text: |
         $`H ⊲ G`$ iff $`∃f: H=\Ker(f)`$, где $`f: G→F`$ — гомоморфизм
-    tags: [norm_group, homo_core]
+    tags: [norm_group, homo_kernel]
 
 factor_group:
     title: Факторгруппа
@@ -1605,6 +1606,7 @@ inertion:
 linear_map:
     title: Линейное отображение
     colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Отображение $`φ: V₁ → V₂`$ — линейное iff
 
@@ -1624,6 +1626,7 @@ linear_map:
 linear_map_matrix:
     title: Матрица лин. отображения
     colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Пусть $`e₁,…,eₙ`$ — базис в $`V₁`$, а $`f₁,…,fₘ`$ — в $`V₂`$. $`φ: V₁ → V₂`$ — лин. отображение.
 
@@ -1641,6 +1644,7 @@ linear_map_matrix:
 lin_map_matrix_change:
     title: Замена базиса в матрице лин. отображения
     colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p108
     text: |
         - В $`V₁`$ базисы $`ε₁`$ и $`ε₁'`$, а в $`V₂`$ — $`ε₂`$ и $`ε₂'`$
         - Матрица линейного отображения: $`A_{ε₁ε₂}`$ в базисах $`ε₁`$ и $`ε₂`$
@@ -1652,4 +1656,76 @@ lin_map_matrix_change:
         A_{ε₁' ε₂'} = T⁻¹ · A_{ε₁ε₂} · T
         ```
     tags: [linear_map_matrix, change_base]
+
+own_vector:
+    title: Собственные вектор и значение
+    colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p110
+    text: |
+        $`λ`$ — собственное значение (число), а $`x≠0`$ — собственный вектор лин. оператора $`φ`$, iff $`φ(x) = λx`$
+    tags: [linear_map]
+
+char_eq:
+    title: Характеристическое уравнение
+    colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p111
+    text: |
+        Для квадратной матрицы $`A`$:
+
+        Характеристический многочлен:
+        ```math
+        χ_A(λ) = \det (A - λE) \\
+        ```
+
+        Характеристическое уравнение:
+        ```math
+        χ_A(λ) = 0 ⇔ \det (A - λE) = 0
+        ```
+    tags: [matrix_det]
+
+spectre:
+    title: Спектр
+    bulat: https://sldr.xyz/stylus/Algebra/#p111
+    text: |
+        Спектр — множество всех собственных значений конечномерного линейного оператора.
+    tags: [own_vector, linear_map]
+
+own_value:
+    title: Критерий собственного значения
+    colloq: true
+    text: |
+        Следующее равносильно (для некоторого л.о.):
+
+        1. $`λ`$ — собственное значение
+        2. $`λ`$ принадлежит спектру
+        3. $`λ`$ — корень $`χ(x) = 0`$ (над алгебраически замкнутым полем)
+    tags: [own_vector, spectre, char_eq]
+
+own_subspace:
+    title: Собственное подпространство
+    colloq: true
+    text: |
+        $`φ: V → V`$ — линейный оператор, а $`λ`$ — его собственное значение.
+        Тогда множество $`V_λ = \{ v ∈ V \mid φ(v) = λv \}`$, т.е. множество собственных векторов, соответствующих $`λ`$.
+    tags: [own_vector, subspace]
+
+own_val_multiplicity:
+    title: Кратность собственного значения
+    colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p113
+    text: |
+        - Алгебраическая — кратность корня $`λ`$ в характеристическом уравнении.
+        - Геометрическая — размерность собственного пространство (т.е. максимальное количество л.н.з. соответсвующих собственных векторов ($`φ(v) = λv`$))
+        - Геометрическая ≤ алгебраической.
+    tags: [own_vector, char_eq, own_subspace, space_dim]
+
+matrix_trace:
+    title: След матрицы
+    colloq: true
+    bulat: https://sldr.xyz/stylus/Algebra/#p112
+    text: |
+        Это сумма диагональных элементов: $`\tr A = \Σᵢ a_{ii}`$
+        
+        След матрицы лин. оператора не зависит от выбора базиса.
+    tags: [linear_map, space_base]
 
