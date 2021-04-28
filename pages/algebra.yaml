@@ -6,7 +6,7 @@ _contribution:
 
         - `title` — обязательный заголовок карточки.
         - `text` — не обязательно, но какой тогда смысл от карточки?
-        - `bulat` — ссылка на конспекты. Не обязательно.
+        - `source` — ссылка на конспекты. Не обязательно.
         - `colloq` — надо ли помечать красным? Если не указано, то подразумевается false.
         - `tags` — имена других карточек, которые является важными для понимания содержимого.
 
@@ -31,7 +31,7 @@ _contribution:
 
 description:
     title: Карточки по алгебре
-    bulat: https://wiki.bularond.ru/algebra
+    source: https://wiki.bularond.ru/algebra
     text: |
         Здесь очень кратко описаны (или будут описаны) все определения, утверждения и теоремы.
         По возможности, добавляются ссылки на конспекты с вики,
@@ -53,7 +53,7 @@ description:
 matrix_mul:
     title: Умножение матриц
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/first_lesson#произведения-матриц
+    source: https://wiki.bularond.ru/ru/algebra/first_lesson#произведения-матриц
     text: |
         ```math
         A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_{tj}
@@ -62,7 +62,7 @@ matrix_mul:
 matrix_stair:
     title: Ступенчатый вид матриц
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#ступенчатый-вид-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/second_lesson#ступенчатый-вид-матрицы
     text: |
         Номера ведущих элементов строго возрастают (ведущие — первые ненулевые элементы). Все нулевые строки внизу.
 
@@ -71,7 +71,7 @@ matrix_stair:
 matrix_canon:
     title: Канонический вид матрицы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#канонический-вид-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/second_lesson#канонический-вид-матрицы
     text: |
         Как ступенчатый, но ведущие элементы равны $`1`$ и в столбцах с ведущими нули сверху.
     tags: [matrix_stair]
@@ -79,7 +79,7 @@ matrix_canon:
 matrix_transform:
     title: Элементарные преобразования строк
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#элементарные-преобразования-строк
+    source: https://wiki.bularond.ru/ru/algebra/second_lesson#элементарные-преобразования-строк
     text: |
         1. Умножение на число
         2. Сложить с другой строкой (умноженной на число)
@@ -88,7 +88,7 @@ matrix_transform:
 matrix_gauss:
     title: Теорема о методе Гаусса
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/second_lesson#теорема-о-методе-гаусса
+    source: https://wiki.bularond.ru/ru/algebra/second_lesson#теорема-о-методе-гаусса
     text: |
         Любую _конечную_ матрицу можно привести к ступенчатому/каноническому виду элементарными преобразованиями.
     tags: [matrix_transform, matrix_canon, matrix_stair]
@@ -96,7 +96,7 @@ matrix_gauss:
 perm:
     title: Перестановка
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=называют перестановкой
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=называют перестановкой
     text: |
         Расположение чисел от $`1`$ до $`n`$ в определённом порядке.
 
@@ -109,14 +109,14 @@ subst:
 
 subst_inv:
     title: Число инверсий в подстановке
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=образуют инверсию в перестановке
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=образуют инверсию в перестановке
     text: |
         Кол-во пар $`(i, j)`$ таких, что $`σⱼ > σᵢ`$, хотя $`j ≤ i`$
 
 subst_sign:
     title: Знак подстановки
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
     text: |
         $`\sgn(σ) = (-1)^n`$, где $`n`$ — число инверсий в $`σ`$.
     tags: [subst, subst_inv]
@@ -124,7 +124,7 @@ subst_sign:
 subst_even:
     title: Чётность подстановки
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Знак перестановки
     text: |
          Подстановка чётна, если чётно число инверсий.
 
@@ -133,7 +133,7 @@ subst_even:
 
 matrix_det:
     title: Определитель
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#свойства-определителей
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#свойства-определителей
     text: |
         Свойства определителя, они же определяют его
 
@@ -155,7 +155,7 @@ matrix_det:
 det_formula:
     title: Вычисление определителя
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка
     text: |
         Матрица $`A`$ квадратная и размера $`n×n`$, а $`Sₙ`$ — мн-во всех подстановок (их, кстати, $`n!`$)
         ```math
@@ -168,7 +168,7 @@ det_formula:
 det_decomposition:
     title: Разложение определителя по столбцу (строке)
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-8-из-теоремы-лапласа
+    source: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-8-из-теоремы-лапласа
     text: |
         Разложение по строке или по столбцу, зависит только от того, по какой переменной пробегает сумма: $`i`$ или $`j`$.
         ```math
@@ -178,7 +178,7 @@ det_decomposition:
 
 complementary_minor:
     title: Дополняющий минор и алгебраическое дополнение
-    bulat: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором
+    source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=определитель получившейся матрицы называется дополняющим минором
     text: |
         _Дополняющий_ минор $`M_{ij}`$ получается вычеркиванием i-ой строки и j-ого столбца из матрицы.
 
@@ -187,7 +187,7 @@ complementary_minor:
 fake_decomoposition:
     title: Фальшивое разложение
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-9-фальшивое-разложение-часть-теоремы-лапласа
+    source: https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-9-фальшивое-разложение-часть-теоремы-лапласа
     text: |
         ```math
         \Σ_{j=1}^n a_{ij}A_{kj} = 0, \text{ если } k≠i
@@ -200,14 +200,14 @@ fake_decomoposition:
 kramer:
     title: Формулы Крамера
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#правило-крамера
+    source: https://wiki.bularond.ru/ru/algebra/fourth_lesson#правило-крамера
     text: |
         Пусть $`Ax = b`$ — совместная СЛАУ. Тогда $`xᵢ·\det A = \det(A₁,…,Aᵢ₋₁,b,Aᵢ₊₁,…,Aₙ) (= Δᵢ)`$, где $`i∈\{1,…,n\}`$. Если $`\det A ≠ 0`$, то очевидно $`xᵢ = \frac{Δᵢ}{\det A}`$
 
 union_matrix:
     title: Союзная матрица
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#:~:text=матрица называется союзной
+    source: https://wiki.bularond.ru/ru/algebra/fourth_lesson#:~:text=матрица называется союзной
     text: |
         Это транспонированная матрица алгебраических дополнений:
         ```math
@@ -222,7 +222,7 @@ union_matrix:
 matrix_inv:
     title: Обратная матрица
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fourth_lesson#обратные-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/fourth_lesson#обратные-матрицы
     text: |
         Матрица $`A⁻¹`$ обратная к $`A`$, iff $`A⁻¹·A = A·A⁻¹ = E`$
 
@@ -249,7 +249,7 @@ matrix_minor:
 matrix_ran:
     title: Ранг матрицы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=Рангом матрицы называют
+    source: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=Рангом матрицы называют
     text: |
         $`\Rg A`$ = наивысший порядок отличного от нуля минора
     tags: [matrix_minor]
@@ -264,7 +264,7 @@ basic_minor:
 lin_comb:
     title: Линейная комбинация
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#линейная-зависимость
+    source: https://wiki.bularond.ru/ru/algebra/fifth_lesson#линейная-зависимость
     text: |
         Если даны векторы $`a₁,…, aₛ`$ одинакового размера, то $`λ₁a₁ + λ₂a₂ + … + λₛaₛ`$ — их линейная комбинация ($`λᵢ`$ — числа).
 
@@ -273,7 +273,7 @@ lin_comb:
 lin_dep:
     title: Линейная зависимость
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми
+    source: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно зависимыми
     text: |
         Строки $`a₁,…,aₛ`$ линейно зависимы, iff существует **нетривиальная** линейная комбинация $`λ₁a₁ + … + λₛaₛ = 0`$.
 
@@ -283,7 +283,7 @@ lin_dep:
 lin_indep:
     title: Линейно независимые строки
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми
+    source: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми
     text: |
         Столбцы л.н.з., iff не существует **нетривиальной** их линейной комбинации, равной нулю. Короче говоря, когда они не линейно зависимы.
     tags: [lin_comb, lin_dep]
@@ -291,7 +291,7 @@ lin_indep:
 lin_dep_criteria:
     title: Критерий линейной зависимости
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости
+    source: https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=критерий линейной зависимости
     text: |
         $`a₁, …, aₛ`$ — л.з. iff хотя бы один из них выражается через остальные.
 
@@ -301,7 +301,7 @@ lin_dep_criteria:
 basic_minor_theorem:
     title: Теорема о базисном миноре
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#теорема-о-базисном-миноре
+    source: https://wiki.bularond.ru/ru/algebra/sixth_lesson#теорема-о-базисном-миноре
     text: |
         1. Базисные строки (столбцы), соответствующие любому базисному минору $`M`$ будут л.н.з.
         2. Строки (столбцы), не входящие в $`M`$ выражаются через линейную комбинацию базисных.
@@ -310,7 +310,7 @@ basic_minor_theorem:
 matrix_ran_theorem:
     title: Теорема о ранге матрицы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-1-теорема-о-ранге-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-1-теорема-о-ранге-матрицы
     text: |
         Ранг матрицы равен максимальному числу л.н.з. строк (столбцов)
     tags: [matrix_ran, lin_indep, basic_minor_theorem]
@@ -318,7 +318,7 @@ matrix_ran_theorem:
 matrix_nondegeneracy:
     title: Критерий невырожденности квадратной матрицы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-2-для-квадратной-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-2-для-квадратной-матрицы
     text: |
         Следующие условия эквивалентны ($`A ∈ Mₙ(ℝ)`$):
 
@@ -330,7 +330,7 @@ matrix_nondegeneracy:
 Kronecker-Capelli:
     title: Теорема Кронекера-Капелли
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventh_lesson#теорема-кронекера-копелли-и-однородные-матрицы
+    source: https://wiki.bularond.ru/ru/algebra/seventh_lesson#теорема-кронекера-копелли-и-однородные-матрицы
     text: |
         СЛАУ $`A·x = b`$ совместна iff $`\Rg A = \Rg (A|b)`$
     tags: [matrix_ran]
@@ -338,7 +338,7 @@ Kronecker-Capelli:
 SLE_nonzero_criteria:
     title: Критерий существования ненулевого решения
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventh_lesson#:~:text=Критерий существования ненулевого решения
+    source: https://wiki.bularond.ru/ru/algebra/seventh_lesson#:~:text=Критерий существования ненулевого решения
     text: |
         ОСЛАУ $`A·x = 0`$ имеет ненулевое решение iff $`det A = 0`$ (матрица $`A`$ вырождена)
     tags: [matrix_det]
@@ -346,7 +346,7 @@ SLE_nonzero_criteria:
 SLE_FSS:
     title: ФСР ОСЛАУ
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventh_lesson#однородные-слау
+    source: https://wiki.bularond.ru/ru/algebra/seventh_lesson#однородные-слау
     text: |
         Пусть $`n`$ — размер матрицы $`A`$, а $`r`$ — её ранг. Любые $`n - r`$ л.н.з. столбцов, явлюящихся решениями $`Ax = 0`$, образуют ФСР.
     tags: [matrix_ran, lin_indep]
@@ -354,7 +354,7 @@ SLE_FSS:
 solution_structure_o:
     title: Структура общего решения однородной СЛАУ
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-однородной-слау
+    source: https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-однородной-слау
     text: |
         Любое решение ОСЛАУ можно представить в виде линейной комбинации столбцов её ФСР.
     tags: [SLE_FSS, lin_comb]
@@ -362,7 +362,7 @@ solution_structure_o:
 solution_structure:
     title: Структура общего решения неоднородной СЛАУ
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-неоднородной-слау
+    source: https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-неоднородной-слау
     text: |
         Пусть известно $`x_0`$ — частное решение СЛАУ ($`Ax = b`$). Тогда любое решение можно представить в виде $`x = x_0 + \tilde{x}`$, где $`\tilde{x}`$ — решение соответствующей ОСЛАУ ($`Ax = 0`$).
     tags: [solution_structure_o]
@@ -370,7 +370,7 @@ solution_structure:
 complex_forms:
     title: Формы записи комплексных чисел
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/tenth_lesson#алгебраические-свойства
+    source: https://wiki.bularond.ru/ru/algebra/tenth_lesson#алгебраические-свойства
     text: |
         1. $`z = x + iy, x,y∈ℝ`$ — алгебраическая форма
         2. $`z = r(\cos φ + i\sin φ)`$ — тригонометрическая форма
@@ -381,7 +381,7 @@ complex_forms:
 complex_mod:
     title: Модуль, аргумент и его главное значение у комплексного числа
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа
+    source: https://wiki.bularond.ru/ru/algebra/tenth_lesson#:~:text=называется модулем комплексного числа
     text: |
         - Модуль: $`|z| = r = \sqrt{x² + y²}`$
         - Аргумент: $`φ = \Arg z = \{\arg z + 2πk | k∈ℤ\}`$ — угол положительным направлением вещественной оси и радиус-вектором числа $`z`$
@@ -391,7 +391,7 @@ complex_mod:
 complex_ops:
     title: Сложение и умножение комплексных чисел
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#умножение-комплексных-чисел
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#умножение-комплексных-чисел
     text: |
         - Сложение: $`(x₁ + iy₁) + (x₂ + iy₂) = (x₁ + x₂) + i(y₁ + y₂)`$
         - Умножение: $`(x₁ + iy₁)(x₂ + iy₂) = (x₁x₁ - y₁y₂) + i(x₁y₂ + y₁x₂)`$
@@ -402,7 +402,7 @@ complex_ops:
 complex_conj:
     title: Комплексное сопряжение и деление
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Комплексно сопряженным
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Комплексно сопряженным
     text: |
         ```math
         \bar{z} = \bar{x + iy} = x - iy \\
@@ -413,7 +413,7 @@ complex_conj:
 complex_Moivre:
     title: Формула Муавра
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=формула Муавра
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=формула Муавра
     text: |
         ```math
         zⁿ = rⁿ(\cos (nφ) + i\sin(nφ) ), n∈ℕ
@@ -423,7 +423,7 @@ complex_Moivre:
 complex_roots:
     title: Корни n-ой степени из комплексного числа
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#извлечение-комплексных-корней
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#извлечение-комплексных-корней
     text: |
         ```math
         z = r(\cosφ + i\sinφ), n∈ℕ \\
@@ -434,7 +434,7 @@ complex_roots:
 main_theorem:
     title: Основная теорема алгебры
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#основная-теорема-алгебры
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#основная-теорема-алгебры
     text: |
         ```math
         ∀f ∈ ℂ[x] ∃z∈ℂ: f(z) = 0
@@ -449,7 +449,7 @@ main_theorem:
 complex_Euiler:
     title: Формула Эйлера
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Формула Эйлера
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Формула Эйлера
     text: |
         ```math
         \cos φ + i\sin φ = e^{iφ}, φ∈ℝ \\
@@ -461,14 +461,14 @@ complex_Euiler:
 polynom_irreducable:
     title: Неприводимый многочлен
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Многочлен называется приводимим
+    source: https://wiki.bularond.ru/ru/algebra/eleventh_lesson#:~:text=Многочлен называется приводимим
     text: |
         $`f`$ непприводимый, iff $`∄g, h: f = g·h`$
 
 polynom_complex_reduce:
     title: О разложении многочлена над ℂ
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twelfth_lesson#продолжаем-комплексные-числа
+    source: https://wiki.bularond.ru/ru/algebra/twelfth_lesson#продолжаем-комплексные-числа
     text: |
         Всякий многочлен степени $`n > 0`$ разлагается в произведение неприводимых многочленов.
 
@@ -825,7 +825,7 @@ dist_point_line:
 
 termins:
     title: "Общая алгебра: терминология"
-    bulat: https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры
+    source: https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры
     text: |
         Отображение $`f: X → Y`$ называется...
 
@@ -867,7 +867,7 @@ group-theory:
 simm_group:
     title: Симметрическая группа
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=симметрическая группа
     text: |1
         $`Sₙ`$ — симметрическая группа — множество всех подстановок длины $`n`$ с операцией композиции — группа симметрий.
 
@@ -881,7 +881,7 @@ simm_group:
 lin_group:
     title: Общая и специальная линейные группы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Общая линейная группа
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Общая линейная группа
     text: |
         - $`GLₙ(𝔽)`$ — общая линейная группа: множество всех невырожденных матриц размера $`n×n`$ с операцией матричного умножения.
         - $`SLₙ(𝔽)`$ — специальная линейная группа: $`\{ A∈GLₙ(𝔽) \mid \det A = 1 \}`$. Является подгруппой $`GLₙ(𝔽)`$.
@@ -907,7 +907,7 @@ dihedral:
 subgroup:
     title: Подгруппа
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой
     text: |
         $`H`$ — подгруппа в группе $`G`$, iff
 
@@ -920,7 +920,7 @@ subgroup:
 group_homo:
     title: Гомоморфизм групп
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм
     text: |
         Отображение $`φ: G → H`$ является гомоморфизмом групп, iff $`∀x,y\, φ(x·y) = φ(x)×φ(y)`$
 
@@ -935,7 +935,7 @@ group_homo:
 group_iso:
     title: Изоморфизм групп
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы
     text: |
         Изоморфизм это биективный гоморфизм
 
@@ -949,7 +949,7 @@ group_iso:
 elem_ord:
     title: Порядок элемента группы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=порядок элемента
+    source: https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=порядок элемента
     text: |
         $`\ord g`$ это наименьшее такое $`n∈ℕ`$, что $`gⁿ = g·g·…·g = e`$
 
@@ -959,7 +959,7 @@ elem_ord:
 
 cyclic_group:
     title: Циклическая группа, порождённая g
-    bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson
+    source: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson
     colloq: true
     text: |
         Пусть $`g ∈ G`$.
@@ -972,7 +972,7 @@ cyclic_group:
 
 homo_kernel:
     title: Ядро гомоморфизма
-    bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма
+    source: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма
     colloq: true
     text: |
         ```math
@@ -989,7 +989,7 @@ homo_kernel:
 
 conj_class:
     title: Смежный класс
-    bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#смежные-классы
+    source: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#смежные-классы
     colloq: true
     text: |
         Пусть $`H⊆G`$ и $`g ∈ G`$. Тогда левый смежный класс элемента $`g`$ по подгруппе $`H`$ это множество
@@ -1004,7 +1004,7 @@ conj_class:
 
 integer_subgroups:
     title: Подгруппы целых по сложению
-    bulat: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в
+    source: https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в
     colloq: true
     text: |
         Всякая подгруппа $`(ℤ, +)`$ имеет вид $`kℤ`$, где $`k∈ℕ∪\{0\}`$
@@ -1016,7 +1016,7 @@ integer_subgroups:
 
 subgroup_index:
     title: Индекс подгруппы
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#индекс-подгруппы
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#индекс-подгруппы
     colloq: true
     text: |
         $`[G : H]`$ — число левых смежных классов в $`G`$ по подгруппе $`H`$ ($`gH`$).
@@ -1024,7 +1024,7 @@ subgroup_index:
 
 lagrange:
     title: Теорема Лагранжа
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#теорема-лагранжа
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#теорема-лагранжа
     colloq: true
     text: |
         Пусть $`G`$ — конечная группа, а $`H`$ — её подгруппа. Тогда $`|G| = |H| · [G : H]`$
@@ -1038,7 +1038,7 @@ lagrange:
 
 norm_group:
     title: Нормальная подгруппа
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=назвывается нормальной
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=назвывается нормальной
     text: |
         $`H ⊲ G`$ iff $`gH = Hg, ∀g∈G`$
     tags: [subgroup]
@@ -1046,7 +1046,7 @@ norm_group:
 norm_group_conj:
     title: Критерий нормальности через сопряжение
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=тогда 3 условия эквивалентны
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=тогда 3 условия эквивалентны
     text: |
         Пусть $`H ⊆ G`$. Все условия эквивалентны:
 
@@ -1058,7 +1058,7 @@ norm_group_conj:
 norm_group_ker:
     title: Критерий нормальности через ядро гомоморфизма
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма
     text: |
         $`H ⊲ G`$ iff $`∃f: H=\Ker(f)`$, где $`f: G→F`$ — гомоморфизм
     tags: [norm_group, homo_kernel]
@@ -1066,7 +1066,7 @@ norm_group_ker:
 factor_group:
     title: Факторгруппа
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#факторгруппы
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#факторгруппы
     text: |
         Пусть $`H ⊲ G`$, тогда $`G/H`$ — множество левых смежных классов по $`H`$ — называется факторгруппой.
 
@@ -1082,7 +1082,7 @@ factor_group:
 natural_homo:
     title: Естественный гомоморфизм
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм
+    source: https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм
     text: |
         $`ε: G→G/h`$ — сопоставляет элементу $`g`$ класс смежности $`gH`$: $`ε(g) = gH`$
     tags: [factor_group]
@@ -1090,7 +1090,7 @@ natural_homo:
 theorem_homogroup:
     title: Теорема о гомоморфизме групп
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#теорема-о-гомоморфизме-групп
+    source: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#теорема-о-гомоморфизме-групп
     text: |
         Если $`f: G→F`$ — гомоморфизм, то $`\Im(f) ≅ G/\Ker(f)`$.
 
@@ -1100,7 +1100,7 @@ theorem_homogroup:
 straight_mul:
     title: Прямое произведение групп
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#прямое-произведение-групп
+    source: https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#прямое-произведение-групп
     text: |
         $`(G, +)×(D, ·) = (G×D, *)`$, где:
         
@@ -1111,7 +1111,7 @@ straight_mul:
 automorph:
     title: Автоморфизм
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм
+    source: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм
     text: |
         Это изоморфизм $`f: G→G`$
 
@@ -1121,7 +1121,7 @@ automorph:
 group_center:
     title: Центр группы
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#центр-группы
+    source: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#центр-группы
     text: |
         ```math
         Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
@@ -1134,7 +1134,7 @@ group_center:
 cayley:
     title: Теорема Кэли
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#теорема-кэли
+    source: https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#теорема-кэли
     text: |
         Любая конечная группа порядка $`n`$ изоморфна некоторой подгруппе $`Sₙ`$
     tags: [simm_group, subgroup]
@@ -1144,7 +1144,7 @@ cayley:
 ring:
     title: Кольцо и поле
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо
+    source: https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо
     text: |
         $`(K, +, ·)`$ — кольцо, iff
         
@@ -1204,7 +1204,7 @@ integral_ring:
 ideal:
     title: Идеал
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал
+    source: https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал
     text: |
         Это подмножество кольца со свойствами:
 
@@ -1226,7 +1226,7 @@ polynoms:
 
 field_char:
     title: Характеристика поля
-    bulat: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#характеристика-поля
+    source: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#характеристика-поля
     colloq: true
     text: |
         $`\Char(P) = q ∈ ℕ`$, такое что $`\underbrace{1+1+1+…+1}_{q} = 0`$. Если такого $`q`$ не существует, то $`\Char(P) = 0`$.
@@ -1239,7 +1239,7 @@ field_char:
 
 factor_ring:
     title: Факторкольцо
-    bulat: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#факторкольцо
+    source: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#факторкольцо
     colloq: true
     text: |
         $`K/I`$ — факторкольцо кольца $`K`$ по идеалу $`I`$
@@ -1252,7 +1252,7 @@ factor_ring:
 theorem_homoring:
     title: Теорема о гомоморфизме колец
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#теорема-о-гомоморфизме-колец
+    source: https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#теорема-о-гомоморфизме-колец
     text: |
         Полностью аналогично теореме для групп
 
@@ -1264,7 +1264,7 @@ theorem_homoring:
 
 subfield:
     title: Подполя
-    bulat: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#расширение-поля
+    source: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#расширение-поля
     colloq: true
     text: |
         $`F ⊂ P`$, $`P`$ — поле, а $`F`$ — подполе.
@@ -1300,7 +1300,7 @@ factorring_polynom:
 algebaric_el:
     title: Алгебраический элемент над подполем
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=называется алгебраическим над
+    source: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=называется алгебраическим над
     text: |
         Пусть $`F ⊂ P`$. $`λ∈P`$ — алгебраический элемент над подполем $`F`$,
         iff $`∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0`$, т.е. число представимо как корень некоторого многочлена.
@@ -1321,7 +1321,7 @@ rationals_field:
 
 field_size:
     title: Число элементов в поле
-    bulat: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Число элементов конечно поля всегда
+    source: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Число элементов конечно поля всегда
     colloq: true
     text: |
         $`p`$ — простое, $`p,n∈ℕ`$
@@ -1334,7 +1334,7 @@ field_size:
 
 chinese_rems:
     title: Китайская теорема об остатках
-    bulat: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Китайская теорема об остатках
+    source: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=Китайская теорема об остатках
     colloq: true
     text: |
         Пусть $`n∈ℤ, n=n₁n₂…nₘ`$, где $`nᵢ`$ — взаимно простые. Тогда $`ℤₙ ≅ ℤ_{n₁}×…×ℤ_{nₘ}`$
@@ -1345,7 +1345,7 @@ chinese_rems:
 linear_space:
     title: Линейное пространство
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#линейные-простанства
+    source: https://wiki.bularond.ru/ru/algebra/twentieth_lesson#линейные-простанства
     text: |
         $`F`$ — поле; $`V`$ — множество, на котором заданы сложение ($`V+V → V`$) и умножение на число $`λ∈F`$
 
@@ -1370,7 +1370,7 @@ linear_space:
 space_base:
     title: Базис линейного пространства
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва
+    source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва
     text: |
         Базис это упорядоченный набор л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией):
         ```math
@@ -1382,7 +1382,7 @@ space_base:
 space_dim:
     title: Размерность пространства
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва
+    source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва
     text: |
         Размерность это максимальное число л.н.з. векторов в пространстве.
 
@@ -1392,7 +1392,7 @@ space_dim:
 change_base:
     title: Переход к новому базису
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#переход-к-новому-базису
+    source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#переход-к-новому-базису
     text: |
         Пусть $`L`$ — $`n`$-мерное пространство, а $`A = \{a₁,…,aₙ\}`$ и $`B = \{b₁,…,bₙ\}`$ — базисы в нём.
         ```math
@@ -1422,7 +1422,7 @@ change_base:
 subspace:
     title: Подпространство
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#подпространтсва
+    source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#подпространтсва
     text: |
         Это подмножество $`W⊂V`$, которое является пространством относительно тех же операций.
 
@@ -1437,7 +1437,7 @@ subspace:
 linear_span:
     title: Линейная оболочка
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#линейная-оболочка
+    source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#линейная-оболочка
     text: |
         Множество всех линейных комбинаций набора векторов называется их линейной оболочкой.
         ```math
@@ -1459,7 +1459,7 @@ linear_span:
 subspace_sum:
     title: Сумма подпространств
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#сумма-подпространств
+    source: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#сумма-подпространств
     text: |
         ```math
         H₁ + H₂ = \{x₁ + x₂ \mid x₁ ∈ H₁, x₂∈H₂ \}
@@ -1475,7 +1475,7 @@ subspace_sum:
 bilinear_form:
     title: Билинейная форма
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#билинейные-формы
+    source: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#билинейные-формы
     text: |
         Функция $`φ: V×V → ℝ`$, где $`V`$ — линейное пространство над $`ℝ`$ является билинейной формой, iff $`∀x,y,z∈V, ∀α,β∈ℝ`$
         
@@ -1511,7 +1511,7 @@ bilinear_matrix:
 sq_form:
     title: Квадратичная форма
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#квадратичные-формы
+    source: https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#квадратичные-формы
     text: |
         Однородный многочлен второй степени от $`n`$ переменных:
         ```math
@@ -1562,7 +1562,7 @@ form_change_base:
 silvestr:
     title: Критерий Сильвестра
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=критерий Сильвестра
+    source: https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=критерий Сильвестра
     text: |
         Квадратичная форма положительная определена iff $`Δ₁>0, Δ₂>0, …, Δₙ > 0`$.
 
@@ -1585,7 +1585,7 @@ silvestr:
 inertion:
     title: Закон инерции квадратичных форм.
     colloq: true
-    bulat: https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=закон инерции квадратных форм
+    source: https://wiki.bularond.ru/ru/algebra/twenty_three_lesson#:~:text=закон инерции квадратных форм
     text: |
         Канонический вид не единственнен. Выберем любые два:
         ```math
@@ -1606,7 +1606,7 @@ inertion:
 linear_map:
     title: Линейное отображение
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p107
+    source: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Отображение $`φ: V₁ → V₂`$ — линейное iff
 
@@ -1626,7 +1626,7 @@ linear_map:
 linear_map_matrix:
     title: Матрица лин. отображения
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p107
+    source: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Пусть $`e₁,…,eₙ`$ — базис в $`V₁`$, а $`f₁,…,fₘ`$ — в $`V₂`$. $`φ: V₁ → V₂`$ — лин. отображение.
 
@@ -1644,7 +1644,7 @@ linear_map_matrix:
 lin_map_matrix_change:
     title: Замена базиса в матрице лин. отображения
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p108
+    source: https://sldr.xyz/stylus/Algebra/#p108
     text: |
         - В $`V₁`$ базисы $`ε₁`$ и $`ε₁'`$, а в $`V₂`$ — $`ε₂`$ и $`ε₂'`$
         - Матрица линейного отображения: $`A_{ε₁ε₂}`$ в базисах $`ε₁`$ и $`ε₂`$
@@ -1660,7 +1660,7 @@ lin_map_matrix_change:
 own_vector:
     title: Собственные вектор и значение
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p110
+    source: https://sldr.xyz/stylus/Algebra/#p110
     text: |
         $`λ`$ — собственное значение (число), а $`x≠0`$ — собственный вектор лин. оператора $`φ`$, iff $`φ(x) = λx`$
     tags: [linear_map]
@@ -1668,7 +1668,7 @@ own_vector:
 char_eq:
     title: Характеристическое уравнение
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p111
+    source: https://sldr.xyz/stylus/Algebra/#p111
     text: |
         Для квадратной матрицы $`A`$:
 
@@ -1685,7 +1685,7 @@ char_eq:
 
 spectre:
     title: Спектр
-    bulat: https://sldr.xyz/stylus/Algebra/#p111
+    source: https://sldr.xyz/stylus/Algebra/#p111
     text: |
         Спектр — множество всех собственных значений конечномерного линейного оператора.
     tags: [own_vector, linear_map]
@@ -1712,7 +1712,7 @@ own_subspace:
 own_val_multiplicity:
     title: Кратность собственного значения
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p113
+    source: https://sldr.xyz/stylus/Algebra/#p113
     text: |
         - Алгебраическая — кратность корня $`λ`$ в характеристическом уравнении.
         - Геометрическая — размерность собственного пространство (т.е. максимальное количество л.н.з. соответсвующих собственных векторов ($`φ(v) = λv`$))
@@ -1722,7 +1722,7 @@ own_val_multiplicity:
 matrix_trace:
     title: След матрицы
     colloq: true
-    bulat: https://sldr.xyz/stylus/Algebra/#p112
+    source: https://sldr.xyz/stylus/Algebra/#p112
     text: |
         Это сумма диагональных элементов: $`\tr A = \Σᵢ a_{ii}`$
         

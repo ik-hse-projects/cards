@@ -14,7 +14,7 @@ class Entry:
         self.title = data['title']
         self.text = data.get('text')
         self.tags = data.get('tags', [])
-        self.bulat = data.get('bulat')
+        self.source = data.get('source')
         self.colloq = data.get('colloq', False)
         self.references = []
         self.referenced_by = []
@@ -130,10 +130,10 @@ def add_more(prefix, src):
             yield f'{prefix} {more.title} <code>[WIP]</code><br/>'
 
 def render(i):
-    bulat = f'<small>(<a target="_blank" href="{i.bulat}">Конспект</a>)</small>' if i.bulat else ''
+    source = f'<small>(<a target="_blank" href="{i.source}">Конспект</a>)</small>' if i.source else ''
     colloq = 'colloq' if i.colloq else ''
     yield f'<div class="entry">'
-    yield f'<h1 id={i.id}><a class="tag more {colloq}" href="#{i.id}">#</a>{i.title} {bulat}</h1>'
+    yield f'<h1 id={i.id}><a class="tag more {colloq}" href="#{i.id}">#</a>{i.title} {source}</h1>'
     yield (markdown.Markdown(
             extensions=['mdx_math'],
             extension_configs={
