@@ -130,6 +130,7 @@ hr:last-child {
 <li><a href="https://github.com/Sofiika/AlgebraKollok">https://github.com/Sofiika/AlgebraKollok</a> — основной источник</li>
 <li><a href="https://wiki.bularond.ru/ru/algebra">https://wiki.bularond.ru/ru/algebra</a> — подробные конспекты</li>
 <li><a href="https://hse-tex.me/course-1/linear-algebra.pdf">https://hse-tex.me/course-1/linear-algebra.pdf</a> — конспекты ПМИ. Не используется, но может оказаться полезным.</li>
+<li><a href="https://sldr.xyz/stylus/Algebra/">https://sldr.xyz/stylus/Algebra/</a> — мои рукописные конспекты, не очень красивые и может чего-то не хватать</li>
 </ul>
 <p><a href="algebra.svg">Большой <strong>интерактивный</strong> граф всего</a></p>
 <hr/>
@@ -257,6 +258,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 <a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
+<a class="more" href="#char_eq">→ Характеристическое уравнение</a><br/>
 </div>
 <div class="entry">
 <h1 id=det_formula><a class="tag more colloq" href="#det_formula">#</a>Вычисление определителя <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка">Конспект</a>)</small></h1>
@@ -1074,7 +1076,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <hr/>
 <a class="more" href="#group-theory">→ Теория групп</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
-<a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
 <h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
@@ -1215,7 +1217,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
-<a class="more" href="#homo_core">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
 <a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
 <a class="more" href="#linear_map">→ Линейное отображение</a><br/>
 </div>
@@ -1267,7 +1269,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
 </div>
 <div class="entry">
-<h1 id=homo_core><a class="tag more colloq" href="#homo_core">#</a>Ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма">Конспект</a>)</small></h1>
+<h1 id=homo_kernel><a class="tag more colloq" href="#homo_kernel">#</a>Ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма">Конспект</a>)</small></h1>
 <script type="math/tex; mode=display">
 f: G → H \\
 \Ker f = \{ g∈G \mid f(g) = e_H \}
@@ -1374,7 +1376,7 @@ kℤ = \{ kn | n∈ℤ \}
 <script type="math/tex">H ⊲ G</script> iff <script type="math/tex">∃f: H=\Ker(f)</script>, где <script type="math/tex">f: G→F</script> — гомоморфизм</p>
 <hr/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
-<a class="more" href="#homo_core">← Ядро гомоморфизма</a><br/>
+<a class="more" href="#homo_kernel">← Ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
 <h1 id=factor_group><a class="tag more colloq" href="#factor_group">#</a>Факторгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#факторгруппы">Конспект</a>)</small></h1>
@@ -1780,6 +1782,7 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
 <a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
 <a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
+<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=space_dim><a class="tag more colloq" href="#space_dim">#</a>Размерность пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
@@ -1790,6 +1793,7 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <a class="more" href="#linear_space">← Линейное пространство</a><br/>
 <a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
 <a class="more" href="#subspace_sum">→ Сумма подпространств</a><br/>
+<a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
 </div>
 <div class="entry">
 <h1 id=change_base><a class="tag more colloq" href="#change_base">#</a>Переход к новому базису <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#переход-к-новому-базису">Конспект</a>)</small></h1>
@@ -1841,6 +1845,7 @@ x^b = T_{A→B}^{-1} · x^a = T_{B→A}·x^a
 <hr/>
 <a class="more" href="#linear_space">← Линейное пространство</a><br/>
 <a class="more" href="#subspace_sum">→ Сумма подпространств</a><br/>
+<a class="more" href="#own_subspace">→ Собственное подпространство</a><br/>
 </div>
 <div class="entry">
 <h1 id=linear_span><a class="tag more colloq" href="#linear_span">#</a>Линейная оболочка <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#линейная-оболочка">Конспект</a>)</small></h1>
@@ -2049,7 +2054,7 @@ Q_{2}(y_{1},…,y_{k}) = μ_{1}y_{1}^{2} + … + μ_{k}y_{k}^{2}, μ_{i}≠0 \\
 <a class="more" href="#sq_form">← Квадратичная форма</a><br/>
 </div>
 <div class="entry">
-<h1 id=linear_map><a class="tag more colloq" href="#linear_map">#</a>Линейное отображение </h1>
+<h1 id=linear_map><a class="tag more colloq" href="#linear_map">#</a>Линейное отображение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
 <p>Отображение <script type="math/tex">φ: V_{1} → V_{2}</script> — линейное iff</p>
 <p>
 <script type="math/tex">V_{1}</script> и <script type="math/tex">V_{2}</script> — линейные пространства над <script type="math/tex">𝔽</script>. <script type="math/tex">∀u, v ∈ V_{1}, ∀λ∈𝔽</script>
@@ -2071,9 +2076,12 @@ Q_{2}(y_{1},…,y_{k}) = μ_{1}y_{1}^{2} + … + μ_{k}y_{k}^{2}, μ_{i}≠0 \\
 <a class="more" href="#linear_space">← Линейное пространство</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
 <a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
+<a class="more" href="#own_vector">→ Собственные вектор и значение</a><br/>
+<a class="more" href="#spectre">→ Спектр</a><br/>
+<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
 </div>
 <div class="entry">
-<h1 id=linear_map_matrix><a class="tag more colloq" href="#linear_map_matrix">#</a>Матрица лин. отображения </h1>
+<h1 id=linear_map_matrix><a class="tag more colloq" href="#linear_map_matrix">#</a>Матрица лин. отображения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
 <p>Пусть <script type="math/tex">e_{1},…,e_{n}</script> — базис в <script type="math/tex">V_{1}</script>, а <script type="math/tex">f_{1},…,f_{m}</script> — в <script type="math/tex">V_{2}</script>. <script type="math/tex">φ: V_{1} → V_{2}</script> — лин. отображение.</p>
 <p><script type="math/tex; mode=display">
 A_{ef} = \begin{pmatrix}
@@ -2091,7 +2099,7 @@ A_{ef} = \begin{pmatrix}
 <a class="more" href="#lin_map_matrix_change">→ Замена базиса в матрице лин. отображения</a><br/>
 </div>
 <div class="entry">
-<h1 id=lin_map_matrix_change><a class="tag more colloq" href="#lin_map_matrix_change">#</a>Замена базиса в матрице лин. отображения </h1>
+<h1 id=lin_map_matrix_change><a class="tag more colloq" href="#lin_map_matrix_change">#</a>Замена базиса в матрице лин. отображения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p108">Конспект</a>)</small></h1>
 <ul>
 <li>В <script type="math/tex">V_{1}</script> базисы <script type="math/tex">ε_{1}</script> и <script type="math/tex">ε_{1}'</script>, а в <script type="math/tex">V_{2}</script> — <script type="math/tex">ε_{2}</script> и <script type="math/tex">ε_{2}'</script>
 </li>
@@ -2109,6 +2117,92 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
 </div>
+<div class="entry">
+<h1 id=own_vector><a class="tag more colloq" href="#own_vector">#</a>Собственные вектор и значение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p110">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">λ</script> — собственное значение (число), а <script type="math/tex">x≠0</script> — собственный вектор лин. оператора <script type="math/tex">φ</script>, iff <script type="math/tex">φ(x) = λx</script>
+</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#spectre">→ Спектр</a><br/>
+<a class="more" href="#own_value">→ Критерий собственного значения</a><br/>
+<a class="more" href="#own_subspace">→ Собственное подпространство</a><br/>
+<a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=char_eq><a class="tag more colloq" href="#char_eq">#</a>Характеристическое уравнение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p111">Конспект</a>)</small></h1>
+<p>Для квадратной матрицы <script type="math/tex">A</script>:</p>
+<p>Характеристический многочлен:
+<script type="math/tex; mode=display">
+χ_A(λ) = \det (A - λE) \\
+</script>
+</p>
+<p>Характеристическое уравнение:
+<script type="math/tex; mode=display">
+χ_A(λ) = 0 ⇔ \det (A - λE) = 0
+</script>
+</p>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#own_value">→ Критерий собственного значения</a><br/>
+<a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=spectre><a class="tag more " href="#spectre">#</a>Спектр <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p111">Конспект</a>)</small></h1>
+<p>Спектр — множество всех собственных значений конечномерного линейного оператора.</p>
+<hr/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#own_value">→ Критерий собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=own_value><a class="tag more colloq" href="#own_value">#</a>Критерий собственного значения </h1>
+<p>Следующее равносильно (для некоторого л.о.):</p>
+<ol>
+<li>
+<script type="math/tex">λ</script> — собственное значение</li>
+<li>
+<script type="math/tex">λ</script> принадлежит спектру</li>
+<li>
+<script type="math/tex">λ</script> — корень <script type="math/tex">χ(x) = 0</script> (над алгебраически замкнутым полем)</li>
+</ol>
+<hr/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+<a class="more" href="#spectre">← Спектр</a><br/>
+<a class="more" href="#char_eq">← Характеристическое уравнение</a><br/>
+</div>
+<div class="entry">
+<h1 id=own_subspace><a class="tag more colloq" href="#own_subspace">#</a>Собственное подпространство </h1>
+<p>
+<script type="math/tex">φ: V → V</script> — линейный оператор, а <script type="math/tex">λ</script> — его собственное значение.
+Тогда множество <script type="math/tex">V_λ = \{ v ∈ V \mid φ(v) = λv \}</script>, т.е. множество собственных векторов, соответствующих <script type="math/tex">λ</script>.</p>
+<hr/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+<a class="more" href="#subspace">← Подпространство</a><br/>
+<a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=own_val_multiplicity><a class="tag more colloq" href="#own_val_multiplicity">#</a>Кратность собственного значения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p113">Конспект</a>)</small></h1>
+<ul>
+<li>Алгебраическая — кратность корня <script type="math/tex">λ</script> в характеристическом уравнении.</li>
+<li>Геометрическая — размерность собственного пространство (т.е. максимальное количество л.н.з. соответсвующих собственных векторов (<script type="math/tex">φ(v) = λv</script>))</li>
+<li>Геометрическая ≤ алгебраической.</li>
+</ul>
+<hr/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+<a class="more" href="#char_eq">← Характеристическое уравнение</a><br/>
+<a class="more" href="#own_subspace">← Собственное подпространство</a><br/>
+<a class="more" href="#space_dim">← Размерность пространства</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_trace><a class="tag more colloq" href="#matrix_trace">#</a>След матрицы <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p112">Конспект</a>)</small></h1>
+<p>Это сумма диагональных элементов: <script type="math/tex">\tr A = \Σ_{i} a_{ii}</script>
+</p>
+<p>След матрицы лин. оператора не зависит от выбора базиса.</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+</div>
 
   </div>
   <div class="panel" id="side_panel">
@@ -2125,12 +2219,14 @@ let macros = {
     "ø": "\\varnothing",
     "\\o": "\\varnothing",
     "\\Rg": "\\operatorname{Rg}",
+    "\\tr": "\\operatorname{tr}",
     "\\arg": "\\operatorname{arg}",
     "\\Arg": "\\operatorname{Arg}",
     "\\ord": "\\operatorname{ord}",
     "\\sgn": "\\operatorname{sgn}",
     "\\pr": "\\operatorname{пр}",
     "\\Ker": "\\operatorname{Ker}",
+    "\\Im": "\\operatorname{Im}",
     "\\id": "\\operatorname{id}",
     "\\Char": "\\operatorname{char}",
     "\\const": "\\operatorname{const}",
