@@ -64,6 +64,32 @@ matrix_mul:
         A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_{tj}
         ```
 
+        Оно некоммутативно.
+        Как минимум $`A_{n×m} · B_{m×k} = C_{n×k}`$, но $`B_{m×k} · A_{n×m}`$ не определено, если $`n≠k`$.
+        И даже тогда $`C_{n×k} ≠ D_{m×m}`$ в общем случае. Либо можно просто привести пример:
+        ```math
+        \begin{pmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{pmatrix} · \begin{pmatrix}
+            0 & 0 \\
+            1 & 1
+        \end{pmatrix} = \begin{pmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{pmatrix} \\
+        \begin{pmatrix}
+            0 & 0 \\
+            1 & 1
+        \end{pmatrix} · \begin{pmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{pmatrix} = \begin{pmatrix}
+            0 & 0 \\
+            1 & 1
+        \end{pmatrix}
+        ```
+
 matrix_stair:
     title: Ступенчатый вид матриц
     colloq: true
@@ -116,7 +142,7 @@ subst_inv:
     title: Число инверсий в подстановке
     source: https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=образуют инверсию в перестановке
     text: |
-        Кол-во пар $`(i, j)`$ таких, что $`σⱼ > σᵢ`$, хотя $`j ≤ i`$
+        Кол-во пар $`(i, j)`$ таких, что $`σⱼ > σᵢ`$, хотя $`j < i`$
 
 subst_sign:
     title: Знак подстановки
@@ -1733,4 +1759,3 @@ matrix_trace:
         
         След матрицы лин. оператора не зависит от выбора базиса.
     tags: [linear_map, space_base]
-
