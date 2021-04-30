@@ -15,7 +15,7 @@ class Entry:
         self.text = data.get('text')
         self.tags = data.get('tags', [])
         self.source = data.get('source')
-        self.colloq = data.get('colloq', False)
+        self.colloq = data.get('colloq', [])
         self.references = []
         self.referenced_by = []
 
@@ -207,9 +207,26 @@ def print_html(data):
                 print(ln)
     print(after)
 
+def check_colloq(data):
+    total = set()
+    for card in data.values():
+        for i in card.colloq:
+            total.add(i)
+    total = list(sorted(total))
+    missing = []
+    for n in range(1, int(total[-1]) + 1):
+        group = [i for i in total if int(i) == n]
+        step = min(group[i+1] - group[i] for i in range(len(group)-1))
+        group = [int(i / step) for i in group]
+        for i in range(group[0], group[-1], 1):
+            if i not in group:
+                missing.append(round(i * step, 4))
+    eprint(f"Colloq: {len(total)}, but {len(missing)}: {repr(missing)}")
+
 if __name__ == "__main__":
     data = load(stdin)
     eprint(f'Loaded {len(data)} cards')
+    check_colloq(data)
     print_html(toposort(data.values()))
     eprint("\tHTML done")
     if len(argv) > 1:
