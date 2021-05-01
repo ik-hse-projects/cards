@@ -1,4 +1,4 @@
-import yaml
+from ruamel.yaml import YAML
 import markdown
 import re
 import os
@@ -78,11 +78,12 @@ def clean_text(text_id, text):
     return text
 
 def load(src):
+    yaml = YAML(typ='safe')
     if isinstance(src, str):
         with open(src, 'r') as f:
-            data = yaml.load(f, Loader=yaml.CLoader)
+            data = yaml.load(f)
     else:
-        data = yaml.load(src, Loader=yaml.CLoader)
+        data = yaml.load(src)
     data = {k: Entry(k, v) for k, v in data.items() if not k.startswith('_')}
 
     missing = set()

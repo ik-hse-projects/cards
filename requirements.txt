@@ -1,4 +1,4 @@
-pyyaml
+ruamel.yaml
 markdown
 python-markdown-math
 graphviz
