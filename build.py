@@ -13,6 +13,7 @@ class Entry:
         self.id = id
         self.title = data['title']
         self.text = data.get('text')
+        self.proof = data.get('proof')
         self.tags = data.get('tags', [])
         self.source = data.get('source')
         self.colloq = data.get('colloq', [])
@@ -25,10 +26,10 @@ class Missing:
 
 def what_letter(x):
     superscript_map = {
-            '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁻': '-', '⁺': '+',
-            'ⁱ': 'i', 'ʲ': 'j', 'ⁿ': 'n'}
+            '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁻': '-', '⁺': '+', '⁼': '=',
+            'ⁱ': 'i', 'ʲ': 'j', 'ⁿ': 'n', 'ʳ': 'r'}
     subscript_map = {
-            '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₋': '-', '₊': '+',
+            '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₋': '-', '₊': '+', '₌': '=',
             'ᵢ': 'i', 'ⱼ': 'j', 'ₖ': 'k', 'ₙ': 'n', 'ₘ': 'm', 'ₚ': 'p', 'ᵣ': 'r', 'ₛ': 's',
             'ₐ': 'a'}
     if x in superscript_map:
@@ -130,18 +131,26 @@ def add_more(prefix, src):
         else:
             yield f'{prefix} {more.title} <code>[WIP]</code><br/>'
 
+def convert_md(id, text):
+    return markdown.Markdown(
+        extensions=['mdx_math'],
+        extension_configs={
+            'mdx_math': {'use_gitlab_delimiters': True}
+        }
+    ).convert(clean_text(id, text))
+
 def render(i):
     source = f'<small>(<a target="_blank" href="{i.source}">Конспект</a>)</small>' if i.source else ''
     colloq = 'colloq' if i.colloq else ''
     yield f'<div class="entry">'
     yield f'<h1 id={i.id}><a class="tag more {colloq}" href="#{i.id}">#</a>{i.title} {source}</h1>'
-    yield (markdown.Markdown(
-            extensions=['mdx_math'],
-            extension_configs={
-                'mdx_math': {'use_gitlab_delimiters': True}
-            }
-        ).convert(clean_text(i.id, i.text)))
+    yield convert_md(i.id, i.text)
 
+    if i.proof:
+        yield '<details>'
+        yield '<summary>Доказательство</summary>'
+        yield convert_md(i.id, i.proof)
+        yield '</details>'
     yield '<hr/>'
     yield from add_more('←', i.references)
     yield from add_more('→', i.referenced_by)
@@ -217,7 +226,10 @@ def check_colloq(data):
     missing = []
     for n in range(1, int(total[-1]) + 1):
         group = [i for i in total if int(i) == n]
-        step = min(group[i+1] - group[i] for i in range(len(group)-1))
+        try:
+            step = min(group[i+1] - group[i] for i in range(len(group)-1))
+        except ValueError:
+            continue
         group = [int(i / step) for i in group]
         for i in range(group[0], group[-1], 1):
             if i not in group:
