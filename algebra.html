@@ -54,10 +54,6 @@ details.disabled summary {
     text-decoration: line-through;
 }
 
-details {
-  margin-left: 1.5em;
-}
-
 h1 {
     margin: 0;
 }
@@ -253,38 +249,85 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#subst_sign">← Знак подстановки</a><br/>
 </div>
 <div class="entry">
-<h1 id=matrix_det><a class="tag more " href="#matrix_det">#</a>Определитель <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#свойства-определителей">Конспект</a>)</small></h1>
-<p>Свойства определителя, они же определяют его</p>
-<ol>
+<h1 id=antisymmetry><a class="tag more colloq" href="#antisymmetry">#</a>Кососимметричность </h1>
+<p>Кососимметричность эквивалентна обнулению на паре совпадающих элементов:</p>
+<ul>
 <li>
-<p>
-<script type="math/tex">\det A^T = \det A</script>. Отсюда все следующие свойства верны и для строк вместо столбцов.</p>
+<p>Дана кососимметричность: <script type="math/tex">f(x_{1}, x_{2}) = -f(x_{2}, x_{1})</script>, но т.к. <script type="math/tex">x_{1} = x_{2}</script>, то <script type="math/tex">f(x_{1}, x_{2}) = f(x_{2}, x_{1})</script>.
+Получаем, что <script type="math/tex">-f(x_{2}, x_{1}) = +f(x_{2}, x_{1})</script>, т.е. <script type="math/tex">f(x_{2}, x_{1}) = 0</script>, ч.т.д.</p>
 </li>
+<li>
+<p>И в обратную сторону: <script type="math/tex">f(x_{1}, x_{2}) + f(x_{2}, x_{1}) = f(x_{1} + x_{2}, x_{2} + x_{1}) = 0</script> ⇒ <script type="math/tex">f(x_{1}, x_{2}) = -f(x_{2}, x_{1})</script>, ч.т.д.</p>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#det_mul">→ Определитель произведения</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_det><a class="tag more colloq" href="#matrix_det">#</a>Определитель <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#свойства-определителей">Конспект</a>)</small></h1>
+<p>Свойства определителя, которые его определяют</p>
+<ol>
 <li>
 <p>
 <script type="math/tex">\det (A_{1},…, A_{i}+A'_{i}, …, A_{n}) = \det (A_{1},…,A_{i},…,A_{n}) + \det(A_{1},…,A_{i}',…,A_{n})</script> — полилинейность по столбцам</p>
 </li>
 <li>
-<p>Перестановка столбцов меняет знак.</p>
+<p>Перестановка столбцов меняет знак (<script type="math/tex">det</script> — кососимметрическая функция)</p>
 </li>
 <li>
-<p>Если есть нулевой столбец или два столбца совпадают, то <script type="math/tex">\det A = 0</script>
-</p>
-</li>
-<li>
-<p>Следствие из 4: Если один из столбцов является линейной комбинацией остальных, то <script type="math/tex">\det A = 0</script>
-</p>
-</li>
-<li>
-<p>Следствие из 2 и 4: Если к столбцу прибавить линейную комбинацию остальных, то определитель не изменится</p>
-</li>
-<li>
-<p>Определитель единчной матрицы <script type="math/tex">E</script> равен единице.
+<p>Определитель единичной матрицы <script type="math/tex">E</script> равен единице.
     Это нужно для того, чтобы функция определителя была единственна, иначе существуют подходящие, отличающиеся на множитель.</p>
 </li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<p>Для матрицы 2×2:
+<script type="math/tex; mode=display">
+    f\left(\begin{array}{cc}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+    \end{array}\right) = 
+
+    f\left(a_{11}\binom{1}{0} + a_{21}\binom{0}{1}, \begin{array}{c}a_{12}\\ a_{22}\end{array}\right) = \\
+    = a_{11} f\left(\begin{array}{cc}
+    1 & a_{12} \\
+    0 & a_{22}
+    \end{array}\right) + 
+    a_{21} f\left(\begin{array}{cc}
+    0 & a_{12} \\
+    1 & a_{22}
+    \end{array}\right) =  \\
+
+    = a_{11} a_{12} 
+    f\left(\begin{array}{cc}
+    1 & 1 \\
+    0 & 0
+    \end{array}\right) + 
+    a_{11} a_{22} 
+    f\left(\begin{array}{cc}
+    1 & 0 \\
+    0 & 1
+    \end{array}\right) + 
+
+    a_{21} a_{12} 
+    f\left(\begin{array}{cc}
+    0 & 1 \\
+    1 & 0
+    \end{array}\right) + 
+    a_{21} a_{22} 
+    f\left(\begin{array}{cc}
+    0 & 0 \\
+    1 & 1
+    \end{array}\right) = \\
+    = 0 + (a_{11}a_{22} - a_{21} a_{12}) f(E_2) + 0 = a_{11}a_{22} - a_{21}a_{12} = \det A ~ \blacksquare
+</script>
+
+Спасибо Булату за тех.</p>
+</details>
 <hr/>
+<a class="more" href="#det_props">→ Свойства определителя</a><br/>
 <a class="more" href="#det_formula">→ Вычисление определителя</a><br/>
+<a class="more" href="#det_mul">→ Определитель произведения</a><br/>
 <a class="more" href="#det_decomposition">→ Разложение определителя по столбцу (строке)</a><br/>
 <a class="more" href="#matrix_inv">→ Обратная матрица</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
@@ -297,6 +340,28 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#char_eq">→ Характеристическое уравнение</a><br/>
 </div>
 <div class="entry">
+<h1 id=det_props><a class="tag more " href="#det_props">#</a>Свойства определителя </h1>
+<ol>
+<li>
+<p>
+<script type="math/tex">\det A^T = \det A</script>. Отсюда все свойства верны и для строк вместо столбцов.</p>
+</li>
+<li>
+<p>Если есть нулевой столбец или два столбца совпадают, то <script type="math/tex">\det A = 0</script>
+</p>
+</li>
+<li>
+<p>Следствие из 4: Если один из столбцов является линейной комбинацией остальных, то <script type="math/tex">\det A = 0</script>
+</p>
+</li>
+<li>
+<p>Следствие из 2 и 4: Если к столбцу прибавить линейную комбинацию остальных, то определитель не изменится</p>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
 <h1 id=det_formula><a class="tag more colloq" href="#det_formula">#</a>Вычисление определителя <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/third_lesson#:~:text=Определителем (детерминантом) порядка">Конспект</a>)</small></h1>
 <p>Матрица <script type="math/tex">A</script> квадратная и размера <script type="math/tex">n×n</script>, а <script type="math/tex">S_{n}</script> — мн-во всех подстановок (их, кстати, <script type="math/tex">n!</script>)
 <script type="math/tex; mode=display">
@@ -306,6 +371,27 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <p>Если <script type="math/tex">\det A = 0</script>, то матрицу называют вырожденной.</p>
 <hr/>
 <a class="more" href="#subst">← Подстановка</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+</div>
+<div class="entry">
+<h1 id=det_mul><a class="tag more colloq" href="#det_mul">#</a>Определитель произведения </h1>
+<script type="math/tex; mode=display">
+\det (A · B) = \det(A) · \det(B)
+</script>
+<details>
+<summary>Доказательство</summary>
+<p>Зафиксируем <script type="math/tex">A</script> и рассмотрим функцию <script type="math/tex">f(B) = \det(A·B)</script>.</p>
+<ol>
+<li>Полилинейность. Если в <script type="math/tex">B</script> столбец имеет вид <script type="math/tex">αv_{1} + βv_{2}</script>,
+    то и в <script type="math/tex">A·B</script> соответствующий столбец будет иметь вид <script type="math/tex">Aαv_{1} + Aβv_{2}</script>.</li>
+<li>Кососимметричность. Если в матрице <script type="math/tex">B</script> два столбца совпадают, то и в <script type="math/tex">A·B</script> они тоже будут совпадать.
+    В таком случае <script type="math/tex">f(B) = 0</script>, т.е. функция обнуляется, из чего следует кососимметричность.</li>
+</ol>
+<p>Отсюда получаем, что <script type="math/tex">f(B)</script> — функция определителя с точностью до константы. Т.е. <script type="math/tex">f(B) = \det B · f(E)</script>.</p>
+<p>Вычислим <script type="math/tex">f(E) = \det(A · E) = \det A</script>. Таким образом <script type="math/tex">f(B) = \det B · \det A</script>, ч.т.д.</p>
+</details>
+<hr/>
+<a class="more" href="#antisymmetry">← Кососимметричность</a><br/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 </div>
 <div class="entry">
@@ -329,6 +415,7 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#complementary_minor">← Дополняющий минор и алгебраическое дополнение</a><br/>
 <a class="more" href="#fake_decomoposition">→ Фальшивое разложение</a><br/>
+<a class="more" href="#matrix_inv_formula">→ Формула вычисления обратной матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=fake_decomoposition><a class="tag more colloq" href="#fake_decomoposition">#</a>Фальшивое разложение <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#свойство-9-фальшивое-разложение-часть-теоремы-лапласа">Конспект</a>)</small></h1>
@@ -343,14 +430,27 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <hr/>
 <a class="more" href="#complementary_minor">← Дополняющий минор и алгебраическое дополнение</a><br/>
 <a class="more" href="#det_decomposition">← Разложение определителя по столбцу (строке)</a><br/>
+<a class="more" href="#matrix_inv_formula">→ Формула вычисления обратной матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=kramer><a class="tag more colloq" href="#kramer">#</a>Формулы Крамера <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourth_lesson#правило-крамера">Конспект</a>)</small></h1>
-<p>Формула работает только когда СЛАУ совместна. Пусть <script type="math/tex">Ax = b</script> — совместная СЛАУ. Тогда <script type="math/tex">x_{i}·\det A = \det(A_{1},…,A_{i-1},b,A_{i+1},…,A_{n}) (= Δ_{i})</script>, где <script type="math/tex">i∈\{1,…,n\}</script>. Если <script type="math/tex">\det A ≠ 0</script>, то очевидно <script type="math/tex">x_{i} = \frac{Δ_{i}}{\det A}</script>
+<p>Формула работает только когда СЛАУ совместна. Пусть <script type="math/tex">Ax = b</script> — совместная СЛАУ.
+Тогда <script type="math/tex">x_{i}·\det A = \det(A_{1},…,A_{i-1},b,A_{i+1},…,A_{n}) (= Δ_{i})</script>, где <script type="math/tex">i∈\{1,…,n\}</script>.
+Если <script type="math/tex">\det A ≠ 0</script>, то очевидно <script type="math/tex">x_{i} = \frac{Δ_{i}}{\det A}</script>
 </p>
 <p>На всякий случай, СЛАУ совместна, когда в её ступенчатом виде нету строк вида
 <script type="math/tex">\begin{pmatrix}0 & … & 0 & λ\end{pmatrix}, λ≠0</script>.
 Т.е. нет уравнения <script type="math/tex">0 = λ</script>. ОСЛАУ всегда совместна, т.к. есть решение <script type="math/tex">x=0</script>.</p>
+<details>
+<summary>Доказательство</summary>
+<script type="math/tex; mode=display">
+Ax = b ⇒ b = \Σ_{k=1}^n x_{k}A_{k} \\
+\det(A_{1},…,A_{i-1},b,A_{i+1},…,A_{n}) = \det(A_{1},…,A_{i-1},\Σ_{k=1}^n x_{k}A_{k},A_{i+1},…,A_{n}) =\\
+= \det(A_{1},…,A_{i-1},x_{1}A_{1},A_{i+1},…,A_{n}) + … + \det(A_{1},…,A_{i-1},x_{n}A_{n},A_{i+1},…,A_{n}) =\\
+= x_{1}\det(A_{1},…,A_{1},…,A_{n}) + … + x_{j}\det(A_{1},…,A_{j},…A_{n}) + x_{n}\det(A_{1},…,A_{n},…,A_{n}) =\\
+= x_{j}\det A
+</script>
+</details>
 <hr/>
 <a class="more" href="#matrix_stair">← Ступенчатый вид матриц</a><br/>
 </div>
@@ -375,6 +475,12 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 </p>
 <p>Она существует, iff <script type="math/tex">\det A ≠ 0</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Пусть <script type="math/tex">∃A^{-1}</script>. Тогда <script type="math/tex">A·A^{-1} = E ⇒ \det(A·A^{-1}) = 1 ⇒ \det(A) · \det(A^{-1}) = 1 ⇒ \det(A) ≠ 0</script>
+</p>
+<p>Пусть <script type="math/tex">\det A ≠ 0</script>. Тогда рассмотрим матрицу <script type="math/tex">\frac{1}{\det A}\tilde{A}</script> — она и будет обратной.</p>
+</details>
 <hr/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#matrix_inv_formula">→ Формула вычисления обратной матрицы</a><br/>
@@ -384,9 +490,31 @@ A_{n×m} · B_{m×k} = C_{n×k} \text{, где } c_{ij} = \Σ_{t=1}^{m} a_{it}b_
 <script type="math/tex; mode=display">
 A^{-1} = \frac{1}{\det A}\tilde{A}
 </script>
+<details>
+<summary>Доказательство</summary>
+<p>Пусть <script type="math/tex">B = \frac{1}{\det A}\tilde{A}</script>.
+Докажем, что <script type="math/tex">A·B = E</script>.
+Рассмотрим элемент <script type="math/tex">[A·B]_{i, j}</script>:
+<script type="math/tex; mode=display">
+[A·B]_{i, j} = \Σ^{n}_{k=0} a_{ik}b_{kj} = \Σ^{n}_{k=0} a_{ik} · \frac{1}{\det A} A_{jk} =\\
+= \frac{1}{\det A} \Σ^{n}_{k=0} a_{ik} · A_{jk} = \frac{1}{\det A} \begin{cases}
+    \det A,& i=j \\
+    0,& i≠j
+\end{cases} = \begin{cases}
+    1,& i=j \\
+    0,& i≠j
+\end{cases} = δ_{i}^{j} \\
+⇒ A·B = E ∎
+</script>
+
+Объяснение: если <script type="math/tex">i=j</script>, то получается формула разложения по строке <script type="math/tex">i</script>.
+Если же нет, то это фальшивое разложение, которое равно нулю.</p>
+</details>
 <hr/>
 <a class="more" href="#union_matrix">← Союзная матрица</a><br/>
 <a class="more" href="#matrix_inv">← Обратная матрица</a><br/>
+<a class="more" href="#det_decomposition">← Разложение определителя по столбцу (строке)</a><br/>
+<a class="more" href="#fake_decomoposition">← Фальшивое разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=matrix_minor><a class="tag more colloq" href="#matrix_minor">#</a>Миноры матрицы </h1>
@@ -442,7 +570,8 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 </div>
 <div class="entry">
 <h1 id=lin_indep><a class="tag more colloq" href="#lin_indep">#</a>Линейно независимые строки <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifth_lesson#:~:text=называют линейно независимыми">Конспект</a>)</small></h1>
-<p>Столбцы л.н.з., iff не существует <strong>нетривиальной</strong> их линейной комбинации, равной нулю. Короче говоря, когда они не линейно зависимы.</p>
+<p>Столбцы л.н.з., iff не существует <strong>нетривиальной</strong> их линейной комбинации, равной нулю.
+Короче говоря, когда они не линейно зависимы.</p>
 <hr/>
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
 <a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
@@ -459,6 +588,14 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <script type="math/tex">a_{1}, …, a_{s}</script> — л.з. iff хотя бы один из них выражается через остальные.</p>
 <p>Например, выразим <script type="math/tex">a_{s}</script>: <script type="math/tex">∃λ_{1},…,λ_{s}: λ_{1}a_{1} + λ_{2}a_{2} + … + λ_{s-1}a_{s-1} = λ_{s}a_{s}</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Без потери общности будем выбирать <script type="math/tex">a_{1}</script>.</p>
+<p>Пусть <script type="math/tex">a_{1} = λ_{2}a_{2} + … + λ_{s}a_{s}</script>. Тогда положим <script type="math/tex">λ_{1} = -1</script> и получим
+<script type="math/tex">-a_{1} + λ_{2}a_{2} + … + λ_{s}a_{s} = 0</script>, т.е. они линейно зависимы.</p>
+<p>Пусть <script type="math/tex">λ_{1}a_{1} + … + λ_{s}a_{s} = 0</script> — нетривиальная линейная комбинация, где <script type="math/tex">λ_{1} ≠ 0</script>.
+Отсюда <script type="math/tex">a_{1} = \frac{-λ_{2}}{λ_{2}}a_{2} + … + \frac{-λ_{s}}{λ_{s}}a_{s}</script>.</p>
+</details>
 <hr/>
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
 <a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
@@ -469,15 +606,55 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <li>Базисные строки (столбцы), соответствующие любому базисному минору <script type="math/tex">M</script> будут л.н.з.</li>
 <li>Строки (столбцы), не входящие в <script type="math/tex">M</script> выражаются через линейную комбинацию базисных.</li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<p><strong>1.</strong>
+Если одна из строк л.з., то она является линейной комбинацией, а значит <script type="math/tex">\det M = 0</script>
+Это противоречит определению базисного минора: он должен быть ненулевым.</p>
+<p><strong>2.</strong>
+Добавим к минору <script type="math/tex">k</script>-ую строку и <script type="math/tex">j</script>-ый столбец (увеличиваем минор).
+<script type="math/tex; mode=display">
+Δ = \begin{pmatrix}
+    a_{11} & … & a_{1r} & a_{1j} \\
+     ⋮  &   &  ⋮  &  ⋮  \\
+    a_{r1} & … & a_{rr} & a_{rj} \\
+    a_{k1} & … & a_{kr} & a_{kj}
+\end{pmatrix}
+</script>
+</p>
+<p>Покажем, что <script type="math/tex">\det Δ</script> равен нулю.</p>
+<ul>
+<li>Если добавили столбец из минора, то получили два одинаковых столбца.</li>
+<li>Если нет, то <script type="math/tex">Δ</script> — минор матрицы. Но поскольку он больше базисного, то <script type="math/tex">\det Δ = 0</script>
+</li>
+</ul>
+<p>Разложим <script type="math/tex">Δ</script> по добавленному столбцу: <script type="math/tex">a_{1j}·A_{1} + … + a_{rj}·A_{r} + a_{kj}·A_{k}</script>
+Здесь <script type="math/tex">A_{k} = ±\det M ≠ 0</script>, т.е. можем выразить
+<script type="math/tex">a_{kj} = \frac{-A_{1}}{A_{k}} a_{1j} + … + \frac{-A_{rj}}{A_{k}}a_{rj}</script>
+</p>
+<p>Поскольку <script type="math/tex">j</script> — любое, то удалось выразить всю строку <script type="math/tex">k</script> через линейную комбинацию базисных ∎</p>
+</details>
 <hr/>
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
 <a class="more" href="#basic_minor">← Базисный минор</a><br/>
 <a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
+<a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=matrix_ran_theorem><a class="tag more colloq" href="#matrix_ran_theorem">#</a>Теорема о ранге матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-1-теорема-о-ранге-матрицы">Конспект</a>)</small></h1>
 <p>Ранг матрицы равен максимальному числу л.н.з. строк (столбцов)</p>
+<details>
+<summary>Доказательство</summary>
+<p>Пусть в матрице <script type="math/tex">A</script> есть <script type="math/tex">k</script> л.н.з. строк.</p>
+<ol>
+<li>Поскольку строки в базисном миноре л.н.з., то <script type="math/tex">k ≥ \Rg A</script> (из т. о базисном миноре)</li>
+<li>Вычеркнем все л.з. строки из <script type="math/tex">A</script> и получим матрицу <script type="math/tex">A_{1}</script>.
+    Причём <script type="math/tex">\Rg A_{1} = k</script>, поскольку если он меньше, то есть л.з. строки (по т. о б.м.), а это противоречие.
+    Отсюда базисный минор в матрице <script type="math/tex">A_{1}</script> имеет порядок <script type="math/tex">k</script> и он одновременно является подходящим минором в матрице <script type="math/tex">A</script>. Таким образом <script type="math/tex">\Rg A ≥ k</script>.</li>
+</ol>
+<p>Итого, <script type="math/tex">\Rg A = k</script>, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
@@ -493,10 +670,20 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <script type="math/tex">\Rg A = n</script>, <script type="math/tex">n</script> — размер матрицы</li>
 <li>Все строки (столбцы) л.н.з.</li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<ul>
+<li><strong>1 ⇒ 2</strong>: <script type="math/tex">\det A ≠ 0</script> ⇒ есть минор размера <script type="math/tex">n</script> ⇒ ранг матрицы равен <script type="math/tex">n</script>.</li>
+<li><strong>2 ⇒ 3</strong>: <script type="math/tex">\Rg A = n</script> ⇒ все строки базисные ⇒ они л.н.з.</li>
+<li><strong>3 ⇒ 1</strong>: Все строки л.н.з., тогда <script type="math/tex">\Rg A = n</script> (по теореме о ранге матрицы).
+    Если <script type="math/tex">\det A = 0</script>, то <script type="math/tex">\Rg A < n</script> — противоречие. Значит <script type="math/tex">\det A ≠ 0</script>.</li>
+</ul>
+</details>
 <hr/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#basic_minor_theorem">← Теорема о базисном миноре</a><br/>
 </div>
 <div class="entry">
 <h1 id=slau_props><a class="tag more colloq" href="#slau_props">#</a>Свойства решений СЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#свойства-решений-слау">Конспект</a>)</small></h1>
@@ -514,6 +701,31 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <h1 id=Kronecker-Capelli><a class="tag more colloq" href="#Kronecker-Capelli">#</a>Теорема Кронекера-Капелли <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#теорема-кронекера-копелли-и-однородные-матрицы">Конспект</a>)</small></h1>
 <p>СЛАУ <script type="math/tex">A·x = b</script> совместна ⇔ <script type="math/tex">\Rg A = \Rg (A|b)</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<h3>1. ⇒</h3>
+<p>Если СЛАУ совместна, то существует столбец решений <script type="math/tex">x^{0}</script>.
+<script type="math/tex">Ax^{0} = b ⇔ x^{0}_{1} a_{1} + … + x^{0}_{n}a_{n} = b</script> (<script type="math/tex">a_{j}</script> — столбец матрицы <script type="math/tex">A</script>).</p>
+<p>Пусть базисный минор в левом верхнем углу, а столбцы <script type="math/tex">a_{1} ,…, a_{r}</script> — базисные. Тогда выразим остальные:
+<script type="math/tex; mode=display">
+a_{r+1} = λ^{1}_{r+1}a_{1} + … λ^{r}_{r+1}a_{r} \\
+… \\
+a_{m} = λ^{1}_{m}a_{1} + … λ^{r}_{m}a_{r}
+</script>
+</p>
+<p>Подставим это в равенство:
+<script type="math/tex; mode=display">
+b = x^{0}_{1}a_{1} + … + x^{0}_{r}a_{r} + x^{0}_{r+1}(λ^{1}_{r+1}a_{1} + … λ^{r}_{r+1}a_{r}) + … + x^{0}_{m}(λ^{1}_{m}a_{1} + … λ^{r}_{m}a_{r}) \\
+b = (x^{0}_{1} + x^{0}_{r+1}λ^{1}_{r+1} + … + λ^{1}_{m})a_{1} + … + (x^{0}_{r} + x^{0}_{r+1}λ^{r}_{r+1} + … + x^{0}_{m}λ^{r}_{m})a_{r}
+</script>
+</p>
+<p>Таким образом столбец <script type="math/tex">b</script> является линейной комбинацией базисных столбцов,
+а значит его присоединение не изменит ранг.</p>
+<h3>2. ⇐</h3>
+<p>Пусть базисный минор находится в левом верхнем углу.
+Если <script type="math/tex">\Rg A = \Rg(A | b)</script>, то столбец <script type="math/tex">b</script> является линейной комбинацией столбцов <script type="math/tex">A_{1} ,…, A_{r}</script>.
+Т.е. <script type="math/tex">∃y_{1},…,y_{r}: b = y_{1}A_{1} + … + y_{r}A_{r}</script>. Тогда столбец <script type="math/tex">y_{1},…,y_{r}</script> — решение СЛАУ.</p>
+</details>
 <hr/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 </div>
