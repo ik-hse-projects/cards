@@ -696,6 +696,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <script type="math/tex">x, y</script> — решения СЛАУ. Тогда <script type="math/tex">x-y</script> — решение соответствующей ОСЛАУ.</li>
 </ol>
 <hr/>
+<a class="more" href="#solution_structure">→ Структура общего решения неоднородной СЛАУ</a><br/>
 </div>
 <div class="entry">
 <h1 id=Kronecker-Capelli><a class="tag more colloq" href="#Kronecker-Capelli">#</a>Теорема Кронекера-Капелли <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#теорема-кронекера-копелли-и-однородные-матрицы">Конспект</a>)</small></h1>
@@ -730,22 +731,166 @@ b = (x^{0}_{1} + x^{0}_{r+1}λ^{1}_{r+1} + … + λ^{1}_{m})a_{1} + … + (x^{0}
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 </div>
 <div class="entry">
-<h1 id=SLE_nonzero_criteria><a class="tag more colloq" href="#SLE_nonzero_criteria">#</a>Критерий существования ненулевого решения <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#:~:text=Критерий существования ненулевого решения">Конспект</a>)</small></h1>
-<p>ОСЛАУ <script type="math/tex">A·x = 0</script> имеет ненулевое решение iff <script type="math/tex">det A = 0</script> (матрица <script type="math/tex">A</script> вырождена)</p>
-<hr/>
-<a class="more" href="#matrix_det">← Определитель</a><br/>
-</div>
-<div class="entry">
 <h1 id=SLE_FSS><a class="tag more colloq" href="#SLE_FSS">#</a>ФСР ОСЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#однородные-слау">Конспект</a>)</small></h1>
-<p>Пусть <script type="math/tex">n</script> — размер матрицы <script type="math/tex">A</script>, а <script type="math/tex">r</script> — её ранг. Любые <script type="math/tex">n - r</script> л.н.з. столбцов, явлюящихся решениями <script type="math/tex">Ax = 0</script>, образуют ФСР.</p>
+<p>Пусть <script type="math/tex">n</script> — размер матрицы <script type="math/tex">A</script>, а <script type="math/tex">r</script> — её ранг.
+Любые <script type="math/tex">n - r</script> л.н.з. столбцов, явлюящихся решениями <script type="math/tex">Ax = 0</script>, образуют ФСР.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим СЛАУ <script type="math/tex">Ax = 0</script>.
+Хотим доказать, что у неё существует <script type="math/tex">n - r</script> л.н.з. решений (т.е. ФСР существует).</p>
+<p>Пусть базисный минор находится в левом верхнем углу.
+Тогда элементарными преобразованиями обнулим строки ниже базисных
+<script type="math/tex; mode=display">
+a_{r+1} - (λ_{1}a_{1} + … + λ_{r}a_{r}) = 0 → a_{r+1} \\
+… \\
+a_{n} - (μ_{1}a_{1} + … + μ_{r}a_{r}) = 0 → a_{n}
+</script>
+</p>
+<p>Получили экививалентную СЛАУ с <script type="math/tex">r</script> уравнений.
+Назовём переменные <script type="math/tex">x_{1},…,x_{r}</script> главными, а остальные — свободными.
+Т.к. определитель получившейся матрицы равен базисному минору, который не равен нулю,
+то можно <strong>единственным образом</strong> выразить свободные переменные через свободные,
+решив СЛАУ относительно главных (например, по формулам Крамера).
+<script type="math/tex; mode=display">
+\left(\begin{array}{c c c | c c c}
+    A_{11} & … & A_{1r} & A_{1, r+1} & … & A_{1n} \\
+    ⋮   & ⋱ & ⋮   & ⋮          & ⋱ & ⋮   \\
+    A_{r1} & … & A_{rr} & A_{r, r+1} & … & A_{rn} \\
+    0   & … & 0   & 0          & … & 0   \\
+    ⋮   & ⋱ & ⋮   & ⋮          & ⋱ & ⋮   \\
+    0   & … & 0   & 0          & … & 0
+\end{array}\right) → \left(\begin{array}{c c c | c}
+    A_{11} & … & A_{1r} & - A_{1, r+1} - … - A_{1n} \\
+    ⋮   & ⋱ & ⋮   & ⋮ \\
+    A_{r1} & … & A_{rr} & - A_{r, r+1} - … - A_{rn}
+\end{array}\right) → \begin{cases}
+    x_{1} = α_{1,r+1}x_{r+1} + … + α_{1,n}x_{n} \\
+    … \\
+    x_{r} = α_{r,r+1}x_{r+1} + … + α_{r,n}x_{n} \\
+\end{cases}
+</script>
+</p>
+<p>По очереди придадим свободным переменным такие наборы решений:
+<script type="math/tex; mode=display">
+(x_{r+1}, x_{r+2} …, x_{n}) = (1, 0, …, 0) \\
+(x_{r+1}, x_{r+2} …, x_{n}) = (0, 1, …, 0) \\
+… \\
+(x_{r+1}, x_{r+2} …, x_{n}) = (0, 0, …, 1)
+</script>
+
+И в каждом случае получим некоторый набор решений для главных переменных:
+<script type="math/tex; mode=display">
+(x_{1}, …, x_{r}) = (φ_{11}, …, φ_{1r}) \\
+(x_{1}, …, x_{r}) = (φ_{21}, …, φ_{2r}) \\
+… \\
+(x_{1}, …, x_{r}) = (φ_{k1}, …, φ_{kr}) \\
+</script>
+</p>
+<p>Собирая наборы решений вместе, получаем столбцы ФСР:
+<script type="math/tex; mode=display">
+Φ_{1} = (φ_{11}, …, φ_{1r}, 1, 0, …, 0)^T \\
+Φ_{2} = (φ_{21}, …, φ_{2r}, 0, 1, …, 0)^T \\
+… \\
+Φ_{k} = (φ_{k1}, …, φ_{kr}, 0, 0, …, 1)^T
+</script>
+</p>
+<p>Покажем, что они л.н.з.
+Рассмотрим равенство <script type="math/tex">α_{1}Φ_{1} + α_{2}Φ_{2} + … + α_{k}Φ_{k} = \vec{0}</script> (нам интересны только последние <script type="math/tex">k</script> строк):
+<script type="math/tex; mode=display">
+α_{1}\begin{pmatrix}…\\1\\0\\…\\0\end{pmatrix} + 
+α_{2}\begin{pmatrix}…\\0\\1\\…\\0\end{pmatrix} + 
+… +
+α_{k}\begin{pmatrix}…\\0\\0\\…\\1\end{pmatrix} =
+  \begin{pmatrix}…\\0\\0\\…\\0\end{pmatrix}
+</script>
+
+Отсюда <script type="math/tex">α_{1} = α_{2} = … = α_{k} = 0</script>, а значит столбцы л.н.з., что и требовалось.</p>
+</details>
 <hr/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
+<a class="more" href="#SLE_nonzero_criteria">→ Критерий существования ненулевого решения</a><br/>
 <a class="more" href="#solution_structure_o">→ Структура общего решения однородной СЛАУ</a><br/>
 </div>
 <div class="entry">
+<h1 id=SLE_nonzero_criteria><a class="tag more colloq" href="#SLE_nonzero_criteria">#</a>Критерий существования ненулевого решения <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventh_lesson#:~:text=Критерий существования ненулевого решения">Конспект</a>)</small></h1>
+<p>ОСЛАУ <script type="math/tex">A·x = 0</script> имеет ненулевое решение iff <script type="math/tex">\det A = 0</script> (матрица <script type="math/tex">A</script> вырождена)</p>
+<details>
+<summary>Доказательство</summary>
+<ol>
+<li>
+<p>Дано, что <script type="math/tex">Ax = 0</script> имеет ненулевое решение.
+    Если <script type="math/tex">\det A ≠ 0</script>, то СЛАУ имеет единственное решение (по Крамеру), причём нулевое.
+    Противоречие, а значит <script type="math/tex">\det A = 0</script>, ч.т.д.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\det A = 0 ⇒ \Rg A = r < n</script>.
+    По теореме о существовании ФСР, есть <script type="math/tex">n - r</script> ненулевых решений (л.н.з.).
+    Что и требовалось.</p>
+</li>
+</ol>
+</details>
+<hr/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#SLE_FSS">← ФСР ОСЛАУ</a><br/>
+</div>
+<div class="entry">
 <h1 id=solution_structure_o><a class="tag more colloq" href="#solution_structure_o">#</a>Структура общего решения однородной СЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-однородной-слау">Конспект</a>)</small></h1>
-<p>Любое решение ОСЛАУ можно представить в виде линейной комбинации столбцов её ФСР.</p>
+<p>Любое решение ОСЛАУ можно представить в виде линейной комбинации столбцов её ФСР: <script type="math/tex">x = c_{1}Φ_{1} + … + c_{k}Φ_{k}</script>
+</p>
+<details>
+<summary>Доказательство</summary>
+<p>Пусть <script type="math/tex">(x^{0}_{1}, … x^{0}_{n})</script> — произвольное решение <script type="math/tex">Ax = 0</script>.</p>
+<p>Аналогично теореме о существовании ФСР, выразим главные переменные через свободные:
+<script type="math/tex; mode=display">
+x_{1} = α_{1,r+1}x_{r+1} + … + α_{1,n}x_{n} \\
+… \\
+x_{r} = α_{r,r+1}x_{r+1} + … + α_{r,n}x_{n} \\
+</script>
+</p>
+<p>Составим такую матрицу:
+<script type="math/tex; mode=display">
+D = \begin{pmatrix}x^{0} & Φ_{1} & … & Φ_{k}\end{pmatrix}
+= \begin{pmatrix}
+    x^{0}_{1} & φ_{11} & … & φ_{k1} \\
+    ⋮   & ⋮   & ⋱ & ⋮ \\
+    x^{0}_{n} & φ_{1n} & … φ_{kn} \\
+\end{pmatrix}
+</script>
+</p>
+<p>Покажем, что <script type="math/tex">\Rg D = k</script>, т.е. что добавление столбца ничего не поменяло.</p>
+<ol>
+<li>
+<script type="math/tex">\Rg D ≥ k</script>, т.к. столбцы ФСР — л.н.з.</li>
+<li>Все столбцы — решения СЛАУ, а значит можно выразить главные через свободные:
+<script type="math/tex; mode=display">
+    x^{0}_{1} = α_{1,r+1}x^{0}_{r+1} + … + α_{1,n}x^{0}_{n} \\
+    φ_{11} = α_{1,r+1}φ_{1, r+1} + … + α_{1,n}φ_{1n} \\
+    ⋮ \\
+    φ_{k1} = α_{1,r+1}φ_{k, r+1} + … + α_{1,n}φ_{kn}
+</script>
+</li>
+</ol>
+<p>Т.е. первая строка матрицы — линейная комбинация строк <script type="math/tex">r+1,…,n</script>.
+Аналогично для всех главных вплость до <script type="math/tex">r</script>-той.</p>
+<p>Элементарными преобразованиями обнуляем их:
+<script type="math/tex; mode=display">
+D_{1} = \begin{pmatrix}
+    0 & 0 & … & 0 \\
+    ⋮ & ⋮ & ⋱ & ⋮ \\
+    0 & 0 & … & 0 \\
+    x^{0}_{r+1} & φ_{1r+1} & … & φ_{kr+1} \\
+    ⋮   & ⋮   & ⋱ & ⋮ \\
+    x^{0}_{n} & φ_{1n} & … φ_{kn} \\
+\end{pmatrix}
+</script>
+</p>
+<p>Отсюда <script type="math/tex">\Rg D_{1} ≤ n-r = k</script>.
+А поскольку при эл. преобразованиях ранг не меняется, <script type="math/tex">\Rg D ≤ k</script>.</p>
+<p>Таким образом <script type="math/tex">\Rg D = k</script>, следовательно столбцы <script type="math/tex">Φ_{1},…,Φ_{k}</script> — базисные (их <script type="math/tex">k</script> и они л.н.з.),
+а значит столбец <script type="math/tex">x^{0}</script> — их линейная комбинация, т.е. произвольное решение выражается через столбцы ФСР, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#SLE_FSS">← ФСР ОСЛАУ</a><br/>
 <a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
@@ -753,9 +898,22 @@ b = (x^{0}_{1} + x^{0}_{r+1}λ^{1}_{r+1} + … + λ^{1}_{m})a_{1} + … + (x^{0}
 </div>
 <div class="entry">
 <h1 id=solution_structure><a class="tag more colloq" href="#solution_structure">#</a>Структура общего решения неоднородной СЛАУ <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighth_lesson#теорема-о-структуре-общего-решения-неоднородной-слау">Конспект</a>)</small></h1>
-<p>Пусть известно <script type="math/tex">x_0</script> — частное решение СЛАУ (<script type="math/tex">Ax = b</script>). Тогда любое решение можно представить в виде <script type="math/tex">x = x_0 + \tilde{x}</script>, где <script type="math/tex">\tilde{x}</script> — решение соответствующей ОСЛАУ (<script type="math/tex">Ax = 0</script>).</p>
+<p>Любое решение СЛАУ можно представить в виду <script type="math/tex">x = \tilde{x} + c_{1}Φ_{1} + … + c_{k}Φ_{k}</script>,
+где <script type="math/tex">\tilde{x}</script> — частное решение СЛАУ.</p>
+<details>
+<summary>Доказательство</summary>
+<p>
+<script type="math/tex">x</script> — произвольное решение <script type="math/tex">Ax = b</script>, тогда <script type="math/tex">x - \tilde{x}</script> — решение <script type="math/tex">Ax = 0</script>.</p>
+<p>Применяем теорему о структуре общего решения ОСЛАУ:
+<script type="math/tex; mode=display">
+x - \tilde{x} = λ_{1}Φ_{1} + … + λ_{k}Φ_{k} \\
+x = \tilde{x} + λ_{1}Φ_{1} + … + λ_{k}Φ_{k} ∎
+</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#solution_structure_o">← Структура общего решения однородной СЛАУ</a><br/>
+<a class="more" href="#slau_props">← Свойства решений СЛАУ</a><br/>
 </div>
 <div class="entry">
 <h1 id=complex_forms><a class="tag more colloq" href="#complex_forms">#</a>Формы записи комплексных чисел <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/tenth_lesson#алгебраические-свойства">Конспект</a>)</small></h1>
@@ -825,6 +983,27 @@ b = (x^{0}_{1} + x^{0}_{r+1}λ^{1}_{r+1} + … + λ^{1}_{m})a_{1} + … + (x^{0}
 <script type="math/tex; mode=display">
 z^{n} = r^{n}(\cos (nφ) + i\sin(nφ) ), n∈ℕ
 </script>
+<details>
+<summary>Доказательство</summary>
+<p>
+<script type="math/tex">z = r(\cos φ + i\sin φ)</script>
+</p>
+<p>Индукция:</p>
+<ul>
+<li>
+<p>База <script type="math/tex">n = 2</script>: <script type="math/tex">z^{2} = r(\cos φ + i\sin φ)·r(\cos φ + i\sin φ) =\\
+= r^{2}(\cos^{2}φ + 2i\sin φ \cos φ + (i\sinφ)^{2}) = r^{2}(\cos^{2}φ - \sin^{2}φ + i\sin2φ) =\\
+= r^{2}(\cos2φ + i\sin2φ)</script>
+</p>
+</li>
+<li>
+<p>Шаг индукции: <script type="math/tex">z^{n+1} = z^{n} · z = r^{n}(\cos nφ + i\sin nφ) · r(\cos φ + i\sin φ) =\\
+= r^{n+1}((\cos nφ · \cos φ - \sin nφ · \sin φ) + i\sin nφ · \cos φ + \cos nφ · i\sin φ) =\\
+= r^{n+1}(\cos (n+1)φ + i\sin(n+1)φ) ∎</script>
+</p>
+</li>
+</ul>
+</details>
 <hr/>
 <a class="more" href="#complex_ops">← Сложение и умножение комплексных чисел</a><br/>
 </div>
@@ -1049,6 +1228,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
 <a class="more" href="#onb">→ Ортонормированный базис</a><br/>
 <a class="more" href="#onb_theorem">→ Вычисление скалярного произведения</a><br/>
+<a class="more" href="#plane_3d">→ Плоскость в пространстве</a><br/>
 <a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
 <a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
 </div>
@@ -1218,16 +1398,51 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 </div>
 <div class="entry">
 <h1 id=plane_3d><a class="tag more colloq" href="#plane_3d">#</a>Плоскость в пространстве </h1>
-<ul>
+<ol>
 <li>Любая плоскость определяется уравнение <script type="math/tex">Ax + By + Cz + D = 0</script> (<script type="math/tex">A, B, C, D</script> — числа).</li>
 <li>Любое уравнение <script type="math/tex">Ax + By + Cz + D = 0</script> определяет плоскость, где <script type="math/tex">A^{2} + B^{2} + C^{2} > 0</script>
 </li>
 <li>Такое уравнение называется <strong>общим уравнением плоскости</strong>.</li>
 <li>
 <script type="math/tex">\Vn = (A, B, C)</script> — нормаль к плоскости — перпендикулярна ей.</li>
+</ol>
+<details>
+<summary>Доказательство</summary>
+<h3>Докажем 1.</h3>
+<p>Пусть есть точка <script type="math/tex">M_{0} ∈ π</script> и нормаль <script type="math/tex">\Vn = (A, B, C)</script>.
+Сделаем эквивлентные преобразования:</p>
+<ul>
+<li>
+<script type="math/tex">M(x, y, z) ∈ π</script> — точка <script type="math/tex">M</script> принадлежит плоскости…</li>
+<li>
+<script type="math/tex">(\vec{M_{0}M}, \Vn) = 0</script> — если <script type="math/tex">\vec{M_{0}M}</script> перпендикулярен нормали.</li>
+<li>
+<script type="math/tex">A(x-x_{0}) + B(y-y_{0}) + C(z-z_{0}) = 0</script> – переводим скалярное произведение в координаты</li>
+<li>
+<script type="math/tex">Ax + By + Cz + D = 0</script> — раскрываем скобки и прячем в <script type="math/tex">D</script> все константы.</li>
 </ul>
+<p>Таким образом мы взяли произвольную плоскость и получили уравнение, определяющее точки на ней.</p>
+<h3>Докажем 2.</h3>
+<p>Дано уравнение <script type="math/tex">Ax + By + Cz + D = 0</script>, где <script type="math/tex">A^{2} + B^{2} + C^{2} > 0</script>,
+то есть не вида <script type="math/tex">D = 0</script>, а значит имеет хотя бы одно решение.
+Обозначим это решение точкой <script type="math/tex">M_{0}(x_{0}, y_{0}, z_{0})</script>.</p>
+<p>Пусть есть точка <script type="math/tex">M(x, y, z)</script>, которая удоволтеворяет уравнению. Вычтем из него решение <script type="math/tex">M_{0}</script>:
+<script type="math/tex; mode=display">
+\begin{cases}
+    Ax  + By  + Cz  + D = 0 \\
+    Ax_{0} + By_{0} + Cz_{0} + D = 0
+\end{cases} \\
+A(x - x_{0}) + B(y - y_{0}) + C(z - z_{0}) = 0
+</script>
+
+Аналогично п.1, это равносильно скалярному произведению <script type="math/tex">(\Vn, \vec{M_{0}M}) = 0 ⇔</script>.
+Т.е. точка <script type="math/tex">M</script> — произвольное решение уравнение — лежит в плоскости,
+перепендикулярной нормали <script type="math/tex">\Vn = (A, B, C)</script> и проходящей через точку <script type="math/tex">M_{0}</script>.
+А значит уравнение определяет плоскость, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#surface_eq">← Уравнение поверхности</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
 <a class="more" href="#plane_through_points">→ Плоскость через три точки.</a><br/>
 <a class="more" href="#line_and_plane">→ Взаимное положение прямой и плоскости</a><br/>
 <a class="more" href="#line_coplane">→ Компланарность прямых</a><br/>
@@ -1411,6 +1626,7 @@ M (x_{0}, y_{0}, z_{0}) \\
 <a class="more" href="#group-theory">→ Теория групп</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
 <a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=group-theory><a class="tag more colloq" href="#group-theory">#</a>Теория групп </h1>
@@ -1455,6 +1671,7 @@ M (x_{0}, y_{0}, z_{0}) \\
 <a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
 <a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
 <a class="more" href="#cyclic_group">→ Циклическая группа, порождённая g</a><br/>
+<a class="more" href="#conj_class">→ Смежный класс</a><br/>
 <a class="more" href="#factor_group">→ Факторгруппа</a><br/>
 <a class="more" href="#straight_mul">→ Прямое произведение групп</a><br/>
 <a class="more" href="#group_center">→ Центр группы</a><br/>
@@ -1480,6 +1697,7 @@ M (x_{0}, y_{0}, z_{0}) \\
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
 <a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#conj_class">→ Смежный класс</a><br/>
 <a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
 <a class="more" href="#norm_group">→ Нормальная подгруппа</a><br/>
 <a class="more" href="#cayley">→ Теорема Кэли</a><br/>
@@ -1592,14 +1810,57 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <li>
 <script type="math/tex">|⟨g⟩| = \ord g</script> — порядок группы равен порядку порождающего элемента</li>
 </ul>
-<p>Все циклические группы одного порядка изоморфны.
-Т.е. существует только одна циклическая группа данного порядка (с точностью до изоморфизма)</p>
 <p>Например, <script type="math/tex">(ℤ, +) = ⟨1⟩</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем <script type="math/tex">|⟨g⟩| = \ord g</script>.</p>
+<p>Заметим, что если <script type="math/tex">g^k = g^s</script>, то <script type="math/tex">g^{k-s} = e</script> (<script type="math/tex">k > s</script>). Значит <script type="math/tex">\ord g < k - s</script>.</p>
+<h3>Для бесконечного случая:</h3>
+<p>Если <script type="math/tex">\ord g = ∞</script>, то не существует <script type="math/tex">g^k = g^s</script> и все элементы <script type="math/tex">g^{n}</script> различны,
+а значит порядок группы тоже бесконечен, ч.т.д.</p>
+<h3>Для конечного случая</h3>
+<p>Пусть <script type="math/tex">\ord g = n ∈ ℕ</script>. Тогда:</p>
+<ol>
+<li>
+<script type="math/tex">e, g, g^{2}, g^{3}, …, g^{n-1}</script> попарно различны.</li>
+<li>
+<script type="math/tex">∀k ∃q,r: k = nq + r</script>, где <script type="math/tex">0 ≤ r < n</script>.</li>
+<li>
+<script type="math/tex">g^k = g^{nq + r} = (g^n)^q · g^r = e^q · g^r = g^r</script>
+</li>
+</ol>
+<p>Отсюда <script type="math/tex">⟨g⟩ = \{e, g, g^{2}, …, g^{n-1}\}</script>, а значит <script type="math/tex">|⟨g⟩| = n = \ord g</script>, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#elem_ord">← Порядок элемента группы</a><br/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#cyclic_group_count">→ Сколько циклических групп одного порядка?</a><br/>
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+</div>
+<div class="entry">
+<h1 id=cyclic_group_count><a class="tag more colloq" href="#cyclic_group_count">#</a>Сколько циклических групп одного порядка? <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=Все циклические группы одного порядка изоморфны">Конспект</a>)</small></h1>
+<p>Все циклические группы одного порядка изоморфны.
+Т.е. существует только одна циклическая группа данного порядка (с точностью до изоморфизма)</p>
+<details>
+<summary>Доказательство</summary>
+<p>Построим изоморфизм <script type="math/tex">φ</script>: <script type="math/tex">φ(g^{n}) = n</script>
+</p>
+<ul>
+<li>Это биекция</li>
+<li>
+<script type="math/tex">φ(g^n · g^m) = φ(g^{n+m}) = n + m = φ(g^n) + φ(g^m)</script> – это гомоморфизм</li>
+</ul>
+<p>Замечание:</p>
+<ul>
+<li>Если <script type="math/tex">\ord G = ∞</script>, то <script type="math/tex">φ: G → ℤ</script>
+</li>
+<li>Если <script type="math/tex">\ord G = r</script>, то <script type="math/tex">φ: G → ℤ_{r}</script>
+</li>
+</ul>
+</details>
+<hr/>
+<a class="more" href="#cyclic_group">← Циклическая группа, порождённая g</a><br/>
 </div>
 <div class="entry">
 <h1 id=homo_kernel><a class="tag more colloq" href="#homo_kernel">#</a>Ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#ядро-гомоморфизма">Конспект</a>)</small></h1>
@@ -1608,10 +1869,52 @@ f: G → H \\
 \Ker f = \{ g∈G \mid f(g) = e_H \}
 </script>
 
+<ul>
+<li>
 <p>Всегда <script type="math/tex">e_G ∈ \Ker f</script>.</p>
+</li>
+<li>
 <p>Если <script type="math/tex">\Ker f = \{e_G\}</script>, то ядро называется <strong>тривиальным</strong>.</p>
+</li>
+<li>
 <p>
 <script type="math/tex">f</script> инъективно ⇔ ядро тривиально.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\Ker f</script> — подгруппа в <script type="math/tex">G</script>
+</p>
+</li>
+</ul>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что ядро является подгруппой. Далее <script type="math/tex">∀x,y ∈ \Ker f</script>
+</p>
+<ol>
+<li>
+<p>Проверим, что <script type="math/tex">x + y ∈ \Ker f</script>
+<script type="math/tex; mode=display">
+    x ∈ \Ker f ∧ y ∈ \Ker f \\
+    f(x) = 0 ∧ f(y) = 0 \\
+    f(x) + f(y) = 0 \\
+    f(x + y) = 0 \\
+    x + y ∈ \Ker f
+</script>
+</p>
+</li>
+<li>
+<p>Проверим, что <script type="math/tex">x^{-1} ∈ \Ker f</script>
+<script type="math/tex; mode=display">
+    x ∈ \Ker f \\
+    f(x) = 0 \\
+    f(x^{-1}) = 0^{-1} \\
+    f(x^{-1}) = 0 \\
+    x^{-1} ∈ \Ker f
+</script>
+</p>
+</li>
+</ol>
+</details>
 <hr/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
@@ -1623,29 +1926,41 @@ f: G → H \\
 <script type="math/tex">gH = \{ g·h \mid h ∈ H \}</script>
 </p>
 <p>Леммы (для доказательства теоремы Лагранжа):</p>
-<ul>
+<ol>
 <li>
-<script type="math/tex">∀g_{1}, g_{2}∈G</script> либо <script type="math/tex">g_{1}H = g_{2}H</script>, либо <script type="math/tex">g_{1}H ∩ g_{2}H = ø</script>.
+<script type="math/tex">∀g_{1}, g_{2}∈G</script> либо <script type="math/tex">g_{1}H = g_{2}H</script>, либо <script type="math/tex">g_{1}H ∩ g_{2}H = ∅</script>.
     Т.е. смежные классы либо равны, либо не пересекаются.</li>
 <li>Для конечных подгрупп: <script type="math/tex">|gH| = |H|</script> для всех <script type="math/tex">g∈G</script>.
     Отсюда в смежных классах одинаковое количество элементов.</li>
+</ol>
+<details>
+<summary>Доказательство</summary>
+<h3>Лемма 1</h3>
+<ul>
+<li>
+<script type="math/tex">g_{1}H ∩ g_{2}H ≠ ∅</script> — если смежные классы пересекаются</li>
+<li>
+<script type="math/tex">∃h_{1}, h_{2}: g_{1}h_{1} = g_{2}h_{2}</script> — то есть пересечение</li>
+<li>
+<script type="math/tex">g_{1} = g_{2} (h_{2}h_{1}^{-1})</script> — домножим справа на <script type="math/tex">h_{1}^{-1}</script>
+</li>
+<li>
+<script type="math/tex">g_{1}H = g_{2} (h_{2}h_{1}^{-1}) H ⊆ g_{2}H</script> — и возьмём смежные классы (<script type="math/tex">g_{2} (h_{2}h_{1}^{-1}) ∈ G</script>)</li>
+<li>
+<script type="math/tex">g_{1}H ⊆ g_{2}H</script> и аналогично <script type="math/tex">g_{2}H ⊆ g_{1}H</script>. Значит <script type="math/tex">g_{1}H = g_{2}H</script>, ч.т.д.</li>
 </ul>
-<hr/>
-<a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
-<a class="more" href="#subgroup_index">→ Индекс подгруппы</a><br/>
-<a class="more" href="#lagrange">→ Теорема Лагранжа</a><br/>
-<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
-</div>
-<div class="entry">
-<h1 id=integer_subgroups><a class="tag more colloq" href="#integer_subgroups">#</a>Подгруппы целых по сложению <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в">Конспект</a>)</small></h1>
-<p>Всякая подгруппа <script type="math/tex">(ℤ, +)</script> имеет вид <script type="math/tex">kℤ</script>, где <script type="math/tex">k∈ℕ∪\{0\}</script>
-</p>
-<script type="math/tex; mode=display">
-kℤ = \{ kn | n∈ℤ \}
-</script>
+<h3>Лемма 2</h3>
+<p>
+<script type="math/tex">gH = \{ g·h \mid h ∈ H \} ⇒ |gH| ≤ |H|</script>. Покажем, что все элементы <script type="math/tex">g·h</script> различны.</p>
+<p>Если <script type="math/tex">gh_{1} = gh_{2}</script>, то <script type="math/tex">g^{-1}gh_{1} = g^{-1}gh_{2} ⇒ h_{1} = h_{2}</script>, а значит совпадений нет и <script type="math/tex">|gH| = |H|</script>, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
-<a class="more" href="#conj_class">← Смежный класс</a><br/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#subgroup_index">→ Индекс подгруппы</a><br/>
+<a class="more" href="#lagrange">→ Теорема Лагранжа</a><br/>
+<a class="more" href="#integer_subgroups">→ Подгруппы целых по сложению</a><br/>
+<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
 </div>
 <div class="entry">
 <h1 id=subgroup_index><a class="tag more colloq" href="#subgroup_index">#</a>Индекс подгруппы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#индекс-подгруппы">Конспект</a>)</small></h1>
@@ -1669,9 +1984,42 @@ kℤ = \{ kn | n∈ℤ \}
 </li>
 <li>Малая теорема Ферма: <script type="math/tex">\bar{a}^{p-1} = \bar{1}</script>, где <script type="math/tex">\bar{x}</script> — ненулевой вычет по простому модулю <script type="math/tex">p</script>.</li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<p>Все элементы <script type="math/tex">G</script> лежат в своём смежном классе <script type="math/tex">gH</script>, причём эти классы не пересекаются (по лемме 1).
+Таких классов <script type="math/tex">[G : H]</script> и каждый содержит в себе ровно <script type="math/tex">H</script> элементов.</p>
+<p>Получаем <script type="math/tex">|G| = [G : H] · |H|</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#conj_class">← Смежный класс</a><br/>
 <a class="more" href="#subgroup_index">← Индекс подгруппы</a><br/>
+</div>
+<div class="entry">
+<h1 id=integer_subgroups><a class="tag more colloq" href="#integer_subgroups">#</a>Подгруппы целых по сложению <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в">Конспект</a>)</small></h1>
+<p>Всякая подгруппа <script type="math/tex">(ℤ, +)</script> имеет вид <script type="math/tex">kℤ</script>, где <script type="math/tex">k∈ℕ∪\{0\}</script>
+</p>
+<script type="math/tex; mode=display">
+kℤ = \{ kn | n∈ℤ \}
+</script>
+<details>
+<summary>Доказательство</summary>
+<p>
+<script type="math/tex">kℤ</script> является подгруппой, но нужно доказать, что других нет.</p>
+<p>Пусть <script type="math/tex">H</script> — некоторая подгруппа.</p>
+<ul>
+<li>Если <script type="math/tex">H = \{0\}</script>, то <script type="math/tex">k = 0</script>
+</li>
+<li>Иначе <script type="math/tex">k = \min(H ∩ ℕ)</script> — т.е. минимальное положительное число (не равное нулю).
+    Тогда <script type="math/tex">kℤ ⊆ H</script>.
+    Возьмём <script type="math/tex">a ∈ H</script> и разделим на <script type="math/tex">k</script>: <script type="math/tex">a = kq + r, 0 ≤ r < k</script>.
+    Отсюда <script type="math/tex">r = a - kq</script>, но здесь и <script type="math/tex">a ∈ H</script>, и <script type="math/tex">kq ∈ H</script>. Значит <script type="math/tex">r ∈ H</script>.
+    Поскольку <script type="math/tex">r < k</script>, то <script type="math/tex">r = 0</script>, а <script type="math/tex">H = kℤ</script>, ч.т.д.</li>
+</ul>
+</details>
+<hr/>
+<a class="more" href="#subgroup">← Подгруппа</a><br/>
+<a class="more" href="#conj_class">← Смежный класс</a><br/>
 </div>
 <div class="entry">
 <h1 id=norm_group><a class="tag more " href="#norm_group">#</a>Нормальная подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=назвывается нормальной">Конспект</a>)</small></h1>
@@ -1859,6 +2207,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </ul>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
 <a class="more" href="#zero_div">← Делители нуля</a><br/>
 <a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
 <a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
