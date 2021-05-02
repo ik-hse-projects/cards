@@ -1950,7 +1950,7 @@ space_dim:
 
 change_base:
     title: Переход к новому базису
-    colloq: [3.32]
+    colloq: [3.32, 3.33]
     source: https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#переход-к-новому-базису
     text: |
         Пусть $`L`$ — $`n`$-мерное пространство, а $`A = \{a₁,…,aₙ\}`$ и $`B = \{b₁,…,bₙ\}`$ — базисы в нём.
@@ -2170,7 +2170,7 @@ inertion:
 
 linear_map:
     title: Линейное отображение
-    colloq: [3.47]
+    colloq: [3.46]
     source: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Отображение $`φ: V₁ → V₂`$ — линейное iff
@@ -2190,6 +2190,7 @@ linear_map:
 
 linear_map_matrix:
     title: Матрица лин. отображения
+    colloq: [3.47]
     source: https://sldr.xyz/stylus/Algebra/#p107
     text: |
         Пусть $`e₁,…,eₙ`$ — базис в $`V₁`$, а $`f₁,…,fₘ`$ — в $`V₂`$. $`φ: V₁ → V₂`$ — лин. отображение.
