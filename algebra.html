@@ -2,10 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="pygments.css">
     <style>
 @font-face {
     font-family: 'Linux Libertine'; /* normal */
@@ -61,14 +58,6 @@ h1 {
 html
 {
    font-family: 'Linux Libertine';
-}
-
-.katex {
-   font-size: 1em;
-}
-
-.katex-display {
-   font-size: 1.21em;
 }
 
 html, body {
@@ -1893,7 +1882,8 @@ f: G → H \\
 </ul>
 <details>
 <summary>Доказательство</summary>
-<p>Докажем, что ядро является подгруппой. Далее <script type="math/tex">∀x,y ∈ \Ker f</script>
+<h2>Ядро является подгруппой</h2>
+<p>Далее <script type="math/tex">∀x,y ∈ \Ker f</script>
 </p>
 <ol>
 <li>
@@ -1917,6 +1907,22 @@ f: G → H \\
     x^{-1} ∈ \Ker f
 </script>
 </p>
+</li>
+</ol>
+<h2>
+<script type="math/tex">f</script> инъективно ⇔ <script type="math/tex">\Ker f = \{e_G\}</script>
+</h2>
+<ol>
+<li>
+<p>
+<script type="math/tex">∀x,y ∈ \Ker f</script> дано <script type="math/tex">f(x) = f(y) ⇒ x = y</script> (инъектинвость) и <script type="math/tex">f(x) = f(y) = e_H</script> (ядро).
+    Отсюда получаем, что все <script type="math/tex">x = y</script>, т.е. ядро либо пусто, либо из одного элемента.
+    Но <script type="math/tex">e_G ∈ \Ker f</script>, поэтому <script type="math/tex">\Ker f = \{ e_G \}</script>, ч.т.д.</p>
+</li>
+<li>
+<p>Дано <script type="math/tex">\Ker f = \{e_G\}</script>. От противного: положим, что <script type="math/tex">∃x≠y: f(x) = f(y)</script>.
+    Тогда <script type="math/tex">f(x · y^{-1}) = f(x) · (f(y))^{-1} = f(x) · (f(x))^{-1} = e_H</script>.
+    Отсюда <script type="math/tex">x · y^{-1} ∈ \Ker f</script>, а значит <script type="math/tex">x · y^{-1} = e_G</script>, т.е. <script type="math/tex">x = y</script>. Противоречие.</p>
 </li>
 </ol>
 </details>
@@ -2031,6 +2037,7 @@ kℤ = \{ kn | n∈ℤ \}
 <p>
 <script type="math/tex">H ⊲ G</script> iff <script type="math/tex">gH = Hg, ∀g∈G</script>
 </p>
+<p>Очевидно, что абелевы группы — нормальные (там все элементы коммутируют).</p>
 <hr/>
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
 <a class="more" href="#norm_group_conj">→ Критерий нормальности через сопряжение</a><br/>
@@ -2045,7 +2052,7 @@ kℤ = \{ kn | n∈ℤ \}
 <p>Пусть <script type="math/tex">H ⊆ G</script>. Все условия эквивалентны:</p>
 <ol>
 <li>
-<script type="math/tex">H ⊲ G</script>
+<script type="math/tex">H ⊲ G</script>, т.е. <script type="math/tex">gH = Hg, ∀g∈G</script>
 </li>
 <li>
 <script type="math/tex">∀g∈G\, gHg^{-1} ⊆ H</script> (<script type="math/tex">gHg^{-1} = \{ghg^{-1} \mid h ∈ H\}</script>)</li>
@@ -2053,13 +2060,46 @@ kℤ = \{ kn | n∈ℤ \}
 <script type="math/tex">∀g∈G\, gHg^{-1} = H</script>
 </li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<ol>
+<li>① ⇔ ③.
+    Дано, что <script type="math/tex">gH = Hg</script>. Тогда <script type="math/tex">gHg^{-1} = (gH) g^{-1} = (Hg)g^{-1} = H</script>
+</li>
+<li>③ ⇒ ② — очевидно.</li>
+<li>② ⇒ ③
+    Дано, что <script type="math/tex">gHg^{-1} ⊆ H</script>. Докажем, что <script type="math/tex">H ⊆ gHg^{-1}</script>.
+    Для <script type="math/tex">∀h∈H: h = gg^{-1} · h · gg^{-1} = g(g^{-1}hg)g^{-1}</script>. Здесь <script type="math/tex">g^{-1}hg ∈ H</script> из посылки.
+    Тогда <script type="math/tex">h = g h' g^{-1}</script>, т.е. <script type="math/tex">∀h ∈ gHg^{-1}</script>, а значит <script type="math/tex">H ⊆ gHg^{-1}</script>, ч.т.д.</li>
+</ol>
+</details>
 <hr/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
 </div>
 <div class="entry">
 <h1 id=norm_group_ker><a class="tag more colloq" href="#norm_group_ker">#</a>Критерий нормальности через ядро гомоморфизма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Для гомоморфизма">Конспект</a>)</small></h1>
 <p>
-<script type="math/tex">H ⊲ G</script> iff <script type="math/tex">∃f: H=\Ker(f)</script>, где <script type="math/tex">f: G→F</script> — гомоморфизм</p>
+<script type="math/tex">H ⊲ G</script> iff <script type="math/tex">∃f: H=\Ker f</script>, где <script type="math/tex">f: G→F</script> — гомоморфизм</p>
+<details>
+<summary>Доказательство</summary>
+<ol>
+<li>
+<p>Дан гомоморфизм, хотим нормальность.</p>
+<p>Покажем, что <script type="math/tex">gHg^{-1} ⊆ H</script>, т.е. <script type="math/tex">∀h ∈ \Ker f: ghg^{-1} ∈ \Ker f</script>.
+<script type="math/tex; mode=display">
+    f(ghg^{-1}) = f(g) · f(h) · f(g^{-1}) = f(g) · e_F · (f(g))^{-1} = e_F \\
+    ⇒ ghg^{-1} ∈ \Ker f ∎
+</script>
+</p>
+</li>
+<li>
+<p>Дана нормальная подгруппа <script type="math/tex">H ⊲ G</script>, хотим построить гомоморфизм.</p>
+<p>Группа нормальная, поэтому факторгруппа имеет смысл.</p>
+<p>Построим естественный гомоморфизм <script type="math/tex">ε: G → G/H</script>, <script type="math/tex">ε(g) = gH</script>.</p>
+<p>Тогда <script type="math/tex">\Ker ε = \{g ∈ G \mid gH = eH\} = H</script>, что и требовалось.</p>
+</li>
+</ol>
+</details>
 <hr/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
 <a class="more" href="#homo_kernel">← Ядро гомоморфизма</a><br/>
@@ -2083,13 +2123,14 @@ kℤ = \{ kn | n∈ℤ \}
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#natural_homo">→ Естественный гомоморфизм</a><br/>
 <a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
+<a class="more" href="#automorph">→ Автоморфизм</a><br/>
 <a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
 <a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
 </div>
 <div class="entry">
 <h1 id=natural_homo><a class="tag more colloq" href="#natural_homo">#</a>Естественный гомоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#:~:text=Естественный гомоморфизм">Конспект</a>)</small></h1>
 <p>
-<script type="math/tex">ε: G→G/h</script> — сопоставляет элементу <script type="math/tex">g</script> класс смежности <script type="math/tex">gH</script>: <script type="math/tex">ε(g) = gH</script>
+<script type="math/tex">ε: G→G/H</script> — сопоставляет элементу <script type="math/tex">g</script> класс смежности <script type="math/tex">gH</script>: <script type="math/tex">ε(g) = gH</script>
 </p>
 <hr/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
@@ -2102,6 +2143,7 @@ kℤ = \{ kn | n∈ℤ \}
 <hr/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#automorph">→ Автоморфизм</a><br/>
 <a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
 </div>
 <div class="entry">
@@ -2132,6 +2174,18 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <li>
 <script type="math/tex">Z(G) ⊲ G</script> всегда</li>
 </ul>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что центр — нормальная подгруппа.</p>
+<p>Во-первых, центр — подгруппа. Докажем, что <script type="math/tex">∀x,y ∈ Z(G) \, x · y^{-1} ∈ Z(G)</script>
+</p>
+<script type="math/tex; mode=display">
+xy^{-1} · g ≟ g · xy^{-1} \\
+xy^{-1} · g = xy^{-1} · (g^{-1})^{-1} = x (y · g^{-1})^{-1} = x (g^{-1} · y)^{-1} = x · g · y^{-1} = g · xy^{-1} ∎
+</script>
+
+<p>Во-вторых, центр — нормальная подгруппа, т.к. является абелевой.</p>
+</details>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
@@ -2139,20 +2193,65 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 </div>
 <div class="entry">
 <h1 id=automorph><a class="tag more colloq" href="#automorph">#</a>Автоморфизм <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#автоморфизм">Конспект</a>)</small></h1>
-<p>Это изоморфизм <script type="math/tex">f: G→G</script>
+<p>Это изоморфизмы <script type="math/tex">f: G→G</script>. Они образуют группу <script type="math/tex">Aut(G)</script>
 </p>
 <p>Внутрениий автоморфизм <script type="math/tex">I_{a} = g↦aga^{-1}</script>
 </p>
 <p>Внутренние образуют группу <script type="math/tex">Inn(G)</script>, причём <script type="math/tex">G/Z(G) ≅ Inn(G)</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что <script type="math/tex">G/Z(G) ≅ Inn(G)</script>.</p>
+<p>Во-первых, центр — нормальная подгруппа, поэтому факторгруппа имеет смысл.</p>
+<p>Построим отображение <script type="math/tex">f: G → Aut(G)</script>: <script type="math/tex">f = g ­↦ φ_g(h) ­= ghg^{-1}</script>
+</p>
+<script type="math/tex; mode=display">
+f: G → (G → G) \\
+f(g) = λ h → ghg^{-1}
+</script>
+
+<p>Тогда:</p>
+<ul>
+<li>
+<script type="math/tex">Im(f) = Inn(G)</script> из определения.
+    Потому что <script type="math/tex">Inn(G) = \{ I_{a} \mid a ∈ G \} = \{ g ↦ aga^{-1} \mid g ∈ G \}</script>
+</li>
+<li>
+<script type="math/tex">\Ker f = Z(G)</script>, т.к. <script type="math/tex">ghg^{-1} = h ⇔ gh = hg</script>
+<script type="math/tex; mode=display">
+    \Ker f = \{ g∈G \mid f(g) = e_{Aut(G)} \} \\
+    \Ker f = \{ g∈G \mid φ_g = id \} \\
+    \Ker f = \{ g∈G \mid ghg^{-1} = h \} \\
+    \Ker f = \{ g∈G \mid gh = hg \}
+</script>
+</li>
+</ul>
+<p>И по теореме о гомоморфизме групп получаем требуемое.</p>
+</details>
 <hr/>
 <a class="more" href="#group_iso">← Изоморфизм групп</a><br/>
 <a class="more" href="#group_center">← Центр группы</a><br/>
+<a class="more" href="#factor_group">← Факторгруппа</a><br/>
+<a class="more" href="#theorem_homogroup">← Теорема о гомоморфизме групп</a><br/>
 </div>
 <div class="entry">
 <h1 id=cayley><a class="tag more colloq" href="#cayley">#</a>Теорема Кэли <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/seventeenth_lesson#теорема-кэли">Конспект</a>)</small></h1>
 <p>Любая конечная группа порядка <script type="math/tex">n</script> изоморфна некоторой подгруппе <script type="math/tex">S_{n}</script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Для каждого <script type="math/tex">a∈G</script> рассмотрим отображение <script type="math/tex">L_{a}: G→G</script>, <script type="math/tex">L_{a}(g) = a·g</script>.</p>
+<p>Если <script type="math/tex">e, g_{1}, g_{2}, …, g_{n-1}</script> — элементы группы, то <script type="math/tex">a·e, a·g_{1}, …, a·g_{n-1}</script> — те же элементы, но в другом порядке.
+(если <script type="math/tex">a·g_{i} = a·g_{j}</script>, то <script type="math/tex">g_{i} = g_{j}</script>, а это невозможно. Значит все <script type="math/tex">a·g_{i}</script> различны).</p>
+<p>Множество <script type="math/tex">Lₑ, L_{a_{1}}, …, L_{a_{n}}</script> с операцией композиции образует подгруппу в множестве отображений <script type="math/tex">G</script> в себя,
+т.е. подгруппу подстановок.
+- Есть нейтральный элемент: <script type="math/tex">Lₑ</script>
+- Умножение работает так: <script type="math/tex">L_a(L_b(x)) = a·b·x = L_{ab}(x)</script>
+- Есть обратный элемент: <script type="math/tex">(L_{a})^{-1} = L_{a^{-1}}</script>
+- Есть ассоциативность: <script type="math/tex">(L_a·L_b)(x) = L_{ab}(x) = (ab)·x = a(b·x) = L_a · (L_b(x))</script>
+</p>
+<p>Итого, группа <script type="math/tex">G</script> изоморфна построенной группе, которая является подгруппой подстановок, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#simm_group">← Симметрическая группа</a><br/>
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
@@ -2223,6 +2322,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
 <a class="more" href="#subfield">→ Подполя</a><br/>
 <a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
 <a class="more" href="#linear_space">→ Линейное пространство</a><br/>
 </div>
 <div class="entry">
@@ -2238,7 +2338,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#norm_group">← Нормальная подгруппа</a><br/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
-<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
 <a class="more" href="#field_size">→ Число элементов в поле</a><br/>
 <a class="more" href="#chinese_rems">→ Китайская теорема об остатках</a><br/>
 </div>
@@ -2285,8 +2385,18 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <script type="math/tex">\Char ℤ_{p} = p</script>, p — простое</li>
 </ul>
 <p>Причём характеристика всегда либо <script type="math/tex">0</script>, либо простое число (потому что в поле нет делителей нуля).</p>
+<details>
+<summary>Доказательство</summary>
+<p>Если характеристика не простое (<script type="math/tex">q = n·k</script>, <script type="math/tex">1 < n,k < q</script>), то
+<script type="math/tex">\underbrace{1+1+…+1}_{n·k} = \underbrace{(\underbrace{1+…+1}_{n}) + … + (\underbrace{1+…+1}_{n})}_{k}
+= (\underbrace{1+…+1}_{k}) · (\underbrace{1+…+1}_{n}) = 0</script>
+</p>
+<p>Но поскольку <script type="math/tex">q</script> — минимальное, то и <script type="math/tex">\underbrace{1+…+1}_{k} ≠ 0</script>, и <script type="math/tex">\underbrace{1+…+1}_{n} ≠ 0</script>.
+Получается, что эти числа являются делителями нуля, а их в поле быть не должно.</p>
+</details>
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
+<a class="more" href="#simple_subfield">→ Простое подполе</a><br/>
 </div>
 <div class="entry">
 <h1 id=factor_ring><a class="tag more " href="#factor_ring">#</a>Факторкольцо <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/nineteenth_lesson#факторкольцо">Конспект</a>)</small></h1>
@@ -2343,7 +2453,7 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <a class="more" href="#algebaric_el">→ Алгебраический элемент над подполем</a><br/>
 </div>
 <div class="entry">
-<h1 id=simple_subfield><a class="tag more colloq" href="#simple_subfield">#</a>Простое подполе </h1>
+<h1 id=simple_subfield><a class="tag more colloq" href="#simple_subfield">#</a>Простое подполе <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=называется простым подполем">Конспект</a>)</small></h1>
 <p>Наименьшее по включение подполе называется <strong>простым подполем</strong>. Назовём его <script type="math/tex">P_{0}</script>
 </p>
 <ul>
@@ -2354,22 +2464,77 @@ Z(G) = \{a∈G \mid a·b = b·a ∀b∈G \}
 <script type="math/tex">\Char(P) = p > 0 ⇒ P_{0}≅ℤ_{p}</script>
 </li>
 </ul>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим <script type="math/tex">⟨1⟩ ⊆ P</script> — подгруппу по сложению, порождённую 1. Она является подкольцом в <script type="math/tex">P</script>.</p>
+<p>Любое подполе содержит <script type="math/tex">1</script>, а значит оно содержит и <script type="math/tex">⟨1⟩</script>. Отсюда <script type="math/tex">⟨1⟩ ⊆ P_{0}</script>.</p>
+<ul>
+<li>
+<p>Если <script type="math/tex">\Char P = p > 0</script>, то <script type="math/tex">⟨1⟩≅ℤ_{p}</script> — поле (очевидно) и <script type="math/tex">P_{0} = ⟨1⟩</script>,
+    потому что <script type="math/tex">⟨1⟩</script> — поле, причем меньшее <script type="math/tex">P_{0}</script>, которое в свою очередь является простым.
+    Если они не равны, то <script type="math/tex">P_{0}</script> не простое по определению.</p>
+</li>
+<li>
+<p>Если <script type="math/tex">\Char P = 0</script>, то <script type="math/tex">⟨1⟩</script> — не поле.
+    Расиширим его до поля, определив обратные элементы: <script type="math/tex">∀x∈⟨1⟩ : x^{-1} = \frac{1}{x}</script>
+    (операции сложения и умножения определяются аналогично <script type="math/tex">ℚ</script>).
+    Получили поле, изоморфное <script type="math/tex">ℚ</script>.</p>
+<p>Посольку все элементы из <script type="math/tex">⟨1⟩</script> лежат в т.ч. и в <script type="math/tex">P_{0}</script>, то там же находятся и обратные к ним.
+А значит в <script type="math/tex">P_{0}</script> должны быть все дроби вида <script type="math/tex">\frac{a}{b}</script>, где <script type="math/tex">a,b∈⟨1⟩, b≠0</script>.
+Получается, что внутри <script type="math/tex">P_{0}</script> лежит подполе, изоморфное <script type="math/tex">ℚ</script>.
+Аналогично предыдущему пункту <script type="math/tex">P_{0} ≅ ℚ</script>
+</p>
+</li>
+</ul>
+</details>
 <hr/>
 <a class="more" href="#subfield">← Подполя</a><br/>
+<a class="more" href="#field_char">← Характеристика поля</a><br/>
 </div>
 <div class="entry">
 <h1 id=factorring_polynom><a class="tag more colloq" href="#factorring_polynom">#</a>Факторкольцо кольца многочленов </h1>
 <p>
 <script type="math/tex">𝔽[x]/ ⟨f(x)⟩</script> является полем, iff <script type="math/tex">f(x)</script> неприводим над <script type="math/tex">𝔽</script>, т.е. <script type="math/tex">∄g(x), h(x): g(x)h(x) = f(x)</script>.</p>
-<p>Аналогично <script type="math/tex">ℤ_{n}</script> является полем iff <script type="math/tex">p</script> простое, т.е. не раскладывается на множители</p>
 <p>Любое подполе <script type="math/tex">F_{p^n}</script> изоморфно <script type="math/tex">F_{p^m}</script>, где <script type="math/tex">n</script> делится на <script type="math/tex">m</script>.</p>
+<details>
+<summary>Доказательство</summary>
+<p>С одной стороны, если <script type="math/tex">f(x) = u(x)v(x)</script>, то <script type="math/tex">\bar{u(x)} · \bar{v(x)} = \bar{f(x)} = 0</script>.
+Получается, что есть делители нуля, а значит <script type="math/tex">F[x]/⟨f(x)⟩</script> — не поле.</p>
+<p>С другой стороны, докажем что у каждого <script type="math/tex">h(x)</script> есть обратный <script type="math/tex">h^{-1}(x)</script>, такой что <script type="math/tex">h(x)·h^{-1}(x) = f(x)g(x) + 1</script>.
+По алгоритму Евклида, из <script type="math/tex">h(x)·h^{-1}(x) - f(x)g(x) = 1</script> можно найти решения для <script type="math/tex">h^{-1}(x)</script> и <script type="math/tex">g(x)</script>.
+Т.е. обратный есть, а значит это является кольцом.</p>
+</details>
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#factor_ring">← Факторкольцо</a><br/>
-<a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
 <a class="more" href="#cyclic_group">← Циклическая группа, порождённая g</a><br/>
 <a class="more" href="#algebaric_el">→ Алгебраический элемент над подполем</a><br/>
 <a class="more" href="#field_size">→ Число элементов в поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=residue_field><a class="tag more colloq" href="#residue_field">#</a>Поле вычетов <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=является кольцом с">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">ℤ_{n}</script> является полем ⇔ <script type="math/tex">p</script> простое, т.е. не раскладывается на множители</p>
+<p>Похоже на то, как факторкольцо кольца многочленов является простым, когда многочлен не раскладывается на множители
+(<script type="math/tex">ℤ_{n} = ℤ/nℤ</script>).</p>
+<details>
+<summary>Доказательство</summary>
+<p>
+<script type="math/tex">ℤ_{n}</script> — коммутативное кольцо с <script type="math/tex">1≠0</script>.</p>
+<p>Если <script type="math/tex">n = m·k, 1 < m,k <n</script>, то <script type="math/tex">\bar{m} · \bar{k} = \bar{n} = \bar{0}</script>, т.е. есть делители нуля. Значит это не поле.</p>
+<p>Тогда пусть <script type="math/tex">n</script> — простое. Рассмотрим <script type="math/tex">\bar{1}, \bar{2}, …, \bar{n-1}</script> (все, кроме <script type="math/tex">\bar{0}</script>)
+и докажем, что у произвольного <script type="math/tex">\bar{s}</script> существует обратный <script type="math/tex">\bar{s^{-1}}</script>.</p>
+<p>Рассмотрим множество <script type="math/tex">A = \{ \bar{s} · \bar{1}, …, \bar{s} · \bar{n-1} \}</script>.
+В нём нет нуля, потому что в <script type="math/tex">ℤ_{n}</script> нет делителей нуля. Также в <script type="math/tex">A</script> ровно <script type="math/tex">n-1</script> элементов,
+причем все различны:
+<script type="math/tex">\bar{s}·\bar{x} = \bar{s}·\bar{y} ⇔ \bar{s}(\bar{x} - \bar{y}) = 0 ⇔ \bar{x} = \bar{y}</script>.</p>
+<p>Получается, что в <script type="math/tex">A</script> находятся все те же элементы, но в другом порядке. А значит среди них найдётся <script type="math/tex">\bar{1}</script>.
+Т.е. <script type="math/tex">∃\bar{t}: \bar{s}·\bar{t} = \bar{1}</script>, а значит для произвольного <script type="math/tex">\bar{s}</script> нашли обратный элемент.</p>
+<p>Итого, в кольце все элементы (кроме нуля) обратимы и нет делителей нуля. Значит это поле, ч.т.д.</p>
+</details>
+<hr/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
+<a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
 </div>
 <div class="entry">
 <h1 id=algebaric_el><a class="tag more colloq" href="#algebaric_el">#</a>Алгебраический элемент над подполем <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#:~:text=называется алгебраическим над">Конспект</a>)</small></h1>
@@ -3155,6 +3320,51 @@ b_{k+1} = a_{k+1} - \Σ_{i=1}^k \pr_{b_{j}}a_{n}
   </div>
   <div class="panel" id="side_panel">
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+  <script>
+    function bindButtons(root) {
+        for (let elem of root.querySelectorAll('.more')) {
+            elem.onclick = (ev) => {
+                ev.preventDefault();
+                if (ev.altKey || ev.shiftKey) {
+                    location.hash = elem.getAttribute("href");
+                    return false;
+                }
+                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
+                let child = parent.cloneNode(true);
+                bindButtons(child);
+                side_panel.prepend(child);
+                let tag = child.querySelector('.tag');
+                tag.text = 'ⓧ';
+                tag.onclick = (ev) => {
+                    ev.preventDefault();
+                    side_panel.removeChild(child);
+                    return false;
+                }
+                return false;
+            };
+        }
+    }
+    if (window.screen.availWidth >= 1200) {
+        Split(['#main_panel', '#side_panel'], {
+            sizes: [65, 35],
+        });
+        bindButtons(document);
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
+  <style>
+    .katex {
+       font-size: 1em;
+    }
+
+    .katex-display {
+       font-size: 1.21em;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
   <script>
 let macros = {
     "\\Σ": "\\sum",
@@ -3219,33 +3429,6 @@ scripts.forEach(function(script) {
     }
     script.parentNode.replaceChild(katexElement, script);
 });
-  </script>
-  <script>
-    function bindButtons(root) {
-        for (let elem of root.querySelectorAll('.more')) {
-            elem.onclick = (ev) => {
-                ev.preventDefault();
-                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
-                let child = parent.cloneNode(true);
-                bindButtons(child);
-                side_panel.prepend(child);
-                let tag = child.querySelector('.tag');
-                tag.text = 'ⓧ';
-                tag.onclick = (ev) => {
-                    ev.preventDefault();
-                    side_panel.removeChild(child);
-                    return false;
-                }
-                return false;
-            };
-        }
-    }
-    if (window.screen.availWidth >= 1200) {
-        Split(['#main_panel', '#side_panel'], {
-            sizes: [65, 35],
-        });
-        bindButtons(document);
-    }
   </script>
   </body>
 </html>
