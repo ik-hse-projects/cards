@@ -2,10 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="pygments.css">
     <style>
 @font-face {
     font-family: 'Linux Libertine'; /* normal */
@@ -63,14 +60,6 @@ html
    font-family: 'Linux Libertine';
 }
 
-.katex {
-   font-size: 1em;
-}
-
-.katex-display {
-   font-size: 1.21em;
-}
-
 html, body {
     position: absolute;
     height: 100vh;
@@ -117,6 +106,51 @@ hr:last-child {
   </div>
   <div class="panel" id="side_panel">
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
+  <script>
+    function bindButtons(root) {
+        for (let elem of root.querySelectorAll('.more')) {
+            elem.onclick = (ev) => {
+                ev.preventDefault();
+                if (ev.altKey || ev.shiftKey) {
+                    location.hash = elem.getAttribute("href");
+                    return false;
+                }
+                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
+                let child = parent.cloneNode(true);
+                bindButtons(child);
+                side_panel.prepend(child);
+                let tag = child.querySelector('.tag');
+                tag.text = 'ⓧ';
+                tag.onclick = (ev) => {
+                    ev.preventDefault();
+                    side_panel.removeChild(child);
+                    return false;
+                }
+                return false;
+            };
+        }
+    }
+    if (window.screen.availWidth >= 1200) {
+        Split(['#main_panel', '#side_panel'], {
+            sizes: [65, 35],
+        });
+        bindButtons(document);
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
+  <style>
+    .katex {
+       font-size: 1em;
+    }
+
+    .katex-display {
+       font-size: 1.21em;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
   <script>
 let macros = {
     "\\Σ": "\\sum",
@@ -181,33 +215,6 @@ scripts.forEach(function(script) {
     }
     script.parentNode.replaceChild(katexElement, script);
 });
-  </script>
-  <script>
-    function bindButtons(root) {
-        for (let elem of root.querySelectorAll('.more')) {
-            elem.onclick = (ev) => {
-                ev.preventDefault();
-                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
-                let child = parent.cloneNode(true);
-                bindButtons(child);
-                side_panel.prepend(child);
-                let tag = child.querySelector('.tag');
-                tag.text = 'ⓧ';
-                tag.onclick = (ev) => {
-                    ev.preventDefault();
-                    side_panel.removeChild(child);
-                    return false;
-                }
-                return false;
-            };
-        }
-    }
-    if (window.screen.availWidth >= 1200) {
-        Split(['#main_panel', '#side_panel'], {
-            sizes: [65, 35],
-        });
-        bindButtons(document);
-    }
   </script>
   </body>
 </html>

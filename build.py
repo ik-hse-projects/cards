@@ -133,7 +133,7 @@ def add_more(prefix, src):
 
 def convert_md(id, text):
     return markdown.Markdown(
-        extensions=['mdx_math'],
+        extensions=['mdx_math', 'codehilite', 'fenced_code'],
         extension_configs={
             'mdx_math': {'use_gitlab_delimiters': True}
         }
