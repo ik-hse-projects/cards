@@ -529,6 +529,7 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 <a class="more" href="#Kronecker-Capelli">→ Теорема Кронекера-Капелли</a><br/>
 <a class="more" href="#SLE_FSS">→ ФСР ОСЛАУ</a><br/>
+<a class="more" href="#sq_form_invariance">→ Инвариантность ранга квадратичной формы</a><br/>
 </div>
 <div class="entry">
 <h1 id=basic_minor><a class="tag more colloq" href="#basic_minor">#</a>Базисный минор </h1>
@@ -1764,6 +1765,7 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <a class="more" href="#matrix_det">← Определитель</a><br/>
 <a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
 <a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#homo_injective">→ Критерий инъективности</a><br/>
 <a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
 <a class="more" href="#linear_map">→ Линейное отображение</a><br/>
 </div>
@@ -1872,18 +1874,14 @@ f: G → H \\
 </li>
 <li>
 <p>
-<script type="math/tex">f</script> инъективно ⇔ ядро тривиально.</p>
-</li>
-<li>
-<p>
 <script type="math/tex">\Ker f</script> — подгруппа в <script type="math/tex">G</script>
 </p>
 </li>
 </ul>
 <details>
 <summary>Доказательство</summary>
-<h2>Ядро является подгруппой</h2>
-<p>Далее <script type="math/tex">∀x,y ∈ \Ker f</script>
+<p>Докажем, что ядро является подгруппой
+Далее <script type="math/tex">∀x,y ∈ \Ker f</script>
 </p>
 <ol>
 <li>
@@ -1909,9 +1907,21 @@ f: G → H \\
 </p>
 </li>
 </ol>
-<h2>
-<script type="math/tex">f</script> инъективно ⇔ <script type="math/tex">\Ker f = \{e_G\}</script>
-</h2>
+</details>
+<hr/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
+<a class="more" href="#homo_injective">→ Критерий инъективности</a><br/>
+<a class="more" href="#homo_ideal">→ Ядро является идеалом</a><br/>
+<a class="more" href="#norm_group_ker">→ Критерий нормальности через ядро гомоморфизма</a><br/>
+</div>
+<div class="entry">
+<h1 id=homo_injective><a class="tag more colloq" href="#homo_injective">#</a>Критерий инъективности </h1>
+<p>Гомоморфизм инъективен тогда и только тогда, когда его ядро тривиально.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что <script type="math/tex">f</script> инъективно ⇔ <script type="math/tex">\Ker f = \{e_G\}</script>
+</p>
 <ol>
 <li>
 <p>
@@ -1928,8 +1938,106 @@ f: G → H \\
 </details>
 <hr/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#homo_kernel">← Ядро гомоморфизма</a><br/>
+</div>
+<div class="entry">
+<h1 id=zero_div><a class="tag more colloq" href="#zero_div">#</a>Делители нуля </h1>
+<p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
+<hr/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо и поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
+<ol>
+<li>
+<script type="math/tex">(G, +)</script> — абелева группа</li>
+<li>
+<script type="math/tex">(K, ·)</script> – полугруппа</li>
+<li>
+<script type="math/tex">(a+b)·c = a·c + b·c</script> и <script type="math/tex">c·(a+b) = c·a + c·b</script>
+</li>
+</ol>
+<p>Тогда:</p>
+<ul>
+<li><strong>тривиальное</strong> кольцо: <script type="math/tex">\{0\}</script>
+</li>
+<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
+<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
+</li>
+<li><strong>целостное кольцо</strong> — коммутативное кольцо с <script type="math/tex">1≠0</script> и без делителей нуля.</li>
+<li><strong>поле</strong> — коммутативное кольцо с единицей (<script type="math/tex">1≠0</script>), в котором каждый элемент (кроме нуля) обратим.</li>
+<li>
+<script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
+<li>
+<script type="math/tex">(K, ·)</script> мультипликативная полугруппа</li>
+<li>
+<script type="math/tex">U(K)</script> — мультипликативная группа, состоит из всех обратимых элементов кольца с единицей.</li>
+<li>
+<script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
+<ol>
+<li>
+<script type="math/tex">x-y ∈ L</script> (т.е. <script type="math/tex">(L, +)</script> — абелева подгруппа)</li>
+<li>
+<script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
+</ol>
+</li>
+</ul>
+<p>Например,
+- <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — поля и подполя, также коммутативные кольца
+- <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
+<p>Из групп наследуются понятия:</p>
+<ul>
+<li>обратимости элемента: <script type="math/tex">x^{-1}: x·x^{-1} = x^{-1}·x = 1</script>
+</li>
+<li>прямой суммы (и сложение, и умножение покомпонентны)</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
 <a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
-<a class="more" href="#norm_group_ker">→ Критерий нормальности через ядро гомоморфизма</a><br/>
+<a class="more" href="#zero_div">← Делители нуля</a><br/>
+<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+<a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
+<a class="more" href="#ideal">→ Идеал</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
+<a class="more" href="#field_char">→ Характеристика поля</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
+<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
+<a class="more" href="#subfield">→ Подполя</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
+<a class="more" href="#linear_space">→ Линейное пространство</a><br/>
+</div>
+<div class="entry">
+<h1 id=ideal><a class="tag more colloq" href="#ideal">#</a>Идеал <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал">Конспект</a>)</small></h1>
+<p>Это подмножество кольца со свойствами:</p>
+<ol>
+<li>Подгруппа кольца по сложению</li>
+<li>
+<script type="math/tex">∀a∈I\, ∀r∈K\, r·a∈I ∧ a·r∈I</script> — при умножении эл.-а кольца на эл.-т идеала остаемся в нём же</li>
+</ol>
+<p>Идеал главный, iff <script type="math/tex">∃a∈K: I = \{r·a \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
+<hr/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
+<a class="more" href="#homo_ideal">→ Ядро является идеалом</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
+</div>
+<div class="entry">
+<h1 id=homo_ideal><a class="tag more colloq" href="#homo_ideal">#</a>Ядро является идеалом </h1>
+<p>Ядро гомоморфизма колец является идеалом.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Пусть <script type="math/tex">K</script> — кольцо. Нужно доказать, что <script type="math/tex">ar∈\Ker f, ra ∈ \Ker f</script>, где <script type="math/tex">a ∈ \Ker f, r ∈ K</script>.</p>
+<p>Переформулируя, нужно доказать <script type="math/tex">f(ar) = f(ra) = e_H</script>.
+Здесь <script type="math/tex">e_H</script> — нейтральный элемент группы по сложению. Т.е. <script type="math/tex">f(ar) = f(ra) = 0</script>.
+Используя то, что <script type="math/tex">f</script> — гомоморфизм, получаем <script type="math/tex">f(ar) = f(a)·f(r) = 0·f(r) = 0</script>.
+Аналогично <script type="math/tex">f(ra) = f(r)·0 = 0</script>.</p>
+</details>
+<hr/>
+<a class="more" href="#homo_kernel">← Ядро гомоморфизма</a><br/>
+<a class="more" href="#ideal">← Идеал</a><br/>
 </div>
 <div class="entry">
 <h1 id=conj_class><a class="tag more colloq" href="#conj_class">#</a>Смежный класс <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#смежные-классы">Конспект</a>)</small></h1>
@@ -2257,75 +2365,6 @@ f(g) = λ h → ghg^{-1}
 <a class="more" href="#subgroup">← Подгруппа</a><br/>
 </div>
 <div class="entry">
-<h1 id=zero_div><a class="tag more colloq" href="#zero_div">#</a>Делители нуля </h1>
-<p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
-<hr/>
-<a class="more" href="#ring">→ Кольцо и поле</a><br/>
-</div>
-<div class="entry">
-<h1 id=ring><a class="tag more colloq" href="#ring">#</a>Кольцо и поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
-<p>
-<script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
-<ol>
-<li>
-<script type="math/tex">(G, +)</script> — абелева группа</li>
-<li>
-<script type="math/tex">(K, ·)</script> – полугруппа</li>
-<li>
-<script type="math/tex">(a+b)·c = a·c + b·c</script> и <script type="math/tex">c·(a+b) = c·a + c·b</script>
-</li>
-</ol>
-<p>Тогда:</p>
-<ul>
-<li><strong>тривиальное</strong> кольцо: <script type="math/tex">\{0\}</script>
-</li>
-<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
-<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
-</li>
-<li><strong>целостное кольцо</strong> — коммутативное кольцо с <script type="math/tex">1≠0</script> и без делителей нуля.</li>
-<li><strong>поле</strong> — коммутативное кольцо с единицей (<script type="math/tex">1≠0</script>), в котором каждый элемент (кроме нуля) обратим.</li>
-<li>
-<script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
-<li>
-<script type="math/tex">(K, ·)</script> мультипликативная полугруппа</li>
-<li>
-<script type="math/tex">U(K)</script> — мультипликативная группа, состоит из всех обратимых элементов кольца с единицей.</li>
-<li>
-<script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
-<ol>
-<li>
-<script type="math/tex">x-y ∈ L</script> (т.е. <script type="math/tex">(L, +)</script> — абелева подгруппа)</li>
-<li>
-<script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
-</ol>
-</li>
-</ul>
-<p>Например,
-- <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — поля и подполя, также коммутативные кольца
-- <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
-<p>Из групп наследуются понятия:</p>
-<ul>
-<li>обратимости элемента: <script type="math/tex">x^{-1}: x·x^{-1} = x^{-1}·x = 1</script>
-</li>
-<li>прямой суммы (и сложение, и умножение покомпонентны)</li>
-</ul>
-<hr/>
-<a class="more" href="#group-theory">← Теория групп</a><br/>
-<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
-<a class="more" href="#zero_div">← Делители нуля</a><br/>
-<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
-<a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
-<a class="more" href="#ideal">→ Идеал</a><br/>
-<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
-<a class="more" href="#field_char">→ Характеристика поля</a><br/>
-<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
-<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
-<a class="more" href="#subfield">→ Подполя</a><br/>
-<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
-<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
-<a class="more" href="#linear_space">→ Линейное пространство</a><br/>
-</div>
-<div class="entry">
 <h1 id=residue_ring><a class="tag more " href="#residue_ring">#</a>Кольцо вычетов </h1>
 <p>Построим <script type="math/tex">ℤ_{n}</script>:</p>
 <ul>
@@ -2347,20 +2386,6 @@ f(g) = λ h → ghg^{-1}
 <p>Нетривиальное коммутативное кольцо с единицей является целостным iff в нём из <script type="math/tex">ab=ac</script> следует <script type="math/tex">b=c</script>, если <script type="math/tex">a≠0</script>.</p>
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
-</div>
-<div class="entry">
-<h1 id=ideal><a class="tag more colloq" href="#ideal">#</a>Идеал <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал">Конспект</a>)</small></h1>
-<p>Это подмножество кольца со свойствами:</p>
-<ol>
-<li>Подгруппа кольца по сложению</li>
-<li>
-<script type="math/tex">∀a∈I\, ∀r∈K\, r·a∈I ∧ a·r∈I</script> — при умножении эл.-а кольца на эл.-т идеала остаемся в нём же</li>
-</ol>
-<p>Идеал главный, iff <script type="math/tex">∃a∈K: I = \{r·a \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
-<hr/>
-<a class="more" href="#ring">← Кольцо и поле</a><br/>
-<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
-<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
 </div>
 <div class="entry">
 <h1 id=polynoms><a class="tag more " href="#polynoms">#</a>Кольцо многочленов </h1>
@@ -2671,7 +2696,7 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 \quad
 T_{A→B} = \begin{pmatrix}
     t_{11} & … & t_{1n} \\
-    … & & … \\
+    ⋮   &   & ⋮ \\
     t_{n1} & … & t_{nn}
 \end{pmatrix}
 </script>
@@ -2685,6 +2710,31 @@ x^a = T_{A→B}·x^b \\
 x^b = T_{A→B}^{-1} · x^a = T_{B→A}·x^a
 </script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что <script type="math/tex">x^b = T_{A→B}^{-1} · x^a</script>.</p>
+<p>По определению матрицы перехода, <script type="math/tex">B = A · T_{A → B}</script> (довольно тривиальный факт):</p>
+<script type="math/tex; mode=display">
+A · T_{A→B} = \begin{pmatrix}
+    a_{1} & … & a_{n}
+\end{pmatrix}·\begin{pmatrix}
+    t_{11} & … & t_{1n} \\
+    ⋮   &   & ⋮   \\
+    t_{n1} & … & t_{nn}
+\end{pmatrix} =
+= \begin{pmatrix}
+    a_{1}t_{11} + … + a_{n}t_{nn} \\
+    … \\
+    a_{1}t_{n1} + … + a_{n}t_{nn}
+\end{pmatrix}^T = \begin{pmatrix}
+    b_{1} & … & b_{n}
+\end{pmatrix}
+</script>
+
+<p>Также известно, что <script type="math/tex">A · x^a = x = B · x^b = A · T_{A → B} · x^b</script>.
+Т.е. <script type="math/tex">x^a = T_{A → B} · x^b</script>. А отсюда и требуемое <script type="math/tex">x^b = T_{A→B}^{-1} · x^a</script>,
+поскольку разложение по базису единственно.</p>
+</details>
 <hr/>
 <a class="more" href="#space_base">← Базис линейного пространства</a><br/>
 <a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
@@ -2755,8 +2805,29 @@ H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
 <script type="math/tex">\dim(H_{1} ⊕ H_{2}) = \dim(H_{1}) + \dim(H_{2})</script>
 </li>
 <li>
-<script type="math/tex">H_{1} + H_{2}</script> — прямая сумма iff <script type="math/tex">∀x∈H_{1} + H_{2}</script> единственным образом представляется как <script type="math/tex">x = x_{1} + x_{2}, x_{1}∈H_{1}, x_{2}∈H_{2}</script>.</li>
+<script type="math/tex">H_{1} + H_{2}</script> — прямая сумма ⇔ <script type="math/tex">∀x∈H_{1} + H_{2}</script> единственным образом представляется как <script type="math/tex">x = x_{1} + x_{2}, x_{1}∈H_{1}, x_{2}∈H_{2}</script>.</li>
 </ul>
+<details>
+<summary>Доказательство</summary>
+<p>Здесь мы хотим доказать последенее утверждение: <script type="math/tex">H_{1} ⊕ H_{2} ⇔ ∀x∈H_{1}+H_{2} ∃!x_{1}∈H_{1} ∃!x_{2}∈H_{2} : x = x_{1} + x_{2}</script>.</p>
+<h3>⇒</h3>
+<p>Пусть сумма простая, т.е. <script type="math/tex">H_{1} ∩ H_{2} = \{0\}</script>.
+Предположим, что существует два представления одного вектора:
+<script type="math/tex; mode=display">
+x_{1} + x_{2} = y_{1} + y_{2} \\
+x_{1} + x_{2} - y_{1} - y_{2} = 0 \\
+(x_{1} - y_{1}) + (x_{2} - y_{2}) = 0 \\
+x_{1} - y_{1} = y_{2} - x_{2} \\
+</script>
+
+Поскольку <script type="math/tex">H_{1} ∩ H_{2} = \{0\}</script>, то <script type="math/tex">x_{1} - y_{1} = 0 = y_{2} - x_{2}</script>, т.е. <script type="math/tex">x_{1} = y_{1}</script> и <script type="math/tex">x_{2} = y_{2}</script>.
+Таким образом произвольный вектор представляется единственным образом, ч.т.д.</p>
+<h3>⇐</h3>
+<p>Пусть представление единственно: <script type="math/tex">x = x_{1} + x_{2}</script> для всех <script type="math/tex">x</script>.
+Предположим, что <script type="math/tex">∃y ∈ H_{1}∩H_{2}: y ≠ 0</script>. В том числе <script type="math/tex">∀λ∈𝔽\, λy ∈ H_{1}∩H_{2}</script>.</p>
+<p>Разложим <script type="math/tex">y</script>: <script type="math/tex">y = (1-λ)y + λy</script>. Здесь <script type="math/tex">y_{1} = (1-λ)y ∈ H_{1}</script> и <script type="math/tex">y_{2} = λy ∈ H_{2}</script>.
+Подставляя различные <script type="math/tex">λ</script> мы можем получить различные представления. Противоречие.</p>
+</details>
 <hr/>
 <a class="more" href="#subspace">← Подпространство</a><br/>
 <a class="more" href="#space_dim">← Размерность пространства</a><br/>
@@ -2787,7 +2858,7 @@ H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
 <a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
 </div>
 <div class="entry">
-<h1 id=bilinear_matrix><a class="tag more " href="#bilinear_matrix">#</a>Матрица билинейной формы </h1>
+<h1 id=bilinear_matrix><a class="tag more colloq" href="#bilinear_matrix">#</a>Матрица билинейной формы </h1>
 <p>Билинейную форму удобно записывать в виде матрицы (<script type="math/tex">e_{1},…,e_{n}</script> — базис <script type="math/tex">V</script>):
 <script type="math/tex; mode=display">
     B = \begin{pmatrix}
@@ -2804,6 +2875,17 @@ H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
     B_f = T_{e→f}^T · B_e · T_{e→f}
 </script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем формулу перехода к базису.</p>
+<script type="math/tex; mode=display">
+b(x, y) = (x_A)^T · B_A · y_A = (T_{A→B} x_B)^T · B_A = (T_{A→B} y_B) =\\
+= (x_B^T · T_{A→B}^T) · B_A · (T_{A→B} · y_B) = x_B^T · (T_{A→B}^T · B_A · T_{A→B}) · y_B = (x_B)^T · M_B · y_B
+</script>
+
+<p>Т.е. действительно <script type="math/tex">M_B = T_{A→B}^T · B_A · T_{A→B}</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#bilinear_form">← Билинейная форма</a><br/>
 <a class="more" href="#space_base">← Базис линейного пространства</a><br/>
@@ -2859,8 +2941,35 @@ Q(x) = x_{1}^{2} + 8x_{1}x_{2} = \begin{pmatrix}
 <hr/>
 <a class="more" href="#sq_form">← Квадратичная форма</a><br/>
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
+<a class="more" href="#sq_form_invariance">→ Инвариантность ранга квадратичной формы</a><br/>
 <a class="more" href="#form_change_base">→ Как меняется матрица … формы при замене базиса?</a><br/>
 <a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
+</div>
+<div class="entry">
+<h1 id=sq_form_invariance><a class="tag more colloq" href="#sq_form_invariance">#</a>Инвариантность ранга квадратичной формы </h1>
+<p>Лемма: Если <script type="math/tex">A, S ∈ M_{n}(ℝ), \det S ≠ 0</script>, то <script type="math/tex">\Rg A = \Rg AS = \Rg SA</script>
+</p>
+<p>Теорема: Ранг матрицы квадратичной формы не меняется при замене базиса (он не зависит от базиса).</p>
+<details>
+<summary>Доказательство</summary>
+<h2>Лемма</h2>
+<p>Поскольку <script type="math/tex">\det S ≠ 0</script>, то <script type="math/tex">\Rg A ≤ \Rg S = n</script>. Аналогично с <script type="math/tex">S^{-1}</script>.
+Известно, что <script type="math/tex">\Rg AB ≤ \Rg A</script> и <script type="math/tex">\Rg AB ≤ \Rg B</script>.</p>
+<ul>
+<li>С одной стороны: <script type="math/tex">\Rg (AS) ≤ \Rg A</script> и <script type="math/tex">\Rg (SA) ≤ \Rg A</script>
+</li>
+<li>Домножим матрицы на <script type="math/tex">S^{-1}</script>, чтобы получить <script type="math/tex">A</script> по-другому:
+    <script type="math/tex">\Rg (AS)S^{-1} ≤ \Rg (AS)</script> и <script type="math/tex">\Rg S^{-1}(SA) ≤ \Rg (SA)</script>
+</li>
+</ul>
+<p>Т.е. <script type="math/tex">\Rg (AS)S^{-1} ≤ \Rg (AS) ≤ \Rg A</script> и <script type="math/tex">\Rg S^{-1}(SA) ≤ \Rg (SA) ≤ \Rg A</script>.</p>
+<p>Отсюда <script type="math/tex">\Rg (AS) = \Rg SA = \Rg A</script>, ч.т.д.</p>
+<h2>Теорема</h2>
+<p>При переходе к базису, матрица меняется как <script type="math/tex">S^TAS</script>, где <script type="math/tex">\det S ≠ 0</script>. По лемме, ранг не изменится.</p>
+</details>
+<hr/>
+<a class="more" href="#sq_form_matrix">← Матрица квадратичной формы</a><br/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=linear_map><a class="tag more colloq" href="#linear_map">#</a>Линейное отображение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
@@ -2981,7 +3090,7 @@ S^TAS
 <p>Это включает в себя:
 - Билинейную форму
 - Квадратичную форму
-- Матрицу Грама</p>
+- Матрицу Грама (которая является билинейной формой)</p>
 <hr/>
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
 <a class="more" href="#bilinear_matrix">← Матрица билинейной формы</a><br/>
@@ -3051,6 +3160,34 @@ Q_{2}(y_{1},…,y_{k}) = μ_{1}y_{1}^{2} + … + μ_{k}y_{k}^{2}, μ_{i}≠0 \\
 A_{ε_{1}' ε_{2}'} = T^{-1}_{ε_{2}→ε_{2}'} · A_{ε_{1}ε_{2}} · T_{ε_{1}→ε_{1}'} \\
 A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 </script>
+<details>
+<summary>Доказательство</summary>
+<p>Для удобства, <script type="math/tex">T_{1} = T_{ε_{1} → ε_{1}'}</script> и <script type="math/tex">T_{2} = T_{ε_{2} → ε_{2}'}</script>.</p>
+<p>Докажем, что <script type="math/tex">A_{ε_{1}' ε_{2}'} = T_{2}^{-1} · A_{ε_{1}ε_{2}} · T_{1}</script>
+</p>
+<p>Возьмём проивзольный вектор <script type="math/tex">x</script>.</p>
+<ol>
+<li>
+<script type="math/tex">x_{ε_{1}'} = T_{1}^{-1} · x_{ε_{1}}</script>
+</li>
+<li>
+<p>
+<script type="math/tex">x_{ε_{2}'} = T_{2}^{-1} · x_{ε_{2}}</script>
+</p>
+<p>А также, посольку <script type="math/tex">A: V_{1} → V_{2}</script> — линейное отображение</p>
+</li>
+<li>
+<p>
+<script type="math/tex">x_{ε_{2}} = A_{ε_{1}ε_{2}} · x_{ε_{1}}</script>
+</p>
+</li>
+<li>
+<script type="math/tex">x_{ε_{2}'} = A_{ε_{1}'ε_{2}'} · x_{ε_{1}'}</script>
+</li>
+</ol>
+<p>Полуаем <script type="math/tex">T_{2} · x_{ε_{2}'} = A_{ε_{1}ε_{2}}T_{1} · x_{ε_{1}'}</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
 <a class="more" href="#change_base">← Переход к новому базису</a><br/>
@@ -3075,7 +3212,52 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <p>
 <script type="math/tex">λ</script> — собственное значение (число), а <script type="math/tex">x≠0</script> — собственный вектор лин. оператора <script type="math/tex">φ</script>, iff <script type="math/tex">φ(x) = λx</script>
 </p>
-<p>Причём собственные векторы, отвечающие различным значениям, линейного независимы.</p>
+<p>Причём собственные векторы, отвечающие различным значениям, линейно независимы.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что они л.н.з по индукции.</p>
+<ul>
+<li>
+<p>База индукции: один собственный вектор и одно с.з. Он ненулевой, и поэтому он л.н.з.</p>
+</li>
+<li>
+<p>Предположение: Пусть собственные векторы <script type="math/tex">v_{1},…,v_{n}</script>, отвечающие различным <script type="math/tex">λ_{1},…,λ_{n}</script> будут л.н.з.</p>
+</li>
+<li>
+<p>Хочется: доказать, что <script type="math/tex">v_{n+1}</script> будет л.н.з., т.е. <script type="math/tex">α_{n+1}v_{n+1} = α_{1}v_{1} + … + α_{n}v_{n}</script> имеет только нулевое решение.</p>
+</li>
+<li>
+<p>Шаг: Применим к уравнению оператор <script type="math/tex">A</script>:
+<script type="math/tex; mode=display">
+    α_{1}   v_{1} + … + α_{n}   v_{n} + α_{n+1}   v_{n+1} = 0 \\
+    α_{1} A v_{1} + … + α_{n} A v_{n} + α_{n+1} A v_{n+1} = 0 \\
+    α_{1} λ_{1}v_{1} + … + α_{n} λ_{n}v_{n} + α_{n+1} λ_{n+1} v_{n+1} = 0 \\
+</script>
+
+    Домножим первое на <script type="math/tex">λ_{n+1}</script> и вычтем его из третьего.
+    Тем самым мы избавимся от нового <script type="math/tex">v_{n+1}</script>, а для остальных у нас есть преположение индукции:
+<script type="math/tex; mode=display">
+    (α_{1} λ_{1}v_{1} + … + α_{n} λ_{n}v_{n} + α_{n+1} λ_{n+1} v_{n+1}) - λ_{n+1}(α_{1} v_{1} + … + α_{n} v_{n} + α_{n+1} v_{n+1}) = 0 \\
+    α_{1} (λ_{1} - λ_{n+1}) v_{1} + … + α_{n} (λ_{n} - λ_{n+1}) v_{n} + \cancel{α_{n+1} (λ_{n+1} - λ_{n+1}) v_{n+1}} = 0 \\
+    α_{1} (λ_{1} - λ_{n+1}) v_{1} + … + α_{n} (λ_{n} - λ_{n+1}) v_{n} = 0
+</script>
+
+    По предположению, векторы л.н.з., а значит уравнение равносильно системе:
+<script type="math/tex; mode=display">
+    \begin{cases}
+        α_{1} (λ_{1} - λ_{n+1}) = 0 \\
+        …
+        α_{n} (λ_{n} - λ_{n+1}) = 0
+    \end{cases}
+</script>
+
+    Поскольку все <script type="math/tex">λ_{i}</script> различны, то <script type="math/tex">α_{1} = … = α_{n} = 0</script>. Подставим это в начало и получим <script type="math/tex">a_{n+1} v_{n+1} = 0</script>.
+    Поскольку <script type="math/tex">v_{n+1}</script> ненулевой (по определению), то <script type="math/tex">α_{n+1} = α_{n} = … = α_{1} = 0</script>,
+    а отсюда все <script type="math/tex">n+1</script> векторов л.н.з., ч.т.д.</p>
+</li>
+</ul>
+<p>По индукции, это верно для любого количества векторов.</p>
+</details>
 <hr/>
 <a class="more" href="#linear_map">← Линейное отображение</a><br/>
 <a class="more" href="#lin_indep">← Линейно независимые строки</a><br/>
@@ -3123,6 +3305,12 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <li>
 <script type="math/tex">λ</script> — корень <script type="math/tex">χ(x) = 0</script> (над алгебраически замкнутым полем)</li>
 </ol>
+<details>
+<summary>Доказательство</summary>
+<p>
+<script type="math/tex">χ_A(λ) = 0 ⇔ \det (A - λE) = 0 ⇔ </script> СЛАУ <script type="math/tex">(A - λE)x = 0</script> имеет ненулевое решение <script type="math/tex">⇔ ∃x: Ax = λx</script>,
+т.е. <script type="math/tex">λ</script> — собственное значение, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
 <a class="more" href="#spectre">← Спектр</a><br/>
@@ -3167,6 +3355,16 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <h1 id=diagonality><a class="tag more colloq" href="#diagonality">#</a>Диагонализируемость линейного оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
 <p>Оператор диагонализируем iff существует базис, в котором матрица линейного оператора диагональна.</p>
 <p>Это равносильно тому, что все векторы базиса — собственные векторы для оператора.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что <script type="math/tex">A</script> диагонализируем ⇔ все векторы — собственные.</p>
+<h3>⇒</h3>
+<p>Пусть матрица <script type="math/tex">A</script> диагональна. Тогда ей <script type="math/tex">i</script>-ый столбец имеет вид
+<script type="math/tex">\begin{pmatrix}0 & … & 0 & λ_{i} & 0 … & 0\end{pmatrix}^T</script>.
+С другой стороны, этот столбец содержит <script type="math/tex">φ(ε^i)</script>, где <script type="math/tex">ε^i</script> — <script type="math/tex">i</script>-ый столбец базиса (по определению матрицы л.о.).</p>
+<p>Т.е. <script type="math/tex">φ(ε^i) = </script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#linear_map">← Линейное отображение</a><br/>
 <a class="more" href="#space_base">← Базис линейного пространства</a><br/>
@@ -3263,6 +3461,42 @@ J = \begin{pmatrix}
 <script type="math/tex">|g(x, y)| ≤ ||x|| · ||y||</script> — Коши-Буняковского</p>
 <p>
 <script type="math/tex">|| x+y || ≤ ||x|| + ||y||</script> — неравенство треугольника (следствие)</p>
+<details>
+<summary>Доказательство</summary>
+<h2>Коши-Буняковского</h2>
+<p>Рассмотрим <script type="math/tex">b = λx - y</script>. Тогда <script type="math/tex">(b, b) ≥ 0</script>. Раскроем:
+<script type="math/tex; mode=display">
+(b, b) = (λx-y, λx-y) = λ(x, λx-y) - (y, λx-y) = λ^{2}(x,x) - λ(x,y) - λ(y, x) + (y, y) = \\
+= λ^{2} ||x|| - 2λ(x, y) + ||y|| ≥ 0
+</script>
+</p>
+<p>Теперь решим относительно <script type="math/tex">λ</script>:
+<script type="math/tex; mode=display">
+D_λ = 4(x,y)^{2} - 4·||x||·||y|| = 4( (x,y)^{2} - ||x||·||y|| )
+</script>
+</p>
+<p>Поскольку утверждается, что неравенство <script type="math/tex">≥0</script>, то <script type="math/tex">D_λ≤0</script>. Т.е. <script type="math/tex">(x,y)^{2} ≤ ||x|| · ||y||</script>, ч.т.д.</p>
+<h2>Треугольника</h2>
+<p>С одной стороны,
+<script type="math/tex; mode=display">
+|| x+y ||^{2} = (x+y, x+y) = (x, x) + (x, y) + (y, x) + (y, y) = \\
+= (x, x) + 2(x, y) + (y, y)
+</script>
+</p>
+<p>С другой,
+<script type="math/tex; mode=display">
+(||x|| + ||y||)^{2} = (x, x) + 2||x|| · ||y|| + (y, y)
+</script>
+</p>
+<p>Получается, нужно сравнить <script type="math/tex">(x, x) + 2(x, y) + (y, y)</script> и <script type="math/tex">(x, x) + 2||x|| · ||y|| + (y, y)</script>:
+<script type="math/tex; mode=display">
+(x, x) + 2(x, y) + (y, y) ∨ (x, x) + 2||x|| · ||y|| + (y, y) \\
+2(x, y) ∨ 2 ||x|| · ||y|| \\
+(x, y) ∨ ||x|| · ||y||
+</script>
+</p>
+<p>По неравенству Коши-Буняковского получаем, что <script type="math/tex">(x, y) ≤ ||x|| · ||y||</script>, а значит и <script type="math/tex">||x+y|| ≤ ||x|| + ||y||</script>, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#euclid_space">← Евклидово пространство</a><br/>
 </div>
@@ -3312,7 +3546,41 @@ b_{k+1} = a_{k+1} - \Σ_{i=1}^k \pr_{b_{j}}a_{n}
 <div class="entry">
 <h1 id=gramian><a class="tag more colloq" href="#gramian">#</a>Грамиан <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p122">Конспект</a>)</small></h1>
 <p>Это определитель матрицы Грама.</p>
-<p>Он не меняется при ортогонализации.</p>
+<p>Он не меняется при ортогонализации.        </p>
+<details>
+<summary>Доказательство</summary>
+<h2>Грамиан не меняется</h2>
+<p>При ортогонализации базис меняется таким образом:
+<script type="math/tex; mode=display">
+    b_{1} = a_{1} \\
+    b_{k} = a_{k} - \Σ_{i=1}^{k-1} \frac{(a_{k}, b_{i})}{(b_{i}, b_{i})}b_{i}
+</script>
+</p>
+<p>Если рассмотреть <script type="math/tex">i = k</script>, то видно, что <script type="math/tex">\frac{(a_{k}, b_{i})}{(b_{i}, b_{i})} = 1</script>,
+т.е. матрица перехода к другому базису содержит на диагонали нули:
+<script type="math/tex; mode=display">
+S = \begin{pmatrix}
+    1 &   & * \\
+    ⋮ & ⋱ &   \\
+    0 & … & 1
+\end{pmatrix}
+</script>
+
+Её определитель равен единице. Получается, что <script type="math/tex">\det (S^T Γ S) = \det S^T · \det Γ · \det S = \det Γ</script>, ч.т.д.</p>
+<h2>Грамиан неотрицательный</h2>
+<p>Во-первых, в стандартном ортонормированном базисе матрица совпадает с единичной
+(все векторы базиса перпендикулярны и единичной длины). Назовём её <script type="math/tex">Γ_{0}</script>
+</p>
+<p>Покажем, что знак не меняется в других базисах:
+<script type="math/tex; mode=display">
+\det Γ = \det (S^T Γ_{0} S) = \det S^T · \det Γ_{0} · \det S = \det Γ_{0} · (\det S)^{2} = (\det S)^{2}
+</script>
+
+Поскольку матрица перехода невырожденная, то <script type="math/tex">\det Γ > 0</script>
+</p>
+<p>Если же рассматривать матрицу Грама для системы линейно зависимых векторов (не базис), то её определитель равен нулю.
+Таким образом грамиан всегда неотрицательный, ч.т.д.</p>
+</details>
 <hr/>
 <a class="more" href="#gram_matrix">← Матрица Грама</a><br/>
 </div>
