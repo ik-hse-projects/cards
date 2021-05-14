@@ -223,7 +223,7 @@ def check_colloq(data):
         for i in card.colloq:
             total.add(i)
     total = list(sorted(total))
-    missing = []
+    eprint('Colloq:')
     for n in range(1, int(total[-1]) + 1):
         group = [i for i in total if int(i) == n]
         try:
@@ -231,18 +231,24 @@ def check_colloq(data):
         except ValueError:
             continue
         group = [int(i / step) for i in group]
+        missing = []
         for i in range(group[0], group[-1], 1):
             if i not in group:
                 missing.append(round(i * step, 4))
-    eprint(f"Colloq: {len(total)}, but {len(missing)}: {repr(missing)}")
+        eprint('\t{n}: {start:.4g} - {end:.4g}, but missing {missing}'.format(
+            n=n, missing=missing,
+            start=group[0] * step,
+            end = group[-1] * step,
+        ))
+    eprint(f"\tTotal: {len(total)}")
 
 if __name__ == "__main__":
     data = load(stdin)
     eprint(f'Loaded {len(data)} cards')
     check_colloq(data)
     print_html(toposort(data.values()))
-    eprint("\tHTML done")
+    eprint("HTML done")
     if len(argv) > 1:
         graph(data, argv[1], root=os.path.basename(argv[1]) + '.html')
-        eprint("\tGraphivz done")
+        eprint("Graphivz done")
     eprint("Done")
