@@ -3372,7 +3372,7 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 </div>
 <div class="entry">
 <h1 id=diagonality><a class="tag more colloq " href="#diagonality">#</a>Диагонализируемость линейного оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
-<p>Оператор диагонализируем ⇔ существует базис, в котором матрица линейного оператора диагональна.</p>
+<p>Определение: Оператор диагонализируем iff существует базис, в котором матрица линейного оператора диагональна.</p>
 <p>Это равносильно тому, что все векторы базиса — собственные векторы для оператора.</p>
 <details>
 <summary>Доказательство</summary>
@@ -3729,7 +3729,11 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 
   </div>
   <div class="panel" id="side_panel">
-    <a href="#" id="colloq">Коллоквиум?</a>
+    <div>
+      <a href="#" id="colloq">Коллоквиум?</a>
+      (<span id="colloq_learned"></span>/<span id="colloq_total"></span>)
+      <a href="#" id="colloq_reset">Сбросить.</a>
+    </div>
     <div id="side_panel_content"></div>
   </div>
 
@@ -5088,7 +5092,9 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
   <script>
-    function showToSide(child) {
+    function showToSide(elem) {
+        let parent = elem.parentElement;
+        let child = parent.cloneNode(true);
         bindButtons(child);
         side_panel_content.prepend(child);
         let tag = child.querySelector('.tag');
@@ -5100,11 +5106,50 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
         }
     }
 
+    const key = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    const colloqStatus = {};
+
+    function updateCounter() {
+        let falses = Object.keys(colloqStatus).filter(key => !colloqStatus[key]);
+        colloq_learned.textContent = falses.length;
+        colloq_total.textContent = Object.keys(colloqStatus).length;
+        localStorage.setItem(key, JSON.stringify(falses));
+    }
+
+    function colloqReset() {
+        for (let question of questions.querySelectorAll(".entry h1")) {
+            colloqStatus[question.id] = true;
+        }
+    }
+    colloq_reset.onclick = (ev) => {
+        ev.preventDefault();
+        colloqReset();
+        updateCounter();
+        return false;
+    };
+
+    colloqReset();
+    try {
+        let falses = JSON.parse(localStorage.getItem(key));
+        for (let i of falses) {
+            colloqStatus[i] = false;
+        }
+    } catch {
+    }
+    updateCounter();
+
     colloq.onclick = (ev) => {
         ev.preventDefault();
-        let random = Math.floor(1 + Math.random() * questions.childElementCount);
-        let question = questions.children.item(random);
+        let available = Object.keys(colloqStatus).filter(key => colloqStatus[key]);
+        let random = Math.floor(Math.random() * available.length);
+        let id = available[random];
+
+        let question = document.getElementById(id);
         showToSide(question);
+
+        colloqStatus[id] = false;
+        updateCounter();
+
         return false;
     };
 
@@ -5116,9 +5161,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
                     location.hash = elem.getAttribute("href");
                     return false;
                 }
-                let parent = document.querySelector(elem.getAttribute("href")).parentElement;
-                let child = parent.cloneNode(true);
-                showToSide(child);
+                showToSide(document.querySelector(elem.getAttribute("href")));
                 return false;
             };
         }
