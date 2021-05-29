@@ -62,8 +62,8 @@ html
 
 html, body {
     position: absolute;
-    height: 100vh;
-    width: 100vw;
+    max-height: 100vh;
+    width: 100%;
 }
 
 .entry {
@@ -73,11 +73,19 @@ html, body {
 }
 
 .split {
-    position: fixed;
     display: flex;
     flex-direction: row;
     overflow-y: hidden;
     overflow-x: hidden;
+}
+
+@media(max-width: 1200px) {
+    #main_panel {
+        min-width: fit-content;
+    }
+    #side_panel {
+        min-width: 100vw;
+    }
 }
 
 .panel {
