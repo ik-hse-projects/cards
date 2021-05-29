@@ -102,13 +102,39 @@ hr:last-child {
   </head>
   <body class="split">
   <div class="panel" id="main_panel">
-    <!-- PUT CARDS HERE -->
+    <!-- CUT HERE -->
   </div>
   <div class="panel" id="side_panel">
+    <a href="#" id="colloq">Коллоквиум?</a>
+    <div id="side_panel_content"></div>
+  </div>
+
+  <div style="display: none;" id="questions">
+    <!-- CUT HERE -->
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.4/split.min.js" integrity="sha512-HwVfwWgxD3SrpYgpIEGapjIid6YzmKiY4lwoc55rbO/6Y/2ZSgy6PX7zYUV5wqBD4hTsHzDovN6HqEzc/68lUg==" crossorigin="anonymous"></script>
   <script>
+    function showToSide(child) {
+        bindButtons(child);
+        side_panel_content.prepend(child);
+        let tag = child.querySelector('.tag');
+        tag.text = 'ⓧ';
+        tag.onclick = (ev) => {
+            ev.preventDefault();
+            side_panel_content.removeChild(child);
+            return false;
+        }
+    }
+
+    colloq.onclick = (ev) => {
+        ev.preventDefault();
+        let random = Math.floor(1 + Math.random() * questions.childElementCount);
+        let question = questions.children.item(random);
+        showToSide(question);
+        return false;
+    };
+
     function bindButtons(root) {
         for (let elem of root.querySelectorAll('.more')) {
             elem.onclick = (ev) => {
@@ -119,15 +145,7 @@ hr:last-child {
                 }
                 let parent = document.querySelector(elem.getAttribute("href")).parentElement;
                 let child = parent.cloneNode(true);
-                bindButtons(child);
-                side_panel.prepend(child);
-                let tag = child.querySelector('.tag');
-                tag.text = 'ⓧ';
-                tag.onclick = (ev) => {
-                    ev.preventDefault();
-                    side_panel.removeChild(child);
-                    return false;
-                }
+                showToSide(child);
                 return false;
             };
         }

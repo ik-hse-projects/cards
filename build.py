@@ -1,5 +1,6 @@
 from ruamel.yaml import YAML
 import markdown
+import json
 import re
 import os
 from sys import argv, stderr, stdin
@@ -19,6 +20,50 @@ class Entry:
         self.colloq = data.get('colloq', [])
         self.references = []
         self.referenced_by = []
+
+class Question:
+    def __init__(self, number, text, tips):
+        self.number = number
+        self.text = text
+        self.tips = tips
+
+    @property
+    def id(self):
+        return 'question_' + self.number.replace('.', '')
+
+    @property
+    def title(self):
+        return f'Q{self.number}'
+    
+    @property
+    def references(self):
+        return self.tips or []
+
+    @property
+    def referenced_by(self):
+        return []
+
+    @property
+    def proof(self):
+        return None
+
+    @property
+    def source(self):
+        return None
+
+    @property
+    def colloq(self):
+        return False
+
+    def to_json(self):
+        return {
+            'number': self.number,
+            'text': self.text,
+            'tips': [
+                {'id': i.id, 'title': i.title}
+                for i in self.tips
+            ] if self.tips is not None else None
+        }
 
 class Missing:
     def __init__(self, id):
@@ -85,6 +130,8 @@ def load(src):
             data = yaml.load(f)
     else:
         data = yaml.load(src)
+
+    colloq = data.get('_colloq', {})
     data = {k: Entry(k, v) for k, v in data.items() if not k.startswith('_')}
 
     missing = set()
@@ -98,7 +145,23 @@ def load(src):
                 v.references.append(data[tag])
     for i in missing:
         eprint(f'::warning ::Missing tag: {i}')
-    return data
+
+    colloq_tips = {}
+    for i in data.values():
+        for number in i.colloq:
+            if number not in colloq_tips:
+                colloq_tips[number] = []
+            colloq_tips[number].append(i)
+    questions = []
+    for section, qs in colloq.items():
+        for number, text in qs.items():
+            number = section + (number/100)
+            questions.append(Question(
+                "{:.2f}".format(number),
+                text,
+                colloq_tips.get(number)
+            ))
+    return data, questions
 
 def toposort(data):
     marks = {}
@@ -142,8 +205,9 @@ def convert_md(id, text):
 def render(i):
     source = f'<small>(<a target="_blank" href="{i.source}">Конспект</a>)</small>' if i.source else ''
     colloq = 'colloq' if i.colloq else ''
+    question = 'question' if isinstance(i, Question) else ''
     yield f'<div class="entry">'
-    yield f'<h1 id={i.id}><a class="tag more {colloq}" href="#{i.id}">#</a>{i.title} {source}</h1>'
+    yield f'<h1 id={i.id}><a class="tag more {colloq} {question}" href="#{i.id}">#</a>{i.title} {source}</h1>'
     yield convert_md(i.id, i.text)
 
     if i.proof:
@@ -207,14 +271,20 @@ def graph(data, outfile, root=None):
     with open(outfile, 'w') as f:
         f.write(''.join(rendered))
 
-def print_html(data):
+def print_html(data, colloq):
     with open('template.html', 'r') as f:
-        before, after = f.read().split('<!-- PUT CARDS HERE -->')
+        before, after_cards, after = f.read().split('<!-- CUT HERE -->')
     print(before)
     for i in data:
         if i.text is not None:
             for ln in render(i):
                 print(ln)
+    print(after_cards)
+
+    for q in colloq:
+        for ln in render(q):
+            print(ln)
+
     print(after)
 
 def check_colloq(data):
@@ -243,10 +313,10 @@ def check_colloq(data):
     eprint(f"\tTotal: {len(total)}")
 
 if __name__ == "__main__":
-    data = load(stdin)
-    eprint(f'Loaded {len(data)} cards')
+    data, colloq = load(stdin)
+    eprint(f'Loaded {len(data)} cards and {len(colloq)} questions.')
     check_colloq(data)
-    print_html(toposort(data.values()))
+    print_html(toposort(data.values()), colloq)
     eprint("HTML done")
     if len(argv) > 1:
         graph(data, argv[1], root=os.path.basename(argv[1]) + '.html')
