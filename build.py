@@ -208,7 +208,11 @@ def render(i):
     question = 'question' if isinstance(i, Question) else ''
     yield f'<div class="entry">'
     yield f'<h1 id={i.id}><a class="tag more {colloq} {question}" href="#{i.id}">#</a>{i.title} {source}</h1>'
+
     yield convert_md(i.id, i.text)
+
+    if isinstance(i, Question):
+        yield f'<a href="#" onclick="forget(\'{i.id}\')" class="forget">Забыть</a>'
 
     if i.proof:
         yield '<details>'

@@ -188,6 +188,12 @@ hr:last-child {
         return false;
     };
 
+    function forget(id) {
+        colloqStatus[id] = true;
+        updateCounter();
+        return false;
+    }
+
     function bindButtons(root) {
         for (let elem of root.querySelectorAll('.more')) {
             elem.onclick = (ev) => {
