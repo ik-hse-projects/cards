@@ -5396,6 +5396,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
     function forget(id) {
         colloqStatus[id] = true;
         updateCounter();
+        return false;
     }
 
     function bindButtons(root) {
