@@ -489,7 +489,7 @@ Ax = b ⇒ b = \Σ_{k=1}^n x_{k}A_{k} \\
 <summary>Доказательство</summary>
 <p>Пусть <script type="math/tex">∃A^{-1}</script>. Тогда <script type="math/tex">A·A^{-1} = E ⇒ \det(A·A^{-1}) = 1 ⇒ \det(A) · \det(A^{-1}) = 1 ⇒ \det(A) ≠ 0</script>
 </p>
-<p>Пусть <script type="math/tex">\det A ≠ 0</script>. Тогда рассмотрим матрицу <script type="math/tex">\frac{1}{\det A}\tilde{A}</script> — она и будет обратной.</p>
+<p>Пусть <script type="math/tex">\det A ≠ 0</script>. Тогда рассмотрим матрицу <script type="math/tex">\frac{1}{\det A}\tilde{A}</script> — она и будет обратной.</p>
 </details>
 <hr/>
 <a class="more" href="#matrix_det">← Определитель</a><br/>
@@ -542,6 +542,8 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#matrix_minor">← Миноры матрицы</a><br/>
 <a class="more" href="#basic_minor">→ Базисный минор</a><br/>
 <a class="more" href="#matrix_ran_theorem">→ Теорема о ранге матрицы</a><br/>
+<a class="more" href="#matrix_ran_border">→ Теорема об окаймляющем миноре</a><br/>
+<a class="more" href="#matrix_ran_transpose">→ Ранг транспонированной матрицы</a><br/>
 <a class="more" href="#matrix_nondegeneracy">→ Критерий невырожденности квадратной матрицы</a><br/>
 <a class="more" href="#Kronecker-Capelli">→ Теорема Кронекера-Капелли</a><br/>
 <a class="more" href="#SLE_FSS">→ ФСР ОСЛАУ</a><br/>
@@ -673,6 +675,75 @@ A^{-1} = \frac{1}{\det A}\tilde{A}
 <a class="more" href="#basic_minor_theorem">← Теорема о базисном миноре</a><br/>
 </div>
 <div class="entry">
+<h1 id=matrix_ran_border><a class="tag more  " href="#matrix_ran_border">#</a>Теорема об окаймляющем миноре <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#теорема-окоймляющих-минорв">Конспект</a>)</small></h1>
+<p>Если в матрице есть ненулевой минор порядка <script type="math/tex">\Rg M</script>, то все окаймляющие миноры равны нулю.</p>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#matrix_ran_transpose">→ Ранг транспонированной матрицы</a><br/>
+</div>
+<div class="entry">
+<h1 id=matrix_ran_transpose><a class="tag more colloq " href="#matrix_ran_transpose">#</a>Ранг транспонированной матрицы </h1>
+<p>Ранг матрицы не меняется при транспонировании</p>
+<details>
+<summary>Доказательство</summary>
+<p><small>(доказательство своё)</small></p>
+<p><strong>Шаг 1</strong></p>
+<p>Ранг матрицы равен максимальному порядку ненулевого минора. Б.о.о. он находится в левом верхнем углу.
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+    a_{11} & … & a_{1r} & … & a_{1i} & … \\
+    ⋮   & ⋱ & ⋮   & … & ⋮   & … \\
+    a_{r1} & … & a_{rr} & … & a_{ri} & … \\
+    ⋮   & ⋮ & ⋮   & ⋱ & ⋮   & … \\
+    a_{j1} & … & a_{jr} & … & a_{ji} & … \\
+    ⋮   & ⋮ & ⋮   & ⋱ & ⋮   & …
+\end{pmatrix}
+</script>
+</p>
+<p>При транспонировании минор просто-напросто транспонируется:
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+    a_{11} & … & a_{r1} & … & a_{j1} & … \\
+    ⋮   & ⋱ & ⋮   & … & ⋮   & … \\
+    a_{1r} & … & a_{rr} & … & a_{jr} & … \\
+    ⋮   & ⋮ & ⋮   & ⋱ & ⋮   & … \\
+    a_{1i} & … & a_{ri} & … & a_{ji} & … \\
+    ⋮   & ⋮ & ⋮   & ⋱ & ⋮   & …
+\end{pmatrix}
+</script>
+</p>
+<p>При транспонировании определитель не меняется, а значит и ранг матрицы не мог <strong>уменьшится</strong>.</p>
+<p><strong>Шаг 2</strong></p>
+<p>Используем теорему об окаймляющем миноре, от противного.
+Предположим, что после транспонирования добавление <script type="math/tex">j</script>-го столбца и <script type="math/tex">i</script>-ой строки к минору <strong>не обнуляет его</strong>.
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+    a_{11} & … & a_{r1} & a_{j1} \\
+    ⋮   & ⋱ & ⋮   & ⋮   \\
+    a_{1r} & … & a_{rr} & a_{jr} \\
+    a_{1i} & … & a_{ri} & a_{ji}
+\end{vmatrix} ≠ 0
+</script>
+</p>
+<p>Транспонируем матрицу. Определитель при этом не изменится.
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+    a_{11} & … & a_{1r} & a_{1i} \\
+    ⋮   & ⋱ & ⋮   & ⋮   \\
+    a_{1r} & … & a_{rr} & a_{ri} \\
+    a_{j1} & … & a_{jr} & a_{ji}
+\end{vmatrix} ≠ 0
+</script>
+</p>
+<p>Но ведь это окаймляющий минор исходный матрицы, причём его определитель должен быть равен нулю!
+Пришли к противоречию, а значит ранг матрицы <strong>не увеличится</strong>.</p>
+<p>Таким образом ранг не уменьшился и не увеличился, а значит остался прежним.</p>
+</details>
+<hr/>
+<a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
+<a class="more" href="#matrix_ran_border">← Теорема об окаймляющем миноре</a><br/>
+</div>
+<div class="entry">
 <h1 id=matrix_nondegeneracy><a class="tag more colloq " href="#matrix_nondegeneracy">#</a>Критерий невырожденности квадратной матрицы <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sixth_lesson#следствие-2-для-квадратной-матрицы">Конспект</a>)</small></h1>
 <p>Следующие условия эквивалентны (<script type="math/tex">A ∈ M_{n}(ℝ)</script>):</p>
 <ol>
@@ -792,10 +863,10 @@ a_{n} - (μ_{1}a_{1} + … + μ_{r}a_{r}) = 0 → a_{n}
 
 И в каждом случае получим некоторый набор решений для главных переменных:
 <script type="math/tex; mode=display">
-(x_{1}, …, x_{r}) = (φ_{11}, …, φ_{1r}) \\
-(x_{1}, …, x_{r}) = (φ_{21}, …, φ_{2r}) \\
+(x_{1},…, x_{r}) = (φ_{11}, …, φ_{1r}) \\
+(x_{1},…, x_{r}) = (φ_{21}, …, φ_{2r}) \\
 … \\
-(x_{1}, …, x_{r}) = (φ_{k1}, …, φ_{kr}) \\
+(x_{1},…, x_{r}) = (φ_{k1}, …, φ_{kr}) \\
 </script>
 </p>
 <p>Собирая наборы решений вместе, получаем столбцы ФСР:
@@ -1240,7 +1311,8 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <hr/>
 <a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
 <a class="more" href="#onb">→ Ортонормированный базис</a><br/>
-<a class="more" href="#onb_theorem">→ Вычисление скалярного произведения</a><br/>
+<a class="more" href="#scalar_in_onb">→ Вычисление скалярного произведения в правом ОНБ</a><br/>
+<a class="more" href="#scalar_in_any">→ Скалярное произведение в произвольном базисе</a><br/>
 <a class="more" href="#plane_3d">→ Плоскость в пространстве</a><br/>
 <a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
 <a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
@@ -1266,17 +1338,442 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <hr/>
 <a class="more" href="#lin_indep">← Линейно независимые строки (столбцы)</a><br/>
 <a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
-<a class="more" href="#onb_theorem">→ Вычисление скалярного произведения</a><br/>
+<a class="more" href="#scalar_in_onb">→ Вычисление скалярного произведения в правом ОНБ</a><br/>
 <a class="more" href="#vec_mul_formula">→ Векторное произведение в ОНБ</a><br/>
 <a class="more" href="#decart">→ Прямоугольная декартова система координат</a><br/>
 </div>
 <div class="entry">
-<h1 id=onb_theorem><a class="tag more  " href="#onb_theorem">#</a>Вычисление скалярного произведения </h1>
+<h1 id=scalar_in_onb><a class="tag more colloq " href="#scalar_in_onb">#</a>Вычисление скалярного произведения в правом ОНБ </h1>
 <p><strong>Теорема:</strong> Если <script type="math/tex">\Vi, \Vj, \Vk</script> — ОНБ, то <script type="math/tex">(\Va, \Vb) = a_x b_x + a_y b_y + a_z b_z</script>.</p>
-<p>И ещё есть способ для вычисления произведения в произвольном базисе, но он не описан в этих карточках.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Во-первых, <script type="math/tex">\Vi, \Vj, \Vk</script> взаимно перпендикулярны, а значит <script type="math/tex">(\Vi, \Vj) = (\Vi, \Vk) = (Vj, \Vk) = 0</script> по определению.
+Во-вторых, базис ортоо<strong>нормированный</strong>, а значит <script type="math/tex">(\Vi, \Vi) = (\Vj, \Vj) = (\Vk, \Vk) = 1</script>.</p>
+<p>Теперь воспользуемся свойствами скалярного произведения:
+<script type="math/tex; mode=display">
+(\Va, \Vb) = (a_{1}\Vi + a_{2}\Vj + b_{3}\Vk, b_{1}\Vi + b_{2}\Vj + b_{3}\Vk) = \\
+= a_{1}b_{1}(\Vi, \Vi) + a_{2}b_{2}(\Vj, \Vj) + a_{3}b_{3}(\Vk, \Vk) = a_{1}b_{1} + a_{2}b_{2} + a_{3}b_{3}
+</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#onb">← Ортонормированный базис</a><br/>
 <a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+</div>
+<div class="entry">
+<h1 id=termins><a class="tag more colloq " href="#termins">#</a>Общая алгебра: терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
+<p>Операция называется…</p>
+<ul>
+<li>Ассоциативной, iff <script type="math/tex">a×(b×c) ≡ (a×b)×c</script> (расстановка скобок не важна)</li>
+<li>Коммутативной, iff <script type="math/tex">a×b ≡ b×a</script> (порядок аргументов не важен)</li>
+</ul>
+<p>Отображение <script type="math/tex">f: X → Y</script> называется...</p>
+<ul>
+<li>Сюръективным: <script type="math/tex">∀y∈Y\,∃x∈X: y = f(x)</script> — во все <script type="math/tex">Y</script> ведёт стрелка.</li>
+<li>Инъективным: <script type="math/tex">∀x_{1}, x_{2}∈X\, (x_{1}≠x_{2}) → (f(x_{1})≠f(x_{2}))</script> — не склеивает</li>
+<li>Биективным: когда и сюръективно, и инъективно. Взавимно-однозначное соответствие.</li>
+</ul>
+<p>Элемент множества называется…</p>
+<ul>
+<li>Нейтральным (<script type="math/tex">e</script>), iff <script type="math/tex">∀x\, e·x = x·e = x</script>
+</li>
+<li>Обратным (<script type="math/tex">x^{-1}</script>), iff <script type="math/tex">x^{-1} · x = x · x^{-1} = e</script>. Соответственно <script type="math/tex">x</script> — обратимый, iff <script type="math/tex">∃x^{-1}</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">→ Теория групп</a><br/>
+<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=group-theory><a class="tag more colloq " href="#group-theory">#</a>Теория групп </h1>
+<p>Пусть есть операция и множество. Тогда они вместе образуют… (каждое следующее накладывает всё большие ограничения)</p>
+<ul>
+<li>Полугруппу: операция ассоциативна<ul>
+<li>
+<script type="math/tex">ℕ ∖ \{1\}</script> с умножением</li>
+</ul>
+</li>
+<li>Моноид: есть нейтральный элемент<ul>
+<li>
+<script type="math/tex">(ℕ, ·)</script>
+</li>
+<li>
+<script type="math/tex">M(Ω)</script> – множество отображений множества <script type="math/tex">Ω</script> в себя операцией композиции (<script type="math/tex">e = id</script>)</li>
+</ul>
+</li>
+<li>Группу: все элементы обратимы<ul>
+<li>
+<script type="math/tex">GL_{n}(ℝ)</script> — общая линйеная группа</li>
+<li>
+<script type="math/tex">SL_{n}(ℝ)</script> — специальная линейная группа</li>
+<li>
+<script type="math/tex">S_{n}</script> — симметрическая группа</li>
+</ul>
+</li>
+<li>Абелеву группу: операция коммутативна<ul>
+<li>Векторы в <script type="math/tex">V_{3}</script> с сложением</li>
+<li>
+<script type="math/tex">(ℤ, +)</script>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
+<a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
+<a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
+<a class="more" href="#dihedral">→ Группы Диэдра</a><br/>
+<a class="more" href="#subgroup">→ Подгруппа</a><br/>
+<a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
+<a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
+<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая g</a><br/>
+<a class="more" href="#conj_class">→ Смежный класс</a><br/>
+<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
+<a class="more" href="#straight_mul">→ Прямое произведение групп</a><br/>
+<a class="more" href="#group_center">→ Центр группы</a><br/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=zero_div><a class="tag more colloq " href="#zero_div">#</a>Делители нуля </h1>
+<p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
+<hr/>
+<a class="more" href="#ring">→ Кольцо и поле</a><br/>
+</div>
+<div class="entry">
+<h1 id=ring><a class="tag more colloq " href="#ring">#</a>Кольцо и поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
+<ol>
+<li>
+<script type="math/tex">(G, +)</script> — абелева группа</li>
+<li>
+<script type="math/tex">(K, ·)</script> – полугруппа</li>
+<li>
+<script type="math/tex">(a+b)·c = a·c + b·c</script> и <script type="math/tex">c·(a+b) = c·a + c·b</script>
+</li>
+</ol>
+<p>Тогда:</p>
+<ul>
+<li><strong>тривиальное</strong> кольцо: <script type="math/tex">\{0\}</script>
+</li>
+<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
+<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
+</li>
+<li><strong>целостное кольцо</strong> — коммутативное кольцо с <script type="math/tex">1≠0</script> и без делителей нуля.</li>
+<li><strong>поле</strong> — коммутативное кольцо с единицей (<script type="math/tex">1≠0</script>), в котором каждый элемент (кроме нуля) обратим.</li>
+<li>
+<script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
+<li>
+<script type="math/tex">(K, ·)</script> мультипликативная полугруппа</li>
+<li>
+<script type="math/tex">U(K)</script> — мультипликативная группа, состоит из всех обратимых элементов кольца с единицей.</li>
+<li>
+<script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
+<ol>
+<li>
+<script type="math/tex">x-y ∈ L</script> (т.е. <script type="math/tex">(L, +)</script> — абелева подгруппа)</li>
+<li>
+<script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
+</ol>
+</li>
+</ul>
+<p>Например,
+- <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — поля и подполя, также коммутативные кольца
+- <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
+<p>Из групп наследуются понятия:</p>
+<ul>
+<li>обратимости элемента: <script type="math/tex">x^{-1}: x·x^{-1} = x^{-1}·x = 1</script>
+</li>
+<li>прямой суммы (и сложение, и умножение покомпонентны)</li>
+<li>гомоморфизма: <script type="math/tex">φ(x·y) = φ(x) * φ(y)</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
+<a class="more" href="#zero_div">← Делители нуля</a><br/>
+<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
+<a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
+<a class="more" href="#ideal">→ Идеал</a><br/>
+<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
+<a class="more" href="#field_char">→ Характеристика поля</a><br/>
+<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
+<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
+<a class="more" href="#subfield">→ Подполя</a><br/>
+<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
+<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
+<a class="more" href="#linear_space">→ Линейное пространство</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_space><a class="tag more colloq " href="#linear_space">#</a>Линейное пространство <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#линейные-простанства">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">F</script> — поле; <script type="math/tex">V</script> — множество, на котором заданы сложение (<script type="math/tex">V+V → V</script>) и умножение на число <script type="math/tex">λ∈F</script>
+</p>
+<p>
+<script type="math/tex">V</script> является линейным пространством iff (<script type="math/tex">∀x, y, z∈V, ∀λ,μ∈F</script>)</p>
+<ol>
+<li>
+<script type="math/tex">x + y = y + x</script> — коммутативность сложения</li>
+<li>
+<script type="math/tex">(x + y) + z = x + (y + z)</script> — ассоциативность сложения</li>
+<li>
+<script type="math/tex">∃0 ∈ V: x + 0 = 0 + x = x</script> — нейтральный по сложению</li>
+<li>
+<script type="math/tex">∃(-x)∈V: x + (-x) = 0</script> — обратный по сложению</li>
+<li>
+<script type="math/tex">∃1∈F : 1·x = x</script> — нейтральный по умножению на число</li>
+<li>
+<script type="math/tex">μ(λx) = (μλ)x</script> — ассоциативность умножения на число</li>
+<li>
+<script type="math/tex">(λ + μ)x = λx + μx</script> — дистрибутивность относительно сложения чисел</li>
+<li>
+<script type="math/tex">λ(x+y) = λx + λy</script> — дистрибутивность относительно сложения векторов</li>
+</ol>
+<p>Элементы множества называются векторами. Примеры:</p>
+<ul>
+<li>
+<script type="math/tex">V_{3}</script> — геометричесие векторы</li>
+<li>
+<script type="math/tex">F^{n}</script>, где <script type="math/tex">F</script> поле. Операции (чаще всего) заданы покомпонентно.</li>
+<li>
+<script type="math/tex">A·x=0</script> — ОСЛАУ, тогда множество решений будет линйеным пространством.</li>
+</ul>
+<hr/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
+<a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
+<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
+<a class="more" href="#subspace">→ Подпространство</a><br/>
+<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
+<a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
+<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
+<a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
+</div>
+<div class="entry">
+<h1 id=space_base><a class="tag more colloq " href="#space_base">#</a>Базис линейного пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
+<p>Базис это упорядоченный набор л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией):
+<script type="math/tex; mode=display">
+∀x∈V\, ∃x_{1},…,x_{n} :  x = x_{1}b_{1} + … + x_{n}b_{n}
+</script>
+
+Причём числа <script type="math/tex">x_{1},…,x_{n}</script> называют координатами вектора <script type="math/tex">x</script> в базисе <script type="math/tex">b_{1},…,b_{n}</script>. И такое разложение единственно.</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
+<a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
+<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
+<a class="more" href="#change_base">→ Матрица перехода</a><br/>
+<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
+<a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
+<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
+<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
+<a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
+<a class="more" href="#ortogonal_base">→ Ортогональный базис</a><br/>
+</div>
+<div class="entry">
+<h1 id=group_homo><a class="tag more colloq " href="#group_homo">#</a>Гомоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм">Конспект</a>)</small></h1>
+<p>Отображение <script type="math/tex">φ: G → H</script> является гомоморфизмом групп, iff <script type="math/tex">∀x,y\, φ(x·y) = φ(x)×φ(y)</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">φ = \det</script>: отображает <script type="math/tex">GL_{n}(ℝ)</script> в <script type="math/tex">(ℝ∖\{0\}, ·)</script>.</li>
+</ul>
+<p>Свойства:</p>
+<ol>
+<li>
+<script type="math/tex">φ(e_g) = e_h</script>
+</li>
+<li>
+<script type="math/tex">φ(g)^{-1} = φ(g^{-1})</script>
+</li>
+</ol>
+<hr/>
+<a class="more" href="#group-theory">← Теория групп</a><br/>
+<a class="more" href="#matrix_det">← Определитель</a><br/>
+<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
+<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
+<a class="more" href="#homo_injective">→ Критерий инъективности</a><br/>
+<a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
+<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_map><a class="tag more colloq " href="#linear_map">#</a>Линейное отображение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
+<p>Отображение <script type="math/tex">φ: V_{1} → V_{2}</script> — линейное iff</p>
+<p>
+<script type="math/tex">V_{1}</script> и <script type="math/tex">V_{2}</script> — линейные пространства над <script type="math/tex">𝔽</script>. <script type="math/tex">∀u, v ∈ V_{1}, ∀λ∈𝔽</script>
+</p>
+<ol>
+<li>
+<script type="math/tex">φ(u + v) = φ(u) + φ(v)</script>
+</li>
+<li>
+<script type="math/tex">φ(λu) = λφ(u)</script>
+</li>
+</ol>
+<p>Это гомоморфизм линейных пространств.</p>
+<p>Примеры:
+- В лин. пространстве матриц <script type="math/tex">m×n</script> можно зафиксировать матрицу <script type="math/tex">A</script> и получить <script type="math/tex">φ(X) = A·X</script>
+</p>
+<p>Если <script type="math/tex">φ: V → V</script> (в себя), то это <strong>линейный оператор</strong>.</p>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
+<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
+<a class="more" href="#space_dim_map">→ Образ и ядро линейного отображения</a><br/>
+<a class="more" href="#own_vector">→ Собственные вектор и значение</a><br/>
+<a class="more" href="#spectre">→ Спектр</a><br/>
+<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
+<a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
+<a class="more" href="#invariant_subspace">→ Инвариантное подпространство</a><br/>
+</div>
+<div class="entry">
+<h1 id=linear_map_matrix><a class="tag more colloq " href="#linear_map_matrix">#</a>Матрица лин. отображения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
+<p>Пусть <script type="math/tex">e_{1},…,e_{n}</script> — базис в <script type="math/tex">V_{1}</script>, а <script type="math/tex">f_{1},…,f_{m}</script> — в <script type="math/tex">V_{2}</script>. <script type="math/tex">φ: V_{1} → V_{2}</script> — лин. отображение.</p>
+<p><script type="math/tex; mode=display">
+A_{ef} = \begin{pmatrix}
+    a_{11} & a_{12} & … & a_{1n} \\
+    a_{21} & a_{22} &   & ⋮ \\
+    ⋮   &     & ⋱ & ⋮ \\
+    a_{m1} & …   & … & a_{mn}
+\end{pmatrix}
+</script>
+
+Взяли векторы <script type="math/tex">φ(e_{1}), …, φ(e_{n})</script>, нашли их координаты в базисе <script type="math/tex">f_{1},…,f_{m}</script> и записали эти координаты в матрицу по столбцам.</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
+<a class="more" href="#lin_map_matrix_change">→ Замена базиса в матрице лин. отображения</a><br/>
+<a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
+<a class="more" href="#gram_matrix">→ Матрица Грама</a><br/>
+</div>
+<div class="entry">
+<h1 id=bilinear_form><a class="tag more colloq " href="#bilinear_form">#</a>Билинейная форма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#билинейные-формы">Конспект</a>)</small></h1>
+<p>Функция <script type="math/tex">φ: V×V → ℝ</script>, где <script type="math/tex">V</script> — линейное пространство над <script type="math/tex">ℝ</script> является билинейной формой, iff <script type="math/tex">∀x,y,z∈V, ∀α,β∈ℝ</script>
+</p>
+<ol>
+<li>
+<script type="math/tex">φ(αx + βy, z) = αφ(x, z) + βφ(y, z)</script>
+</li>
+<li>
+<script type="math/tex">φ(x, αy + βz) = αφ(x, y) + βφ(x, z)x</script>
+</li>
+</ol>
+<p>Например, скалярное произведение.</p>
+<ul>
+<li>билинейная iff <script type="math/tex">φ(x, y) = φ(y, x)</script>
+</li>
+<li>кососимметрическая iff <script type="math/tex">φ(x, y) = -φ(y, x)</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+<a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
+<a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
+</div>
+<div class="entry">
+<h1 id=euclid_space><a class="tag more colloq " href="#euclid_space">#</a>Евклидово пространство <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p118">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">V</script> — пространство над <script type="math/tex">ℝ</script>, а <script type="math/tex">g: V×V → ℝ</script> — «скалярное произведение»</p>
+<ul>
+<li>
+<script type="math/tex">g(x, y) ≡ g(y, x)</script> — симметричность</li>
+<li>
+<script type="math/tex">g(x + y, z) = g(x, z) + g(y, z)</script> — линейность </li>
+<li>
+<script type="math/tex">g(λx, y) = λg(x, y)</script>
+</li>
+<li>
+<script type="math/tex">x ≠ 0 ⇔ g(x, x) > 0</script> — положительная определённость</li>
+<li>
+<script type="math/tex">x = 0 ⇔ g(x, x) = 0 = g(0, 0)</script>
+</li>
+</ul>
+<p>(т.е. симметрическая положительно определённая билинейная форма)</p>
+<p>
+<script type="math/tex">𝓔 = (V, g)</script> — евклидово пространство.</p>
+<p>Например, <script type="math/tex">V_{3}</script> — геометрические векторы с скалярным произведением.</p>
+<p>Тогда</p>
+<ul>
+<li>
+<script type="math/tex">|| v || = \sqrt{g(v, v)}</script> — норма (длина) вектора</li>
+<li>
+<script type="math/tex">\cos φ = \frac{g(x, y)}{||x|| · ||y||}</script> — угол между <script type="math/tex">x</script> и <script type="math/tex">y</script>
+</li>
+<li>Часто опускают <script type="math/tex">g</script> и пишут просто <script type="math/tex">(x, y)</script>
+</li>
+</ul>
+<hr/>
+<a class="more" href="#linear_space">← Линейное пространство</a><br/>
+<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+<a class="more" href="#bilinear_form">← Билинейная форма</a><br/>
+<a class="more" href="#koshi_ineq">→ Неравенство Коши-Буняковского</a><br/>
+<a class="more" href="#ortogonal">→ Ортогональность</a><br/>
+<a class="more" href="#gram_matrix">→ Матрица Грама</a><br/>
+<a class="more" href="#ortogonal_addition">→ Ортогональное дополнение</a><br/>
+<a class="more" href="#ortogonal_projection">→ Ортогональная проекция</a><br/>
+</div>
+<div class="entry">
+<h1 id=gram_matrix><a class="tag more colloq " href="#gram_matrix">#</a>Матрица Грама <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p120">Конспект</a>)</small></h1>
+<p>Это матрица линейного оператора, где <script type="math/tex">φ(x, y) = g(x, y)</script> — т.е. матрица скалярного произведения.</p>
+<p>Пусть <script type="math/tex">a_{1} ,…, a_{n}</script> — базис в <script type="math/tex">𝓔</script>.
+<script type="math/tex; mode=display">
+Γ = \begin{pmatrix}
+    g(a_{1}, a_{1}) & … & g(a_{1}, a_{n}) \\
+        ⋮     &   &     ⋮    \\
+    g(a_{n}, a_{1}) & … & g(a_{n}, a_{n})
+\end{pmatrix}
+</script>
+</p>
+<p>Если что, матрица симметрическая.</p>
+<hr/>
+<a class="more" href="#euclid_space">← Евклидово пространство</a><br/>
+<a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
+<a class="more" href="#scalar_in_any">→ Скалярное произведение в произвольном базисе</a><br/>
+<a class="more" href="#form_change_base">→ Как меняется матрица … формы при замене базиса?</a><br/>
+<a class="more" href="#gramian">→ Грамиан</a><br/>
+</div>
+<div class="entry">
+<h1 id=scalar_in_any><a class="tag more colloq " href="#scalar_in_any">#</a>Скалярное произведение в произвольном базисе </h1>
+<p>В базисе <script type="math/tex">\{\Ve_{1}, \Ve_{2}, \Ve_{3}\}</script> матрица Грама:
+<script type="math/tex; mode=display">
+Γ = \begin{pmatrix}
+(\Ve_{1}, \Ve_{1}) & (\Ve_{1}, \Ve_{2}) & (\Ve_{1}, \Ve_{3}) \\
+(\Ve_{2}, \Ve_{1}) & (\Ve_{2}, \Ve_{2}) & (\Ve_{2}, \Ve_{3}) \\
+(\Ve_{3}, \Ve_{1}) & (\Ve_{3}, \Ve_{2}) & (\Ve_{3}, \Ve_{3})
+\end{pmatrix}
+</script>
+</p>
+<p>Тогда скалярное произведение векторов <script type="math/tex">\Va = a_{1}\Ve_{1} + a_{2}\Ve_{2} + a_{3}\Ve_{3}</script> и
+<script type="math/tex">\Vb = b_{1}\Ve_{1} + b_{2}\Ve_{2} + b_{3}\Ve_{3}</script> вычисляется по следующей формуле:
+<script type="math/tex; mode=display">
+(\Va, \Vb) = \begin{pmatrix}
+    a_{1}  & a_{2}  & a_{3}
+\end{pmatrix} Γ \begin{pmatrix}
+    b_{1} \\ b_{2} \\ b_{3}
+\end{pmatrix}
+</script>
+</p>
+<details>
+<summary>Доказательство</summary>
+<p>Доказывается прямой выкладкой:
+<script type="math/tex; mode=display">
+\begin{align*}
+    (\Va, \Vb) &= (a_{1}\Ve_{1} + a_{2}\Ve_{2} + a_{3}\Ve_{3}, b_{1}\Ve_{1} + b_{2}\Ve_{2} + b_{3}\Ve_{3}) = \\
+               &= a_{1}(b_{1}(\Ve_{1}, \Ve_{1}) + b_{2}(\Ve_{1}, \Ve_{2}) + b_{3}(\Ve_{1}, \Ve_{3})) + \\
+               &+ a_{2}(b_{1}(\Ve_{2}, \Ve_{1}) + b_{2}(\Ve_{2}, \Ve_{2}) + b_{3}(\Ve_{2}, \Ve_{3})) + \\
+               &+ a_{3}(b_{1}(\Ve_{3}, \Ve_{1}) + b_{2}(\Ve_{3}, \Ve_{2}) + b_{3}(\Ve_{3}, \Ve_{3})) =
+\end{align*} \\
+= \begin{pmatrix}a_{1}  & a_{2}  & a_{3}\end{pmatrix}
+        · (Γ · \begin{pmatrix}b_{1} \\ b_{2} \\ b_{3}\end{pmatrix})
+</script>
+</p>
+</details>
+<hr/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+<a class="more" href="#gram_matrix">← Матрица Грама</a><br/>
 </div>
 <div class="entry">
 <h1 id=vec_triple><a class="tag more  " href="#vec_triple">#</a>Левые и правые тройки векторов </h1>
@@ -1321,6 +1818,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#vec_triple">← Левые и правые тройки векторов</a><br/>
 <a class="more" href="#vec_mul_formula">→ Векторное произведение в ОНБ</a><br/>
 <a class="more" href="#dist_point_line">→ Расстояние от точки до прямой</a><br/>
+<a class="more" href="#dist_parallel_lines">→ Расстояние между параллельными прямыми</a><br/>
 <a class="more" href="#dist_lines">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
@@ -1517,6 +2015,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#line_and_line">→ Взаимное расположение прямых</a><br/>
 <a class="more" href="#line_coplane">→ Компланарность прямых</a><br/>
 <a class="more" href="#dist_point_line">→ Расстояние от точки до прямой</a><br/>
+<a class="more" href="#dist_parallel_lines">→ Расстояние между параллельными прямыми</a><br/>
 <a class="more" href="#dist_lines">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
@@ -1582,6 +2081,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <hr/>
 <a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
 <a class="more" href="#line_coplane">← Компланарность прямых</a><br/>
+<a class="more" href="#dist_parallel_lines">→ Расстояние между параллельными прямыми</a><br/>
 <a class="more" href="#dist_lines">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
@@ -1595,10 +2095,37 @@ L: M_{0} + λ\Vs \\
 <a class="more" href="#vec_mul">← Векторное произведение векторов</a><br/>
 </div>
 <div class="entry">
+<h1 id=dist_parallel_lines><a class="tag more  " href="#dist_parallel_lines">#</a>Расстояние между параллельными прямыми </h1>
+<script type="math/tex; mode=display">
+ρ(L_{1}, L_{2}) = \frac{| \vec{M_{1}M_{2}} × \vec{s_{2}} |}{|\vec{s_{2}}|}
+</script>
+<details>
+<summary>Доказательство</summary>
+<p>Если прямые параллельны, то расстояние между ними равно расстоянию от любой точки на <script type="math/tex">L_{1}</script> до <script type="math/tex">L_{2}</script>.
+<script type="math/tex; mode=display">
+ρ(L_{1}, L_{2}) = ρ(M_{1}, L_{2}) = \frac{| \vec{M_{1}M_{2}} × \vec{s_{2}} |}{|\vec{s_{2}}|}
+</script>
+</p>
+</details>
+<hr/>
+<a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
+<a class="more" href="#line_and_line">← Взаимное расположение прямых</a><br/>
+<a class="more" href="#vec_mul">← Векторное произведение векторов</a><br/>
+</div>
+<div class="entry">
 <h1 id=dist_lines><a class="tag more colloq " href="#dist_lines">#</a>Расстояние между скрещивающимися прямыми </h1>
 <script type="math/tex; mode=display">
 ρ(L_{1}, L_{2}) = \frac{|⟨\vec{s_{1}}, \vec{s_{2}}, \vec{M_{1}M_{2}}⟩|}{|\vec{s_{1}} × \vec{s_{2}}|}
 </script>
+<details>
+<summary>Доказательство</summary>
+<p>Если прямые скрещиваются, то построим параллелипед на векторах <script type="math/tex">\vec{s_{1}}, \vec{s_{2}}, \vec{M_{1}M_{2}}</script>.
+Тогда расстояние равно высоте этого параллелипеда.
+<script type="math/tex; mode=display">
+ρ(L_{1}, L_{2}) = h = \frac{V}{S} = \frac{⟨\vec{s_{1}}, \vec{s_{2}}, \vec{M_{1}M_{2}}⟩}{| \vec{s_{1}} × \vec{s_{2}} |}
+</script>
+</p>
+</details>
 <hr/>
 <a class="more" href="#line_3d">← Прямая в пространстве</a><br/>
 <a class="more" href="#line_and_line">← Взаимное расположение прямых</a><br/>
@@ -1614,81 +2141,6 @@ M (x_{0}, y_{0}, z_{0}) \\
 </script>
 <hr/>
 <a class="more" href="#plane_3d">← Плоскость в пространстве</a><br/>
-</div>
-<div class="entry">
-<h1 id=termins><a class="tag more colloq " href="#termins">#</a>Общая алгебра: терминология <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twelfth_lesson#элементы-общей-алгебры">Конспект</a>)</small></h1>
-<p>Операция называется…</p>
-<ul>
-<li>Ассоциативной, iff <script type="math/tex">a×(b×c) ≡ (a×b)×c</script> (расстановка скобок не важна)</li>
-<li>Коммутативной, iff <script type="math/tex">a×b ≡ b×a</script> (порядок аргументов не важен)</li>
-</ul>
-<p>Отображение <script type="math/tex">f: X → Y</script> называется...</p>
-<ul>
-<li>Сюръективным: <script type="math/tex">∀y∈Y\,∃x∈X: y = f(x)</script> — во все <script type="math/tex">Y</script> ведёт стрелка.</li>
-<li>Инъективным: <script type="math/tex">∀x_{1}, x_{2}∈X\, (x_{1}≠x_{2}) → (f(x_{1})≠f(x_{2}))</script> — не склеивает</li>
-<li>Биективным: когда и сюръективно, и инъективно. Взавимно-однозначное соответствие.</li>
-</ul>
-<p>Элемент множества называется…</p>
-<ul>
-<li>Нейтральным (<script type="math/tex">e</script>), iff <script type="math/tex">∀x\, e·x = x·e = x</script>
-</li>
-<li>Обратным (<script type="math/tex">x^{-1}</script>), iff <script type="math/tex">x^{-1} · x = x · x^{-1} = e</script>. Соответственно <script type="math/tex">x</script> — обратимый, iff <script type="math/tex">∃x^{-1}</script>
-</li>
-</ul>
-<hr/>
-<a class="more" href="#group-theory">→ Теория групп</a><br/>
-<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
-<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
-<a class="more" href="#ring">→ Кольцо и поле</a><br/>
-</div>
-<div class="entry">
-<h1 id=group-theory><a class="tag more colloq " href="#group-theory">#</a>Теория групп </h1>
-<p>Пусть есть операция и множество. Тогда они вместе образуют… (каждое следующее накладывает всё большие ограничения)</p>
-<ul>
-<li>Полугруппу: операция ассоциативна<ul>
-<li>
-<script type="math/tex">ℕ ∖ \{1\}</script> с умножением</li>
-</ul>
-</li>
-<li>Моноид: есть нейтральный элемент<ul>
-<li>
-<script type="math/tex">(ℕ, ·)</script>
-</li>
-<li>
-<script type="math/tex">M(Ω)</script> – множество отображений множества <script type="math/tex">Ω</script> в себя операцией композиции (<script type="math/tex">e = id</script>)</li>
-</ul>
-</li>
-<li>Группу: все элементы обратимы<ul>
-<li>
-<script type="math/tex">GL_{n}(ℝ)</script> — общая линйеная группа</li>
-<li>
-<script type="math/tex">SL_{n}(ℝ)</script> — специальная линейная группа</li>
-<li>
-<script type="math/tex">S_{n}</script> — симметрическая группа</li>
-</ul>
-</li>
-<li>Абелеву группу: операция коммутативна<ul>
-<li>Векторы в <script type="math/tex">V_{3}</script> с сложением</li>
-<li>
-<script type="math/tex">(ℤ, +)</script>
-</li>
-</ul>
-</li>
-</ul>
-<hr/>
-<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
-<a class="more" href="#simm_group">→ Симметрическая группа</a><br/>
-<a class="more" href="#lin_group">→ Общая и специальная линейные группы</a><br/>
-<a class="more" href="#dihedral">→ Группы Диэдра</a><br/>
-<a class="more" href="#subgroup">→ Подгруппа</a><br/>
-<a class="more" href="#group_homo">→ Гомоморфизм групп</a><br/>
-<a class="more" href="#elem_ord">→ Порядок элемента группы</a><br/>
-<a class="more" href="#cyclic_group">→ Циклическая группа, порождённая g</a><br/>
-<a class="more" href="#conj_class">→ Смежный класс</a><br/>
-<a class="more" href="#factor_group">→ Факторгруппа</a><br/>
-<a class="more" href="#straight_mul">→ Прямое произведение групп</a><br/>
-<a class="more" href="#group_center">→ Центр группы</a><br/>
-<a class="more" href="#ring">→ Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=subgroup><a class="tag more colloq " href="#subgroup">#</a>Подгруппа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#:~:text=называется подгруппой">Конспект</a>)</small></h1>
@@ -1760,32 +2212,6 @@ D_{n} = \{ r, s \mid r^{n} = 1, s^{2} = 1, s^{-1}rs = r^{-1} \}
 <p>Утверждается, что <script type="math/tex">D_{3} ≅ S_{3}</script>.</p>
 <hr/>
 <a class="more" href="#group-theory">← Теория групп</a><br/>
-</div>
-<div class="entry">
-<h1 id=group_homo><a class="tag more colloq " href="#group_homo">#</a>Гомоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#гомоморфизм">Конспект</a>)</small></h1>
-<p>Отображение <script type="math/tex">φ: G → H</script> является гомоморфизмом групп, iff <script type="math/tex">∀x,y\, φ(x·y) = φ(x)×φ(y)</script>
-</p>
-<ul>
-<li>
-<script type="math/tex">φ = \det</script>: отображает <script type="math/tex">GL_{n}(ℝ)</script> в <script type="math/tex">(ℝ∖\{0\}, ·)</script>.</li>
-</ul>
-<p>Свойства:</p>
-<ol>
-<li>
-<script type="math/tex">φ(e_g) = e_h</script>
-</li>
-<li>
-<script type="math/tex">φ(g)^{-1} = φ(g^{-1})</script>
-</li>
-</ol>
-<hr/>
-<a class="more" href="#group-theory">← Теория групп</a><br/>
-<a class="more" href="#matrix_det">← Определитель</a><br/>
-<a class="more" href="#group_iso">→ Изоморфизм групп</a><br/>
-<a class="more" href="#homo_kernel">→ Ядро гомоморфизма</a><br/>
-<a class="more" href="#homo_injective">→ Критерий инъективности</a><br/>
-<a class="more" href="#theorem_homogroup">→ Теорема о гомоморфизме групп</a><br/>
-<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
 </div>
 <div class="entry">
 <h1 id=group_iso><a class="tag more colloq " href="#group_iso">#</a>Изоморфизм групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/thirteenth_lesson#изоморфизмы">Конспект</a>)</small></h1>
@@ -1959,77 +2385,6 @@ f: G → H \\
 <a class="more" href="#homo_kernel">← Ядро гомоморфизма</a><br/>
 </div>
 <div class="entry">
-<h1 id=zero_div><a class="tag more colloq " href="#zero_div">#</a>Делители нуля </h1>
-<p>Если <script type="math/tex">∃x≠0, y≠0: xy = 0</script>, то они называются делителями нуля: левым и правым.</p>
-<hr/>
-<a class="more" href="#ring">→ Кольцо и поле</a><br/>
-</div>
-<div class="entry">
-<h1 id=ring><a class="tag more colloq " href="#ring">#</a>Кольцо и поле <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#кольцо">Конспект</a>)</small></h1>
-<p>
-<script type="math/tex">(K, +, ·)</script> — кольцо, iff</p>
-<ol>
-<li>
-<script type="math/tex">(G, +)</script> — абелева группа</li>
-<li>
-<script type="math/tex">(K, ·)</script> – полугруппа</li>
-<li>
-<script type="math/tex">(a+b)·c = a·c + b·c</script> и <script type="math/tex">c·(a+b) = c·a + c·b</script>
-</li>
-</ol>
-<p>Тогда:</p>
-<ul>
-<li><strong>тривиальное</strong> кольцо: <script type="math/tex">\{0\}</script>
-</li>
-<li><strong>кольцо с единицей</strong>, iff <script type="math/tex">(K, ·)</script> — моноид</li>
-<li><strong>коммутативное кольцо</strong>, iff умножение коммутативно: <script type="math/tex">a·b ≡ b·a</script>
-</li>
-<li><strong>целостное кольцо</strong> — коммутативное кольцо с <script type="math/tex">1≠0</script> и без делителей нуля.</li>
-<li><strong>поле</strong> — коммутативное кольцо с единицей (<script type="math/tex">1≠0</script>), в котором каждый элемент (кроме нуля) обратим.</li>
-<li>
-<script type="math/tex">(K, +)</script> — аддитивная группа кольца</li>
-<li>
-<script type="math/tex">(K, ·)</script> мультипликативная полугруппа</li>
-<li>
-<script type="math/tex">U(K)</script> — мультипликативная группа, состоит из всех обратимых элементов кольца с единицей.</li>
-<li>
-<script type="math/tex">L⊆K</script> — подкольцо, iff <script type="math/tex">∀x,y ∈ L</script>
-<ol>
-<li>
-<script type="math/tex">x-y ∈ L</script> (т.е. <script type="math/tex">(L, +)</script> — абелева подгруппа)</li>
-<li>
-<script type="math/tex">x·y ∈ L</script> (т.е. <script type="math/tex">(L, ·)</script> замкнуто)</li>
-</ol>
-</li>
-</ul>
-<p>Например,
-- <script type="math/tex">(ℤ, +, ·)</script>, <script type="math/tex">ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</script> — поля и подполя, также коммутативные кольца
-- <script type="math/tex">(M_{n}(ℝ), +, ·)</script> — полное матричное кольцо (из квадратных матриц <script type="math/tex">n×n</script> с матричным умножнением) — некоммутативно</p>
-<p>Из групп наследуются понятия:</p>
-<ul>
-<li>обратимости элемента: <script type="math/tex">x^{-1}: x·x^{-1} = x^{-1}·x = 1</script>
-</li>
-<li>прямой суммы (и сложение, и умножение покомпонентны)</li>
-<li>гомоморфизма: <script type="math/tex">φ(x·y) = φ(x) * φ(y)</script>
-</li>
-</ul>
-<hr/>
-<a class="more" href="#group-theory">← Теория групп</a><br/>
-<a class="more" href="#termins">← Общая алгебра: терминология</a><br/>
-<a class="more" href="#zero_div">← Делители нуля</a><br/>
-<a class="more" href="#residue_ring">→ Кольцо вычетов</a><br/>
-<a class="more" href="#integral_ring">→ Критерий целостности кольца</a><br/>
-<a class="more" href="#ideal">→ Идеал</a><br/>
-<a class="more" href="#polynoms">→ Кольцо многочленов</a><br/>
-<a class="more" href="#field_char">→ Характеристика поля</a><br/>
-<a class="more" href="#factor_ring">→ Факторкольцо</a><br/>
-<a class="more" href="#theorem_homoring">→ Теорема о гомоморфизме колец</a><br/>
-<a class="more" href="#subfield">→ Подполя</a><br/>
-<a class="more" href="#factorring_polynom">→ Факторкольцо кольца многочленов</a><br/>
-<a class="more" href="#residue_field">→ Поле вычетов</a><br/>
-<a class="more" href="#linear_space">→ Линейное пространство</a><br/>
-</div>
-<div class="entry">
 <h1 id=ideal><a class="tag more colloq " href="#ideal">#</a>Идеал <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/eighteenth_lesson#идеал">Конспект</a>)</small></h1>
 <p>Это подмножество кольца со свойствами:</p>
 <ol>
@@ -2113,19 +2468,8 @@ f: G → H \\
 <h1 id=lagrange><a class="tag more colloq " href="#lagrange">#</a>Теорема Лагранжа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#теорема-лагранжа">Конспект</a>)</small></h1>
 <p>Пусть <script type="math/tex">G</script> — конечная группа, а <script type="math/tex">H</script> — её подгруппа. Тогда <script type="math/tex">|G| = |H| · [G : H]</script>
 </p>
-<p>Следствия:</p>
-<ol>
-<li>
-<script type="math/tex">\ord g</script> всегда делит <script type="math/tex">|G|</script>
-</li>
-<li>
-<script type="math/tex">g^{|G|} = e</script>
-</li>
-<li>Малая теорема Ферма: <script type="math/tex">\bar{a}^{p-1} = \bar{1}</script>, где <script type="math/tex">\bar{x}</script> — ненулевой вычет по простому модулю <script type="math/tex">p</script>.</li>
-</ol>
 <details>
 <summary>Доказательство</summary>
-<h4>Д-во теоремы</h4>
 <p>Все элементы <script type="math/tex">G</script> лежат в своём смежном классе <script type="math/tex">gH</script>, причём эти классы не пересекаются (по лемме 1).
 Таких классов <script type="math/tex">[G : H]</script> и каждый содержит в себе ровно <script type="math/tex">H</script> элементов.</p>
 <p>Получаем <script type="math/tex">|G| = [G : H] · |H|</script>
@@ -2134,6 +2478,32 @@ f: G → H \\
 <hr/>
 <a class="more" href="#conj_class">← Смежный класс</a><br/>
 <a class="more" href="#subgroup_index">← Индекс подгруппы</a><br/>
+<a class="more" href="#lagrange_corollary">→ Следствия из т. Лагранжа</a><br/>
+</div>
+<div class="entry">
+<h1 id=lagrange_corollary><a class="tag more colloq " href="#lagrange_corollary">#</a>Следствия из т. Лагранжа <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fifteenth_lesson#теорема-лагранжа">Конспект</a>)</small></h1>
+<ol>
+<li>
+<script type="math/tex">\ord g</script> всегда делит <script type="math/tex">|G|</script> (<script type="math/tex">g∈G</script> — произвольный элемент)</li>
+<li>
+<script type="math/tex">g^{|G|} = \bar{1}</script>
+</li>
+<li>Малая теорема Ферма: <script type="math/tex">\bar{a}^{p-1} = \bar{1}</script>, где <script type="math/tex">\bar{x}</script> — ненулевой вычет по простому модулю <script type="math/tex">p</script>.</li>
+</ol>
+<details>
+<summary>Доказательство</summary>
+<p>Каждое следующее следствие вытекает из предыдущего:</p>
+<ol>
+<li>Подставим в теорема Лагранжа <script type="math/tex">H = ⟨g⟩</script> и получим следующее: <script type="math/tex">|G| = |⟨g⟩| · S</script>, где <script type="math/tex">|⟨g⟩| = \ord g</script> по определению.</li>
+<li>Известно, что <script type="math/tex">|G| = \ord(g) · S</script>, а значит <script type="math/tex">g^{|G|} = (g^{\ord g})^S = e^S = e</script>
+</li>
+<li>
+<script type="math/tex">|Z_{p}^*| = p - 1</script> и <script type="math/tex">\bar{a} ∈ Z_{p}^*</script>. Значит <script type="math/tex">\bar{a} ^ {|Z_{p}^*|} = e = \bar{1}</script>
+</li>
+</ol>
+</details>
+<hr/>
+<a class="more" href="#lagrange">← Теорема Лагранжа</a><br/>
 </div>
 <div class="entry">
 <h1 id=integer_subgroups><a class="tag more colloq " href="#integer_subgroups">#</a>Подгруппы целых по сложению <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/fourteenth_lesson#:~:text=подгруппа в">Конспект</a>)</small></h1>
@@ -2628,71 +2998,6 @@ iff <script type="math/tex">∃f(x) ≠ \const(0), f(x) ∈ F[x]: f(λ) = 0</scr
 <a class="more" href="#residue_ring">← Кольцо вычетов</a><br/>
 </div>
 <div class="entry">
-<h1 id=linear_space><a class="tag more colloq " href="#linear_space">#</a>Линейное пространство <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twentieth_lesson#линейные-простанства">Конспект</a>)</small></h1>
-<p>
-<script type="math/tex">F</script> — поле; <script type="math/tex">V</script> — множество, на котором заданы сложение (<script type="math/tex">V+V → V</script>) и умножение на число <script type="math/tex">λ∈F</script>
-</p>
-<p>
-<script type="math/tex">V</script> является линейным пространством iff (<script type="math/tex">∀x, y, z∈V, ∀λ,μ∈F</script>)</p>
-<ol>
-<li>
-<script type="math/tex">x + y = y + x</script> — коммутативность сложения</li>
-<li>
-<script type="math/tex">(x + y) + z = x + (y + z)</script> — ассоциативность сложения</li>
-<li>
-<script type="math/tex">∃0 ∈ V: x + 0 = 0 + x = x</script> — нейтральный по сложению</li>
-<li>
-<script type="math/tex">∃(-x)∈V: x + (-x) = 0</script> — обратный по сложению</li>
-<li>
-<script type="math/tex">∃1∈F : 1·x = x</script> — нейтральный по умножению на число</li>
-<li>
-<script type="math/tex">μ(λx) = (μλ)x</script> — ассоциативность умножения на число</li>
-<li>
-<script type="math/tex">(λ + μ)x = λx + μx</script> — дистрибутивность относительно сложения чисел</li>
-<li>
-<script type="math/tex">λ(x+y) = λx + λy</script> — дистрибутивность относительно сложения векторов</li>
-</ol>
-<p>Элементы множества называются векторами. Примеры:</p>
-<ul>
-<li>
-<script type="math/tex">V_{3}</script> — геометричесие векторы</li>
-<li>
-<script type="math/tex">F^{n}</script>, где <script type="math/tex">F</script> поле. Операции (чаще всего) заданы покомпонентно.</li>
-<li>
-<script type="math/tex">A·x=0</script> — ОСЛАУ, тогда множество решений будет линйеным пространством.</li>
-</ul>
-<hr/>
-<a class="more" href="#ring">← Кольцо и поле</a><br/>
-<a class="more" href="#space_base">→ Базис линейного пространства</a><br/>
-<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
-<a class="more" href="#subspace">→ Подпространство</a><br/>
-<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
-<a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
-<a class="more" href="#linear_map">→ Линейное отображение</a><br/>
-<a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
-</div>
-<div class="entry">
-<h1 id=space_base><a class="tag more colloq " href="#space_base">#</a>Базис линейного пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
-<p>Базис это упорядоченный набор л.н.з. векторов, через которые можно выразить любой вектор пространства (линейной комбинацией):
-<script type="math/tex; mode=display">
-∀x∈V\, ∃x_{1},…,x_{n} :  x = x_{1}b_{1} + … + x_{n}b_{n}
-</script>
-
-Причём числа <script type="math/tex">x_{1},…,x_{n}</script> называют координатами вектора <script type="math/tex">x</script> в базисе <script type="math/tex">b_{1},…,b_{n}</script>. И такое разложение единственно.</p>
-<hr/>
-<a class="more" href="#linear_space">← Линейное пространство</a><br/>
-<a class="more" href="#lin_comb">← Линейная комбинация</a><br/>
-<a class="more" href="#lin_dep">← Линейная зависимость</a><br/>
-<a class="more" href="#space_dim">→ Размерность пространства</a><br/>
-<a class="more" href="#change_base">→ Матрица перехода</a><br/>
-<a class="more" href="#linear_span">→ Линейная оболочка</a><br/>
-<a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
-<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
-<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
-<a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
-<a class="more" href="#ortogonal_base">→ Ортогональный базис</a><br/>
-</div>
-<div class="entry">
 <h1 id=space_dim><a class="tag more colloq " href="#space_dim">#</a>Размерность пространства <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_first_lesson#базис-и-размерность-линейного-пространтсва">Конспект</a>)</small></h1>
 <p>Размерность это максимальное число л.н.з. векторов в пространстве.</p>
 <p>Кстати, оно совпадает с числом векторов в базисе.</p>
@@ -2824,12 +3129,38 @@ H_{1} + H_{2} = \{x_{1} + x_{2} \mid x_{1} ∈ H_{1}, x_{2}∈H_{2} \}
 <li>
 <script type="math/tex">\dim(H_{1} ⊕ H_{2}) = \dim(H_{1}) + \dim(H_{2})</script>
 </li>
-<li>
-<script type="math/tex">H_{1} + H_{2}</script> — прямая сумма ⇔ <script type="math/tex">∀x∈H_{1} + H_{2}</script> единственным образом представляется как <script type="math/tex">x = x_{1} + x_{2}, x_{1}∈H_{1}, x_{2}∈H_{2}</script>.</li>
 </ul>
 <details>
 <summary>Доказательство</summary>
-<p>Здесь мы хотим доказать последенее утверждение: <script type="math/tex">H_{1} ⊕ H_{2} ⇔ ∀x∈H_{1}+H_{2} ∃!x_{1}∈H_{1} ∃!x_{2}∈H_{2} : x = x_{1} + x_{2}</script>.</p>
+<p>Докажем свойство: <script type="math/tex">\dim(H_{1} + H_{2}) = \dim(H_{1}) + \dim(H_{2}) - \dim(H_{1}∩H_{2})</script>.</p>
+<p>Рассмотрим базис <script type="math/tex">H_{1} ∩ H_{2}</script>, дополним его до <script type="math/tex">H_{1}</script> и до <script type="math/tex">H_{2}</script>.</p>
+<p>Пусть
+- <script type="math/tex">\dim (H_{1}∩H_{2}) = r</script>
+- <script type="math/tex">\dim(H_{1}) = n</script>
+- <script type="math/tex">\dim(H_{2}) = m</script>
+- <script type="math/tex">e_{1},…,e_{r}</script> — базис в <script type="math/tex">H_{1}∩H_{2}</script>
+- <script type="math/tex">v_{1},…,v_{n-r}</script> — дополнение до базиса в <script type="math/tex">H_{1}</script>
+- <script type="math/tex">w_{1},…,w_{m-r}</script> — дополнение до базиса в <script type="math/tex">H_{2}</script>
+</p>
+<p>Соберём их все: <script type="math/tex">e_{1},…,e_{r}, v_{1},…,v_{n-r}, w_{1},…,w_{m-r}</script> — это базис в <script type="math/tex">H_{1} + H_{2}</script>, т.к. они л.н.з. и любой вектор из <script type="math/tex">H_{1} + H_{2}</script> через них выражается.</p>
+<p>Таким образом,
+<script type="math/tex; mode=display">
+\dim(H_{1} + H_{2}) = r + (n-r) + (m-r) = \dim(H_{1} ∩ H_{2}) + \dim H_{1} + \dim H_{2} ∎
+</script>
+</p>
+</details>
+<hr/>
+<a class="more" href="#subspace">← Подпространство</a><br/>
+<a class="more" href="#space_dim">← Размерность пространства</a><br/>
+<a class="more" href="#straight_criteria">→ Критерий прямоты суммы</a><br/>
+<a class="more" href="#ortogonal_projection">→ Ортогональная проекция</a><br/>
+</div>
+<div class="entry">
+<h1 id=straight_criteria><a class="tag more colloq " href="#straight_criteria">#</a>Критерий прямоты суммы </h1>
+<p>
+<script type="math/tex">H_{1} + H_{2}</script> — прямая сумма ⇔ <script type="math/tex">∀x∈H_{1} + H_{2}</script> единственным образом представляется как <script type="math/tex">x = x_{1} + x_{2}, x_{1}∈H_{1}, x_{2}∈H_{2}</script>.</p>
+<details>
+<summary>Доказательство</summary>
 <h3>⇒</h3>
 <p>Пусть сумма простая, т.е. <script type="math/tex">H_{1} ∩ H_{2} = \{0\}</script>.
 Предположим, что существует два представления одного вектора:
@@ -2849,34 +3180,7 @@ x_{1} - y_{1} = y_{2} - x_{2} \\
 Подставляя различные <script type="math/tex">λ</script> мы можем получить различные представления. Противоречие.</p>
 </details>
 <hr/>
-<a class="more" href="#subspace">← Подпространство</a><br/>
-<a class="more" href="#space_dim">← Размерность пространства</a><br/>
-<a class="more" href="#ortogonal_projection">→ Ортогональная проекция</a><br/>
-</div>
-<div class="entry">
-<h1 id=bilinear_form><a class="tag more colloq " href="#bilinear_form">#</a>Билинейная форма <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/twenty_two_lesson#билинейные-формы">Конспект</a>)</small></h1>
-<p>Функция <script type="math/tex">φ: V×V → ℝ</script>, где <script type="math/tex">V</script> — линейное пространство над <script type="math/tex">ℝ</script> является билинейной формой, iff <script type="math/tex">∀x,y,z∈V, ∀α,β∈ℝ</script>
-</p>
-<ol>
-<li>
-<script type="math/tex">φ(αx + βy, z) = αφ(x, z) + βφ(y, z)</script>
-</li>
-<li>
-<script type="math/tex">φ(x, αy + βz) = αφ(x, y) + βφ(x, z)x</script>
-</li>
-</ol>
-<p>Например, скалярное произведение.</p>
-<ul>
-<li>билинейная iff <script type="math/tex">φ(x, y) = φ(y, x)</script>
-</li>
-<li>кососимметрическая iff <script type="math/tex">φ(x, y) = -φ(y, x)</script>
-</li>
-</ul>
-<hr/>
-<a class="more" href="#linear_space">← Линейное пространство</a><br/>
-<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
-<a class="more" href="#bilinear_matrix">→ Матрица билинейной формы</a><br/>
-<a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
+<a class="more" href="#subspace_sum">← Сумма подпространств</a><br/>
 </div>
 <div class="entry">
 <h1 id=bilinear_matrix><a class="tag more colloq " href="#bilinear_matrix">#</a>Матрица билинейной формы </h1>
@@ -2991,117 +3295,6 @@ Q(x) = x_{1}^{2} + 8x_{1}x_{2} = \begin{pmatrix}
 <hr/>
 <a class="more" href="#sq_form_matrix">← Матрица квадратичной формы</a><br/>
 <a class="more" href="#matrix_ran">← Ранг матрицы</a><br/>
-</div>
-<div class="entry">
-<h1 id=linear_map><a class="tag more colloq " href="#linear_map">#</a>Линейное отображение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
-<p>Отображение <script type="math/tex">φ: V_{1} → V_{2}</script> — линейное iff</p>
-<p>
-<script type="math/tex">V_{1}</script> и <script type="math/tex">V_{2}</script> — линейные пространства над <script type="math/tex">𝔽</script>. <script type="math/tex">∀u, v ∈ V_{1}, ∀λ∈𝔽</script>
-</p>
-<ol>
-<li>
-<script type="math/tex">φ(u + v) = φ(u) + φ(v)</script>
-</li>
-<li>
-<script type="math/tex">φ(λu) = λφ(u)</script>
-</li>
-</ol>
-<p>Это гомоморфизм линейных пространств.</p>
-<p>Примеры:
-- В лин. пространстве матриц <script type="math/tex">m×n</script> можно зафиксировать матрицу <script type="math/tex">A</script> и получить <script type="math/tex">φ(X) = A·X</script>
-</p>
-<p>Если <script type="math/tex">φ: V → V</script> (в себя), то это <strong>линейный оператор</strong>.</p>
-<hr/>
-<a class="more" href="#linear_space">← Линейное пространство</a><br/>
-<a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
-<a class="more" href="#linear_map_matrix">→ Матрица лин. отображения</a><br/>
-<a class="more" href="#space_dim_map">→ Образ и ядро линейного отображения</a><br/>
-<a class="more" href="#own_vector">→ Собственные вектор и значение</a><br/>
-<a class="more" href="#spectre">→ Спектр</a><br/>
-<a class="more" href="#matrix_trace">→ След матрицы</a><br/>
-<a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
-<a class="more" href="#invariant_subspace">→ Инвариантное подпространство</a><br/>
-</div>
-<div class="entry">
-<h1 id=linear_map_matrix><a class="tag more colloq " href="#linear_map_matrix">#</a>Матрица лин. отображения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
-<p>Пусть <script type="math/tex">e_{1},…,e_{n}</script> — базис в <script type="math/tex">V_{1}</script>, а <script type="math/tex">f_{1},…,f_{m}</script> — в <script type="math/tex">V_{2}</script>. <script type="math/tex">φ: V_{1} → V_{2}</script> — лин. отображение.</p>
-<p><script type="math/tex; mode=display">
-A_{ef} = \begin{pmatrix}
-    a_{11} & a_{12} & … & a_{1n} \\
-    a_{21} & a_{22} &   & ⋮ \\
-    ⋮   &     & ⋱ & ⋮ \\
-    a_{m1} & …   & … & a_{mn}
-\end{pmatrix}
-</script>
-
-Взяли векторы <script type="math/tex">φ(e_{1}), …, φ(e_{n})</script>, нашли их координаты в базисе <script type="math/tex">f_{1},…,f_{m}</script> и записали эти координаты в матрицу по столбцам.</p>
-<hr/>
-<a class="more" href="#linear_map">← Линейное отображение</a><br/>
-<a class="more" href="#space_base">← Базис линейного пространства</a><br/>
-<a class="more" href="#lin_map_matrix_change">→ Замена базиса в матрице лин. отображения</a><br/>
-<a class="more" href="#gram_matrix">→ Матрица Грама</a><br/>
-</div>
-<div class="entry">
-<h1 id=euclid_space><a class="tag more colloq " href="#euclid_space">#</a>Евклидово пространство <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p118">Конспект</a>)</small></h1>
-<p>
-<script type="math/tex">V</script> — пространство над <script type="math/tex">ℝ</script>, а <script type="math/tex">g: V×V → ℝ</script> — «скалярное произведение»</p>
-<ul>
-<li>
-<script type="math/tex">g(x, y) ≡ g(y, x)</script> — симметричность</li>
-<li>
-<script type="math/tex">g(x + y, z) = g(x, z) + g(y, z)</script> — линейность </li>
-<li>
-<script type="math/tex">g(λx, y) = λg(x, y)</script>
-</li>
-<li>
-<script type="math/tex">x ≠ 0 ⇔ g(x, x) > 0</script> — положительная определённость</li>
-<li>
-<script type="math/tex">x = 0 ⇔ g(x, x) = 0 = g(0, 0)</script>
-</li>
-</ul>
-<p>(т.е. симметрическая положительно определённая билинейная форма)</p>
-<p>
-<script type="math/tex">𝓔 = (V, g)</script> — евклидово пространство.</p>
-<p>Например, <script type="math/tex">V_{3}</script> — геометрические векторы с скалярным произведением.</p>
-<p>Тогда</p>
-<ul>
-<li>
-<script type="math/tex">|| v || = \sqrt{g(v, v)}</script> — норма (длина) вектора</li>
-<li>
-<script type="math/tex">\cos φ = \frac{g(x, y)}{||x|| · ||y||}</script> — угол между <script type="math/tex">x</script> и <script type="math/tex">y</script>
-</li>
-<li>Часто опускают <script type="math/tex">g</script> и пишут просто <script type="math/tex">(x, y)</script>
-</li>
-</ul>
-<hr/>
-<a class="more" href="#linear_space">← Линейное пространство</a><br/>
-<a class="more" href="#geom_vector">← Геометрический вектор</a><br/>
-<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
-<a class="more" href="#bilinear_form">← Билинейная форма</a><br/>
-<a class="more" href="#koshi_ineq">→ Неравенство Коши-Буняковского</a><br/>
-<a class="more" href="#ortogonal">→ Ортогональность</a><br/>
-<a class="more" href="#gram_matrix">→ Матрица Грама</a><br/>
-<a class="more" href="#ortogonal_addition">→ Ортогональное дополнение</a><br/>
-<a class="more" href="#ortogonal_projection">→ Ортогональная проекция</a><br/>
-</div>
-<div class="entry">
-<h1 id=gram_matrix><a class="tag more colloq " href="#gram_matrix">#</a>Матрица Грама <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p120">Конспект</a>)</small></h1>
-<p>Это матрица линейного оператора, где <script type="math/tex">φ(x, y) = g(x, y)</script> — т.е. матрица скалярного произведения.</p>
-<p>Пусть <script type="math/tex">a_{1} ,…, a_{n}</script> — базис в <script type="math/tex">𝓔</script>.
-<script type="math/tex; mode=display">
-Γ = \begin{pmatrix}
-    g(a_{1}, a_{1}) & … & g(a_{1}, a_{n}) \\
-        ⋮     &   &     ⋮    \\
-    g(a_{n}, a_{1}) & … & g(a_{n}, a_{n})
-\end{pmatrix}
-</script>
-</p>
-<p>Если что, матрица симметрическая.</p>
-<hr/>
-<a class="more" href="#euclid_space">← Евклидово пространство</a><br/>
-<a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
-<a class="more" href="#form_change_base">→ Как меняется матрица … формы при замене базиса?</a><br/>
-<a class="more" href="#gramian">→ Грамиан</a><br/>
 </div>
 <div class="entry">
 <h1 id=form_change_base><a class="tag more colloq " href="#form_change_base">#</a>Как меняется матрица … формы при замене базиса? </h1>
@@ -3228,7 +3421,16 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 </p>
 <details>
 <summary>Доказательство</summary>
-<h1>FIXME!!!</h1>
+<p>Пусть в <script type="math/tex">V_{1}</script> есть базис <script type="math/tex">e = \{e_{1}, …, e_{m}\}</script>
+</p>
+<p>Тогда <script type="math/tex">∀x∈V_{1}\quad x=x_{1}e_{1} + … + x_{m}e_{m} ⇒ φ(x) = x_{1}φ(e_{1}) + … + x_{m}φ(e_{m})</script>.</p>
+<p>Т.е. всякий <script type="math/tex">φ(e_{1})</script> принадлежит <script type="math/tex">L(φ(e_{1}),…,φ(e_{m}))</script>. А значит <script type="math/tex">\Im φ = L(φ(e_{1}),…,φ(e_{m}))</script>.
+Одновременно с этим <script type="math/tex">φ(e_{1}),…,φ(e_{m})</script> — столбцы матрицы <script type="math/tex">φ</script>.
+Таким образом получаем, что <script type="math/tex">\dim \Im φ = \Rg A</script>
+</p>
+<p>Ядро же записывается при помощи ОСЛАУ <script type="math/tex">Ax = 0</script>. Отсюда получаем, что 
+<script type="math/tex">\dim \Ker φ</script> равно числу элементов в ФСР: <script type="math/tex">m - \Rg A</script>.</p>
+<p>Вместе, <script type="math/tex">\dim \Im φ + \dim \Ker φ = (\Rg A) + (m - \Rg A) = m</script>, ч.т.д.</p>
 </details>
 <hr/>
 <a class="more" href="#linear_map">← Линейное отображение</a><br/>
@@ -3293,6 +3495,7 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <a class="more" href="#own_subspace">→ Собственное подпространство</a><br/>
 <a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
 <a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
+<a class="more" href="#diagonality_enough">→ Достаточное условие диагонализируемости</a><br/>
 </div>
 <div class="entry">
 <h1 id=char_eq><a class="tag more colloq " href="#char_eq">#</a>Характеристическое уравнение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p111">Конспект</a>)</small></h1>
@@ -3379,31 +3582,56 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <a class="more" href="#space_base">← Базис линейного пространства</a><br/>
 </div>
 <div class="entry">
-<h1 id=diagonality><a class="tag more colloq " href="#diagonality">#</a>Диагонализируемость линейного оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
+<h1 id=diagonality><a class="tag more colloq " href="#diagonality">#</a>Диагонализируемость линейного оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p113">Конспект</a>)</small></h1>
 <p>Определение: Оператор диагонализируем iff существует базис, в котором матрица линейного оператора диагональна.</p>
 <p>Это равносильно тому, что все векторы базиса — собственные векторы для оператора.</p>
 <details>
 <summary>Доказательство</summary>
 <p>Докажем, что <script type="math/tex">A</script> диагонализируем ⇔ все векторы — собственные.</p>
 <h3>⇒</h3>
-<p>Пусть матрица <script type="math/tex">A</script> диагональна. Тогда ей <script type="math/tex">i</script>-ый столбец имеет вид
-<script type="math/tex">\begin{pmatrix}0 & … & 0 & λ_{i} & 0 … & 0\end{pmatrix}^T</script>.
-С другой стороны, этот столбец содержит <script type="math/tex">φ(ε^i)</script>, где <script type="math/tex">ε^i</script> — <script type="math/tex">i</script>-ый столбец базиса (по определению матрицы л.о.).</p>
-<p>Т.е. <script type="math/tex">φ(ε^i) = </script>
+<p>Пусть матрица <script type="math/tex">A</script> диагональна. Тогда ей <script type="math/tex">i</script>-ый столбец имеет вид <script type="math/tex">\begin{pmatrix}0 & … & 0 & λ_{i} & 0 … & 0\end{pmatrix}^T</script>. Причём этот столбец содержит <script type="math/tex">φ(ε_{i})</script> — прпименение оператора к <script type="math/tex">i</script>-ому вектору базиса. Такие образом, вектор <script type="math/tex">φ(ε_{i})</script> имеет координаты <script type="math/tex">(0, … ,λ_{i}, …, 0)</script>. Распишем это: <script type="math/tex">φ(ε_{i}) = λ_{i}ε_{i}</script>. По определению, <script type="math/tex">ε_{i}</script> — собственный вектор (<script type="math/tex">∀i</script>).</p>
+<h3>⇐</h3>
+<p>Пусть в базисе <script type="math/tex">e_{1},…,e_{n}</script> все векторы собственные. Покажем, что в этом базисе матрица будет диагональной.</p>
+<p>Для всех векторов базиса выполняется следующее: <script type="math/tex">φ(e_{i}) = λ_{i}e_{i}</script>. По определению матрицы лин. оператора, та будет иметь следующий вид:
+<script type="math/tex; mode=display">
+\left( φ(e_{1}) | … | φ(e_{n}) \right) = \begin{pmatrix}
+    λ_{1} & 0  & … & 0 \\
+    0  & λ_{2} & … & 0 \\
+    ⋮  & ⋮  & ⋱ & ⋮ \\
+    0  & 0  & … & λ_{n}
+\end{pmatrix}
+</script>
 </p>
 </details>
 <hr/>
 <a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#linear_map_matrix">← Матрица лин. отображения</a><br/>
 <a class="more" href="#space_base">← Базис линейного пространства</a><br/>
 <a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
 <a class="more" href="#dioganality_crit">→ Критерий диагонализируемости</a><br/>
+<a class="more" href="#diagonality_enough">→ Достаточное условие диагонализируемости</a><br/>
 </div>
 <div class="entry">
-<h1 id=dioganality_crit><a class="tag more colloq " href="#dioganality_crit">#</a>Критерий диагонализируемости </h1>
+<h1 id=dioganality_crit><a class="tag more colloq " href="#dioganality_crit">#</a>Критерий диагонализируемости <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
 <p>Оператор диагонализируем ⇔ алгебраичская кратность всех с.з. совпадает с алгебраической.</p>
 <hr/>
 <a class="more" href="#diagonality">← Диагонализируемость линейного оператора</a><br/>
 <a class="more" href="#own_val_multiplicity">← Кратность собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=diagonality_enough><a class="tag more colloq " href="#diagonality_enough">#</a>Достаточное условие диагонализируемости <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
+<p>Если у характеристического многочлена есть <script type="math/tex">n</script>
+<strong>различных</strong> корней, то линейный оператор диагонализируем.</p>
+<p>(<script type="math/tex">n</script> — размерность пространства, как обычно)</p>
+<details>
+<summary>Доказательство</summary>
+<p>Если есть <script type="math/tex">n</script> с.з., то есть и <script type="math/tex">n</script> с.в.. Система этих векторов будет л.н.з., и их будет <script type="math/tex">n</script>.
+Получили базис пространства, состоящий из собственных векторов.
+В нём матрица оператора будет диагональной, а значит оператор диагонализируем.</p>
+</details>
+<hr/>
+<a class="more" href="#diagonality">← Диагонализируемость линейного оператора</a><br/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
 </div>
 <div class="entry">
 <h1 id=jord><a class="tag more colloq " href="#jord">#</a>Жорданова клетка и нормальная форма <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p114">Конспект</a>)</small></h1>
@@ -4942,6 +5170,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Как связан ранг транспонированной матрицы с рангом исходной матрицы? Ответ обосновать.</p>
 <a href="#" onclick="forget('question_1008')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#matrix_ran_transpose">← Ранг транспонированной матрицы</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_1009><a class="tag more  question" href="#question_1009">#</a>Q10.09 </h1>
@@ -4955,6 +5184,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулировать и доказать критерий существования обратной матрицы. Свойства определителя предполагаются известными.</p>
 <a href="#" onclick="forget('question_1010')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#matrix_inv">← Обратная матрица</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_1011><a class="tag more  question" href="#question_1011">#</a>Q10.11 </h1>
@@ -4989,12 +5219,14 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Выпишите формулу для вычисления скалярного произведения векторов, заданных своими координатами в произвольном базисе трехмерного пространства, и приведите её вывод.</p>
 <a href="#" onclick="forget('question_2002')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#scalar_in_any">← Скалярное произведение в произвольном базисе</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_2003><a class="tag more  question" href="#question_2003">#</a>Q20.03 </h1>
 <p>Выпишите формулу для вычисления векторного произведения в правом ортонормированном базисе трехмерного пространства и приведите её вывод.</p>
 <a href="#" onclick="forget('question_2003')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#scalar_in_onb">← Вычисление скалярного произведения в правом ОНБ</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_2004><a class="tag more  question" href="#question_2004">#</a>Q20.04 </h1>
@@ -5029,6 +5261,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Выпишите формулу для вычисления расстояния между двумя скрещивающимися прямыми и докажите её.</p>
 <a href="#" onclick="forget('question_2008')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#dist_lines">← Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_2009><a class="tag more  question" href="#question_2009">#</a>Q20.09 </h1>
@@ -5176,19 +5409,21 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Cформулируйте и докажите три следствия из теоремы Лагранжа.</p>
 <a href="#" onclick="forget('question_3018')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#lagrange_corollary">← Следствия из т. Лагранжа</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_3019><a class="tag more  question" href="#question_3019">#</a>Q30.19 </h1>
 <p>Что такое сумма и прямая сумма подпространств? Сформулируйте и докажите критерий того, что сумма подпространств является прямой.</p>
 <a href="#" onclick="forget('question_3019')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#subspace_sum">← Сумма подпространств</a><br/>
+<a class="more" href="#straight_criteria">← Критерий прямоты суммы</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_3020><a class="tag more  question" href="#question_3020">#</a>Q30.20 </h1>
 <p>Сформулируйте и докажите утверждение о связи размерности суммы и пересечения подпространств.</p>
 <a href="#" onclick="forget('question_3020')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#subspace_sum">← Сумма подпространств</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_3021><a class="tag more  question" href="#question_3021">#</a>Q30.21 </h1>
@@ -5223,12 +5458,14 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте и докажите критерий диагональности матрицы оператора.</p>
 <a href="#" onclick="forget('question_4003')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#diagonality">← Диагонализируемость линейного оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4004><a class="tag more  question" href="#question_4004">#</a>Q40.04 </h1>
 <p>Каким свойством обладает оператор в n-мерном вещественном пространстве, у характеристического многочлена которого есть n различных действительных корней? Ответ обоснуйте.</p>
 <a href="#" onclick="forget('question_4004')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#diagonality_enough">← Достаточное условие диагонализируемости</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4005><a class="tag more  question" href="#question_4005">#</a>Q40.05 </h1>
