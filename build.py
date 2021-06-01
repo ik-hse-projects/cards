@@ -149,17 +149,18 @@ def load(src):
     colloq_tips = {}
     for i in data.values():
         for number in i.colloq:
+            n = round(number*100)
             if number not in colloq_tips:
-                colloq_tips[number] = []
-            colloq_tips[number].append(i)
+                colloq_tips[n] = []
+            colloq_tips[n].append(i)
     questions = []
     for section, qs in colloq.items():
-        for number, text in qs.items():
-            number = section + (number/100)
+        for num, text in qs.items():
+            num += section*100
             questions.append(Question(
-                "{:.2f}".format(number),
+                "{:.2f}".format(num/100),
                 text,
-                colloq_tips.get(number)
+                colloq_tips.get(num)
             ))
     return data, questions
 
