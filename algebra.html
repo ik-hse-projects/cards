@@ -1343,7 +1343,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#decart">→ Прямоугольная декартова система координат</a><br/>
 </div>
 <div class="entry">
-<h1 id=scalar_in_onb><a class="tag more colloq " href="#scalar_in_onb">#</a>Вычисление скалярного произведения в правом ОНБ </h1>
+<h1 id=scalar_in_onb><a class="tag more  " href="#scalar_in_onb">#</a>Вычисление скалярного произведения в правом ОНБ </h1>
 <p><strong>Теорема:</strong> Если <script type="math/tex">\Vi, \Vj, \Vk</script> — ОНБ, то <script type="math/tex">(\Va, \Vb) = a_x b_x + a_y b_y + a_z b_z</script>.</p>
 <details>
 <summary>Доказательство</summary>
@@ -1836,6 +1836,32 @@ A_{ef} = \begin{pmatrix}
 )
 </script>
 </p>
+<details>
+<summary>Доказательство</summary>
+<p>Разложим векторы: <script type="math/tex">\Va = a_xi + a_yj + a_zk</script>, <script type="math/tex">\Vb = b_xi + b_yj + b_zk</script>.
+После этого используем свойства:</p>
+<ol>
+<li>Линейность по первому аргументому, потом по второму</li>
+<li>Обнуляем, т.к. <script type="math/tex">x×x = 0</script>
+</li>
+<li>Пользуемся кососимметричность и упорядочиваем векторы в правом порядке.</li>
+<li>После этого <script type="math/tex">i×j=k</script>, <script type="math/tex">i×k=j</script> и <script type="math/tex">j×k=i</script>, т.к. базис ОНБ и правый.</li>
+</ol>
+<script type="math/tex; mode=display">
+\Va × \Vb = (a_xi + a_yj + a_zk) × (b_xi + b_yj + b_zk) = \\
+= a_x(i, b_xi + b_yj + b_zk) + a_y(j, b_xi + b_yj + b_zk) + a_z(k, b_xi + b_yj + b_zk) = \\
+\begin{alignat*}{4}
+    =& &  \cancel{a_xb_x(i×i)} &+& a_xb_y(i×j) &+& a_xb_z(i × k) &+\\
+     &+& a_yb_x(j×i) &+& \cancel{a_yb_y(j×j)} &+& a_yb_z(j × k) &+\\
+     &+& a_zb_x(k×i) &+& a_zb_y(k×j) &+& \cancel{a_zb_z(k×k)} &=
+\end{alignat*}\\
+= a_xb_y(i×j) - a_yb_x(i×j)
++ a_xb_z(i×k) - a_zb_x(i×k)
++ a_yb_z(j×k) - a_zb_y(j×k) =\\
+= (a_xb_y - a_yb_x)k + (a_xb_z - a_zb_x)j + (a_yb_z - a_zb_y)i =\\
+= (a_yb_z - a_zb_y)i + i(a_xb_z - a_zb_x)j + (a_xb_y - a_yb_x)k
+</script>
+</details>
 <hr/>
 <a class="more" href="#vec_mul">← Векторное произведение векторов</a><br/>
 <a class="more" href="#onb">← Ортонормированный базис</a><br/>
@@ -2019,7 +2045,7 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#dist_lines">→ Расстояние между скрещивающимися прямыми</a><br/>
 </div>
 <div class="entry">
-<h1 id=line_and_plane><a class="tag more colloq " href="#line_and_plane">#</a>Взаимное положение прямой и плоскости </h1>
+<h1 id=line_and_plane><a class="tag more  " href="#line_and_plane">#</a>Взаимное положение прямой и плоскости </h1>
 <ol>
 <li>Прямая параллельна плоскости или лежит в ней: iff <script type="math/tex">\Vn ⊥ \Vs</script> (в ОНБ: <script type="math/tex">Al + Bm + Cn = 0</script>)</li>
 <li>Прямая <strong>лежит в плоскости</strong>: надо добавить, что хотя бы одна точка на прямой лежит в плоскости.
@@ -2042,9 +2068,9 @@ t = \frac{x-x_{0}}{l} = \frac{y-y_{0}}{m} = \frac{z-z_{0}}{n}
 <a class="more" href="#plane_3d">← Плоскость в пространстве</a><br/>
 </div>
 <div class="entry">
-<h1 id=line_coplane><a class="tag more  " href="#line_coplane">#</a>Компланарность прямых </h1>
+<h1 id=line_coplane><a class="tag more colloq " href="#line_coplane">#</a>Компланарность прямых </h1>
 <p>Пусть даны две прямые: <script type="math/tex">L_{1}: M_{1} + λ\vec{s_{1}}</script> и <script type="math/tex">L_{2}: M_{2} + μ\vec{s_{2}}</script>.
-Они компланарны iff <script type="math/tex">\vec{M_{1}M_{2}}, \vec{s_{1}}, \vec{s_{2}}</script> компланрны:
+Они компланарны ⇔ <script type="math/tex">\vec{M_{1}M_{2}}, \vec{s_{1}}, \vec{s_{2}}</script> компланрны:
 <script type="math/tex; mode=display">
 ⟨\vec{M_{1}M_{2}}, \vec{s_{1}}, \vec{s_{2}}⟩ = 0 \\
 \overset{\text{в ОНБ}}{⇔} \begin{vmatrix}
@@ -2392,7 +2418,7 @@ f: G → H \\
 <li>
 <script type="math/tex">∀a∈I\, ∀r∈K\, r·a∈I ∧ a·r∈I</script> — при умножении эл.-а кольца на эл.-т идеала остаемся в нём же</li>
 </ol>
-<p>Идеал главный, iff <script type="math/tex">∃a∈K: I = \{r·a \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
+<p>Идеал главный, iff <script type="math/tex">∃a∈K: I = aK = \{a·r \mid r∈K\}</script>, тогда идеал <script type="math/tex">I</script> порождён <script type="math/tex">a</script>. В <script type="math/tex">ℤ</script> все идеалы главные.</p>
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
 <a class="more" href="#homo_ideal">→ Ядро является идеалом</a><br/>
@@ -2637,8 +2663,24 @@ kℤ = \{ kn | n∈ℤ \}
 <div class="entry">
 <h1 id=theorem_homogroup><a class="tag more colloq " href="#theorem_homogroup">#</a>Теорема о гомоморфизме групп <small>(<a target="_blank" href="https://wiki.bularond.ru/ru/algebra/sexteenth_lesson#теорема-о-гомоморфизме-групп">Конспект</a>)</small></h1>
 <p>Если <script type="math/tex">f: G→F</script> — гомоморфизм, то <script type="math/tex">\Im(f) ≅ G/\Ker(f)</script>.</p>
-<p>И кстати, <script type="math/tex">\Im(f)</script> всегда подгруппа в <script type="math/tex">F</script>
-</p>
+<p>И кстати, <script type="math/tex">\Im(f)</script> всегда подгруппа в <script type="math/tex">F</script>, а <script type="math/tex">\Ker(f)</script> — нормальная в <script type="math/tex">G</script>.</p>
+<p>Пример:</p>
+<ul>
+<li>
+<script type="math/tex">G = ℤ</script>, <script type="math/tex">F = ℤ_{5}</script>
+</li>
+<li>
+<script type="math/tex">f(x) = x mod 5</script>
+</li>
+<li>
+<script type="math/tex">\Im(f) = ℤ_{5}</script>
+</li>
+<li>
+<script type="math/tex">\Ker(f) = 5ℤ</script>
+</li>
+<li>⇒ <script type="math/tex">ℤ_{5} ≅ ℤ / 5ℤ</script>
+</li>
+</ul>
 <hr/>
 <a class="more" href="#factor_group">← Факторгруппа</a><br/>
 <a class="more" href="#group_homo">← Гомоморфизм групп</a><br/>
@@ -2742,12 +2784,17 @@ f(g) = λ h → ghg^{-1}
 <p>Если <script type="math/tex">e, g_{1}, g_{2}, …, g_{n-1}</script> — элементы группы, то <script type="math/tex">a·e, a·g_{1}, …, a·g_{n-1}</script> — те же элементы, но в другом порядке.
 (если <script type="math/tex">a·g_{i} = a·g_{j}</script>, то <script type="math/tex">g_{i} = g_{j}</script>, а это невозможно. Значит все <script type="math/tex">a·g_{i}</script> различны).</p>
 <p>Множество <script type="math/tex">Lₑ, L_{a_{1}}, …, L_{a_{n}}</script> с операцией композиции образует подгруппу в множестве отображений <script type="math/tex">G</script> в себя,
-т.е. подгруппу подстановок.
-- Есть нейтральный элемент: <script type="math/tex">Lₑ</script>
-- Умножение работает так: <script type="math/tex">L_a(L_b(x)) = a·b·x = L_{ab}(x)</script>
-- Есть обратный элемент: <script type="math/tex">(L_{a})^{-1} = L_{a^{-1}}</script>
-- Есть ассоциативность: <script type="math/tex">(L_a·L_b)(x) = L_{ab}(x) = (ab)·x = a(b·x) = L_a · (L_b(x))</script>
-</p>
+т.е. подгруппу подстановок.</p>
+<ul>
+<li>Есть нейтральный элемент: <script type="math/tex">Lₑ</script>
+</li>
+<li>Умножение работает так: <script type="math/tex">L_a(L_b(x)) = a·b·x = L_{ab}(x)</script>
+</li>
+<li>Есть обратный элемент: <script type="math/tex">(L_{a})^{-1} = L_{a^{-1}}</script>
+</li>
+<li>Есть ассоциативность: <script type="math/tex">(L_a·L_b)(x) = L_{ab}(x) = (ab)·x = a(b·x) = L_a · (L_b(x))</script>
+</li>
+</ul>
 <p>Итого, группа <script type="math/tex">G</script> изоморфна построенной группе, которая является подгруппой подстановок, ч.т.д.</p>
 </details>
 <hr/>
@@ -2772,7 +2819,7 @@ f(g) = λ h → ghg^{-1}
 <a class="more" href="#chinese_rems">→ Китайская теорема об остатках</a><br/>
 </div>
 <div class="entry">
-<h1 id=integral_ring><a class="tag more colloq " href="#integral_ring">#</a>Критерий целостности кольца </h1>
+<h1 id=integral_ring><a class="tag more  " href="#integral_ring">#</a>Критерий целостности кольца </h1>
 <p>Нетривиальное коммутативное кольцо с единицей является целостным iff в нём из <script type="math/tex">ab=ac</script> следует <script type="math/tex">b=c</script>, если <script type="math/tex">a≠0</script>.</p>
 <hr/>
 <a class="more" href="#ring">← Кольцо и поле</a><br/>
@@ -3303,10 +3350,12 @@ S^TAS
 </script>
 
 где <script type="math/tex">S</script> — матрица перехода к новому базису</p>
-<p>Это включает в себя:
-- Билинейную форму
-- Квадратичную форму
-- Матрицу Грама (которая является билинейной формой)</p>
+<p>Это включает в себя:</p>
+<ul>
+<li>Билинейную форму</li>
+<li>Квадратичную форму</li>
+<li>Матрицу Грама (которая является билинейной формой)</li>
+</ul>
 <hr/>
 <a class="more" href="#change_base">← Матрица перехода</a><br/>
 <a class="more" href="#bilinear_matrix">← Матрица билинейной формы</a><br/>
@@ -4253,7 +4302,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте критерий принадлежности двух прямых одной плоскости.</p>
 <a href="#" onclick="forget('question_215')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#line_and_plane">← Взаимное положение прямой и плоскости</a><br/>
+<a class="more" href="#line_coplane">← Компланарность прямых</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_216><a class="tag more  question" href="#question_216">#</a>Q2.16 </h1>
@@ -4568,7 +4617,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Дайте определение целостного кольца. Приведите пример.</p>
 <a href="#" onclick="forget('question_320')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#integral_ring">← Критерий целостности кольца</a><br/>
+<a class="more" href="#ring">← Кольцо и поле</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_321><a class="tag more  question" href="#question_321">#</a>Q3.21 </h1>
@@ -5226,7 +5275,6 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Выпишите формулу для вычисления векторного произведения в правом ортонормированном базисе трехмерного пространства и приведите её вывод.</p>
 <a href="#" onclick="forget('question_2003')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#scalar_in_onb">← Вычисление скалярного произведения в правом ОНБ</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_2004><a class="tag more  question" href="#question_2004">#</a>Q20.04 </h1>
@@ -5240,7 +5288,6 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Выпишите формулу для вычисления расстояния от точки до плоскости и приведите её вывод.</p>
 <a href="#" onclick="forget('question_2005')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#dist_point_plane">← Расстояние от точки до плоскости</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_2006><a class="tag more  question" href="#question_2006">#</a>Q20.06 </h1>
@@ -5324,7 +5371,6 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте и докажите теорему о гомоморфизме групп.</p>
 <a href="#" onclick="forget('question_3006')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#theorem_homogroup">← Теорема о гомоморфизме групп</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_3007><a class="tag more  question" href="#question_3007">#</a>Q30.07 </h1>
