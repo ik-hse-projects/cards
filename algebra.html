@@ -4058,9 +4058,9 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <div class="entry">
 <h1 id=adj_op><a class="tag more colloq " href="#adj_op">#</a>Сопряжённый оператор <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p128">Конспект</a>)</small></h1>
 <p>
-<script type="math/tex">A*</script> — сопряженный к л.о. <script type="math/tex">A</script>, iff <script type="math/tex">∀x,y∈𝓔\, (Ax, y) = (x, A*y)</script>
+<script type="math/tex">A^*</script> — сопряженный к л.о. <script type="math/tex">A</script>, iff <script type="math/tex">∀x,y∈𝓔\, (Ax, y) = (x, A^*y)</script>
 </p>
-<p>Если <script type="math/tex">A* = A</script>, то <script type="math/tex">A</script> – самосопряжённый: <script type="math/tex">(Ax, y) = (x, Ay)</script>.</p>
+<p>Если <script type="math/tex">A^* = A</script>, то <script type="math/tex">A</script> – самосопряжённый: <script type="math/tex">(Ax, y) = (x, Ay)</script>.</p>
 <hr/>
 <a class="more" href="#linear_map">← Линейное отображение</a><br/>
 <a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
@@ -4070,10 +4070,10 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 </div>
 <div class="entry">
 <h1 id=adj_op_matrix><a class="tag more colloq " href="#adj_op_matrix">#</a>Матрица сопряжённого оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p128">Конспект</a>)</small></h1>
-<p>Дан некоторый базис <script type="math/tex">b</script>, тогда <script type="math/tex">A*_b = Γ^{-1}_b · A_b^T · Γ_b</script>,
+<p>Дан некоторый базис <script type="math/tex">b</script>, тогда <script type="math/tex">A^*_b = Γ^{-1}_b · A_b^T · Γ_b</script>,
 где <script type="math/tex">Γ_b</script> — матрица Грама базиса <script type="math/tex">b</script>, а <script type="math/tex">A_b</script> — матрица л.о в том же базисе.</p>
 <ul>
-<li>в ОНБ <script type="math/tex">Γ = E</script>, а значит <script type="math/tex">A* = A^T</script>
+<li>в ОНБ <script type="math/tex">Γ = E</script>, а значит <script type="math/tex">A^* = A^T</script>
 </li>
 <li>сопряжённый оператор единственный</li>
 </ul>
@@ -4084,12 +4084,12 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <h1 id=adj_op_eigenvalues><a class="tag more colloq " href="#adj_op_eigenvalues">#</a>с.з. самосопряжённого оператора </h1>
 <p>Все корни характеристического уравнения <strong>самосопряженного</strong> оператора являются действительными числами.
 <script type="math/tex; mode=display">
-∀λ : χ_{A*}(λ) = 0 → λ∈ℝ
+∀λ : χ_{A^*}(λ) = 0 → λ∈ℝ
 </script>
 </p>
 <details>
 <summary>Доказательство</summary>
-<p>Рассмотрим корень <script type="math/tex">0 ≠ \tilde{λ} ∈ ℂ</script> уравнения <script type="math/tex">χ_{A*}(λ) = 0</script>. </p>
+<p>Рассмотрим корень <script type="math/tex">0 ≠ \tilde{λ} ∈ ℂ</script> уравнения <script type="math/tex">χ_{A^*}(λ) = 0</script>. </p>
 <p>Тогда СЛАУ <script type="math/tex">(A - λE)x = 0</script> имеет ненулеове решение
 <script type="math/tex">x = \begin{pmatrix}x_{1} & … & x_{n}\end{pmatrix}^T</script>, состоящее из <script type="math/tex">x_{i}∈ℂ</script>.</p>
 <p>Рассмотрим столбец комплексно сопряжённых элементов
@@ -4133,6 +4133,17 @@ z^T = x^T A^T \bar{x} \\
 <hr/>
 <a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
 <a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+</div>
+<div class="entry">
+<h1 id=adj_op_diagonal><a class="tag more colloq " href="#adj_op_diagonal">#</a>ОНБ из с.в. для самосопряженного оператора </h1>
+<p>Для всякого самосопряженного оператора существует ОНБ, состоящий из собственных векторов, в котором матрица оператора диагональна.</p>
+<details>
+<summary>Доказательство</summary>
+<p>У оператора есть <script type="math/tex">n</script> вещественных с.в., а отсюда есть и <script type="math/tex">n</script> л.н.з. собственных векторов.
+Мы можем их нормализовать, поделив каждый на длину. Они при этом останутся собственными векторами, но теперь вместе будут образовывать отртонормированный базис.
+И как давно известно, матрица л.о. в таком базисе будет диагональна.</p>
+</details>
+<hr/>
 </div>
 <div class="entry">
 <h1 id=ortogonal_matrix><a class="tag more colloq " href="#ortogonal_matrix">#</a>Ортогональная матрица </h1>
@@ -4182,14 +4193,44 @@ z^T = x^T A^T \bar{x} \\
 <a class="more" href="#ortogonal_op">← Ортогональный оператор</a><br/>
 </div>
 <div class="entry">
-<h1 id=ortogonal_op_criteria><a class="tag more colloq " href="#ortogonal_op_criteria">#</a>Критерий ортогональности л.о. через его матрицу </h1>
+<h1 id=ortogonal_op_criteria><a class="tag more colloq " href="#ortogonal_op_criteria">#</a>Критерий ортогональности л.о. через его матрицу <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p133">Конспект</a>)</small></h1>
 <p>Л.о. отрогональный ⇔ его матрица в ОНБ ортогональна.</p>
+<details>
+<summary>Доказательство</summary>
+<h3>⇐</h3>
+<p>Дано, что матрица оператора отртогональна: <script type="math/tex">A^TA = E</script>.
+Рассмотрим векторы в этом базисе: <script type="math/tex">(x_{1}, …, x_{n})^T</script> и <script type="math/tex">(y_{1}, …, y_{n})^T</script>:
+<script type="math/tex; mode=display">
+\begin{align*}
+(Ax, Ay)
+&= (Aₑ \begin{pmatrix}x_{1} \\ … \\ x_{n}\end{pmatrix})^T \begin{pmatrix}y_{1}\\ …\\ y_{n}\end{pmatrix} =\\
+&= \begin{pmatrix}x_{1} & … & x_{n}\end{pmatrix}(Aₑ^T · A)\begin{pmatrix}y_{1}\\ …\\ y_{n}\end{pmatrix} =\\
+&= \begin{pmatrix}x_{1} & … & x_{n}\end{pmatrix}E\begin{pmatrix}y_{1}\\ …\\ y_{n}\end{pmatrix} =\\
+&= (x, y)
+\end{align*}
+</script>
+</p>
+<p>Получается, что <script type="math/tex">∀x,y∈𝓔 \, (Ax, Ay) = (x, y)</script>, т.е. оператор ортогонален.</p>
+<h3>⇒</h3>
+<p>Дано, что <script type="math/tex">(Ax, Ay) = (x, y)</script>. Выпишем это утверждение в координатах:
+<script type="math/tex; mode=display">
+(Aₑxᵉ)^T · Γ · (Aₑ yᵉ) = (xᵉ)^T · Γ · yᵉ
+</script>
+</p>
+<p>Теперь раскроем левую часть:
+<script type="math/tex; mode=display">
+(Aₑxᵉ)^T · Γ · (Aₑ yᵉ) = (xᵉ)^T · Aₑ^T Γ Aₑ · yᵉ
+</script>
+</p>
+<p>Получается, что <script type="math/tex">Γ = Aₑ^T Γ Aₑ</script> (где-то такое утверждение было).
+Вспоминаем, что в ОНБ <script type="math/tex">Γ = E</script> и видим, что <script type="math/tex">Aₑ^T·Aₑ = E</script>, т.е. матрица ортогональна.</p>
+</details>
 <hr/>
 <a class="more" href="#ortogonal_matrix">← Ортогональная матрица</a><br/>
 <a class="more" href="#ortogonal_op">← Ортогональный оператор</a><br/>
 </div>
 <div class="entry">
-<h1 id=sq_form_diag><a class="tag more colloq " href="#sq_form_diag">#</a>Приведение квадратичной формы к диагональному виду </h1>
+<h1 id=sq_form_diag><a class="tag more colloq " href="#sq_form_diag">#</a>Приведение квадратичной формы к диагональному виду <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p135">Конспект</a>)</small></h1>
 <p>Всякую квадратичную форму можно отртогональными преоброзованиями привести к каноническому виду.</p>
 <details>
 <summary>Доказательство</summary>
@@ -4208,17 +4249,17 @@ z^T = x^T A^T \bar{x} \\
 <p>Существует ОНБ, в котором отртогональный оператор имеет матрицу следующего вида:
 <script type="math/tex; mode=display">
 \begin{pmatrix}
-    A_{1} & 0  & … & 0  &   &   &   &   &    &    &   &  0
-    0  & A_{2} & … & 0  &   &   &   &   &    &    &   &  
-    ⋮  &    & ⋱ & ⋮  &   &   &   &   &    &    &   &  
-    0  & 0  & … & A_{k} &   &   &   &   &    &    &   &  
-       &    &   &    & 1 & 0 & … & 0 &    &    &   &  
-       &    &   &    & 0 & 1 & … & 0 &    &    &   &  
-       &    &   &    & ⋮ &   & ⋱ & ⋮ &    &    &   &  
-       &    &   &    & 0 & 0 & … & 1 &    &    &   &  
-       &    &   &    &   &   &   &   & -1 &  0 & … &  0
-       &    &   &    &   &   &   &   &  0 & -1 & … &  0
-       &    &   &    &   &   &   &   &  ⋮ &    & ⋱ &  ⋮
+    A_{1} & 0  & … & 0  &   &   &   &   &    &    &   &  0 \\
+    0  & A_{2} & … & 0  &   &   &   &   &    &    &   &    \\
+    ⋮  &    & ⋱ & ⋮  &   &   &   &   &    &    &   &    \\
+    0  & 0  & … & A_{k} &   &   &   &   &    &    &   &    \\
+       &    &   &    & 1 & 0 & … & 0 &    &    &   &    \\
+       &    &   &    & 0 & 1 & … & 0 &    &    &   &    \\
+       &    &   &    & ⋮ &   & ⋱ & ⋮ &    &    &   &    \\
+       &    &   &    & 0 & 0 & … & 1 &    &    &   &    \\
+       &    &   &    &   &   &   &   & -1 &  0 & … &  0 \\
+       &    &   &    &   &   &   &   &  0 & -1 & … &  0 \\
+       &    &   &    &   &   &   &   &  ⋮ &    & ⋱ &  ⋮ \\
     0  &    &   &    &   &   &   &   &  0 &  0 & … & -1
 \end{pmatrix}
 </script>
@@ -4244,12 +4285,72 @@ A_{k} = \begin{pmatrix}
 <hr/>
 </div>
 <div class="entry">
-<h1 id=qr_decomposition><a class="tag more colloq " href="#qr_decomposition">#</a>QR-разложение </h1>
-<p>Всякая квадратная матрица с л.н.з. столбцами может быть разложена на произведение ортогональной (<script type="math/tex">Q</script>) и верхнетреугольной (<script type="math/tex">R</script>).</p>
+<h1 id=ort_op_addition><a class="tag more colloq " href="#ort_op_addition">#</a>Отртогональное дополнение к образу сопряженного оператора. </h1>
+<ul>
+<li>
+<script type="math/tex">(\Im A^*)^⊥ = \Ker A</script>
+</li>
+<li>
+<script type="math/tex">V = \Ker A ⊕ \Im A^*</script>
+</li>
+<li>
+<script type="math/tex">V = \Ker A^* ⊕ \Im A</script>
+</li>
+</ul>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем первое: <script type="math/tex">(\Im A^*)^⊥ = \Ker A</script>
+</p>
+<p>Пусть <script type="math/tex">x∈\Ker A</script>. Тогда <script type="math/tex">∀y∈V \, y^T · Ax = 0</script>, т.к. <script type="math/tex">Ax = 0</script>.
+С другой стороны, <script type="math/tex">y^TAx = (A^Ty)^T x = (A^*y, x)</script>.
+Получается, что <script type="math/tex">∀y (A^*y, x) = 0</script>, а значит <script type="math/tex">\Im A^* ⊥ x</script>. Отсюда <script type="math/tex">\Ker A ⊆ (\Im A^*)^⊥</script>.</p>
+<p>Пусть <script type="math/tex">x ∈ (\Im A^*)^⊥</script>. Тогда <script type="math/tex">∀y∈V \, (x, A^*y) = 0</script>.
+С другой стороны, <script type="math/tex">(x, A^*y) = (Ax, y)</script>.
+Получается, что <script type="math/tex">∀y∈V (Ax, y) = 0</script>. В частности, для <script type="math/tex">y=Ax</script>: <script type="math/tex">(Ax, Ax) = 0</script>, т.е. <script type="math/tex">Ax = 0</script>, а значит <script type="math/tex">x∈\Ker A</script>.
+Отсюда <script type="math/tex">(\Im A^*)^⊥ ⊆ \Ker A</script>.</p>
+</details>
 <hr/>
 </div>
 <div class="entry">
-<h1 id=singular_decomposition><a class="tag more colloq " href="#singular_decomposition">#</a>Сингулярное QR-разложение </h1>
+<h1 id=fredholm><a class="tag more colloq " href="#fredholm">#</a>Теорема Фредгольма <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p137">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">Ax = b</script> совместна ⇔ <script type="math/tex">b</script> перпендикулярно всем решениям ОСЛАУ <script type="math/tex">A^Ty = 0</script>.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Известно, что <script type="math/tex">V = \Im A ⊕ \Ker A^*</script>. Поскольку <script type="math/tex">Ax = b</script>, то <script type="math/tex">b ∈ \Im A</script>.
+Тогда получается, что <script type="math/tex">b ∈ (\Ker A^*)^⊥</script>, т.е. <script type="math/tex">b ⊥ \Ker A^*</script>.
+А <script type="math/tex">\Ker A^*</script> как раз равен множеству решений <script type="math/tex">A^Ty = 0</script>.</p>
+</details>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=qr_decomposition><a class="tag more colloq " href="#qr_decomposition">#</a>QR-разложение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p138">Конспект</a>)</small></h1>
+<p>Всякая квадратная матрица с л.н.з. столбцами может быть разложена на произведение ортогональной (<script type="math/tex">Q</script>) и верхнетреугольной (<script type="math/tex">R</script>).</p>
+<details>
+<summary>Доказательство</summary>
+<p>Дана матрица <script type="math/tex">A</script> с л.н.з. столбцами.
+Применим к ним ортогональное преобразование Грама-Шмидта и получим столбцы <script type="math/tex">Q_{1}, …, Q_{m}</script>, которые образуют ОНБ в <script type="math/tex">\Im A</script>.</p>
+<p>Заметим, что столбец <script type="math/tex">A_{k} ∈ L(Q_{1}, …, Q_{m})</script>.
+Это связано с тем, что по формулам Г.-Ш. <script type="math/tex">\Σ_{i=1}^k r_{ik} Q_{i}</script>.
+Более того, для построения <script type="math/tex">k</script>-го столбца используются только столбцы <script type="math/tex">Q</script> с индексами <script type="math/tex">≤k</script>.</p>
+<p>Теперь запишем всё это в матричной форме:
+<script type="math/tex; mode=display">
+A = Q·R \\
+Q = (Q_{1} | … | Q_{m}) \\
+R = \begin{pmatrix}
+    r_{11} & … & r_{1m} \\
+        & ⋱ &  ⋮  \\
+    0   &   & r_{mn}
+\end{pmatrix}
+</script>
+
+Матрица <script type="math/tex">R</script> именно верхнедиагональная, поскольку использовали только столбцы с индексами <script type="math/tex">≤k</script>.
+А матрица <script type="math/tex">Q</script> ортогональна, т.к. её столбцы образуют ОНБ (и значит отртогональны).</p>
+</details>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=singular_decomposition><a class="tag more colloq " href="#singular_decomposition">#</a>Сингулярное разложение </h1>
 <p>Всякая прямоугольная матрица размера <script type="math/tex">n×m</script> раскладывается в произведение трёх:</p>
 <ol>
 <li>
@@ -4266,13 +4367,31 @@ A_{k} = \begin{pmatrix}
 \begin{align*}
     ∀ A∈M_{n×m}(ℝ) ∃&V,Σ,U : A = V·Ε·U^T \\
                     &U ∈ O_{n}(ℝ) \\
-                    &V ∈ O_{m}(ℝ)
+                    &V ∈ O_{m}(ℝ) \\
                     &Σ ∈ M_{m×n}(ℝ)
 \end{align*}
 </script>
 
 <p>Причём на диагонали <script type="math/tex">Σ</script> находятся <strong>сингулярные числа</strong>: <script type="math/tex">ο_{1} ≥ … ≥ ο_{r} > 0</script> — они неотрицательные и их принято упорядочивать.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим <script type="math/tex">A^TA</script> – матрицу Грама. Она симметрическая и соответсвующая квадратичная форма неотрицательно определена:</p>
+<pre class="codehilite"><code>x^T(A^TA)x = (Ax, Ax) = ||Ax||^{2} ≥ 0
+</code></pre>
+
+<p>Следовательно у неё все с.з. вещественные и они ≥0. А значит можно их прдеставтиь в виде <script type="math/tex">σ_{i}^{2}</script>.
+Возьмём все <script type="math/tex">σ_{i}^{2}</script> и отсортируем их, ведь так принято.</p>
+<p>Также у этой квадратичной формы существует ОНБ из с.в., в котором та будет диагональна. Назовём его <script type="math/tex">u_{1}, …, u_{n}</script>
+<script type="math/tex; mode=display">
+A^TA · u_{i} = \begin{cases}
+    σ_{1}^{2} · u_{i},& 1 ≤ i ≤ r \\
+    0, & r+1 ≤ i ≤ n
+\end{cases}
+</script>
+</p>
+</details>
 <hr/>
+<a class="more" href="#polar_decomposition">→ Полярное разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=polar_decomposition><a class="tag more colloq " href="#polar_decomposition">#</a>Полярное разложение </h1>
@@ -4280,12 +4399,17 @@ A_{k} = \begin{pmatrix}
 </p>
 <details>
 <summary>Доказательство</summary>
+<p>Раскладываем матрицу сингулярно на <script type="math/tex">Q, Σ, P^T</script> и группируем их: <script type="math/tex">S=QΣQ^T</script> и <script type="math/tex">U=QP</script>.
+Так можно, потому что <script type="math/tex">Q^TQ = E</script> — матрица <script type="math/tex">Q</script> отртогональна.
+Причём <script type="math/tex">S</script> будет симметрической, это несложно провертиь транспонированием.
 <script type="math/tex; mode=display">
 A = Q Σ P^T = QΣ · Q^TQ ·P = QΣQ^T · QP = S · U \\
 S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 </script>
+</p>
 </details>
 <hr/>
+<a class="more" href="#singular_decomposition">← Сингулярное разложение</a><br/>
 </div>
 
   </div>
@@ -5390,6 +5514,7 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Сформулируйте теорему о существовании для самосопряженного оператора базиса из собственных векторов.</p>
 <a href="#" onclick="forget('question_436')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_diagonal">← ОНБ из с.в. для самосопряженного оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_437><a class="tag more  question" href="#question_437">#</a>Q4.37 </h1>
@@ -5410,7 +5535,7 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Сформулируйте теорему о сингулярном разложении.</p>
 <a href="#" onclick="forget('question_439')" class="forget">Забыть</a>
 <hr/>
-<a class="more" href="#singular_decomposition">← Сингулярное QR-разложение</a><br/>
+<a class="more" href="#singular_decomposition">← Сингулярное разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_440><a class="tag more  question" href="#question_440">#</a>Q4.40 </h1>
@@ -5424,12 +5549,14 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Что можно сказать про ортогональное дополнение к образу сопряженного оператора?</p>
 <a href="#" onclick="forget('question_441')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ort_op_addition">← Отртогональное дополнение к образу сопряженного оператора.</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_442><a class="tag more  question" href="#question_442">#</a>Q4.42 </h1>
 <p>Сформулируйте теорему Фредгольма.</p>
 <a href="#" onclick="forget('question_442')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#fredholm">← Теорема Фредгольма</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_1001><a class="tag more  question" href="#question_1001">#</a>Q10.01 </h1>
@@ -5851,12 +5978,14 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Сформулируйте и докажите критерий ортогональности оператора, использующий его матрицу.</p>
 <a href="#" onclick="forget('question_4015')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_op_criteria">← Критерий ортогональности л.о. через его матрицу</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4016><a class="tag more  question" href="#question_4016">#</a>Q40.16 </h1>
 <p>Сформулируйте и докажите утверждение о QR-разложении.</p>
 <a href="#" onclick="forget('question_4016')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#qr_decomposition">← QR-разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4017><a class="tag more  question" href="#question_4017">#</a>Q40.17 </h1>
@@ -5869,6 +5998,7 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Сформулируйте и докажите теорему о полярном разложении.</p>
 <a href="#" onclick="forget('question_4018')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#polar_decomposition">← Полярное разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4019><a class="tag more  question" href="#question_4019">#</a>Q40.19 </h1>
@@ -5882,6 +6012,7 @@ S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
 <p>Что можно сказать про ортогональное дополнение к образу сопряженного оператора? Ответ обоснуйте. Сформулируйте и докажите теорему Фредгольма.</p>
 <a href="#" onclick="forget('question_4020')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#fredholm">← Теорема Фредгольма</a><br/>
 </div>
 
   </div>
