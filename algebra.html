@@ -1316,6 +1316,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#plane_3d">→ Плоскость в пространстве</a><br/>
 <a class="more" href="#bilinear_form">→ Билинейная форма</a><br/>
 <a class="more" href="#euclid_space">→ Евклидово пространство</a><br/>
+<a class="more" href="#adj_op">→ Сопряжённый оператор</a><br/>
 </div>
 <div class="entry">
 <h1 id=onb><a class="tag more  " href="#onb">#</a>Ортонормированный базис </h1>
@@ -1341,6 +1342,7 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#scalar_in_onb">→ Вычисление скалярного произведения в правом ОНБ</a><br/>
 <a class="more" href="#vec_mul_formula">→ Векторное произведение в ОНБ</a><br/>
 <a class="more" href="#decart">→ Прямоугольная декартова система координат</a><br/>
+<a class="more" href="#ortogonal_op_onb">→ Ортогональный оператор и ОНБ</a><br/>
 </div>
 <div class="entry">
 <h1 id=scalar_in_onb><a class="tag more  " href="#scalar_in_onb">#</a>Вычисление скалярного произведения в правом ОНБ </h1>
@@ -1626,6 +1628,8 @@ P_{n}(z) = a_{n}(z-z_{1})^{α_{1}}·…·(z-z_{k})^{α_{k}}
 <a class="more" href="#matrix_trace">→ След матрицы</a><br/>
 <a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
 <a class="more" href="#invariant_subspace">→ Инвариантное подпространство</a><br/>
+<a class="more" href="#adj_op">→ Сопряжённый оператор</a><br/>
+<a class="more" href="#ortogonal_op">→ Ортогональный оператор</a><br/>
 </div>
 <div class="entry">
 <h1 id=linear_map_matrix><a class="tag more colloq " href="#linear_map_matrix">#</a>Матрица лин. отображения <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p107">Конспект</a>)</small></h1>
@@ -3287,6 +3291,7 @@ Q(x) = \Σ^{n}_{i=1} a_{ii}x_{i}^{2} + 2\Σ_{1≤i<j≤n} a_{ij}x_{i}x_{j} \quad
 <a class="more" href="#sq_form_matrix">→ Матрица квадратичной формы</a><br/>
 <a class="more" href="#silvestr">→ Критерий Сильвестра</a><br/>
 <a class="more" href="#inertion">→ Закон инерции квадратичных форм</a><br/>
+<a class="more" href="#sq_form_diag">→ Приведение квадратичной формы к диагональному виду</a><br/>
 </div>
 <div class="entry">
 <h1 id=sq_form_matrix><a class="tag more  " href="#sq_form_matrix">#</a>Матрица квадратичной формы </h1>
@@ -3545,6 +3550,7 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <a class="more" href="#own_val_multiplicity">→ Кратность собственного значения</a><br/>
 <a class="more" href="#diagonality">→ Диагонализируемость линейного оператора</a><br/>
 <a class="more" href="#diagonality_enough">→ Достаточное условие диагонализируемости</a><br/>
+<a class="more" href="#adj_op_eigenvectors">→ с.в. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=char_eq><a class="tag more colloq " href="#char_eq">#</a>Характеристическое уравнение <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p111">Конспект</a>)</small></h1>
@@ -3595,6 +3601,7 @@ A_{ε_{1}' ε_{2}'} = T^{-1} · A_{ε_{1}ε_{2}} · T
 <a class="more" href="#spectre">← Спектр</a><br/>
 <a class="more" href="#char_eq">← Характеристическое уравнение</a><br/>
 <a class="more" href="#root_subspace">→ Корневое подпространство</a><br/>
+<a class="more" href="#adj_op_eigenvalues">→ с.з. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=own_subspace><a class="tag more colloq " href="#own_subspace">#</a>Собственное подпространство </h1>
@@ -3851,7 +3858,7 @@ b_{k+1} = a_{k+1} - \Σ_{i=1}^k \pr_{b_{j}}a_{n}
 <div class="entry">
 <h1 id=gramian><a class="tag more colloq " href="#gramian">#</a>Грамиан <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p122">Конспект</a>)</small></h1>
 <p>Это определитель матрицы Грама.</p>
-<p>Он не меняется при ортогонализации.        </p>
+<p>Он не меняется при ортогонализации и он всегда неотрицательный.</p>
 <details>
 <summary>Доказательство</summary>
 <h2>Грамиан не меняется</h2>
@@ -3889,6 +3896,7 @@ S = \begin{pmatrix}
 <hr/>
 <a class="more" href="#gram_matrix">← Матрица Грама</a><br/>
 <a class="more" href="#gram_lindep">→ Линейная зависимость через матрицу Грама</a><br/>
+<a class="more" href="#gram_distance">→ Расстояние через грамиан</a><br/>
 </div>
 <div class="entry">
 <h1 id=gram_lindep><a class="tag more colloq " href="#gram_lindep">#</a>Линейная зависимость через матрицу Грама </h1>
@@ -3949,7 +3957,29 @@ H^⊥ = \{ x∈V \mid ∀y∈H : (x, y) = 0 \}
 </li>
 <li>
 <script type="math/tex">V = H ⊕ H^⊥</script> — именно прямая сумма.</li>
+<li>
+<script type="math/tex">\dim V = \dim H + \dim H^⊥</script>
+</li>
 </ul>
+<details>
+<summary>Доказательство</summary>
+<p>Докажем, что сумма прямая: <script type="math/tex">V = H ⊕ H^⊥</script>.</p>
+<p>Сумма прямая, если <script type="math/tex">H ∩ H^⊥ = \{0\}</script>:
+<script type="math/tex; mode=display">
+x∈H ∩ H^⊥ ⇒ (x, x) = 0 ⇒ x = 0
+</script>
+</p>
+<p>Теперь покажем, что это вообще сумма:</p>
+<p>Пусть <script type="math/tex">f_{1}, …, f_{m}</script> — ОНБ в <script type="math/tex">H</script>.
+Дополним его до базиса в <script type="math/tex">V</script> векторами <script type="math/tex">f_{m+1}, …, f_{n}</script>.
+Применим процесс ортогонализации и получим <script type="math/tex">f_{1}, …, f_{m}, e_{m+1}, …, e_{n}</script> (первые не изменились, ведь они и так ортогональны).</p>
+<p>Получается, что <script type="math/tex">e_{m+1} …, e_{n}</script> ортогональны <script type="math/tex">f_{1}, …, f_{m}</script>, т.е. они ортогональны всему <script type="math/tex">H</script>.</p>
+<p><script type="math/tex; mode=display">
+∀x∈V \quad x = \underbrace{x_{1}f_{1} + … + x_{m}f_{m}}_{y∈H} + \underbrace{x_{m+1}e_{m+1} + … + x_{n}e_{n}}_{z∈H^⊥} = y + z
+</script>
+
+Таким образом всякий вектор из пространства представляется суммой векторов из <script type="math/tex">H</script> и <script type="math/tex">H^⊥</script>.</p>
+</details>
 <hr/>
 <a class="more" href="#euclid_space">← Евклидово пространство</a><br/>
 <a class="more" href="#subspace">← Подпространство</a><br/>
@@ -4008,6 +4038,252 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 </script>
 
 Здесь <script type="math/tex">\det A ≠ 0</script>, т.к. векторы л.н.з., а значит <script type="math/tex">(A^T A)^{-1}</script> существует.</p>
+</details>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=gram_distance><a class="tag more colloq " href="#gram_distance">#</a>Расстояние через грамиан <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p127">Конспект</a>)</small></h1>
+<p>Расстояние между лин. многообразиями можнно посчситать так:
+<script type="math/tex; mode=display">
+ρ(P, M) = \sqrt{\frac{
+    Gr(a_{1}, a_{2}, …, a_{k}, x-x_{0})
+}{
+    Gr(a_{1}, a_{2}, …, a_{k})
+}}
+</script>
+</p>
+<hr/>
+<a class="more" href="#gramian">← Грамиан</a><br/>
+</div>
+<div class="entry">
+<h1 id=adj_op><a class="tag more colloq " href="#adj_op">#</a>Сопряжённый оператор <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p128">Конспект</a>)</small></h1>
+<p>
+<script type="math/tex">A*</script> — сопряженный к л.о. <script type="math/tex">A</script>, iff <script type="math/tex">∀x,y∈𝓔\, (Ax, y) = (x, A*y)</script>
+</p>
+<p>Если <script type="math/tex">A* = A</script>, то <script type="math/tex">A</script> – самосопряжённый: <script type="math/tex">(Ax, y) = (x, Ay)</script>.</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#vec_scalar_mul">← Скалярное произведение векторов</a><br/>
+<a class="more" href="#adj_op_matrix">→ Матрица сопряжённого оператора</a><br/>
+<a class="more" href="#adj_op_eigenvalues">→ с.з. самосопряжённого оператора</a><br/>
+<a class="more" href="#adj_op_eigenvectors">→ с.в. самосопряжённого оператора</a><br/>
+</div>
+<div class="entry">
+<h1 id=adj_op_matrix><a class="tag more colloq " href="#adj_op_matrix">#</a>Матрица сопряжённого оператора <small>(<a target="_blank" href="https://sldr.xyz/stylus/Algebra/#p128">Конспект</a>)</small></h1>
+<p>Дан некоторый базис <script type="math/tex">b</script>, тогда <script type="math/tex">A*_b = Γ^{-1}_b · A_b^T · Γ_b</script>,
+где <script type="math/tex">Γ_b</script> — матрица Грама базиса <script type="math/tex">b</script>, а <script type="math/tex">A_b</script> — матрица л.о в том же базисе.</p>
+<ul>
+<li>в ОНБ <script type="math/tex">Γ = E</script>, а значит <script type="math/tex">A* = A^T</script>
+</li>
+<li>сопряжённый оператор единственный</li>
+</ul>
+<hr/>
+<a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
+</div>
+<div class="entry">
+<h1 id=adj_op_eigenvalues><a class="tag more colloq " href="#adj_op_eigenvalues">#</a>с.з. самосопряжённого оператора </h1>
+<p>Все корни характеристического уравнения <strong>самосопряженного</strong> оператора являются действительными числами.
+<script type="math/tex; mode=display">
+∀λ : χ_{A*}(λ) = 0 → λ∈ℝ
+</script>
+</p>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим корень <script type="math/tex">0 ≠ \tilde{λ} ∈ ℂ</script> уравнения <script type="math/tex">χ_{A*}(λ) = 0</script>. </p>
+<p>Тогда СЛАУ <script type="math/tex">(A - λE)x = 0</script> имеет ненулеове решение
+<script type="math/tex">x = \begin{pmatrix}x_{1} & … & x_{n}\end{pmatrix}^T</script>, состоящее из <script type="math/tex">x_{i}∈ℂ</script>.</p>
+<p>Рассмотрим столбец комплексно сопряжённых элементов
+<script type="math/tex">\bar{x} = \begin{pmatrix} \bar{x}_{i} & … & \bar{x}_{n} \end{pmatrix}^T</script>.</p>
+<p>Получаем:
+<script type="math/tex; mode=display">
+\bar{x}^T(A - \tilde{λ}E)x = 0 ⇔ \bar{x}^T A x - \tilde{λ}\bar{x}^T x
+⇒ \tilde{λ} = \frac{\bar{x}^T A x}{\bar{x}^T x}
+</script>
+</p>
+<p>Упростим <script type="math/tex">\bar{x}^Tx = \bar{x}_{1}·x_{1} + … + \bar{x}_{n}·x_{n} = |x_{1}|^{2} + … + |x_{n}|^{2} ∈ ℝ</script>.</p>
+<p>Теперь достаточно доказать, что <script type="math/tex">\bar{x}^T A x ∈ ℝ</script>:
+<script type="math/tex; mode=display">
+z = \bar{x}^T A x \\
+z^T = x^T A^T \bar{x} \\
+\bar{z} = \bar{\bar{x}^T A x} = \x^T A \bar{x}
+</script>
+
+Смотрим на правую часть и видим, что <script type="math/tex">z^T = \bar{z}</script>
+Но ведь <script type="math/tex">z</script> — число, поэтому <script type="math/tex">z = z^T</script>. Получаем, что <script type="math/tex">\bar{z} = z</script>, а значит <script type="math/tex">z∈ℝ</script>, ч.т.д.</p>
+</details>
+<hr/>
+<a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
+<a class="more" href="#own_value">← Критерий собственного значения</a><br/>
+</div>
+<div class="entry">
+<h1 id=adj_op_eigenvectors><a class="tag more colloq " href="#adj_op_eigenvectors">#</a>с.в. самосопряжённого оператора </h1>
+<p>Все собственные векторы <strong>самосопряженного</strong> оператора, отвечающие различным с.в., <strong>ортогональны</strong> друг другу.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим произвольные два: <script type="math/tex">Ax_{1} = λ_{1}x_{1}</script> и <script type="math/tex">Ax_{2} = λ_{2}x_{2}</script>:
+<script type="math/tex; mode=display">
+\begin{align*}
+    &(Ax_{1}, x_{2}) = (λ_{1}x_{1}, x_{2}) = λ_{1}(x_{1}, x_{2})
+    = (x_{1}, Ax_{2}) = (x_{1}, λ_{2}x_{2}) = λ_{2}(x_{1}, x_{2})
+\end{align*}
+</script>
+
+Получается, что <script type="math/tex">λ_{1}(x_{1}, x_{2}) = λ_{2}(x_{1}, x_{2})</script>, но поскольку с.в. не равны нулю и не равны друг другу, то получаем, что <script type="math/tex">(x_{1}, x_{2}) = 0</script>, ч.т.д.</p>
+</details>
+<hr/>
+<a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
+<a class="more" href="#own_vector">← Собственные вектор и значение</a><br/>
+</div>
+<div class="entry">
+<h1 id=ortogonal_matrix><a class="tag more colloq " href="#ortogonal_matrix">#</a>Ортогональная матрица </h1>
+<p>Матрица <script type="math/tex">O</script> ортогональна iff <script type="math/tex">O^TO = E</script>
+</p>
+<p>Например, <script type="math/tex">O = \begin{pmatrix}
+    \cos φ & -\sin φ \\
+    \sin φ & \cos φ
+\end{pmatrix}</script>
+</p>
+<hr/>
+<a class="more" href="#ortogonal_op_criteria">→ Критерий ортогональности л.о. через его матрицу</a><br/>
+</div>
+<div class="entry">
+<h1 id=ortogonal_op><a class="tag more colloq " href="#ortogonal_op">#</a>Ортогональный оператор </h1>
+<p>Л.о. ортогональный iff <script type="math/tex">∀x,y ∈ 𝓔 \quad (Ax, Ay) = (x, y)</script>
+</p>
+<p>Такие операторы сохраняют углы и расстояния.</p>
+<hr/>
+<a class="more" href="#linear_map">← Линейное отображение</a><br/>
+<a class="more" href="#ortogonal_op_onb">→ Ортогональный оператор и ОНБ</a><br/>
+<a class="more" href="#ortogonal_op_criteria">→ Критерий ортогональности л.о. через его матрицу</a><br/>
+</div>
+<div class="entry">
+<h1 id=ortogonal_op_onb><a class="tag more colloq " href="#ortogonal_op_onb">#</a>Ортогональный оператор и ОНБ </h1>
+<p>Оператор ортогонален ⇔ он переводит один ОНБ в другой ОНБ.</p>
+<details>
+<summary>Доказательство</summary>
+<h3>⇒</h3>
+<p>Оператор ортогонален ⇒ <script type="math/tex">(Ae_{i}, Ae_{j}) = (e_{i}, e_{j}) = δ_{i}^{j}</script>,
+т.е. <script type="math/tex">Ae_{1}, …, Ae_{n}</script> состоит из <script type="math/tex">n</script> ненулевых попарно ортогональных векторов — это ОНБ, ч.т.д.</p>
+<h3>⇐</h3>
+<p>Пусть есть два ОНБ: <script type="math/tex">e_{1}, …, e_{n}</script> и <script type="math/tex">Ae_{1}, …, Ae_{n}</script>.</p>
+<p>Поскольку <script type="math/tex">Ax = A(x_{1}e_{1} + … + x_{n}e_{n}) = x_{1}Ae_{1} + … + x_{n}Ae_{n}</script>, то вектор <script type="math/tex">x</script> имеет одинаковые координаты в <script type="math/tex">e_{1}, …, e_{n}</script> и в <script type="math/tex">Ae_{1}, …, Ae_{n}</script>.</p>
+<p>Теперь рассмотрим скалярные произведения:
+<script type="math/tex; mode=display">
+\begin{align*}
+    (x, y) &= x_{1}y_{1} + … + x_{n}y_{n} \text{ — в $`e_{1}, …, e_{n}`$} \\
+    (Ax, Ay) &= x_{1}y_{1} + … + x_{n}y_{n} \text{ — в $`Ae_{1}, …, Ae_{n}`$} 
+\end{align*}
+</script>
+
+Скалярные произведения равны, а значит л.о. ортогонален, ч.т.д.</p>
+</details>
+<hr/>
+<a class="more" href="#onb">← Ортонормированный базис</a><br/>
+<a class="more" href="#ortogonal_op">← Ортогональный оператор</a><br/>
+</div>
+<div class="entry">
+<h1 id=ortogonal_op_criteria><a class="tag more colloq " href="#ortogonal_op_criteria">#</a>Критерий ортогональности л.о. через его матрицу </h1>
+<p>Л.о. отрогональный ⇔ его матрица в ОНБ ортогональна.</p>
+<hr/>
+<a class="more" href="#ortogonal_matrix">← Ортогональная матрица</a><br/>
+<a class="more" href="#ortogonal_op">← Ортогональный оператор</a><br/>
+</div>
+<div class="entry">
+<h1 id=sq_form_diag><a class="tag more colloq " href="#sq_form_diag">#</a>Приведение квадратичной формы к диагональному виду </h1>
+<p>Всякую квадратичную форму можно отртогональными преоброзованиями привести к каноническому виду.</p>
+<details>
+<summary>Доказательство</summary>
+<p>Рассмотрим матрицу квадратичной формы как матрицу л.о. в некотором ОНБ.
+Будем называть матрицу оператора <script type="math/tex">A</script> (она равна <script type="math/tex">B</script>).</p>
+<p>Матрица кв. формы симметрическая ⇒ <script type="math/tex">B = B^T</script> ⇒ <script type="math/tex">A = A^T</script> ⇒ оператор самосопряженный.</p>
+<p>Существует некоторый ОНБ, в котором матрица л.о. диагональна. Причём матрица перехода <script type="math/tex">U</script> будет отртогональна.</p>
+<p>В новом базисе <script type="math/tex">A' = U^{-1} A U</script>, а <script type="math/tex">B' = U^T B U</script>. Но поскольку <script type="math/tex">U</script> ортогональна, то <script type="math/tex">U^T = U^{-1}</script>.
+Таким образом <script type="math/tex">A' = B'</script>, а значит существует ОНБ, в котором матрица <script type="math/tex">B</script> в каноническом виде.</p>
+</details>
+<hr/>
+<a class="more" href="#sq_form">← Квадратичная форма</a><br/>
+</div>
+<div class="entry">
+<h1 id=ortogonal_op_canon><a class="tag more colloq " href="#ortogonal_op_canon">#</a>Канонический вид ортогонального оператора </h1>
+<p>Существует ОНБ, в котором отртогональный оператор имеет матрицу следующего вида:
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+    A_{1} & 0  & … & 0  &   &   &   &   &    &    &   &  0
+    0  & A_{2} & … & 0  &   &   &   &   &    &    &   &  
+    ⋮  &    & ⋱ & ⋮  &   &   &   &   &    &    &   &  
+    0  & 0  & … & A_{k} &   &   &   &   &    &    &   &  
+       &    &   &    & 1 & 0 & … & 0 &    &    &   &  
+       &    &   &    & 0 & 1 & … & 0 &    &    &   &  
+       &    &   &    & ⋮ &   & ⋱ & ⋮ &    &    &   &  
+       &    &   &    & 0 & 0 & … & 1 &    &    &   &  
+       &    &   &    &   &   &   &   & -1 &  0 & … &  0
+       &    &   &    &   &   &   &   &  0 & -1 & … &  0
+       &    &   &    &   &   &   &   &  ⋮ &    & ⋱ &  ⋮
+    0  &    &   &    &   &   &   &   &  0 &  0 & … & -1
+\end{pmatrix}
+</script>
+
+где
+<script type="math/tex; mode=display">
+A_{k} = \begin{pmatrix}
+    \cos φ_{k} & -\sin φ_{k} \\
+    \sin φ_{k} & \cos φ_{k}
+\end{pmatrix}
+</script>
+</p>
+<p>Частный случай для <script type="math/tex">n=3</script> называется <strong>теоремой Эйлера</strong>:
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+    \cos φ & -\sin φ &  0 \\
+    \sin φ & \cos φ  &  0 \\
+    0      &   0     & ±1 \\
+\end{pmatrix}
+</script>
+</p>
+<p>Смысл всего этого таков: всякий ортогональный оператор является поворотом вокруг некоторой оси, возможно, с отражением.</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=qr_decomposition><a class="tag more colloq " href="#qr_decomposition">#</a>QR-разложение </h1>
+<p>Всякая квадратная матрица с л.н.з. столбцами может быть разложена на произведение ортогональной (<script type="math/tex">Q</script>) и верхнетреугольной (<script type="math/tex">R</script>).</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=singular_decomposition><a class="tag more colloq " href="#singular_decomposition">#</a>Сингулярное QR-разложение </h1>
+<p>Всякая прямоугольная матрица размера <script type="math/tex">n×m</script> раскладывается в произведение трёх:</p>
+<ol>
+<li>
+<script type="math/tex">U</script> — ортогональная размера <script type="math/tex">n×n</script>
+</li>
+<li>
+<script type="math/tex">V</script> — ортогональная размера <script type="math/tex">m×m</script>
+</li>
+<li>
+<script type="math/tex">Σ</script> — диагональная размера <script type="math/tex">m×n</script>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{align*}
+    ∀ A∈M_{n×m}(ℝ) ∃&V,Σ,U : A = V·Ε·U^T \\
+                    &U ∈ O_{n}(ℝ) \\
+                    &V ∈ O_{m}(ℝ)
+                    &Σ ∈ M_{m×n}(ℝ)
+\end{align*}
+</script>
+
+<p>Причём на диагонали <script type="math/tex">Σ</script> находятся <strong>сингулярные числа</strong>: <script type="math/tex">ο_{1} ≥ … ≥ ο_{r} > 0</script> — они неотрицательные и их принято упорядочивать.</p>
+<hr/>
+</div>
+<div class="entry">
+<h1 id=polar_decomposition><a class="tag more colloq " href="#polar_decomposition">#</a>Полярное разложение </h1>
+<p>Всякий л.о. в <script type="math/tex">𝓔</script> представляется в виде композиции симметрического и ортогонального: <script type="math/tex">A = S · U</script>
+</p>
+<details>
+<summary>Доказательство</summary>
+<script type="math/tex; mode=display">
+A = Q Σ P^T = QΣ · Q^TQ ·P = QΣQ^T · QP = S · U \\
+S^T = (QΣQ^T)^T = QΣ^TQ^T = QΣQ^T = S
+</script>
 </details>
 <hr/>
 </div>
@@ -5044,60 +5320,70 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Выпишите формулу для вычисления расстояния с помощью определителей матриц Грама.</p>
 <a href="#" onclick="forget('question_426')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#gram_distance">← Расстояние через грамиан</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_427><a class="tag more  question" href="#question_427">#</a>Q4.27 </h1>
 <p>Дайте определение сопряженного оператора в евклидовом пространстве.</p>
 <a href="#" onclick="forget('question_427')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_428><a class="tag more  question" href="#question_428">#</a>Q4.28 </h1>
 <p>Дайте определение самосопряженного (симметрического) оператора.</p>
 <a href="#" onclick="forget('question_428')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op">← Сопряжённый оператор</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_429><a class="tag more  question" href="#question_429">#</a>Q4.29 </h1>
 <p>Как найти матрицу сопряженного оператора в произвольном базисе?</p>
 <a href="#" onclick="forget('question_429')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_matrix">← Матрица сопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_430><a class="tag more  question" href="#question_430">#</a>Q4.30 </h1>
 <p>Каким свойством обладают собственные значения самосопряженного оператора?</p>
 <a href="#" onclick="forget('question_430')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_eigenvalues">← с.з. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_431><a class="tag more  question" href="#question_431">#</a>Q4.31 </h1>
 <p>Что можно сказать про собственные векторы самосопряженного оператора, отвечающие разным собственным значениям?</p>
 <a href="#" onclick="forget('question_431')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_eigenvectors">← с.в. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_432><a class="tag more  question" href="#question_432">#</a>Q4.32 </h1>
 <p>Сформулируйте определение ортогональной матрицы.</p>
 <a href="#" onclick="forget('question_432')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_matrix">← Ортогональная матрица</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_433><a class="tag more  question" href="#question_433">#</a>Q4.33 </h1>
 <p>Сформулируйте определение ортогонального оператора.</p>
 <a href="#" onclick="forget('question_433')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_op">← Ортогональный оператор</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_434><a class="tag more  question" href="#question_434">#</a>Q4.34 </h1>
 <p>Сформулируйте критерий ортогональности оператора, использующий его матрицу.</p>
 <a href="#" onclick="forget('question_434')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_op_criteria">← Критерий ортогональности л.о. через его матрицу</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_435><a class="tag more  question" href="#question_435">#</a>Q4.35 </h1>
 <p>Каков канонический вид ортогонального оператора? Сформулируйте теорему Эйлера.</p>
 <a href="#" onclick="forget('question_435')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_op_canon">← Канонический вид ортогонального оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_436><a class="tag more  question" href="#question_436">#</a>Q4.36 </h1>
@@ -5110,59 +5396,39 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте теорему о приведении квадратичной формы к диагональному виду при помощи ортогональной замены координат.</p>
 <a href="#" onclick="forget('question_437')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#sq_form_diag">← Приведение квадратичной формы к диагональному виду</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_438><a class="tag more  question" href="#question_438">#</a>Q4.38 </h1>
 <p>Сформулируйте утверждение о QR-разложении.</p>
 <a href="#" onclick="forget('question_438')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#qr_decomposition">← QR-разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_439><a class="tag more  question" href="#question_439">#</a>Q4.39 </h1>
 <p>Сформулируйте теорему о сингулярном разложении.</p>
 <a href="#" onclick="forget('question_439')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#singular_decomposition">← Сингулярное QR-разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_440><a class="tag more  question" href="#question_440">#</a>Q4.40 </h1>
 <p>Сформулируйте утверждение о полярном разложении.</p>
 <a href="#" onclick="forget('question_440')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#polar_decomposition">← Полярное разложение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_441><a class="tag more  question" href="#question_441">#</a>Q4.41 </h1>
-<p>Дайте определение сопряженного пространства.</p>
+<p>Что можно сказать про ортогональное дополнение к образу сопряженного оператора?</p>
 <a href="#" onclick="forget('question_441')" class="forget">Забыть</a>
 <hr/>
 </div>
 <div class="entry">
 <h1 id=question_442><a class="tag more  question" href="#question_442">#</a>Q4.42 </h1>
-<p>Выпишите формулу для преобразования координат ковектора при переходе к другому базису.</p>
+<p>Сформулируйте теорему Фредгольма.</p>
 <a href="#" onclick="forget('question_442')" class="forget">Забыть</a>
-<hr/>
-</div>
-<div class="entry">
-<h1 id=question_443><a class="tag more  question" href="#question_443">#</a>Q4.43 </h1>
-<p>Дайте определение взаимных базисов.</p>
-<a href="#" onclick="forget('question_443')" class="forget">Забыть</a>
-<hr/>
-</div>
-<div class="entry">
-<h1 id=question_444><a class="tag more  question" href="#question_444">#</a>Q4.44 </h1>
-<p>Дайте определение биортогонального базиса.</p>
-<a href="#" onclick="forget('question_444')" class="forget">Забыть</a>
-<hr/>
-</div>
-<div class="entry">
-<h1 id=question_445><a class="tag more  question" href="#question_445">#</a>Q4.45 </h1>
-<p>Что можно сказать про ортогональное дополнение к образу сопряженного оператора?</p>
-<a href="#" onclick="forget('question_445')" class="forget">Забыть</a>
-<hr/>
-</div>
-<div class="entry">
-<h1 id=question_446><a class="tag more  question" href="#question_446">#</a>Q4.46 </h1>
-<p>Сформулируйте теорему Фредгольма и альтернативу Фредгольма.</p>
-<a href="#" onclick="forget('question_446')" class="forget">Забыть</a>
 <hr/>
 </div>
 <div class="entry">
@@ -5524,24 +5790,28 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Докажите теорему о том, что евклидово пространство можно представить в виде прямой суммы подпространства и его ортогонального дополнения.</p>
 <a href="#" onclick="forget('question_4006')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_addition">← Ортогональное дополнение</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4007><a class="tag more  question" href="#question_4007">#</a>Q40.07 </h1>
 <p>Выпишите формулу для преобразования матрицы Грама при переходе к новому базису и докажите её. Что происходит с определителем матрицы Грама при применении процесса ортогонализации Грама––Шмидта? Что можно сказать про знак определителя матрицы Грама? Ответы обоснуйте.</p>
 <a href="#" onclick="forget('question_4007')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#gramian">← Грамиан</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4008><a class="tag more  question" href="#question_4008">#</a>Q40.08 </h1>
 <p>Сформулируйте и докажите критерий линейной зависимости набора векторов с помощью матрицы Грама.</p>
 <a href="#" onclick="forget('question_4008')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#gram_lindep">← Линейная зависимость через матрицу Грама</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4009><a class="tag more  question" href="#question_4009">#</a>Q40.09 </h1>
 <p>Выпишите формулу для ортогональной проекции вектора на подпространство, заданное как линейная оболочка данного линейно независимого набора векторов, и докажите её.</p>
 <a href="#" onclick="forget('question_4009')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortproj_linspan">← Ортогональная проекция на линейную оболочку</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4010><a class="tag more  question" href="#question_4010">#</a>Q40.10 </h1>
@@ -5554,12 +5824,14 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте и докажите свойство собственных векторов самосопряженного оператора, отвечающих разным собственным значениям.</p>
 <a href="#" onclick="forget('question_4011')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_eigenvectors">← с.в. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4012><a class="tag more  question" href="#question_4012">#</a>Q40.12 </h1>
 <p>Каким свойством обладают собственные значения самосопряженного оператора? Ответ обоснуйте.</p>
 <a href="#" onclick="forget('question_4012')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#adj_op_eigenvalues">← с.з. самосопряжённого оператора</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4013><a class="tag more  question" href="#question_4013">#</a>Q40.13 </h1>
@@ -5572,6 +5844,7 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 <p>Сформулируйте и докажите теорему о том, что ортогональный оператор переводит ортонормированный базис в ортонормированный. Верно ли обратно? Ответ обоснуйте.</p>
 <a href="#" onclick="forget('question_4014')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#ortogonal_op_onb">← Ортогональный оператор и ОНБ</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4015><a class="tag more  question" href="#question_4015">#</a>Q40.15 </h1>
@@ -5593,15 +5866,16 @@ x = \pr_H x = α_{1}a_{1} + … + α_{k}a_{k} = A · α = A (A^T A)^{-1} A^T · 
 </div>
 <div class="entry">
 <h1 id=question_4018><a class="tag more  question" href="#question_4018">#</a>Q40.18 </h1>
-<p>Сформулируйте и докажите теорему о приведении квадратичных форм к диагональному виду при помощи ортогональной замены координат.</p>
+<p>Сформулируйте и докажите теорему о полярном разложении.</p>
 <a href="#" onclick="forget('question_4018')" class="forget">Забыть</a>
 <hr/>
 </div>
 <div class="entry">
 <h1 id=question_4019><a class="tag more  question" href="#question_4019">#</a>Q40.19 </h1>
-<p>Выпишите и докажите формулу для преобразования координат ковектора при переходе к другому базису.</p>
+<p>Сформулируйте и докажите теорему о приведении квадратичных форм к диагональному виду при помощи ортогональной замены координат.</p>
 <a href="#" onclick="forget('question_4019')" class="forget">Забыть</a>
 <hr/>
+<a class="more" href="#sq_form_diag">← Приведение квадратичной формы к диагональному виду</a><br/>
 </div>
 <div class="entry">
 <h1 id=question_4020><a class="tag more  question" href="#question_4020">#</a>Q40.20 </h1>
